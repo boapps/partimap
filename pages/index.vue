@@ -1,194 +1,1166 @@
 <script setup lang="ts">
-const { defaultLocale, locale, messages, t } = useI18n();
+const localePath = useLocalePath();
+const { t } = useI18n();
 
 useHead({
 	title: t('landing.title'),
 });
-
-const features = computed(() => {
-	try {
-		const m = messages.value[locale.value]?.landing || ({} as any);
-		return m.features || [];
-	} catch {
-		const m = messages.value[defaultLocale]?.landing || ({} as any);
-		return m.features || [];
-	}
-});
-
-const modals = ref(Array(features.value.length).fill(false));
-
-const featureIndex = ref(-1);
-
-watch(featureIndex, (i, p) => {
-	if (p >= 0) {
-		modals.value[p] = false;
-	}
-	if (i >= 0) {
-		modals.value[i] = true;
-	}
-});
-
-function showFeature(i: number) {
-	featureIndex.value = -1;
-	nextTick(() => (featureIndex.value = i));
-}
 </script>
 
 <template>
-	<!-- eslint-disable vue/no-v-html -->
-	<PublicFrame>
-		<TheBanner />
+	<div class="landing">
+		<!-- Floating animated blue dots -->
+		<div class="floating-dots" aria-hidden="true">
+			<span v-for="n in 12" :key="n" :class="`dot dot-${n}`" />
+		</div>
 
-		<section class="bg-white py-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-5 mx-auto">
-						<p>{{ $t('landing.column1') }}</p>
-					</div>
-					<div class="col-md-5 mx-auto">
-						<p>{{ $t('landing.column2') }}</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="bg-white">
-			<div class="container-fluid py-lg-3 text-center">
-				<b-button
-					class="text-uppercase"
-					:href="$t('landing.tryLink')"
-					style="padding: 1rem 2.5rem"
-					target="_blank"
-					variant="outline-primary"
-				>
-					<strong>{{ $t('landing.tryButton') }}</strong>
-				</b-button>
-			</div>
-		</section>
-
-		<section
-			v-if="locale === 'hu'"
-			class="bg-white py-5"
-		>
-			<div class="bg-primary container p-4 text-justify text-white">
-				<h4 class="mb-4 w-100">{{ $t('landing.methodTitle') }}</h4>
-				<p class="mb-4">{{ $t('landing.methodDesc') }}</p>
-				<div class="text-center">
-					<b-button
-						class="text-uppercase"
-						:href="$t('landing.methodLink')"
-						style="padding: 1rem 2.5rem"
+		<!-- Navigation -->
+		<nav class="landing-nav">
+			<div class="nav-inner">
+				<NuxtLink :to="localePath('/')" class="nav-brand">
+					<img src="/logo.svg" alt="PARTIMAP" height="24" />
+				</NuxtLink>
+				<div class="nav-links d-none d-lg-flex">
+					<a href="#" class="nav-link-item">{{ t('landing.nav.about') }}</a>
+					<a href="#" class="nav-link-item">{{ t('landing.nav.aboutUs') }}</a>
+					<a href="#" class="nav-link-item">{{ t('landing.nav.pricing') }}</a>
+					<a href="#" class="nav-link-item">{{ t('landing.nav.contact') }}</a>
+					<a
+						:href="t('landing.tryLink')"
 						target="_blank"
-						variant="outline-light"
-					>
-						<strong>{{ $t('landing.methodButton') }}</strong>
-					</b-button>
+						class="nav-btn-filled"
+					>{{ t('landing.nav.tryIt') }}</a>
+				</div>
+				<b-navbar-nav class="nav-right">
+					<span class="nav-lang-label d-none d-lg-inline">{{ t('landing.nav.langSwitch') }}</span>
+					<LangSwitcher />
+					<b-nav-item class="nav-login-item">
+						<NuxtLink :to="localePath('/admin')" class="nav-btn-outline">
+							{{ t('landing.nav.login') }}
+						</NuxtLink>
+					</b-nav-item>
+				</b-navbar-nav>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="hero-section">
+			<div class="hero-blob blob-tr" aria-hidden="true" />
+			<div class="hero-blob blob-bl" aria-hidden="true" />
+			<div class="deco-circle deco-hero-bl" aria-hidden="true" />
+			<div class="deco-line deco-hero-line-v" aria-hidden="true" />
+			<div class="deco-line deco-hero-line-h" aria-hidden="true" />
+
+			<div class="hero-inner">
+				<div class="hero-left">
+					<span class="hero-brand">PARTIMAP</span>
+					<h1 class="hero-title" v-html="t('landing.hero.tagline')" />
+					<a
+						:href="t('landing.tryLink')"
+						target="_blank"
+						class="btn-landing"
+					>{{ t('landing.hero.cta') }}</a>
+					<div class="hero-left-line" aria-hidden="true" />
+				</div>
+
+				<div class="hero-center">
+					<a :href="t('landing.tryLink')" target="_blank" class="hero-circle-wrap">
+						<div class="hero-blue-circle floating-big" />
+						<!-- Radial decorative lines -->
+						<div class="circle-line circle-line-1" aria-hidden="true" />
+						<div class="circle-line circle-line-2" aria-hidden="true" />
+						<div class="circle-line circle-line-3" aria-hidden="true" />
+						<div class="circle-line circle-line-4" aria-hidden="true" />
+						<svg class="rotating-svg" viewBox="0 0 300 300" aria-hidden="true">
+							<defs>
+								<path
+									id="heroTextPath"
+									d="M 150,150 m -130,0 a 130,130 0 1,1 260,0 a 130,130 0 1,1 -260,0"
+								/>
+							</defs>
+							<text font-size="13" fill="var(--l-blue)" font-weight="500" letter-spacing="1">
+								<textPath href="#heroTextPath">
+									{{ t('landing.hero.circleText') }}{{ t('landing.hero.circleText') }}
+								</textPath>
+							</text>
+						</svg>
+					</a>
+				</div>
+
+				<div class="hero-right d-none d-xl-block">
+					<div class="hero-feat">
+						<h3>{{ t('landing.hero.feat1Title') }}</h3>
+						<p>{{ t('landing.hero.feat1Desc') }}</p>
+					</div>
+					<div class="hero-feat-sep" aria-hidden="true" />
+					<div class="hero-feat">
+						<h3>{{ t('landing.hero.feat2Title') }}</h3>
+						<p>{{ t('landing.hero.feat2Desc') }}</p>
+					</div>
+					<div class="hero-feat-sep" aria-hidden="true" />
+					<div class="hero-feat">
+						<h3>{{ t('landing.hero.feat3Title') }}</h3>
+						<p>{{ t('landing.hero.feat3Desc') }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="hero-scroll" aria-hidden="true">↓</div>
+		</section>
+
+		<!-- Why use it -->
+		<section id="about" class="why-section">
+			<div class="section-blob blob-why" aria-hidden="true" />
+			<div class="why-inner">
+				<h2 class="sec-title">{{ t('landing.why.title') }}</h2>
+				<p class="sec-sub">{{ t('landing.why.sub') }}</p>
+				<div class="feat-grid">
+					<div class="feat-card">
+						<div class="feat-icon"><i class="fas fa-hand-paper" /></div>
+						<div><h4>{{ t('landing.why.feat1') }}</h4><p>{{ t('landing.why.feat1Desc') }}</p></div>
+					</div>
+					<div class="feat-card">
+						<div class="feat-icon"><i class="fas fa-dollar-sign" /></div>
+						<div><h4>{{ t('landing.why.feat2') }}</h4><p>{{ t('landing.why.feat2Desc') }}</p></div>
+					</div>
+					<div class="feat-card">
+						<div class="feat-icon"><i class="fas fa-sliders-h" /></div>
+						<div><h4>{{ t('landing.why.feat3') }}</h4><p>{{ t('landing.why.feat3Desc') }}</p></div>
+					</div>
+					<div class="feat-card">
+						<div class="feat-icon"><i class="fas fa-globe" /></div>
+						<div><h4>{{ t('landing.why.feat4') }}</h4><p>{{ t('landing.why.feat4Desc') }}</p></div>
+					</div>
+					<div class="feat-card">
+						<div class="feat-icon"><i class="fas fa-map-marker-alt" /></div>
+						<div><h4>{{ t('landing.why.feat5') }}</h4><p>{{ t('landing.why.feat5Desc') }}</p></div>
+					</div>
+					<div class="feat-card">
+						<div class="feat-icon"><i class="fas fa-cog" /></div>
+						<div><h4>{{ t('landing.why.feat6') }}</h4><p>{{ t('landing.why.feat6Desc') }}</p></div>
+					</div>
+				</div>
+			</div>
+			<div class="sec-arrow" aria-hidden="true">↓</div>
+		</section>
+
+		<!-- Support -->
+		<section id="features" class="support-section">
+			<div class="section-blob blob-sup" aria-hidden="true" />
+			<div class="deco-circle deco-sup-tr" aria-hidden="true" />
+			<div class="deco-circle deco-sup-br" aria-hidden="true" />
+			<div class="deco-line deco-sup-line" aria-hidden="true" />
+
+			<div class="support-inner">
+				<div class="support-left">
+					<i class="fas fa-hand-holding-heart support-floater" aria-hidden="true" />
+					<div class="support-circle floating-big" />
+				</div>
+				<div class="support-right">
+					<span class="support-eyebrow">{{ t('landing.support.eyebrow') }}</span>
+					<h2 class="support-heading">{{ t('landing.support.heading') }}</h2>
+					<p>{{ t('landing.support.desc') }}</p>
+					<a :href="t('landing.support.link')" target="_blank" rel="noopener" class="btn-landing-outline">{{ t('landing.support.button') }}</a>
 				</div>
 			</div>
 		</section>
 
-		<section class="bg-white py-5">
-			<div class="container">
-				<h2 class="mb-5 text-center">
-					{{ $t('landing.featuresTitle') }}
-				</h2>
-				<div class="features row row-cols-1 row-cols-md-3">
-					<div
-						v-for="(f, i) in features"
-						:key="f.title"
-						class="col feature mb-3"
-						role="button"
-					>
-						<figure
-							class="figure"
-							@click="showFeature(i)"
-						>
-							<img
-								:alt="f.title"
-								class="figure-img img-fluid rounded shadow-sm"
-								:src="`/landing/${i}.jpg`"
-							/>
-							<figcaption class="figure-caption">
-								<h5 class="text-center">{{ f.title }}</h5>
-							</figcaption>
-						</figure>
+		<!-- Statistics -->
+		<section id="stats" class="stats-section">
+			<div class="section-blob blob-stats" aria-hidden="true" />
+			<div class="stats-inner">
+				<h2 class="sec-title">{{ t('landing.stats.title') }}</h2>
+				<p class="sec-desc">{{ t('landing.stats.desc') }}</p>
+				<div class="stats-grid">
+					<div class="stat-item">
+						<div class="stat-circle">{{ t('landing.stats.stat1Value') }}</div>
+						<h4>{{ t('landing.stats.stat1Title') }}</h4>
+						<p>{{ t('landing.stats.stat1Desc') }}</p>
+					</div>
+					<div class="stat-item">
+						<div class="stat-circle">{{ t('landing.stats.stat2Value') }}</div>
+						<h4>{{ t('landing.stats.stat2Title') }}</h4>
+						<p>{{ t('landing.stats.stat2Desc') }}</p>
+					</div>
+					<div class="stat-item">
+						<div class="stat-circle">{{ t('landing.stats.stat3Value') }}</div>
+						<h4>{{ t('landing.stats.stat3Title') }}</h4>
+						<p>{{ t('landing.stats.stat3Desc') }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="sec-arrow" aria-hidden="true">↓</div>
+		</section>
 
-						<b-modal
-							v-model="modals[i]"
-							centered
-							scrollable
-							:title="f.title"
-						>
-							<div v-html="f.description" />
-							<template #footer>
-								<div class="d-flex w-100">
-									<b-button
-										v-if="i > 0"
-										variant="outline-primary"
-										@click="featureIndex = i - 1"
-									>
-										<i class="fas fa-fw fa-angle-left" />
-									</b-button>
-									<b-button
-										v-if="i < features.length - 1"
-										class="ms-auto"
-										variant="outline-primary"
-										@click="featureIndex = i + 1"
-									>
-										<i class="fas fa-fw fa-angle-right" />
-									</b-button>
-								</div>
-							</template>
-						</b-modal>
+		<!-- Showcase -->
+		<section class="showcase-section">
+			<div class="deco-circle deco-show-tl" aria-hidden="true" />
+			<div class="deco-circle deco-show-br" aria-hidden="true" />
+			<div class="section-blob blob-show" aria-hidden="true" />
+
+			<div class="showcase-inner">
+				<h2 class="sec-title text-center">{{ t('landing.showcase.title') }}</h2>
+				<p class="sec-desc text-center">{{ t('landing.showcase.desc') }}</p>
+				<div class="map-visual">
+					<svg viewBox="0 0 600 500" class="map-svg" aria-hidden="true">
+						<g stroke="var(--l-blue)" stroke-width="0.5" fill="none" opacity="0.25">
+							<path d="M100,100 L200,80 L300,120 L400,90 L500,130" />
+							<path d="M80,150 L180,200 L280,160 L380,220 L480,180" />
+							<path d="M120,250 L220,280 L320,240 L420,300 L520,260" />
+							<path d="M60,300 L160,340 L260,310 L360,370 L460,330" />
+							<path d="M140,380 L240,350 L340,400 L440,360 L540,420" />
+							<path d="M100,100 L80,150 L120,250 L60,300 L140,380" />
+							<path d="M200,80 L180,200 L220,280 L160,340 L240,350" />
+							<path d="M300,120 L280,160 L320,240 L260,310 L340,400" />
+							<path d="M400,90 L380,220 L420,300 L360,370 L440,360" />
+							<path d="M500,130 L480,180 L520,260 L460,330 L540,420" />
+							<path d="M120,60 L300,50 L480,70" />
+							<path d="M50,180 L200,160 L350,190 L500,170" />
+							<path d="M80,350 L250,330 L400,360 L550,340" />
+							<path d="M150,450 L300,430 L450,460" />
+						</g>
+						<g stroke="var(--l-blue)" stroke-width="1.5" fill="none" opacity="0.35">
+							<path d="M100,120 Q200,80 350,200 T500,300" />
+							<path d="M80,300 Q250,150 400,250 T550,150" />
+							<path d="M150,400 Q300,200 450,350" />
+							<path d="M50,200 Q200,350 400,150 T550,350" />
+						</g>
+					</svg>
+					<div class="map-dot map-dot-1 floating-big" />
+					<div class="map-dot map-dot-2 floating-big" />
+					<div class="map-dot map-dot-3 floating-big" />
+					<div class="map-dot map-dot-4 floating-big" />
+					<div class="map-dot map-dot-5 floating-big" />
+				</div>
+			</div>
+		</section>
+
+		<!-- News -->
+		<section class="news-section">
+			<div class="deco-circle deco-news-tr" aria-hidden="true" />
+			<div class="section-blob blob-news" aria-hidden="true" />
+			<div class="news-inner">
+				<h2 class="sec-title">{{ t('landing.news.title') }}</h2>
+				<p class="sec-desc">{{ t('landing.news.desc') }}</p>
+				<div class="news-grid">
+					<div class="news-card">
+						<h4>{{ t('landing.news.news1Title') }}</h4>
+						<p>{{ t('landing.news.news1Desc') }}</p>
+					</div>
+					<div class="news-card">
+						<h4>{{ t('landing.news.news2Title') }}</h4>
+						<p>{{ t('landing.news.news2Desc') }}</p>
+					</div>
+					<div class="news-card">
+						<h4>{{ t('landing.news.news3Title') }}</h4>
+						<p>{{ t('landing.news.news3Desc') }}</p>
+					</div>
+				</div>
+				<div class="news-line" aria-hidden="true" />
+				<div class="text-center mt-4">
+					<a href="#" class="btn-landing-outline">{{ t('landing.news.readMore') }}</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Help -->
+		<section class="helplanding-section">
+			<div class="deco-circle deco-helpl-tr" aria-hidden="true" />
+			<div class="section-blob blob-helpl" aria-hidden="true" />
+			<div class="helplanding-inner">
+				<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
+				<p class="sec-desc text-center">{{ t('landing.help.desc') }}</p>
+				<div class="helpl-grid">
+					<div class="helpl-card">
+						<div class="helpl-icon"><i class="fas fa-map-marker-alt" /></div>
+						<h4>{{ t('landing.help.card1Title') }}</h4>
+						<p>{{ t('landing.help.card1Desc') }}</p>
+						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
+					</div>
+					<div class="helpl-card helpl-card-center">
+						<div class="helpl-icon-wrap">
+							<div class="helpl-icon"><i class="fas fa-pen" /></div>
+							<svg class="rotating-svg rotating-svg-sm" viewBox="0 0 200 200" aria-hidden="true">
+								<defs>
+									<path id="helpTextPath" d="M 100,100 m -85,0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0" />
+								</defs>
+								<text font-size="10" fill="var(--l-blue)" font-weight="500" letter-spacing="0.5">
+									<textPath href="#helpTextPath">
+										{{ t('landing.help.circleText') }}{{ t('landing.help.circleText') }}
+									</textPath>
+								</text>
+							</svg>
+						</div>
+						<h4>{{ t('landing.help.card2Title') }}</h4>
+						<p>{{ t('landing.help.card2Desc') }}</p>
+						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
+					</div>
+					<div class="helpl-card">
+						<div class="helpl-icon"><i class="fas fa-chart-bar" /></div>
+						<h4>{{ t('landing.help.card3Title') }}</h4>
+						<p>{{ t('landing.help.card3Desc') }}</p>
+						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section
-			class="bg-light pb-3 pt-4"
-			style="box-shadow: inset 0 20px 15px -15px rgba(0, 0, 0, 0.08)"
-		>
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-6 col-lg-5 d-flex">
-						<figure class="figure d-flex align-items-center">
-							<img
-								src="/eu-commission-logo-en.svg"
-								class="figure-img w-100"
-								:alt="$t('landing.ec')"
-							/>
-						</figure>
-						<figure class="figure d-flex align-items-center">
-							<img
-								src="/heinrich-boll-logo.svg"
-								class="figure-img w-100"
-								:alt="$t('landing.ec')"
-							/>
-						</figure>
-					</div>
-					<div class="col d-flex align-items-center">
-						<p
-							class="fw-bold mb-0"
-							v-html="$t('landing.funding')"
-						/>
-					</div>
-				</div>
+		<!-- Partners -->
+		<section class="partners-section">
+			<div class="deco-circle deco-part-bl" aria-hidden="true" />
+			<div class="deco-circle deco-part-tr" aria-hidden="true" />
+			<div class="section-blob blob-part" aria-hidden="true" />
+			<div class="partners-inner">
+				<h2 class="sec-title">{{ t('landing.partners.title') }}</h2>
+				<p class="sec-desc">{{ t('landing.partners.desc') }}</p>
 			</div>
 		</section>
-	</PublicFrame>
+
+		<!-- Footer -->
+		<footer id="contact" class="landing-footer">
+			<div class="footer-inner">
+				<div class="footer-grid">
+					<div class="footer-col">
+						<h5>{{ t('landing.footer.contact') }}</h5>
+						<ul>
+							<li><a href="mailto:hello@partimap.eu">hello@partimap.eu</a></li>
+						</ul>
+					</div>
+					<div class="footer-col">
+						<h5>{{ t('landing.footer.privacy') }}</h5>
+						<ul><li>{{ t('landing.footer.placeholder') }}</li><li>{{ t('landing.footer.placeholder') }}</li><li>{{ t('landing.footer.placeholder') }}</li></ul>
+					</div>
+					<div class="footer-col">
+						<h5>{{ t('landing.footer.terms') }}</h5>
+						<ul><li>{{ t('landing.footer.placeholder') }}</li><li>{{ t('landing.footer.placeholder') }}</li><li>{{ t('landing.footer.placeholder') }}</li></ul>
+					</div>
+					<div class="footer-col">
+						<h5>{{ t('landing.footer.imprint') }}</h5>
+						<ul><li>{{ t('landing.footer.placeholder') }}</li><li>{{ t('landing.footer.placeholder') }}</li><li>{{ t('landing.footer.placeholder') }}</li></ul>
+					</div>
+				</div>
+				<div class="footer-line" />
+				<p class="footer-copy">{{ t('landing.footer.copyright') }}</p>
+			</div>
+		</footer>
+	</div>
 </template>
 
 <style scoped>
-strong {
-	font-weight: 700;
+/* ── Custom Properties ────────────────────────────────── */
+.landing {
+	--l-blue: #0055FF;
+	--l-bg: #EDE4D3;
+	--l-text: #333;
+	--l-blue-10: rgba(0, 85, 255, 0.1);
+	--l-blue-15: rgba(0, 85, 255, 0.15);
+
+	background-color: var(--l-bg);
+	color: var(--l-text);
+	overflow-x: hidden;
+	position: relative;
+	min-height: 100vh;
 }
 
-.features .feature {
-	transition: all 150ms;
+/* ── Navigation ───────────────────────────────────────── */
+.landing-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	padding: 1rem 2rem;
+	backdrop-filter: blur(8px);
+	background: rgba(237, 228, 211, 0.7);
 }
-.features:hover .feature:not(:hover) {
-	filter: grayscale(0.25);
-	opacity: 0.85;
+.nav-inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+.nav-brand {
+	flex-shrink: 0;
+}
+.nav-brand img {
+	height: 28px;
+}
+.nav-links {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	margin-left: auto;
+}
+.nav-link-item {
+	color: var(--l-blue);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.nav-link-item:hover { text-decoration: underline; }
+.nav-btn-filled {
+	background: var(--l-blue);
+	color: #fff !important;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	padding: 0.6rem 1.6rem;
+	border-radius: 2rem;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.nav-btn-filled:hover { opacity: 0.9; }
+.nav-right {
+	display: flex !important;
+	flex-direction: row !important;
+	align-items: center;
+	gap: 0.5rem;
+	margin-left: auto;
+	list-style: none;
+	margin-bottom: 0;
+	padding-left: 0;
+}
+.nav-right :deep(.nav-item) {
+	list-style: none;
+}
+.nav-login-item {
+	list-style: none;
+}
+.nav-login-item :deep(.nav-link) {
+	padding: 0;
+}
+.nav-lang-label {
+	color: var(--l-blue);
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	white-space: nowrap;
+}
+.nav-btn-outline {
+	border: 1.5px solid var(--l-blue);
+	color: var(--l-blue);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	padding: 0.55rem 1.6rem;
+	border-radius: 2rem;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.nav-btn-outline:hover {
+	background: var(--l-blue);
+	color: #fff;
+}
+
+/* ── Section Shared Styles ────────────────────────────── */
+.sec-title {
+	color: var(--l-blue);
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	font-weight: 800;
+	font-style: italic;
+	margin-bottom: 0.5rem;
+	line-height: 1.15;
+}
+.sec-sub {
+	font-size: 0.9rem;
+	opacity: 0.7;
+	margin-bottom: 3rem;
+}
+.sec-desc {
+	font-size: 0.9rem;
+	line-height: 1.7;
+	opacity: 0.8;
+	margin-bottom: 3rem;
+}
+.sec-arrow {
+	color: var(--l-blue);
+	font-size: 1.5rem;
+	text-align: right;
+	padding: 0 4rem 2rem 0;
+}
+
+/* ── Buttons ──────────────────────────────────────────── */
+.btn-landing {
+	display: inline-block;
+	background: var(--l-blue);
+	color: #fff;
+	font-size: 0.9rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	padding: 1rem 2.5rem;
+	border-radius: 2.5rem;
+	text-decoration: none;
+	border: 2px solid var(--l-blue);
+	transition: background 0.2s, color 0.2s;
+}
+.btn-landing:hover {
+	background: transparent;
+	color: var(--l-blue);
+}
+.btn-landing-outline {
+	display: inline-block;
+	border: 1.5px solid var(--l-blue);
+	color: var(--l-blue);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	padding: 0.7rem 2rem;
+	border-radius: 2rem;
+	text-decoration: none;
+	transition: background 0.2s, color 0.2s;
+}
+.btn-landing-outline:hover {
+	background: var(--l-blue);
+	color: #fff;
+}
+.btn-sm {
+	font-size: 0.7rem;
+	padding: 0.5rem 1.4rem;
+}
+
+/* ── Hero Section ─────────────────────────────────────── */
+.hero-section {
+	position: relative;
+	min-height: 100vh;
+	padding: 7rem 2rem 3rem;
+	display: flex;
+	flex-direction: column;
+}
+.hero-inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	flex: 1;
+	display: grid;
+	grid-template-columns: 1fr 1.2fr 0.8fr;
+	align-items: center;
+	gap: 2rem;
+	width: 100%;
+}
+.hero-brand {
+	color: var(--l-blue);
+	font-size: 1rem;
+	font-weight: 800;
+	letter-spacing: 0.15em;
+	display: block;
+	margin-bottom: 1.5rem;
+}
+.hero-title {
+	color: var(--l-blue);
+	font-size: clamp(2.5rem, 5vw, 4rem);
+	font-weight: 800;
+	font-style: italic;
+	line-height: 1.1;
+	margin-bottom: 2rem;
+}
+.hero-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.hero-circle-wrap {
+	position: relative;
+	width: clamp(250px, 30vw, 380px);
+	height: clamp(250px, 30vw, 380px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+.hero-circle-wrap:hover .floating-big,
+.hero-circle-wrap:hover .rotating-svg {
+	animation-play-state: paused;
+}
+.hero-blue-circle {
+	width: 65%;
+	height: 65%;
+	background: var(--l-blue);
+	border-radius: 50%;
+	position: absolute;
+	z-index: 1;
+}
+.circle-line {
+	position: absolute;
+	background: var(--l-blue);
+	opacity: 0.2;
+	z-index: 0;
+}
+.circle-line-1 {
+	width: 1px;
+	height: 60px;
+	top: -30px;
+	left: 45%;
+	transform: rotate(-20deg);
+}
+.circle-line-2 {
+	width: 1px;
+	height: 50px;
+	top: 10%;
+	right: -15px;
+	transform: rotate(40deg);
+}
+.circle-line-3 {
+	width: 1px;
+	height: 60px;
+	bottom: -20px;
+	right: 20%;
+	transform: rotate(-30deg);
+}
+.circle-line-4 {
+	width: 50px;
+	height: 1px;
+	bottom: 35%;
+	right: -25px;
+	transform: rotate(5deg);
+}
+.rotating-svg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	animation: spin 25s linear infinite;
+}
+.rotating-svg-sm {
+	animation-duration: 20s;
+}
+.hero-arrow-circle {
+	color: var(--l-blue);
+	font-size: 1.1rem;
+	margin-left: 1.5rem;
+	width: 36px;
+	height: 36px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+.hero-left-line {
+	margin-top: 3rem;
+	width: 100%;
+	height: 1.5px;
+	background: var(--l-blue);
+	opacity: 0.25;
+}
+.hero-feat-sep {
+	width: 100%;
+	height: 1.5px;
+	background: var(--l-blue);
+	opacity: 0.2;
+	margin-bottom: 0.5rem;
+}
+.hero-right {
+	padding-left: 2rem;
+	border-right: 1.5px solid rgba(0, 85, 255, 0.2);
+	padding-right: 1rem;
+}
+.hero-feat {
+	margin-bottom: 1rem;
+	padding-top: 0.5rem;
+	position: relative;
+}
+.hero-feat h3 {
+	color: var(--l-blue);
+	font-size: 1.1rem;
+	font-weight: 800;
+	margin-bottom: 0.3rem;
+}
+.hero-feat p {
+	font-size: 0.8rem;
+	opacity: 0.7;
+	margin: 0;
+}
+.hero-feat-btn {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 32px;
+	height: 32px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--l-blue);
+	font-size: 1.2rem;
+}
+.hero-scroll {
+	color: var(--l-blue);
+	font-size: 1.5rem;
+	text-align: left;
+	padding-left: 6rem;
+	margin-top: auto;
+}
+
+/* ── Why / Features Section ───────────────────────────── */
+.why-section {
+	position: relative;
+	padding: 5rem 2rem 3rem;
+}
+.why-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.feat-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2.5rem 4rem;
+}
+.feat-card {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.2rem;
+}
+.feat-icon {
+	flex-shrink: 0;
+	width: 64px;
+	height: 64px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--l-blue);
+	font-size: 1.3rem;
+}
+.feat-card h4 {
+	color: var(--l-blue);
+	font-size: 1rem;
+	font-weight: 700;
+	margin-bottom: 0.3rem;
+}
+.feat-card p {
+	font-size: 0.8rem;
+	opacity: 0.7;
+	margin: 0;
+}
+
+/* ── Support Section ──────────────────────────────────── */
+.support-section {
+	position: relative;
+	padding: 6rem 2rem;
+}
+.support-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: 4rem;
+}
+.support-left {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 350px;
+}
+.support-circle {
+	width: clamp(200px, 25vw, 320px);
+	height: clamp(200px, 25vw, 320px);
+	background: var(--l-blue);
+	border-radius: 50%;
+}
+.support-floater {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	color: var(--l-blue);
+	font-size: 2rem;
+	z-index: 1;
+}
+.support-eyebrow {
+	font-size: 0.85rem;
+	font-weight: 600;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+.support-heading {
+	color: var(--l-blue);
+	font-size: clamp(2.5rem, 5vw, 4rem);
+	font-weight: 800;
+	margin-bottom: 1rem;
+	line-height: 1.1;
+}
+.support-right p {
+	font-size: 0.85rem;
+	line-height: 1.7;
+	opacity: 0.8;
+	margin-bottom: 2rem;
+}
+
+/* ── Statistics Section ───────────────────────────────── */
+.stats-section {
+	position: relative;
+	padding: 5rem 2rem 3rem;
+}
+.stats-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+	text-align: center;
+}
+.stat-circle {
+	width: 110px;
+	height: 110px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 1.2rem;
+	font-size: 2rem;
+	font-weight: 300;
+	color: var(--l-text);
+}
+.stat-item h4 {
+	color: var(--l-blue);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	margin-bottom: 0.5rem;
+}
+.stat-item p {
+	font-size: 0.8rem;
+	opacity: 0.7;
+}
+
+/* ── Showcase Section ─────────────────────────────────── */
+.showcase-section {
+	position: relative;
+	padding: 5rem 2rem;
+}
+.showcase-inner {
+	max-width: 800px;
+	margin: 0 auto;
+}
+.map-visual {
+	position: relative;
+	width: 100%;
+	max-width: 600px;
+	margin: 2rem auto 0;
+	aspect-ratio: 6/5;
+}
+.map-svg {
+	width: 100%;
+	height: 100%;
+}
+.map-dot {
+	position: absolute;
+	background: var(--l-blue);
+	border-radius: 50%;
+}
+.map-dot-1 { width: 80px; height: 80px; top: 8%; left: 12%; }
+.map-dot-2 { width: 60px; height: 60px; top: 25%; left: 55%; }
+.map-dot-3 { width: 70px; height: 70px; top: 45%; right: 15%; }
+.map-dot-4 { width: 50px; height: 50px; top: 65%; left: 35%; }
+.map-dot-5 { width: 40px; height: 40px; bottom: 10%; right: 30%; }
+
+/* ── News Section ─────────────────────────────────────── */
+.news-section {
+	position: relative;
+	padding: 5rem 2rem;
+}
+.news-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.news-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+	margin-bottom: 1rem;
+}
+.news-card h4 {
+	color: var(--l-blue);
+	font-size: 1rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	text-decoration: underline;
+}
+.news-card p {
+	font-size: 0.8rem;
+	line-height: 1.7;
+	opacity: 0.8;
+}
+.news-line {
+	height: 2px;
+	background: var(--l-blue);
+	opacity: 0.3;
+}
+
+/* ── Help Section ─────────────────────────────────────── */
+.helplanding-section {
+	position: relative;
+	padding: 5rem 2rem;
+}
+.helplanding-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.helpl-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2.5rem;
+	text-align: center;
+	margin-top: 2rem;
+}
+.helpl-icon {
+	width: 80px;
+	height: 80px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--l-blue);
+	font-size: 1.5rem;
+	margin: 0 auto 1.5rem;
+}
+.helpl-icon-wrap {
+	position: relative;
+	width: 180px;
+	height: 180px;
+	margin: 0 auto 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.helpl-icon-wrap .helpl-icon {
+	margin: 0;
+	position: relative;
+	z-index: 1;
+}
+.helpl-icon-wrap .rotating-svg-sm {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.helpl-card h4 {
+	color: var(--l-blue);
+	font-size: 0.95rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+}
+.helpl-card p {
+	font-size: 0.8rem;
+	line-height: 1.7;
+	opacity: 0.8;
+	margin-bottom: 1.5rem;
+}
+
+/* ── Partners Section ─────────────────────────────────── */
+.partners-section {
+	position: relative;
+	padding: 5rem 2rem 8rem;
+}
+.partners-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+/* ── Footer ───────────────────────────────────────────── */
+.landing-footer {
+	position: relative;
+	padding: 3rem 2rem 2rem;
+}
+.footer-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.footer-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem;
+	margin-bottom: 2rem;
+}
+.footer-col h5 {
+	color: var(--l-blue);
+	font-size: 0.85rem;
+	font-weight: 700;
+	margin-bottom: 0.8rem;
+}
+.footer-col ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.footer-col li {
+	font-size: 0.8rem;
+	opacity: 0.7;
+	margin-bottom: 0.3rem;
+}
+.footer-col a {
+	color: var(--l-text);
+	text-decoration: none;
+}
+.footer-col a:hover { text-decoration: underline; }
+.footer-line {
+	height: 2px;
+	background: var(--l-blue);
+	opacity: 0.3;
+	margin-bottom: 1.5rem;
+}
+.footer-copy {
+	text-align: center;
+	font-size: 0.75rem;
+	opacity: 0.6;
+}
+
+/* ── Decorative Circles (outlines) ────────────────────── */
+.deco-circle {
+	position: absolute;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	pointer-events: none;
+	opacity: 0.25;
+}
+.deco-hero-bl  { width: 300px; height: 300px; bottom: 40px; left: -100px; }
+.deco-sup-tr   { width: 250px; height: 250px; top: -60px; right: 15%; }
+.deco-sup-br   { width: 500px; height: 500px; bottom: -200px; right: -200px; }
+.deco-show-tl  { width: 350px; height: 350px; top: -100px; left: -100px; }
+.deco-show-br  { width: 300px; height: 300px; bottom: -80px; right: -80px; }
+.deco-news-tr  { width: 280px; height: 280px; top: -60px; right: -80px; }
+.deco-helpl-tr { width: 400px; height: 400px; top: 0; right: -150px; }
+.deco-part-bl  { width: 350px; height: 350px; bottom: -60px; left: -120px; }
+.deco-part-tr  { width: 400px; height: 400px; top: -20px; right: -120px; }
+
+/* ── Decorative Lines ─────────────────────────────────── */
+.deco-line {
+	position: absolute;
+	background: var(--l-blue);
+	pointer-events: none;
+	opacity: 0.2;
+}
+.deco-hero-line-v {
+	width: 1.5px;
+	height: 150px;
+	left: 8%;
+	bottom: 15%;
+}
+.deco-hero-line-h {
+	height: 1.5px;
+	width: 200px;
+	left: 0;
+	bottom: calc(40px + 150px);
+}
+.deco-sup-line {
+	width: 1.5px;
+	height: 120px;
+	left: 15%;
+	top: 10%;
+}
+
+/* ── Background Gradient Blobs ────────────────────────── */
+.section-blob,
+.hero-blob {
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+	filter: blur(80px);
+}
+.blob-tr  { width: 500px; height: 500px; top: -100px; right: -100px; background: var(--l-blue-15); }
+.blob-bl  { width: 400px; height: 400px; bottom: -50px; left: -50px; background: var(--l-blue-10); }
+.blob-why  { width: 500px; height: 400px; bottom: -100px; left: 20%; background: var(--l-blue-10); }
+.blob-sup  { width: 400px; height: 400px; bottom: -50px; left: 10%; background: var(--l-blue-15); }
+.blob-stats { width: 350px; height: 350px; top: -80px; right: 10%; background: var(--l-blue-10); }
+.blob-show  { width: 500px; height: 500px; bottom: -100px; right: -50px; background: var(--l-blue-15); }
+.blob-news  { width: 400px; height: 400px; bottom: -80px; left: -50px; background: var(--l-blue-10); }
+.blob-helpl { width: 350px; height: 350px; top: 50%; left: 10%; background: var(--l-blue-10); }
+.blob-part  { width: 500px; height: 400px; bottom: -100px; right: -50px; background: var(--l-blue-15); }
+
+/* ── Floating Blue Dots ───────────────────────────────── */
+.floating-dots {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 1;
+	overflow: hidden;
+}
+.dot {
+	position: absolute;
+	border-radius: 50%;
+	background: #8898b8;
+	opacity: 0.4;
+}
+.dot-1  { width:  8px; height:  8px; top: 12%; left:  8%; animation: driftA 14s ease-in-out infinite; }
+.dot-2  { width:  6px; height:  6px; top: 22%; left: 75%; animation: driftB 18s ease-in-out infinite 1s; }
+.dot-3  { width: 10px; height: 10px; top: 35%; left: 50%; animation: driftC 12s ease-in-out infinite 2s; }
+.dot-4  { width:  5px; height:  5px; top: 48%; left: 20%; animation: driftA 16s ease-in-out infinite 3s; }
+.dot-5  { width:  7px; height:  7px; top: 55%; left: 85%; animation: driftB 13s ease-in-out infinite 0.5s; }
+.dot-6  { width:  9px; height:  9px; top: 68%; left: 40%; animation: driftC 17s ease-in-out infinite 4s; }
+.dot-7  { width:  6px; height:  6px; top: 78%; left: 65%; animation: driftA 15s ease-in-out infinite 2.5s; }
+.dot-8  { width:  8px; height:  8px; top: 88%; left: 12%; animation: driftB 14s ease-in-out infinite 1.5s; }
+.dot-9  { width:  5px; height:  5px; top:  5%; left: 55%; animation: driftC 19s ease-in-out infinite 3.5s; }
+.dot-10 { width:  7px; height:  7px; top: 42%; left: 92%; animation: driftA 16s ease-in-out infinite 0.8s; }
+.dot-11 { width: 10px; height: 10px; top: 62%; left:  5%; animation: driftB 13s ease-in-out infinite 2.2s; }
+.dot-12 { width:  6px; height:  6px; top: 92%; left: 70%; animation: driftC 18s ease-in-out infinite 4.5s; }
+
+/* ── Large Circle Float Animation ─────────────────────── */
+.floating-big {
+	animation: floatBig 8s ease-in-out infinite;
+}
+
+/* ── Keyframes ────────────────────────────────────────── */
+@keyframes driftA {
+	0%, 100% { transform: translate(0, 0); }
+	25% { transform: translate(20px, -15px); }
+	50% { transform: translate(-12px, 22px); }
+	75% { transform: translate(16px, 8px); }
+}
+@keyframes driftB {
+	0%, 100% { transform: translate(0, 0); }
+	33% { transform: translate(-18px, 20px); }
+	66% { transform: translate(22px, -12px); }
+}
+@keyframes driftC {
+	0%, 100% { transform: translate(0, 0); }
+	20% { transform: translate(12px, 16px); }
+	40% { transform: translate(-22px, -6px); }
+	60% { transform: translate(16px, -20px); }
+	80% { transform: translate(-8px, 12px); }
+}
+@keyframes floatBig {
+	0%, 100% { transform: translate(0, 0); }
+	25% { transform: translate(8px, -6px); }
+	50% { transform: translate(-5px, 10px); }
+	75% { transform: translate(6px, 4px); }
+}
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 991px) {
+	.hero-inner {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+	.hero-center { order: -1; }
+	.hero-left { margin-top: 1rem; }
+	.hero-scroll { text-align: center; padding-left: 0; }
+	.feat-grid { grid-template-columns: 1fr; }
+	.support-inner { grid-template-columns: 1fr; text-align: center; }
+	.support-left { min-height: 250px; }
+	.stats-grid { grid-template-columns: 1fr; gap: 3rem; }
+	.news-grid { grid-template-columns: 1fr; }
+	.helpl-grid { grid-template-columns: 1fr; gap: 3rem; }
+	.footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 575px) {
+	.landing-nav { padding: 0.75rem 1rem; }
+	.nav-right { gap: 0.5rem; }
+	.hero-section { padding-top: 5rem; }
+	.hero-circle-wrap { width: 220px; height: 220px; }
+	.footer-grid { grid-template-columns: 1fr; }
 }
 </style>

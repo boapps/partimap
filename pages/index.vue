@@ -64,8 +64,9 @@ useHead({
 				</div>
 
 				<div class="hero-center">
-					<a :href="t('landing.tryLink')" target="_blank" class="hero-circle-wrap">
-						<div class="hero-blue-circle floating-big" />
+					<div class="hero-circle-wrap">
+						<!-- Leaflet map in a circular window -->
+						<HeroMap />
 						<!-- Radial decorative lines -->
 						<div class="circle-line circle-line-1" aria-hidden="true" />
 						<div class="circle-line circle-line-2" aria-hidden="true" />
@@ -84,7 +85,7 @@ useHead({
 								</textPath>
 							</text>
 						</svg>
-					</a>
+					</div>
 				</div>
 
 				<div class="hero-right d-none d-xl-block">
@@ -201,30 +202,7 @@ useHead({
 				<h2 class="sec-title text-center">{{ t('landing.showcase.title') }}</h2>
 				<p class="sec-desc text-center">{{ t('landing.showcase.desc') }}</p>
 				<div class="map-visual">
-					<svg viewBox="0 0 600 500" class="map-svg" aria-hidden="true">
-						<g stroke="var(--l-blue)" stroke-width="0.5" fill="none" opacity="0.25">
-							<path d="M100,100 L200,80 L300,120 L400,90 L500,130" />
-							<path d="M80,150 L180,200 L280,160 L380,220 L480,180" />
-							<path d="M120,250 L220,280 L320,240 L420,300 L520,260" />
-							<path d="M60,300 L160,340 L260,310 L360,370 L460,330" />
-							<path d="M140,380 L240,350 L340,400 L440,360 L540,420" />
-							<path d="M100,100 L80,150 L120,250 L60,300 L140,380" />
-							<path d="M200,80 L180,200 L220,280 L160,340 L240,350" />
-							<path d="M300,120 L280,160 L320,240 L260,310 L340,400" />
-							<path d="M400,90 L380,220 L420,300 L360,370 L440,360" />
-							<path d="M500,130 L480,180 L520,260 L460,330 L540,420" />
-							<path d="M120,60 L300,50 L480,70" />
-							<path d="M50,180 L200,160 L350,190 L500,170" />
-							<path d="M80,350 L250,330 L400,360 L550,340" />
-							<path d="M150,450 L300,430 L450,460" />
-						</g>
-						<g stroke="var(--l-blue)" stroke-width="1.5" fill="none" opacity="0.35">
-							<path d="M100,120 Q200,80 350,200 T500,300" />
-							<path d="M80,300 Q250,150 400,250 T550,150" />
-							<path d="M150,400 Q300,200 450,350" />
-							<path d="M50,200 Q200,350 400,150 T550,350" />
-						</g>
-					</svg>
+					<img src="/map.webp" alt="" class="map-svg" aria-hidden="true">
 					<div class="map-dot map-dot-1 floating-big" />
 					<div class="map-dot map-dot-2 floating-big" />
 					<div class="map-dot map-dot-3 floating-big" />
@@ -600,20 +578,6 @@ useHead({
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	text-decoration: none;
-	cursor: pointer;
-}
-.hero-circle-wrap:hover .floating-big,
-.hero-circle-wrap:hover .rotating-svg {
-	animation-play-state: paused;
-}
-.hero-blue-circle {
-	width: 65%;
-	height: 65%;
-	background: var(--l-blue);
-	border-radius: 50%;
-	position: absolute;
-	z-index: 1;
 }
 .circle-line {
 	position: absolute;
@@ -653,6 +617,8 @@ useHead({
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	z-index: 2;
+	pointer-events: none;
 }
 .rotating-svg-sm {
 	animation-duration: 20s;
@@ -880,7 +846,7 @@ useHead({
 	width: 100%;
 	max-width: 600px;
 	margin: 2rem auto 0;
-	aspect-ratio: 6/5;
+	/* aspect-ratio: 1; */
 }
 .map-svg {
 	width: 100%;
@@ -888,8 +854,30 @@ useHead({
 }
 .map-dot {
 	position: absolute;
-	background: var(--l-blue);
+	background-image: url('/bus.webp');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	border-radius: 50%;
+	overflow: hidden;
+	filter: brightness(0.82);
+	transition: filter 0.5s ease, transform 0.5s ease;
+}
+.map-dot::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: #0055FF80;
+	transition: opacity 0.25s ease;
+	pointer-events: none;
+}
+.map-dot:hover {
+	filter: saturate(1) brightness(1);
+	transform: scale(1.04);
+	cursor: pointer;
+}
+.map-dot:hover::after {
+	opacity: 0;
 }
 .map-dot-1 { width: 80px; height: 80px; top: 8%; left: 12%; }
 .map-dot-2 { width: 60px; height: 60px; top: 25%; left: 55%; }
@@ -1121,8 +1109,8 @@ useHead({
 .dot {
 	position: absolute;
 	border-radius: 50%;
-	background: #8898b8;
-	opacity: 0.4;
+	background: #0055FF;
+	opacity: 0.5;
 }
 .dot-1  { width:  8px; height:  8px; top: 12%; left:  8%; animation: driftA 14s ease-in-out infinite; }
 .dot-2  { width:  6px; height:  6px; top: 22%; left: 75%; animation: driftB 18s ease-in-out infinite 1s; }

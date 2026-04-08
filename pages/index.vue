@@ -346,14 +346,48 @@ useHead({
 </template>
 
 <style scoped>
+@font-face {
+	font-family: 'Apex New';
+	src: url('/apex-new/ApexNew-Book.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Apex New';
+	src: url('/apex-new/ApexNew-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Apex New';
+	src: url('/apex-new/ApexNew-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Apex New';
+	src: url('/apex-new/ApexNew-Bold.ttf') format('truetype');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
 /* ── Custom Properties ────────────────────────────────── */
 .landing {
+	--l-font: 'Apex New', 'Segoe UI', sans-serif;
 	--l-blue: #0055FF;
 	--l-bg: #EDE4D3;
 	--l-text: #333;
 	--l-blue-10: rgba(0, 85, 255, 0.1);
 	--l-blue-15: rgba(0, 85, 255, 0.15);
 
+	font-family: var(--l-font);
 	background-color: var(--l-bg);
 	color: var(--l-text);
 	overflow-x: hidden;
@@ -459,7 +493,6 @@ useHead({
 	color: var(--l-blue);
 	font-size: clamp(2rem, 5vw, 3.5rem);
 	font-weight: 800;
-	font-style: italic;
 	margin-bottom: 0.5rem;
 	line-height: 1.15;
 }
@@ -549,8 +582,8 @@ useHead({
 .hero-title {
 	color: var(--l-blue);
 	font-size: clamp(2.5rem, 5vw, 4rem);
-	font-weight: 800;
-	font-style: italic;
+	font-weight: 500;
+	/* font-style: italic; */
 	line-height: 1.1;
 	margin-bottom: 2rem;
 }
@@ -620,7 +653,6 @@ useHead({
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	animation: spin 25s linear infinite;
 }
 .rotating-svg-sm {
 	animation-duration: 20s;
@@ -665,11 +697,12 @@ useHead({
 .hero-feat h3 {
 	color: var(--l-blue);
 	font-size: 1.1rem;
-	font-weight: 800;
+	font-weight: 400;
 	margin-bottom: 0.3rem;
 }
 .hero-feat p {
 	font-size: 0.8rem;
+	font-weight: 500;
 	opacity: 0.7;
 	margin: 0;
 }

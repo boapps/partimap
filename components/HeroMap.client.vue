@@ -46,9 +46,11 @@ function zoomOut() {
 		<!-- Circular map window -->
 		<div class="hm-circle">
 			<div ref="mapEl" class="hm-el" />
+			<div class="hm-center-pin" aria-hidden="true">
+				<div class="hm-center-pin-head" />
+				<!-- <div class="hm-center-pin-tail" /> -->
+			</div>
 			<!-- Crosshair axis lines inside the map -->
-			<div class="hm-axis-h" aria-hidden="true" />
-			<div class="hm-axis-v" aria-hidden="true" />
 		</div>
 
 		<!-- Zoom controls, outside the circle -->
@@ -91,6 +93,50 @@ function zoomOut() {
 .hm-el {
 	width: 100%;
 	height: 100%;
+}
+
+/* Fixed center pin for selecting location while dragging map */
+.hm-center-pin {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -100%);
+	pointer-events: none;
+	z-index: 1100;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.hm-center-pin-head {
+	width: 18px;
+	height: 18px;
+	border-radius: 50% 50% 50% 0;
+	transform: rotate(-45deg);
+	background: #0055ff;
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.92);
+	position: relative;
+}
+
+.hm-center-pin-head::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%) rotate(45deg);
+	background: #fff;
+}
+
+.hm-center-pin-tail {
+	width: 2px;
+	height: 12px;
+	margin-top: -2px;
+	background: #0055ff;
+	border-radius: 1px;
+	opacity: 0.8;
 }
 
 /* Horizontal crosshair line */

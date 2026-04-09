@@ -579,8 +579,8 @@ useHead({
 }
 .hero-circle-wrap {
 	position: relative;
-	width: clamp(250px, 30vw, 380px);
-	height: clamp(250px, 30vw, 380px);
+	width: 380px;
+	height: 380px;
 	display: flex;
 	align-items: center;
 	justify-content: center;

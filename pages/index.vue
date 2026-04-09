@@ -65,7 +65,6 @@ useHead({
 
 				<div class="hero-center">
 					<div class="hero-circle-wrap">
-						<!-- Leaflet map in a circular window -->
 						<HeroMap />
 						<!-- Radial decorative lines -->
 						<div class="circle-line circle-line-1" aria-hidden="true" />

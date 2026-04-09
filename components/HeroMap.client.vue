@@ -1,40 +1,48 @@
 <script setup lang="ts">
-import L from 'leaflet';
+import type { Map, View } from 'ol';
+import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
+import KeyboardPan from 'ol/interaction/KeyboardPan';
+import KeyboardZoom from 'ol/interaction/KeyboardZoom';
+import MouseWheelZoom from 'ol/interaction/MouseWheelZoom';
+import { transform } from 'ol/proj';
 
-const mapEl = ref<HTMLElement | null>(null);
-let map: L.Map | null = null;
+const GOOGLEMAPS_PROJECTION = 'EPSG:4326';
+const PARTIMAP_PROJECTION = 'EPSG:3857';
+
+const { t } = useI18n();
+const coords = t('Map.initialCenter').split(',');
+const gm2ol = (c: number[]) => transform(c, GOOGLEMAPS_PROJECTION, PARTIMAP_PROJECTION);
+const initialCenter = gm2ol(coords.reverse().map((p) => Number(p)));
+const initialZoom = Number(t('Map.initialZoom')) || 10;
+
+const mapRef = ref<{ map: Map }>();
+const viewRef = ref<{ view: View }>();
 
 onMounted(() => {
-	if (!mapEl.value) return;
-
-	map = L.map(mapEl.value, {
-		zoomControl: false,
-		attributionControl: true,
-		dragging: true,
-		scrollWheelZoom: false,
-		doubleClickZoom: false,
-		keyboard: false,
-	}).setView([47.5, 19.04], 11);
-
-	L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-		attribution:
-			'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
-		subdomains: 'abcd',
-		maxZoom: 19,
-	}).addTo(map);
-});
-
-onUnmounted(() => {
-	map?.remove();
-	map = null;
+	const map = mapRef.value?.map;
+	if (!map) return;
+	map.getInteractions().forEach((interaction) => {
+		if (
+			interaction instanceof MouseWheelZoom ||
+			interaction instanceof DoubleClickZoom ||
+			interaction instanceof KeyboardPan ||
+			interaction instanceof KeyboardZoom
+		) {
+			map.removeInteraction(interaction);
+		}
+	});
 });
 
 function zoomIn() {
-	map?.zoomIn();
+	const view = viewRef.value?.view;
+	if (!view) return;
+	view.animate({ zoom: (view.getZoom() || 0) + 1, duration: 200 });
 }
 
 function zoomOut() {
-	map?.zoomOut();
+	const view = viewRef.value?.view;
+	if (!view) return;
+	view.animate({ zoom: (view.getZoom() || 0) - 1, duration: 200 });
 }
 </script>
 
@@ -45,12 +53,25 @@ function zoomOut() {
 
 		<!-- Circular map window -->
 		<div class="hm-circle">
-			<div ref="mapEl" class="hm-el" />
+			<ol-map
+				ref="mapRef"
+				:load-tiles-while-animating="true"
+				:load-tiles-while-interacting="true"
+				style="width: 100%; height: 100%"
+			>
+				<ol-view
+					ref="viewRef"
+					:center="initialCenter"
+					:zoom="initialZoom"
+					max-zoom="19"
+					:projection="PARTIMAP_PROJECTION"
+				/>
+				<BaseMaps />
+			</ol-map>
 			<div class="hm-center-pin" aria-hidden="true">
 				<div class="hm-center-pin-head" />
 				<!-- <div class="hm-center-pin-tail" /> -->
 			</div>
-			<!-- Crosshair axis lines inside the map -->
 		</div>
 
 		<!-- Zoom controls, outside the circle -->
@@ -58,17 +79,6 @@ function zoomOut() {
 		<button class="hm-btn hm-btn-out" aria-label="Zoom out" @click.stop="zoomOut">−</button>
 	</div>
 </template>
-
-<!-- Leaflet base styles: must be non-scoped so they reach the map tiles -->
-<style>
-@import 'leaflet/dist/leaflet.css';
-
-/* Scale down leaflet attribution to avoid visual clutter */
-.leaflet-control-attribution {
-	font-size: 9px !important;
-	opacity: 0.6;
-}
-</style>
 
 <style scoped>
 /* Fills the full .hero-circle-wrap container */
@@ -88,11 +98,6 @@ function zoomOut() {
 	transform: translate(-50%, -50%);
 	border-radius: 50%;
 	overflow: hidden;
-}
-
-.hm-el {
-	width: 100%;
-	height: 100%;
 }
 
 /* Fixed center pin for selecting location while dragging map */

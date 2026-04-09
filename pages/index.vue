@@ -360,13 +360,18 @@ useHead({
 .landing {
 	--l-font: 'Apex New', 'Segoe UI', sans-serif;
 	--l-blue: #0055FF;
-	--l-bg: #EDE4D3;
+	--l-bg: rgba(237, 228, 211, 0.56);
 	--l-text: #333;
-	--l-blue-10: rgba(0, 85, 255, 0.1);
-	--l-blue-15: rgba(0, 85, 255, 0.15);
+	--l-blue-10: rgba(0, 85, 255, 0.06);
+	--l-blue-15: rgba(0, 85, 255, 0.1);
 
 	font-family: var(--l-font);
-	background-color: var(--l-bg);
+	background-color: #EDE4D3;
+	background-image: linear-gradient(var(--l-bg), var(--l-bg)), url('/background.webp');
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	color: var(--l-text);
 	overflow-x: hidden;
 	position: relative;
@@ -382,7 +387,7 @@ useHead({
 	z-index: 100;
 	padding: 1rem 2rem;
 	backdrop-filter: blur(8px);
-	background: rgba(237, 228, 211, 0.7);
+	background: rgba(237, 228, 211, 0.45);
 }
 .nav-inner {
 	max-width: 1200px;
@@ -761,7 +766,7 @@ useHead({
 .support-circle {
 	width: clamp(200px, 25vw, 320px);
 	height: clamp(200px, 25vw, 320px);
-	background: var(--l-blue);
+	background-image: url('/bus.webp');
 	border-radius: 50%;
 }
 .support-floater {
@@ -817,8 +822,8 @@ useHead({
 	justify-content: center;
 	margin: 0 auto 1.2rem;
 	font-size: 2rem;
-	font-weight: 300;
-	color: var(--l-text);
+	font-weight: 600;
+	color: var(--l-blue);
 }
 .stat-item h4 {
 	color: var(--l-blue);
@@ -1042,7 +1047,7 @@ useHead({
 	border: 1.5px solid var(--l-blue);
 	border-radius: 50%;
 	pointer-events: none;
-	opacity: 0.25;
+	opacity: 0.16;
 }
 .deco-hero-bl  { width: 300px; height: 300px; bottom: 40px; left: -100px; }
 .deco-sup-tr   { width: 250px; height: 250px; top: -60px; right: 15%; }
@@ -1059,7 +1064,7 @@ useHead({
 	position: absolute;
 	background: var(--l-blue);
 	pointer-events: none;
-	opacity: 0.2;
+	opacity: 0.12;
 }
 .deco-hero-line-v {
 	width: 1.5px;
@@ -1110,20 +1115,20 @@ useHead({
 	position: absolute;
 	border-radius: 50%;
 	background: #0055FF;
-	opacity: 0.5;
+	opacity: 0.3;
 }
-.dot-1  { width:  8px; height:  8px; top: 12%; left:  8%; animation: driftA 14s ease-in-out infinite; }
-.dot-2  { width:  6px; height:  6px; top: 22%; left: 75%; animation: driftB 18s ease-in-out infinite 1s; }
-.dot-3  { width: 10px; height: 10px; top: 35%; left: 50%; animation: driftC 12s ease-in-out infinite 2s; }
-.dot-4  { width:  5px; height:  5px; top: 48%; left: 20%; animation: driftA 16s ease-in-out infinite 3s; }
-.dot-5  { width:  7px; height:  7px; top: 55%; left: 85%; animation: driftB 13s ease-in-out infinite 0.5s; }
-.dot-6  { width:  9px; height:  9px; top: 68%; left: 40%; animation: driftC 17s ease-in-out infinite 4s; }
-.dot-7  { width:  6px; height:  6px; top: 78%; left: 65%; animation: driftA 15s ease-in-out infinite 2.5s; }
-.dot-8  { width:  8px; height:  8px; top: 88%; left: 12%; animation: driftB 14s ease-in-out infinite 1.5s; }
-.dot-9  { width:  5px; height:  5px; top:  5%; left: 55%; animation: driftC 19s ease-in-out infinite 3.5s; }
-.dot-10 { width:  7px; height:  7px; top: 42%; left: 92%; animation: driftA 16s ease-in-out infinite 0.8s; }
-.dot-11 { width: 10px; height: 10px; top: 62%; left:  5%; animation: driftB 13s ease-in-out infinite 2.2s; }
-.dot-12 { width:  6px; height:  6px; top: 92%; left: 70%; animation: driftC 18s ease-in-out infinite 4.5s; }
+.dot-1  { width:  6px; height:  6px; top: 12%; left:  8%; animation: driftA 14s ease-in-out infinite; }
+.dot-2  { width:  4px; height:  4px; top: 22%; left: 75%; animation: driftB 18s ease-in-out infinite 1s; }
+.dot-3  { width:  8px; height:  8px; top: 35%; left: 50%; animation: driftC 12s ease-in-out infinite 2s; }
+.dot-4  { width:  4px; height:  4px; top: 48%; left: 20%; animation: driftA 16s ease-in-out infinite 3s; }
+.dot-5  { width:  5px; height:  5px; top: 55%; left: 85%; animation: driftB 13s ease-in-out infinite 0.5s; }
+.dot-6  { width:  7px; height:  7px; top: 68%; left: 40%; animation: driftC 17s ease-in-out infinite 4s; }
+.dot-7  { width:  4px; height:  4px; top: 78%; left: 65%; animation: driftA 15s ease-in-out infinite 2.5s; }
+.dot-8  { width:  6px; height:  6px; top: 88%; left: 12%; animation: driftB 14s ease-in-out infinite 1.5s; }
+.dot-9  { width:  3px; height:  3px; top:  5%; left: 55%; animation: driftC 19s ease-in-out infinite 3.5s; }
+.dot-10 { width:  5px; height:  5px; top: 42%; left: 92%; animation: driftA 16s ease-in-out infinite 0.8s; }
+.dot-11 { width:  8px; height:  8px; top: 62%; left:  5%; animation: driftB 13s ease-in-out infinite 2.2s; }
+.dot-12 { width:  4px; height:  4px; top: 92%; left: 70%; animation: driftC 18s ease-in-out infinite 4.5s; }
 
 /* ── Large Circle Float Animation ─────────────────────── */
 .floating-big {

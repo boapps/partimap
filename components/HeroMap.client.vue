@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import type { Map, View } from 'ol';
+import type { Feature as OlFeature, Map, View } from 'ol';
+import type { Coordinate } from 'ol/coordinate';
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
 import KeyboardPan from 'ol/interaction/KeyboardPan';
 import KeyboardZoom from 'ol/interaction/KeyboardZoom';
 import MouseWheelZoom from 'ol/interaction/MouseWheelZoom';
 import { transform } from 'ol/proj';
+import { Circle, Fill, Stroke, Style } from 'ol/style';
 
 const GOOGLEMAPS_PROJECTION = 'EPSG:4326';
 const PARTIMAP_PROJECTION = 'EPSG:3857';
@@ -44,6 +46,24 @@ function zoomOut() {
 	if (!view) return;
 	view.animate({ zoom: (view.getZoom() || 0) - 1, duration: 200 });
 }
+
+const pinnedCoord = ref<Coordinate | null>(null);
+
+function selectLocation() {
+	const view = viewRef.value?.view;
+	if (!view) return;
+	pinnedCoord.value = view.getCenter() || null;
+}
+
+function pinStyle(_f: OlFeature) {
+	return new Style({
+		image: new Circle({
+			radius: 8,
+			fill: new Fill({ color: '#0055ff' }),
+			stroke: new Stroke({ color: '#ffffff', width: 2.5 }),
+		}),
+	});
+}
 </script>
 
 <template>
@@ -72,6 +92,14 @@ function zoomOut() {
 						attributions="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
 					/>
 				</ol-tile-layer>
+				<ol-vector-layer v-if="pinnedCoord" :z-index="500">
+					<ol-source-vector>
+						<ol-feature>
+							<ol-geom-point :coordinates="pinnedCoord" />
+							<ol-style :override-style-function="pinStyle" />
+						</ol-feature>
+					</ol-source-vector>
+				</ol-vector-layer>
 			</ol-map>
 			<div class="hm-center-pin" aria-hidden="true">
 				<div class="hm-center-pin-head" />
@@ -82,6 +110,9 @@ function zoomOut() {
 		<!-- Zoom controls, outside the circle -->
 		<button class="hm-btn hm-btn-in" aria-label="Zoom in" @click.stop="zoomIn">+</button>
 		<button class="hm-btn hm-btn-out" aria-label="Zoom out" @click.stop="zoomOut">−</button>
+
+		<!-- Select location button -->
+		<button class="hm-btn hm-btn-select" aria-label="Select location" @click.stop="selectLocation">→</button>
 	</div>
 </template>
 
@@ -223,6 +254,12 @@ function zoomOut() {
 /* − button: bottom right, below + with gap */
 .hm-btn-out {
 	right: 5%;
+	bottom: 2%;
+}
+
+/* → select location button: bottom left */
+.hm-btn-select {
+	left: 5%;
 	bottom: 2%;
 }
 </style>

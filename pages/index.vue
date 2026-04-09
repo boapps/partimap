@@ -411,7 +411,7 @@ useHead({
 .nav-link-item {
 	color: var(--l-blue);
 	font-size: 0.8rem;
-	font-weight: 700;
+	font-weight: 500;
 	letter-spacing: 0.08em;
 	text-decoration: none;
 	white-space: nowrap;
@@ -451,7 +451,7 @@ useHead({
 .nav-lang-label {
 	color: var(--l-blue);
 	font-size: 0.7rem;
-	font-weight: 700;
+	font-weight: 500;
 	letter-spacing: 0.08em;
 	white-space: nowrap;
 }
@@ -475,19 +475,21 @@ useHead({
 .sec-title {
 	color: var(--l-blue);
 	font-size: clamp(2rem, 5vw, 3.5rem);
-	font-weight: 800;
+	font-weight: 500;
 	margin-bottom: 0.5rem;
 	line-height: 1.15;
 }
 .sec-sub {
 	font-size: 0.9rem;
 	opacity: 0.7;
+	font-weight: 500;
 	margin-bottom: 3rem;
 }
 .sec-desc {
 	font-size: 0.9rem;
 	line-height: 1.7;
 	opacity: 0.8;
+	font-weight: 500;
 	margin-bottom: 3rem;
 }
 .sec-arrow {
@@ -734,12 +736,13 @@ useHead({
 .feat-card h4 {
 	color: var(--l-blue);
 	font-size: 1rem;
-	font-weight: 700;
+	font-weight: 400;
 	margin-bottom: 0.3rem;
 }
 .feat-card p {
 	font-size: 0.8rem;
 	opacity: 0.7;
+	font-weight: 500;
 	margin: 0;
 }
 
@@ -778,21 +781,23 @@ useHead({
 	z-index: 1;
 }
 .support-eyebrow {
+	color: var(--l-blue);
 	font-size: 0.85rem;
-	font-weight: 600;
+	font-weight: 500;
 	display: block;
 	margin-bottom: 0.5rem;
 }
 .support-heading {
 	color: var(--l-blue);
 	font-size: clamp(2.5rem, 5vw, 4rem);
-	font-weight: 800;
+	font-weight: 500;
 	margin-bottom: 1rem;
 	line-height: 1.1;
 }
 .support-right p {
 	font-size: 0.85rem;
 	line-height: 1.7;
+	font-weight: 500;
 	opacity: 0.8;
 	margin-bottom: 2rem;
 }
@@ -908,13 +913,13 @@ useHead({
 .news-card h4 {
 	color: var(--l-blue);
 	font-size: 1rem;
-	font-weight: 700;
+	font-weight: 400;
 	margin-bottom: 1rem;
-	text-decoration: underline;
 }
 .news-card p {
 	font-size: 0.8rem;
 	line-height: 1.7;
+	font-weight: 500;
 	opacity: 0.8;
 }
 .news-line {

@@ -66,7 +66,12 @@ function zoomOut() {
 					max-zoom="19"
 					:projection="PARTIMAP_PROJECTION"
 				/>
-				<BaseMaps />
+				<ol-tile-layer>
+					<ol-source-xyz
+						url="https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+						attributions="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
+					/>
+				</ol-tile-layer>
 			</ol-map>
 			<div class="hm-center-pin" aria-hidden="true">
 				<div class="hm-center-pin-head" />

@@ -384,8 +384,8 @@ useHead({
 	--l-blue: #0055FF;
 	--l-bg: rgba(237, 228, 211, 0.56);
 	--l-text: #333;
-	--l-blue-10: rgba(0, 85, 255, 0.06);
-	--l-blue-15: rgba(0, 85, 255, 0.1);
+	--l-blue-10: rgba(0, 85, 255, 0.3);
+	--l-blue-15: rgba(0, 85, 255, 0.4);
 
 	font-family: var(--l-font);
 	background-color: #EDE4D3;

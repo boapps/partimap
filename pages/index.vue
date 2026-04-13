@@ -67,10 +67,6 @@ useHead({
 					<div class="hero-circle-wrap">
 						<HeroMap />
 						<!-- Radial decorative lines -->
-						<div class="circle-line circle-line-1" aria-hidden="true" />
-						<div class="circle-line circle-line-2" aria-hidden="true" />
-						<div class="circle-line circle-line-3" aria-hidden="true" />
-						<div class="circle-line circle-line-4" aria-hidden="true" />
 						<svg class="rotating-svg" viewBox="0 0 300 300" aria-hidden="true">
 							<defs>
 								<path
@@ -464,6 +460,9 @@ useHead({
 .nav-right :deep(.nav-item) {
 	list-style: none;
 }
+.nav-item {
+  color: var(--l-blue);
+}
 .nav-login-item {
 	list-style: none;
 }
@@ -581,7 +580,7 @@ useHead({
 .hero-brand {
 	color: var(--l-blue);
 	font-size: 1rem;
-	font-weight: 800;
+	font-weight: 700;
 	letter-spacing: 0.15em;
 	display: block;
 	margin-bottom: 1.5rem;
@@ -607,40 +606,6 @@ useHead({
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-.circle-line {
-	position: absolute;
-	background: var(--l-blue);
-	opacity: 0.2;
-	z-index: 0;
-}
-.circle-line-1 {
-	width: 1px;
-	height: 60px;
-	top: -30px;
-	left: 45%;
-	transform: rotate(-20deg);
-}
-.circle-line-2 {
-	width: 1px;
-	height: 50px;
-	top: 10%;
-	right: -15px;
-	transform: rotate(40deg);
-}
-.circle-line-3 {
-	width: 1px;
-	height: 60px;
-	bottom: -20px;
-	right: 20%;
-	transform: rotate(-30deg);
-}
-.circle-line-4 {
-	width: 50px;
-	height: 1px;
-	bottom: 35%;
-	right: -25px;
-	transform: rotate(5deg);
 }
 .rotating-svg {
 	position: absolute;
@@ -668,9 +633,9 @@ useHead({
 .hero-left-line {
 	margin-top: 3rem;
 	width: 100%;
-	height: 1.5px;
+	height: 2px;
 	background: var(--l-blue);
-	opacity: 0.25;
+	opacity: 0.7;
 }
 .hero-feat-sep {
 	width: 100%;
@@ -681,7 +646,6 @@ useHead({
 }
 .hero-right {
 	padding-left: 2rem;
-	border-right: 1.5px solid rgba(0, 85, 255, 0.2);
 	padding-right: 1rem;
 }
 .hero-feat {
@@ -1149,10 +1113,10 @@ useHead({
 /* ── Decorative Circles (outlines) ────────────────────── */
 .deco-circle {
 	position: absolute;
-	border: 1.5px solid var(--l-blue);
+	border: 2px solid var(--l-blue);
 	border-radius: 50%;
 	pointer-events: none;
-	opacity: 0.16;
+	opacity: 0.8;
 }
 .deco-hero-bl  { width: 300px; height: 300px; bottom: 40px; left: -100px; }
 .deco-sup-tr   { width: 250px; height: 250px; top: -60px; right: 15%; }
@@ -1172,13 +1136,13 @@ useHead({
 	opacity: 0.12;
 }
 .deco-hero-line-v {
-	width: 1.5px;
+	width: 2px;
 	height: 150px;
 	left: 8%;
 	bottom: 15%;
 }
 .deco-hero-line-h {
-	height: 1.5px;
+	height: 2px;
 	width: 200px;
 	left: 0;
 	bottom: calc(40px + 150px);

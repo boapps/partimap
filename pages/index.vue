@@ -107,6 +107,29 @@ useHead({
 			<div class="hero-scroll" aria-hidden="true">↓</div>
 		</section>
 
+		<!-- Examples / Use cases -->
+		<section class="examples-section">
+			<div class="section-blob blob-examples" aria-hidden="true" />
+			<div class="examples-inner">
+				<h2 class="sec-title">{{ t('landing.examples.title') }}</h2>
+				<p class="sec-sub">{{ t('landing.examples.sub') }}</p>
+				<div class="examples-grid">
+					<div v-for="n in 4" :key="n" class="example-card">
+						<div class="example-icon">
+							<i :class="`fas fa-${['city','bus','tree','users'][n-1]}`" />
+						</div>
+						<span class="example-badge">{{ t(`landing.examples.card${n}Badge`) }}</span>
+						<h4>{{ t(`landing.examples.card${n}Title`) }}</h4>
+						<p>{{ t(`landing.examples.card${n}Desc`) }}</p>
+						<a :href="t(`landing.examples.card${n}Link`)" target="_blank" class="btn-landing-outline btn-sm">
+							{{ t('landing.examples.viewBtn') }}
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="sec-arrow" aria-hidden="true">↓</div>
+		</section>
+
 		<!-- Why use it -->
 		<section id="about" class="why-section">
 			<div class="section-blob blob-why" aria-hidden="true" />
@@ -743,6 +766,84 @@ useHead({
 	opacity: 0.7;
 	font-weight: 500;
 	margin: 0;
+}
+
+/* ── Examples Section ─────────────────────────────────── */
+.examples-section {
+	position: relative;
+	padding: 5rem 2rem 3rem;
+}
+.examples-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.examples-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+	margin-top: 2.5rem;
+}
+.example-card {
+	border: 1.5px solid var(--l-blue);
+	border-radius: 12px;
+	padding: 1.8rem 1.4rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.7rem;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.example-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0, 85, 255, 0.12);
+}
+.example-icon {
+	flex-shrink: 0;
+	width: 56px;
+	height: 56px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--l-blue);
+	font-size: 1.2rem;
+	margin-bottom: 0.3rem;
+}
+.example-badge {
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	color: var(--l-blue);
+	text-transform: uppercase;
+	opacity: 0.7;
+}
+.example-card h4 {
+	color: var(--l-blue);
+	font-size: 0.95rem;
+	font-weight: 500;
+	margin: 0;
+	line-height: 1.3;
+}
+.example-card p {
+	font-size: 0.8rem;
+	opacity: 0.7;
+	font-weight: 500;
+	margin: 0;
+	flex-grow: 1;
+}
+.example-card .btn-sm {
+	margin-top: 0.5rem;
+}
+.blob-examples {
+	top: -100px;
+	right: -200px;
+}
+@media (max-width: 1024px) {
+	.examples-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+	.examples-grid { grid-template-columns: 1fr; }
 }
 
 /* ── Support Section ──────────────────────────────────── */

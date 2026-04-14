@@ -126,16 +126,20 @@ useHead({
 		<!-- Why use it -->
 		<section id="about" class="why-section">
 			<div class="section-blob blob-why" aria-hidden="true" />
+			<svg class="why-side-arrow" aria-hidden="true" viewBox="0 0 24 400" xmlns="http://www.w3.org/2000/svg">
+				<line x1="12" y1="0" x2="12" y2="384" stroke="currentColor" stroke-width="3"/>
+				<polyline points="4,374 12,385 20,374" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+			</svg>
 			<div class="why-inner">
 				<h2 class="sec-title">{{ t('landing.why.title') }}</h2>
 				<p class="sec-sub">{{ t('landing.why.sub') }}</p>
 				<div class="feat-grid">
 					<div class="feat-card">
-						<div class="feat-icon"><i class="fas fa-hand-paper" /></div>
+						<div class="feat-icon"><img src="/icons/hand.png" alt="" /></div>
 						<div><h4>{{ t('landing.why.feat1') }}</h4><p>{{ t('landing.why.feat1Desc') }}</p></div>
 					</div>
 					<div class="feat-card">
-						<div class="feat-icon"><i class="fas fa-dollar-sign" /></div>
+						<div class="feat-icon"><img src="/icons/money.png" alt="" /></div>
 						<div><h4>{{ t('landing.why.feat2') }}</h4><p>{{ t('landing.why.feat2Desc') }}</p></div>
 					</div>
 					<div class="feat-card">
@@ -143,11 +147,11 @@ useHead({
 						<div><h4>{{ t('landing.why.feat3') }}</h4><p>{{ t('landing.why.feat3Desc') }}</p></div>
 					</div>
 					<div class="feat-card">
-						<div class="feat-icon"><i class="fas fa-globe" /></div>
+						<div class="feat-icon"><img src="/icons/language.png" alt="" /></div>
 						<div><h4>{{ t('landing.why.feat4') }}</h4><p>{{ t('landing.why.feat4Desc') }}</p></div>
 					</div>
 					<div class="feat-card">
-						<div class="feat-icon"><i class="fas fa-map-marker-alt" /></div>
+						<div class="feat-icon"><img src="/icons/pin.png" alt="" /></div>
 						<div><h4>{{ t('landing.why.feat5') }}</h4><p>{{ t('landing.why.feat5Desc') }}</p></div>
 					</div>
 					<div class="feat-card">
@@ -156,19 +160,17 @@ useHead({
 					</div>
 				</div>
 			</div>
-			<div class="sec-arrow" aria-hidden="true">↓</div>
 		</section>
 
 		<!-- Support -->
 		<section id="features" class="support-section">
 			<div class="section-blob blob-sup" aria-hidden="true" />
-			<div class="deco-circle deco-sup-tr" aria-hidden="true" />
-			<div class="deco-circle deco-sup-br" aria-hidden="true" />
-			<div class="deco-line deco-sup-line" aria-hidden="true" />
 
 			<div class="support-inner">
 				<div class="support-left">
-					<i class="fas fa-hand-holding-heart support-floater" aria-hidden="true" />
+			<div class="features-line deco-line" aria-hidden="true" />
+			<img src="/icons/handshake.png" alt="" class="features-icon" />
+			<div class="features-line-2 deco-line" aria-hidden="true" />
 					<div class="support-circle floating-big" />
 				</div>
 				<div class="support-right">
@@ -705,6 +707,17 @@ useHead({
 	position: relative;
 	padding: 5rem 2rem 3rem;
 }
+.why-side-arrow {
+	position: absolute;
+	right: 10rem;
+	top: 65%;
+	transform: translateY(-50%);
+	width: 24px;
+	height: 400px;
+	scale: 1;
+	color: var(--l-blue);
+	pointer-events: none;
+}
 .why-inner {
 	max-width: 1000px;
 	margin: 0 auto;
@@ -728,8 +741,16 @@ useHead({
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
+}
+.feat-icon img {
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+}
+.feat-icon i {
+	font-size: 1.7rem;
 	color: var(--l-blue);
-	font-size: 1.3rem;
 }
 .feat-card h4 {
 	color: var(--l-blue);
@@ -1145,7 +1166,25 @@ useHead({
 	position: absolute;
 	background: var(--l-blue);
 	pointer-events: none;
-	opacity: 0.12;
+}
+.features-line {
+	width: 1.5px;
+	height: 120px;
+	left: 5%;
+	top: 1%;
+}
+.features-line-2 {
+	width: 1.5px;
+	height: 120px;
+	left: 5%;
+	top: 61%;
+}
+.features-icon {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	left: 0.8%;
+	top: 42%;
 }
 .deco-hero-line-v {
 	width: 2px;

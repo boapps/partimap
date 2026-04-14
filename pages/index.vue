@@ -223,6 +223,7 @@ useHead({
 			<div class="section-blob blob-show" aria-hidden="true" />
 
 			<div class="showcase-inner">
+				<img src="/icons/home.png" alt="" class="showcase-top-icon" />
 				<h2 class="sec-title text-center">{{ t('landing.showcase.title') }}</h2>
 				<p class="sec-desc text-center">{{ t('landing.showcase.desc') }}</p>
 				<div class="map-visual">
@@ -1028,11 +1029,11 @@ useHead({
 .map-dot:hover::after {
 	opacity: 0;
 }
-.map-dot-1 { width: 80px; height: 80px; top: 8%; left: 12%; }
-.map-dot-2 { width: 60px; height: 60px; top: 25%; left: 55%; }
-.map-dot-3 { width: 70px; height: 70px; top: 45%; right: 15%; }
-.map-dot-4 { width: 50px; height: 50px; top: 65%; left: 35%; }
-.map-dot-5 { width: 40px; height: 40px; bottom: 10%; right: 30%; }
+.map-dot-1 { width: 130px; height: 130px; top: 8%; left: 12%; }
+.map-dot-2 { width: 130px; height: 130px; top: 15%; left: 55%; }
+.map-dot-3 { width: 130px; height: 130px; top: 40%; right: 15%; }
+.map-dot-4 { width: 130px; height: 130px; top: 65%; left: 15%; }
+.map-dot-5 { width: 130px; height: 130px; bottom: 10%; right: 30%; }
 
 /* ── News Section ─────────────────────────────────────── */
 .news-section {
@@ -1236,6 +1237,15 @@ useHead({
 	height: 20px;
 	left: -100px;
 	top: 150px;
+}
+.showcase-top-icon {
+	display: block;
+	width: 20px;
+	height: 20px;
+	/* left: -100px; */
+	/* top: 150px; */
+	margin-left: auto;
+	margin-right: auto;
 }
 .features-top-circle {
 	position: relative;

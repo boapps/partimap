@@ -47,9 +47,6 @@ useHead({
 		<section class="hero-section">
 			<div class="hero-blob blob-tr" aria-hidden="true" />
 			<div class="hero-blob blob-bl" aria-hidden="true" />
-			<div class="deco-circle deco-hero-bl" aria-hidden="true" />
-			<div class="deco-line deco-hero-line-v" aria-hidden="true" />
-			<div class="deco-line deco-hero-line-h" aria-hidden="true" />
 
 			<div class="hero-inner">
 				<div class="hero-left">
@@ -61,12 +58,13 @@ useHead({
 						class="btn-landing"
 					>{{ t('landing.hero.cta') }}</a>
 					<div class="hero-left-line" aria-hidden="true" />
+					<div class="deco-circle hero-left-circle" aria-hidden="true" />
+					<div class="hero-left-arrow" aria-hidden="true">↓</div>
 				</div>
 
 				<div class="hero-center">
 					<div class="hero-circle-wrap">
 						<HeroMap />
-						<!-- Radial decorative lines -->
 						<svg class="rotating-svg" viewBox="0 0 300 300" aria-hidden="true">
 							<defs>
 								<path
@@ -100,7 +98,6 @@ useHead({
 					</div>
 				</div>
 			</div>
-			<div class="hero-scroll" aria-hidden="true">↓</div>
 		</section>
 
 		<!-- Examples / Use cases -->
@@ -513,6 +510,15 @@ useHead({
 	font-weight: 500;
 	margin-bottom: 3rem;
 }
+.hero-left-arrow {
+	color: var(--l-blue);
+	font-size: 1.5rem;
+	text-align: right;
+	/* padding: 0 4rem 2rem 0; */
+	left: -360px;
+	top: -280px;
+	position: relative;
+}
 .sec-arrow {
 	color: var(--l-blue);
 	font-size: 1.5rem;
@@ -573,7 +579,7 @@ useHead({
 	flex: 1;
 	display: grid;
 	grid-template-columns: 1fr 1.2fr 0.8fr;
-	align-items: center;
+	align-items: start;
 	gap: 2rem;
 	width: 100%;
 }
@@ -604,7 +610,8 @@ useHead({
 	width: 420px;
 	height: 420px;
 	display: flex;
-	align-items: center;
+	align-items: start;
+	margin-top: 80px;
 	justify-content: center;
 }
 .rotating-svg {
@@ -631,11 +638,15 @@ useHead({
 	flex-shrink: 0;
 }
 .hero-left-line {
-	margin-top: 3rem;
+	margin-top: 8rem;
 	width: 100%;
 	height: 2px;
 	background: var(--l-blue);
 	opacity: 0.7;
+}
+.hero-left-circle {
+	width: 300px; height: 300px; bottom: 80px; left: -200px;
+	position: relative;
 }
 .hero-feat-sep {
 	width: 100%;
@@ -647,6 +658,7 @@ useHead({
 .hero-right {
 	padding-left: 2rem;
 	padding-right: 1rem;
+	margin-top: 200px;
 }
 .hero-feat {
 	margin-bottom: 1rem;
@@ -1112,7 +1124,7 @@ useHead({
 
 /* ── Decorative Circles (outlines) ────────────────────── */
 .deco-circle {
-	position: absolute;
+	/* position: absolute; */
 	border: 2px solid var(--l-blue);
 	border-radius: 50%;
 	pointer-events: none;

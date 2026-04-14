@@ -215,13 +215,11 @@ useHead({
 					</div>
 				</div>
 			</div>
-			<div class="sec-arrow" aria-hidden="true">↓</div>
+			<div class="stat-arrow" aria-hidden="true">↓</div>
 		</section>
 
 		<!-- Showcase -->
 		<section class="showcase-section">
-			<div class="deco-circle deco-show-tl" aria-hidden="true" />
-			<div class="deco-circle deco-show-br" aria-hidden="true" />
 			<div class="section-blob blob-show" aria-hidden="true" />
 
 			<div class="showcase-inner">
@@ -505,7 +503,7 @@ useHead({
 	color: var(--l-blue);
 	font-size: clamp(2rem, 5vw, 3.5rem);
 	font-weight: 500;
-	margin-bottom: 0.5rem;
+	margin-bottom: 1.5rem;
 	line-height: 1.15;
 }
 .sec-sub {
@@ -534,6 +532,13 @@ useHead({
 	color: var(--l-blue);
 	font-size: 1.5rem;
 	text-align: right;
+	padding: 0 4rem 2rem 0;
+}
+.stat-arrow {
+	color: var(--l-blue);
+	font-size: 1.5rem;
+	text-align: right;
+	margin-top: 4rem;
 	padding: 0 4rem 2rem 0;
 }
 
@@ -944,7 +949,7 @@ useHead({
 .stats-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
+	gap: 0rem;
 	text-align: center;
 }
 .stat-circle {
@@ -957,19 +962,23 @@ useHead({
 	justify-content: center;
 	margin: 0 auto 1.2rem;
 	font-size: 2rem;
-	font-weight: 600;
+	font-weight: 400;
 	color: var(--l-blue);
+	margin-bottom: 1rem;
+}
+.stat-item {
+	width: 22rem;
 }
 .stat-item h4 {
 	color: var(--l-blue);
-	font-size: 0.75rem;
-	font-weight: 700;
+	font-size: 1.1rem;
+	font-weight: 400;
 	letter-spacing: 0.05em;
-	margin-bottom: 0.5rem;
+	margin-bottom: 1.5rem;
 }
 .stat-item p {
 	font-size: 0.8rem;
-	opacity: 0.7;
+	font-weight: 500;
 }
 
 /* ── Showcase Section ─────────────────────────────────── */

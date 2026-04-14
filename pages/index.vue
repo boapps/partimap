@@ -168,10 +168,14 @@ useHead({
 
 			<div class="support-inner">
 				<div class="support-left">
-			<div class="features-line deco-line" aria-hidden="true" />
-			<img src="/icons/handshake.png" alt="" class="features-icon" />
-			<div class="features-line-2 deco-line" aria-hidden="true" />
-					<div class="support-circle floating-big" />
+					<div class="features-line deco-line" aria-hidden="true" />
+					<img src="/icons/handshake.png" alt="" class="features-icon" />
+					<div class="features-line-2 deco-line" aria-hidden="true" />
+					
+					<div class="support-circle-wrap">
+						<div class="hm-diag-line" aria-hidden="true" />
+						<div class="support-circle floating-big" />
+					</div>
 				</div>
 				<div class="support-right">
 					<span class="support-eyebrow">{{ t('landing.support.eyebrow') }}</span>
@@ -864,10 +868,29 @@ useHead({
 	min-height: 350px;
 }
 .support-circle {
-	width: clamp(200px, 25vw, 320px);
-	height: clamp(200px, 25vw, 320px);
+	width: 400px;
+	height: 400px;
 	background-image: url('/bus.webp');
 	border-radius: 50%;
+	z-index: 1;
+	position: relative;
+}
+.support-circle-wrap {
+	margin-left: 100px;
+	width: 400px;
+	height: 400px;
+}
+/* Diagonal line at 30°, sits behind the circle */
+.hm-diag-line {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	width: 140%;
+	height: 2px;
+	background: #0055ff;
+	transform: translate(-50%, -50%) rotate(120deg);
+	pointer-events: none;
+	z-index: 0;
 }
 .support-floater {
 	position: absolute;
@@ -1168,23 +1191,25 @@ useHead({
 	pointer-events: none;
 }
 .features-line {
+	position: relative;
 	width: 1.5px;
 	height: 120px;
-	left: 5%;
-	top: 1%;
+	left: -0px;
+	top: -100px;
 }
 .features-line-2 {
+	position: relative;
 	width: 1.5px;
 	height: 120px;
-	left: 5%;
-	top: 61%;
+	left: -40px;
+	top: 100px;
 }
 .features-icon {
-	position: absolute;
+	position: relative;
 	width: 40px;
 	height: 40px;
-	left: 0.8%;
-	top: 42%;
+	left: -20px;
+	top: 0px;
 }
 .deco-hero-line-v {
 	width: 2px;

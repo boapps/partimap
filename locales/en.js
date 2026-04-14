@@ -159,6 +159,16 @@ export default {
 		showcase: {
 			title: 'Our pride',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+			dot1Title: 'Urban Mobility Survey',
+			dot1Desc: 'A participatory mapping project exploring how residents navigate the city. Over 1,200 citizens shared their daily routes and pain points.',
+			dot2Title: 'Green Spaces Initiative',
+			dot2Desc: 'Community members identified underused areas suitable for parks and gardens. The results shaped the city\'s 5-year greening plan.',
+			dot3Title: 'Noise & Air Quality Map',
+			dot3Desc: 'Residents logged real-time observations about noise and pollution hotspots, helping authorities prioritize interventions.',
+			dot4Title: 'Cycling Infrastructure',
+			dot4Desc: 'Cyclists mapped missing bike lanes and dangerous intersections. The data directly influenced the new cycling master plan.',
+			dot5Title: 'Neighbourhood Revitalisation',
+			dot5Desc: 'Local stakeholders co-designed a regeneration strategy for a historic district, balancing heritage preservation with modern needs.',
 		},
 		news: {
 			title: 'News',

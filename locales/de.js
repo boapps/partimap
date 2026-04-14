@@ -161,6 +161,16 @@ export default {
 		showcase: {
 			title: 'Unser Stolz',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+			dot1Title: 'Stadtmobilitäts-Umfrage',
+			dot1Desc: 'Ein partizipatives Kartierungsprojekt, das untersucht, wie Bewohner die Stadt erkunden. Über 1.200 Bürger teilten ihre täglichen Routen und Schmerzpunkte.',
+			dot2Title: 'Initiative für Grünflächen',
+			dot2Desc: 'Gemeindemitglieder identifizierten untergenutzte Flächen für Parks und Gärten. Die Ergebnisse prägten den 5-Jahres-Begrünungsplan der Stadt.',
+			dot3Title: 'Lärm- und Luftqualitätskarte',
+			dot3Desc: 'Bewohner erfassten Echtzeit-Beobachtungen zu Lärm- und Schadstoff-Hotspots und halfen den Behörden, Interventionen zu priorisieren.',
+			dot4Title: 'Fahrradinfrastruktur',
+			dot4Desc: 'Radfahrer kartierten fehlende Radwege und gefährliche Kreuzungen. Die Daten beeinflussten direkt den neuen Radverkehrsmasterplan.',
+			dot5Title: 'Stadtteilrevitalisierung',
+			dot5Desc: 'Lokale Stakeholder erarbeiteten gemeinsam eine Entwicklungsstrategie für ein historisches Viertel und balancierten Denkmalpflege mit modernen Bedürfnissen.',
 		},
 		news: {
 			title: 'Neuigkeiten',

@@ -159,6 +159,16 @@ export default {
 		showcase: {
 			title: 'Mūsų pasididžiavimas',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+			dot1Title: 'Miesto mobilumo apklausa',
+			dot1Desc: 'Dalyvavimo žemėlapių projektas, tiriantis, kaip gyventojai juda po miestą. Daugiau nei 1 200 piliečių pasidalijo savo kasdieniais maršrutais ir problemomis.',
+			dot2Title: 'Žaliųjų erdvių iniciatyva',
+			dot2Desc: 'Bendruomenės nariai nustatė mažai naudojamas vietas, tinkamas parkams ir sodams. Rezultatai formavo miesto 5 metų žalinimo planą.',
+			dot3Title: 'Triukšmo ir oro kokybės žemėlapis',
+			dot3Desc: 'Gyventojai realiuoju laiku registravo pastebėjimus apie triukšmo ir taršos vietas, padėdami valdžiai nustatyti intervencijų prioritetus.',
+			dot4Title: 'Dviračių infrastruktūra',
+			dot4Desc: 'Dviratininkai žemėlapyje pažymėjo trūkstamus dviračių takus ir pavojingas sankryžas. Duomenys tiesiogiai paveikė naująjį dviračių magistralinį planą.',
+			dot5Title: 'Kaimynystės atgaivinimas',
+			dot5Desc: 'Vietiniai suinteresuotieji bendrai kūrė istorinio kvartalo atgaivinimo strategiją, derindami paveldo išsaugojimą su moderniais poreikiais.',
 		},
 		news: {
 			title: 'Naujienos',

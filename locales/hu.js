@@ -160,6 +160,16 @@ export default {
 		showcase: {
 			title: 'Büszkeségeink',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+			dot1Title: 'Városi mobilitás felmérés',
+			dot1Desc: 'Részvételi térképezési projekt, amely feltárja, hogyan közlekednek a lakosok a városban. Több mint 1200 polgár osztotta meg napi útvonalait és problémáit.',
+			dot2Title: 'Zöldfelületi kezdeményezés',
+			dot2Desc: 'A közösség tagjai azonosítottak parkok és kertek kialakítására alkalmas, kihasználatlan területeket. Az eredmények formálták a város 5 éves zöldítési tervét.',
+			dot3Title: 'Zaj- és levegőminőségi térkép',
+			dot3Desc: 'A lakosok valós idejű megfigyeléseket rögzítettek a zaj- és szennyezési gócpontokról, segítve a hatóságokat a beavatkozások prioritizálásában.',
+			dot4Title: 'Kerékpáros infrastruktúra',
+			dot4Desc: 'A kerékpárosok feltérképezték a hiányzó kerékpársávokat és veszélyes kereszteződéseket. Az adatok közvetlenül befolyásolták az új kerékpáros fejlesztési tervet.',
+			dot5Title: 'Városrész-megújítás',
+			dot5Desc: 'A helyi érintettek közösen tervezték meg egy történelmi városrész fejlesztési stratégiáját, egyensúlyt teremtve az örökségvédelem és a modern igények között.',
 		},
 		news: {
 			title: 'Híreink',

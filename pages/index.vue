@@ -5,6 +5,16 @@ const { t } = useI18n();
 useHead({
 	title: t('landing.title'),
 });
+
+const activePopup = ref<number | null>(null);
+
+function togglePopup(n: number) {
+	activePopup.value = activePopup.value === n ? null : n;
+}
+
+function closePopup() {
+	activePopup.value = null;
+}
 </script>
 
 <template>
@@ -226,13 +236,31 @@ useHead({
 				<img src="/icons/home.png" alt="" class="showcase-top-icon" />
 				<h2 class="sec-title text-center">{{ t('landing.showcase.title') }}</h2>
 				<p class="sec-desc text-center">{{ t('landing.showcase.desc') }}</p>
-				<div class="map-visual">
+				<div class="map-visual" @click.self="closePopup">
 					<img src="/map.webp" alt="" class="map-svg" aria-hidden="true">
-					<div class="map-dot map-dot-1" />
-					<div class="map-dot map-dot-2" />
-					<div class="map-dot map-dot-3" />
-					<div class="map-dot map-dot-4" />
-					<div class="map-dot map-dot-5" />
+					<template v-for="n in 5" :key="n">
+						<div
+							:class="`map-dot map-dot-${n}`"
+							:aria-label="t(`landing.showcase.dot${n}Title`)"
+							role="button"
+							tabindex="0"
+							@click.stop="togglePopup(n)"
+							@keydown.enter.stop="togglePopup(n)"
+							@keydown.space.prevent.stop="togglePopup(n)"
+						/>
+						<Transition name="popup">
+							<div
+								v-if="activePopup === n"
+								:class="`map-popup map-popup-${n}`"
+								role="dialog"
+								@click.stop
+							>
+								<button class="map-popup-close" aria-label="Close" @click="closePopup">×</button>
+								<h4 class="map-popup-title">{{ t(`landing.showcase.dot${n}Title`) }}</h4>
+								<p class="map-popup-desc">{{ t(`landing.showcase.dot${n}Desc`) }}</p>
+							</div>
+						</Transition>
+					</template>
 				</div>
 			</div>
 		</section>
@@ -1034,6 +1062,77 @@ useHead({
 .map-dot-3 { width: 130px; height: 130px; top: 40%; right: 15%; }
 .map-dot-4 { width: 130px; height: 130px; top: 65%; left: 15%; }
 .map-dot-5 { width: 130px; height: 130px; bottom: 10%; right: 30%; }
+
+/* ── Map Popups ───────────────────────────────────────── */
+.map-popup {
+	position: absolute;
+	z-index: 10;
+	width: 220px;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+	padding: 1.1rem 1.1rem 1rem;
+	pointer-events: all;
+}
+.map-popup::before {
+	content: '';
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	background: #fff;
+	box-shadow: -2px 2px 6px rgba(0,0,0,0.08);
+	transform: rotate(45deg);
+}
+/* Arrow positions per dot */
+.map-popup-1 { top: -8%; left: calc(12% + 140px); }
+.map-popup-1::before { bottom: 30%; left: -7px; }
+.map-popup-2 { top: 5%; left: calc(55% + 140px); }
+.map-popup-2::before { bottom: 30%; left: -7px; }
+.map-popup-3 { top: 30%; right: calc(15% + 140px); }
+.map-popup-3::before { bottom: 30%; right: -7px; transform: rotate(45deg); }
+.map-popup-4 { top: 58%; left: calc(15% + 140px); }
+.map-popup-4::before { bottom: 30%; left: -7px; }
+.map-popup-5 { bottom: 5%; right: calc(30% + 140px); }
+.map-popup-5::before { bottom: 30%; right: -7px; transform: rotate(45deg); }
+
+.map-popup-close {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.65rem;
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	line-height: 1;
+	color: #aaa;
+	cursor: pointer;
+	padding: 0;
+	transition: color 0.2s;
+}
+.map-popup-close:hover { color: #0055FF; }
+.map-popup-title {
+	font-size: 0.95rem;
+	font-weight: 700;
+	color: #0055FF;
+	margin: 0 1.2rem 0.5rem 0;
+	line-height: 1.3;
+}
+.map-popup-desc {
+	font-size: 0.8rem;
+	color: #444;
+	margin: 0;
+	line-height: 1.5;
+}
+
+/* Popup enter/leave transitions */
+.popup-enter-active,
+.popup-leave-active {
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.popup-enter-from,
+.popup-leave-to {
+	opacity: 0;
+	transform: scale(0.92) translateY(4px);
+}
 
 /* ── News Section ─────────────────────────────────────── */
 .news-section {

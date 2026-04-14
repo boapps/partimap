@@ -161,6 +161,16 @@ export default {
 		showcase: {
 			title: 'Nuestro orgullo',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+			dot1Title: 'Encuesta de movilidad urbana',
+			dot1Desc: 'Un proyecto de cartografía participativa que explora cómo los residentes navegan por la ciudad. Más de 1.200 ciudadanos compartieron sus rutas diarias y problemas.',
+			dot2Title: 'Iniciativa de espacios verdes',
+			dot2Desc: 'Los miembros de la comunidad identificaron áreas infrautilizadas aptas para parques y jardines. Los resultados dieron forma al plan de ecologización a 5 años de la ciudad.',
+			dot3Title: 'Mapa de ruido y calidad del aire',
+			dot3Desc: 'Los residentes registraron observaciones en tiempo real sobre puntos críticos de ruido y contaminación, ayudando a las autoridades a priorizar intervenciones.',
+			dot4Title: 'Infraestructura ciclista',
+			dot4Desc: 'Los ciclistas mapearon los carriles bici faltantes y las intersecciones peligrosas. Los datos influyeron directamente en el nuevo plan maestro de ciclismo.',
+			dot5Title: 'Revitalización del barrio',
+			dot5Desc: 'Las partes interesadas locales co-diseñaron una estrategia de regeneración para un distrito histórico, equilibrando la preservación del patrimonio con las necesidades modernas.',
 		},
 		news: {
 			title: 'Noticias',

@@ -178,10 +178,14 @@ useHead({
 					</div>
 				</div>
 				<div class="support-right">
-					<span class="support-eyebrow">{{ t('landing.support.eyebrow') }}</span>
-					<h2 class="support-heading">{{ t('landing.support.heading') }}</h2>
-					<p>{{ t('landing.support.desc') }}</p>
-					<a :href="t('landing.support.link')" target="_blank" rel="noopener" class="btn-landing-outline">{{ t('landing.support.button') }}</a>
+					<img src="/icons/home.png" alt="" class="features-top-icon" />
+					<div class="features-top-circle floating-small" aria-hidden="true" />
+					<div class="support-right-inner">
+						<span class="support-eyebrow">{{ t('landing.support.eyebrow') }}</span>
+						<h2 class="support-heading">{{ t('landing.support.heading') }}</h2>
+						<p>{{ t('landing.support.desc') }}</p>
+						<a :href="t('landing.support.link')" target="_blank" rel="noopener" class="btn-landing-outline">{{ t('landing.support.button') }}</a>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -851,6 +855,7 @@ useHead({
 .support-section {
 	position: relative;
 	padding: 6rem 2rem;
+	margin-top: 100px;
 }
 .support-inner {
 	max-width: 1000px;
@@ -920,6 +925,10 @@ useHead({
 	font-weight: 500;
 	opacity: 0.8;
 	margin-bottom: 2rem;
+}
+.support-right-inner {
+	top: -100px;
+	position: relative;
 }
 
 /* ── Statistics Section ───────────────────────────────── */
@@ -1210,6 +1219,22 @@ useHead({
 	height: 40px;
 	left: -20px;
 	top: 0px;
+}
+.features-top-icon {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	left: -100px;
+	top: -40px;
+}
+.features-top-circle {
+	position: relative;
+	width: 180px;
+	height: 180px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	left: 0px;
+	top: -200px;
 }
 .deco-hero-line-v {
 	width: 2px;

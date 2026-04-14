@@ -186,6 +186,7 @@ useHead({
 						<p>{{ t('landing.support.desc') }}</p>
 						<a :href="t('landing.support.link')" target="_blank" rel="noopener" class="btn-landing-outline">{{ t('landing.support.button') }}</a>
 					</div>
+					<div class="features-bottom-circle floating-small" aria-hidden="true" />
 				</div>
 			</div>
 		</section>
@@ -927,7 +928,7 @@ useHead({
 	margin-bottom: 2rem;
 }
 .support-right-inner {
-	top: -100px;
+	top: 100px;
 	position: relative;
 }
 
@@ -1222,10 +1223,10 @@ useHead({
 }
 .features-top-icon {
 	position: relative;
-	width: 40px;
-	height: 40px;
+	width: 20px;
+	height: 20px;
 	left: -100px;
-	top: -40px;
+	top: 150px;
 }
 .features-top-circle {
 	position: relative;
@@ -1233,8 +1234,17 @@ useHead({
 	height: 180px;
 	border: 1.5px solid var(--l-blue);
 	border-radius: 50%;
-	left: 0px;
-	top: -200px;
+	left: -30px;
+	top: 20px;
+}
+.features-bottom-circle {
+	position: relative;
+	width: 380px;
+	height: 380px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 50%;
+	right: -300px;
+	bottom: 0px;
 }
 .deco-hero-line-v {
 	width: 2px;

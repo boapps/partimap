@@ -233,9 +233,11 @@ function closePopup() {
 			<div class="section-blob blob-show" aria-hidden="true" />
 
 			<div class="showcase-inner">
+				<div class="showcase-circle deco-circle" aria-hidden="true" />
+
 				<img src="/icons/home.png" alt="" class="showcase-top-icon" />
 				<h2 class="sec-title text-center">{{ t('landing.showcase.title') }}</h2>
-				<p class="sec-desc text-center">{{ t('landing.showcase.desc') }}</p>
+				<p class="sec-desc showcase-desc text-center">{{ t('landing.showcase.desc') }}</p>
 				<div class="map-visual" @click.self="closePopup">
 					<img src="/map.webp" alt="" class="map-svg" aria-hidden="true">
 					<template v-for="n in 5" :key="n">
@@ -267,7 +269,6 @@ function closePopup() {
 
 		<!-- News -->
 		<section class="news-section">
-			<div class="deco-circle deco-news-tr" aria-hidden="true" />
 			<div class="section-blob blob-news" aria-hidden="true" />
 			<div class="news-inner">
 				<h2 class="sec-title">{{ t('landing.news.title') }}</h2>
@@ -295,9 +296,9 @@ function closePopup() {
 
 		<!-- Help -->
 		<section class="helplanding-section">
-			<div class="deco-circle deco-helpl-tr" aria-hidden="true" />
 			<div class="section-blob blob-helpl" aria-hidden="true" />
 			<div class="helplanding-inner">
+				<img src="/icons/home.png" alt="" class="showcase-top-icon" />
 				<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
 				<p class="sec-desc text-center">{{ t('landing.help.desc') }}</p>
 				<div class="helpl-grid">
@@ -692,6 +693,15 @@ function closePopup() {
 .hero-left-circle {
 	width: 300px; height: 300px; bottom: 80px; left: -200px;
 	position: relative;
+}
+.showcase-circle {
+	width: 420px; height: 420px; bottom: -280px; left: -380px;
+	position: relative;
+}
+.showcase-desc {
+	max-width: 400px;
+	margin-left: auto;
+  	margin-right: auto;
 }
 .hero-feat-sep {
 	width: 100%;
@@ -1345,6 +1355,7 @@ function closePopup() {
 	/* top: 150px; */
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 50px;
 }
 .features-top-circle {
 	position: relative;

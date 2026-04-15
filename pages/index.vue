@@ -15,6 +15,15 @@ function togglePopup(n: number) {
 function closePopup() {
 	activePopup.value = null;
 }
+
+function scrollToTop() {
+	window.scrollTo({ top: 0, behavior: 'smooth' });
+	document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+	document.body.scrollTo({ top: 0, behavior: 'smooth' });
+	document.querySelector('.landing')?.scrollTo({ top: 0, behavior: 'smooth' });
+	document.getElementById('app')?.scrollTo({ top: 0, behavior: 'smooth' });
+	document.getElementById('__nuxt')?.scrollTo({ top: 0, behavior: 'smooth' });
+}
 </script>
 
 <template>
@@ -188,7 +197,7 @@ function closePopup() {
 					</div>
 				</div>
 				<div class="support-right">
-					<img src="/icons/home.png" alt="" class="features-top-icon" />
+					<a href="#" class="home-link features-top-icon-wrap" @click.prevent="scrollToTop"><img src="/icons/home.png" alt="" class="features-top-icon" /></a>
 					<div class="features-top-circle floating-small" aria-hidden="true" />
 					<div class="support-right-inner">
 						<span class="support-eyebrow">{{ t('landing.support.eyebrow') }}</span>
@@ -235,7 +244,7 @@ function closePopup() {
 			<div class="showcase-inner">
 				<div class="showcase-circle deco-circle" aria-hidden="true" />
 
-				<img src="/icons/home.png" alt="" class="showcase-top-icon" />
+				<a href="#" class="home-link" @click.prevent="scrollToTop"><img src="/icons/home.png" alt="" class="showcase-top-icon" /></a>
 				<h2 class="sec-title text-center">{{ t('landing.showcase.title') }}</h2>
 				<p class="sec-desc showcase-desc text-center">{{ t('landing.showcase.desc') }}</p>
 				<div class="map-visual" @click.self="closePopup">
@@ -301,7 +310,7 @@ function closePopup() {
 			<div class="section-blob blob-helpl" aria-hidden="true" />
 			<div class="helplanding-inner">
 				<div class="help-circle deco-circle" aria-hidden="true" />
-				<img src="/icons/home.png" alt="" class="showcase-top-icon" />
+				<a href="#" class="home-link" @click.prevent="scrollToTop"><img src="/icons/home.png" alt="" class="showcase-top-icon" /></a>
 				<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
 				<p class="sec-desc showcase-desc text-center">{{ t('landing.help.desc') }}</p>
 				<div class="helpl-grid">
@@ -1382,6 +1391,11 @@ function closePopup() {
 	left: -20px;
 	top: 0px;
 }
+.home-link {
+	cursor: pointer;
+	z-index: 10;
+	pointer-events: all;
+}
 .features-top-icon {
 	position: relative;
 	width: 20px;
@@ -1389,15 +1403,17 @@ function closePopup() {
 	left: -100px;
 	top: 150px;
 }
+.home-link:has(.showcase-top-icon) {
+	display: block;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+}
 .showcase-top-icon {
 	display: block;
 	width: 20px;
 	height: 20px;
-	/* left: -100px; */
-	/* top: 150px; */
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50px;
 }
 .features-top-circle {
 	position: relative;

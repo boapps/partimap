@@ -265,6 +265,7 @@ function closePopup() {
 					</template>
 				</div>
 			</div>
+			<div class="news-circle deco-circle" aria-hidden="true" />
 		</section>
 
 		<!-- News -->
@@ -300,17 +301,17 @@ function closePopup() {
 			<div class="helplanding-inner">
 				<img src="/icons/home.png" alt="" class="showcase-top-icon" />
 				<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
-				<p class="sec-desc text-center">{{ t('landing.help.desc') }}</p>
+				<p class="sec-desc showcase-desc text-center">{{ t('landing.help.desc') }}</p>
 				<div class="helpl-grid">
 					<div class="helpl-card">
-						<div class="helpl-icon"><i class="fas fa-map-marker-alt" /></div>
+						<div class="helpl-icon"><img src="/icons/pin.png" alt="" class="helpl-icon-img" /></div>
 						<h4>{{ t('landing.help.card1Title') }}</h4>
 						<p>{{ t('landing.help.card1Desc') }}</p>
 						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
 					</div>
 					<div class="helpl-card helpl-card-center">
 						<div class="helpl-icon-wrap">
-							<div class="helpl-icon"><i class="fas fa-pen" /></div>
+							<div class="helpl-icon"><img src="/icons/pencil.png" alt="" class="helpl-icon-img" /></div>
 							<svg class="rotating-svg rotating-svg-sm" viewBox="0 0 200 200" aria-hidden="true">
 								<defs>
 									<path id="helpTextPath" d="M 100,100 m -85,0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0" />
@@ -327,7 +328,7 @@ function closePopup() {
 						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
 					</div>
 					<div class="helpl-card">
-						<div class="helpl-icon"><i class="fas fa-chart-bar" /></div>
+						<div class="helpl-icon"><img src="/icons/magnify.png" alt="" class="helpl-icon-img" /></div>
 						<h4>{{ t('landing.help.card3Title') }}</h4>
 						<p>{{ t('landing.help.card3Desc') }}</p>
 						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
@@ -338,8 +339,6 @@ function closePopup() {
 
 		<!-- Partners -->
 		<section class="partners-section">
-			<div class="deco-circle deco-part-bl" aria-hidden="true" />
-			<div class="deco-circle deco-part-tr" aria-hidden="true" />
 			<div class="section-blob blob-part" aria-hidden="true" />
 			<div class="partners-inner">
 				<h2 class="sec-title">{{ t('landing.partners.title') }}</h2>
@@ -1176,6 +1175,10 @@ function closePopup() {
 	background: var(--l-blue);
 	opacity: 0.3;
 }
+.news-circle {
+	width: 220px; height: 220px; bottom: -80px; right: 50px;
+	position: absolute;
+}
 
 /* ── Help Section ─────────────────────────────────────── */
 .helplanding-section {
@@ -1193,17 +1196,27 @@ function closePopup() {
 	text-align: center;
 	margin-top: 2rem;
 }
+.helpl-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .helpl-icon {
-	width: 80px;
-	height: 80px;
+	width: 105px;
+	height: 105px;
 	border: 1.5px solid var(--l-blue);
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: var(--l-blue);
-	font-size: 1.5rem;
-	margin: 0 auto 1.5rem;
+	font-size: 1.75rem;
+	margin: 37.5px auto calc(37.5px + 1.5rem);
+}
+.helpl-icon-img {
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
 }
 .helpl-icon-wrap {
 	position: relative;

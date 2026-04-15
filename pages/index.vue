@@ -272,6 +272,7 @@ function closePopup() {
 		<section class="news-section">
 			<div class="section-blob blob-news" aria-hidden="true" />
 			<div class="news-inner">
+
 				<h2 class="sec-title">{{ t('landing.news.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.news.desc') }}</p>
 				<div class="news-grid">
@@ -299,6 +300,7 @@ function closePopup() {
 		<section class="helplanding-section">
 			<div class="section-blob blob-helpl" aria-hidden="true" />
 			<div class="helplanding-inner">
+				<div class="help-circle deco-circle" aria-hidden="true" />
 				<img src="/icons/home.png" alt="" class="showcase-top-icon" />
 				<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
 				<p class="sec-desc showcase-desc text-center">{{ t('landing.help.desc') }}</p>
@@ -343,7 +345,10 @@ function closePopup() {
 			<div class="partners-inner">
 				<h2 class="sec-title">{{ t('landing.partners.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.partners.desc') }}</p>
+				<div class="partner-circle deco-circle" aria-hidden="true" />
 			</div>
+			<div class="partner-circle-left deco-circle" aria-hidden="true" />
+			<div class="partner-line" aria-hidden="true" />
 		</section>
 
 		<!-- Footer -->
@@ -1249,6 +1254,10 @@ function closePopup() {
 	opacity: 0.8;
 	margin-bottom: 1.5rem;
 }
+.help-circle {
+	width: 480px; height: 480px; bottom: 40%; right: -250px;
+	position: absolute;
+}
 
 /* ── Partners Section ─────────────────────────────────── */
 .partners-section {
@@ -1258,6 +1267,26 @@ function closePopup() {
 .partners-inner {
 	max-width: 1000px;
 	margin: 0 auto;
+}
+.partners-inner p {
+	max-width: 600px;
+}
+.partner-circle {
+	width: 380px; height: 380px; bottom: 38%; right: 150px;
+	position: absolute;
+}
+.partner-circle-left {
+	width: 380px; height: 380px; bottom: 10%; left: 0px;
+	position: relative;
+}
+.partner-line {
+	position: absolute;
+	bottom: calc(10% + 190px);
+	left: 0;
+	width: 900px;
+	height: 1.8px;
+	background: var(--l-blue);
+	opacity: 0.8;
 }
 
 /* ── Footer ───────────────────────────────────────────── */

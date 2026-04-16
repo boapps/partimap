@@ -566,9 +566,7 @@ function scrollToTop() {
 .hero-left-arrow {
 	color: var(--l-blue);
 	font-size: 1.5rem;
-	text-align: right;
-	position: relative;
-	transform: translate(-360px, -280px);
+	text-align: left;
 }
 .sec-arrow {
 	color: var(--l-blue);
@@ -696,7 +694,7 @@ function scrollToTop() {
 	flex-shrink: 0;
 }
 .hero-left-line {
-	margin-top: 8rem;
+	margin-top: 1.5rem;
 	width: 100%;
 	height: 2px;
 	background: var(--l-blue);
@@ -704,8 +702,8 @@ function scrollToTop() {
 }
 .hero-left-circle {
 	width: 300px; height: 300px;
-	position: relative;
-	transform: translate(-200px, -80px);
+	position: absolute;
+	transform: translate(-200px, 30px);
 }
 .showcase-circle {
 	width: 420px; height: 420px;

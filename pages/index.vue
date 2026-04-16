@@ -187,10 +187,11 @@ function scrollToTop() {
 
 			<div class="support-inner">
 				<div class="support-left">
-					<div class="features-line deco-line" aria-hidden="true" />
-					<img src="/icons/handshake.png" alt="" class="features-icon" />
-					<div class="features-line-2 deco-line" aria-hidden="true" />
-					
+					<div class="support-left-deco">
+						<div class="features-line deco-line" aria-hidden="true" />
+						<img src="/icons/handshake.png" alt="" class="features-icon" />
+						<div class="features-line-2 deco-line" aria-hidden="true" />
+					</div>
 					<div class="support-circle-wrap">
 						<div class="hm-diag-line" aria-hidden="true" />
 						<div class="support-circle floating-big" />
@@ -1381,7 +1382,7 @@ function scrollToTop() {
 	position: relative;
 	width: 1.5px;
 	height: 120px;
-	left: -40px;
+	left: -0px;
 	top: 100px;
 }
 .features-icon {
@@ -1537,6 +1538,11 @@ function scrollToTop() {
 	.news-grid { grid-template-columns: 1fr; }
 	.helpl-grid { grid-template-columns: 1fr; gap: 3rem; }
 	.footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 599px) {
+	.support-left-deco { display: none; }
+	.support-circle-wrap { margin-left: 0; }
+	.why-side-arrow { right: 1rem; }
 }
 @media (max-width: 575px) {
 	.landing-nav { padding: 0.75rem 1rem; }

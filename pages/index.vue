@@ -1497,13 +1497,6 @@ function scrollToTop() {
 .dot-11 { width:  8px; height:  8px; top: 62%; left:  5%; animation: driftB 13s ease-in-out infinite 2.2s; }
 .dot-12 { width:  4px; height:  4px; top: 92%; left: 70%; animation: driftC 18s ease-in-out infinite 4.5s; }
 
-/* ── Large Circle Float Animation ─────────────────────── */
-.map-dot-1 { animation: floatBig1  8s ease-in-out infinite; }
-.map-dot-2 { animation: floatBig2 11s ease-in-out infinite 1.5s; }
-.map-dot-3 { animation: floatBig3  9s ease-in-out infinite 3s; }
-.map-dot-4 { animation: floatBig4 13s ease-in-out infinite 0.8s; }
-.map-dot-5 { animation: floatBig5 10s ease-in-out infinite 2.2s; }
-
 /* ── Keyframes ────────────────────────────────────────── */
 @keyframes driftA {
 	0%, 100% { transform: translate(0, 0); }
@@ -1522,35 +1515,6 @@ function scrollToTop() {
 	40% { transform: translate(-22px, -6px); }
 	60% { transform: translate(16px, -20px); }
 	80% { transform: translate(-8px, 12px); }
-}
-@keyframes floatBig1 {
-	0%, 100% { transform: translate(0, 0); }
-	25% { transform: translate(12px, -10px); }
-	50% { transform: translate(18px, 6px); }
-	75% { transform: translate(6px, -14px); }
-}
-@keyframes floatBig2 {
-	0%, 100% { transform: translate(0, 0); }
-	30% { transform: translate(-14px, -8px); }
-	60% { transform: translate(-20px, 10px); }
-	80% { transform: translate(-8px, 16px); }
-}
-@keyframes floatBig3 {
-	0%, 100% { transform: translate(0, 0); }
-	25% { transform: translate(6px, 14px); }
-	50% { transform: translate(-10px, 20px); }
-	75% { transform: translate(-16px, 8px); }
-}
-@keyframes floatBig4 {
-	0%, 100% { transform: translate(0, 0); }
-	33% { transform: translate(-12px, -16px); }
-	66% { transform: translate(8px, -22px); }
-}
-@keyframes floatBig5 {
-	0%, 100% { transform: translate(0, 0); }
-	20% { transform: translate(16px, 10px); }
-	50% { transform: translate(4px, 20px); }
-	80% { transform: translate(20px, 4px); }
 }
 @keyframes spin {
 	from { transform: rotate(0deg); }

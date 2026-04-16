@@ -127,6 +127,12 @@ function scrollToTop() {
 				<p class="sec-sub">{{ t('landing.examples.sub') }}</p>
 				<div class="examples-grid">
 					<div v-for="n in 4" :key="n" class="example-card">
+						<img
+							src="/map-bp.webp"
+							alt=""
+							class="example-map-img"
+							aria-hidden="true"
+						/>
 						<div class="example-icon">
 							<i :class="`fas fa-${['city','bus','tree','users'][n-1]}`" />
 						</div>
@@ -860,6 +866,15 @@ function scrollToTop() {
 .example-card:hover {
 	transform: translateY(-4px);
 	box-shadow: 0 8px 24px rgba(0, 85, 255, 0.12);
+}
+.example-map-img {
+	width: 100%;
+	height: 130px;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 0.4rem;
+	border: 1px solid var(--l-blue);
+	opacity: 0.85;
 }
 .example-icon {
 	flex-shrink: 0;

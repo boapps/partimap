@@ -567,10 +567,8 @@ function scrollToTop() {
 	color: var(--l-blue);
 	font-size: 1.5rem;
 	text-align: right;
-	/* padding: 0 4rem 2rem 0; */
-	left: -360px;
-	top: -280px;
 	position: relative;
+	transform: translate(-360px, -280px);
 }
 .sec-arrow {
 	color: var(--l-blue);
@@ -705,12 +703,16 @@ function scrollToTop() {
 	opacity: 0.7;
 }
 .hero-left-circle {
-	width: 300px; height: 300px; bottom: 80px; left: -200px;
+	width: 300px; height: 300px;
 	position: relative;
+	transform: translate(-200px, -80px);
 }
 .showcase-circle {
-	width: 420px; height: 420px; bottom: -280px; left: -380px;
-	position: relative;
+	width: 420px; height: 420px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(-380px, 280px);
 }
 .showcase-desc {
 	max-width: 400px;
@@ -986,8 +988,8 @@ function scrollToTop() {
 	margin-bottom: 2rem;
 }
 .support-right-inner {
-	top: 100px;
 	position: relative;
+	top: 100px;
 }
 
 /* ── Statistics Section ───────────────────────────────── */
@@ -1042,6 +1044,7 @@ function scrollToTop() {
 .showcase-inner {
 	max-width: 800px;
 	margin: 0 auto;
+	position: relative;
 }
 .map-visual {
 	position: relative;
@@ -1286,8 +1289,9 @@ function scrollToTop() {
 	position: absolute;
 }
 .partner-circle-left {
-	width: 380px; height: 380px; bottom: 10%; left: 0px;
+	width: 380px; height: 380px;
 	position: relative;
+	bottom: 10%;
 }
 .partner-line {
 	position: absolute;
@@ -1375,22 +1379,19 @@ function scrollToTop() {
 	position: relative;
 	width: 1.5px;
 	height: 120px;
-	left: -0px;
-	top: -100px;
+	transform: translateY(-100px);
 }
 .features-line-2 {
 	position: relative;
 	width: 1.5px;
 	height: 120px;
-	left: -0px;
-	top: 100px;
+	transform: translateY(100px);
 }
 .features-icon {
 	position: relative;
 	width: 40px;
 	height: 40px;
-	left: -20px;
-	top: 0px;
+	transform: translateX(-20px);
 }
 .home-link {
 	cursor: pointer;
@@ -1398,11 +1399,9 @@ function scrollToTop() {
 	pointer-events: all;
 }
 .features-top-icon {
-	position: relative;
 	width: 20px;
 	height: 20px;
-	left: -100px;
-	top: 150px;
+	transform: translate(-100px, 150px);
 }
 .home-link:has(.showcase-top-icon) {
 	display: block;
@@ -1422,8 +1421,7 @@ function scrollToTop() {
 	height: 180px;
 	border: 1.5px solid var(--l-blue);
 	border-radius: 50%;
-	left: -30px;
-	top: 20px;
+	transform: translate(-30px, 20px);
 }
 .features-bottom-circle {
 	position: relative;
@@ -1431,8 +1429,7 @@ function scrollToTop() {
 	height: 380px;
 	border: 1.5px solid var(--l-blue);
 	border-radius: 50%;
-	right: -300px;
-	bottom: 0px;
+	transform: translateX(300px);
 }
 .deco-hero-line-v {
 	width: 2px;

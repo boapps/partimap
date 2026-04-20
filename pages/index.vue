@@ -1562,7 +1562,7 @@ function scrollToTop() {
 	.landing-nav { padding: 0.75rem 1rem; }
 	.nav-right { gap: 0.5rem; }
 	.hero-section { padding-top: 5rem; }
-	.hero-circle-wrap { width: 220px; height: 220px; }
+	.hero-circle-wrap { width: min(420px, 90vw); height: min(420px, 90vw); }
 	.footer-grid { grid-template-columns: 1fr; }
 }
 </style>

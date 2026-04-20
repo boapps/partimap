@@ -245,39 +245,22 @@ function pinStyle(_f: OlFeature) {
 	z-index: 0;
 }
 
-/* + button: bottom right */
+/* + button: below container, above − */
 .hm-btn-in {
-	right: 5%;
-	bottom: calc(2% + 42px);
+	right: 2%;
+	bottom: 0px;
 }
 
-/* − button: bottom right, below + with gap */
+/* − button: below container, below + */
 .hm-btn-out {
-	right: 5%;
-	bottom: 2%;
+	right: 2%;
+	bottom: -42px;
 }
 
-/* → select location button: bottom left */
+/* → select location button: below container, left corner */
 .hm-btn-select {
-	left: 5%;
-	bottom: 2%;
+	left: 2%;
+	bottom: -42px;
 }
 
-@media (max-width: 575px) {
-	.hm-btn-in {
-		right: 0;
-		bottom: auto;
-		top: 0;
-	}
-
-	.hm-btn-out {
-		right: 0;
-		bottom: 0;
-	}
-
-	.hm-btn-select {
-		left: 0;
-		bottom: 0;
-	}
-}
 </style>

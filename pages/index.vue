@@ -1554,6 +1554,9 @@ function scrollToTop() {
 	.support-circle-wrap { margin-left: 0; }
 	.why-side-arrow { right: 1rem; }
 	.no-phone-deco { display: none; }
+	.support-section { margin-top: 0; }
+	.support-left { display: none; }
+	.support-right-inner { top: 0; }
 }
 @media (max-width: 575px) {
 	.landing-nav { padding: 0.75rem 1rem; }

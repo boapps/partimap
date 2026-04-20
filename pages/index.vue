@@ -77,7 +77,7 @@ function scrollToTop() {
 						class="btn-landing"
 					>{{ t('landing.hero.cta') }}</a>
 					<div class="hero-left-line" aria-hidden="true" />
-					<div class="deco-circle hero-left-circle" aria-hidden="true" />
+					<div class="deco-circle hero-left-circle no-phone-deco" aria-hidden="true" />
 					<div class="hero-left-arrow" aria-hidden="true">↓</div>
 				</div>
 
@@ -193,26 +193,26 @@ function scrollToTop() {
 
 			<div class="support-inner">
 				<div class="support-left">
-					<div class="support-left-deco">
+					<div class="support-left-deco no-phone-deco">
 						<div class="features-line deco-line" aria-hidden="true" />
 						<img src="/icons/handshake.png" alt="" class="features-icon" />
 						<div class="features-line-2 deco-line" aria-hidden="true" />
 					</div>
-					<div class="support-circle-wrap">
+					<div class="support-circle-wrap no-phone-deco">
 						<div class="hm-diag-line" aria-hidden="true" />
 						<div class="support-circle floating-big" />
 					</div>
 				</div>
 				<div class="support-right">
 					<a href="#" class="home-link features-top-icon-wrap" @click.prevent="scrollToTop"><img src="/icons/home.png" alt="" class="features-top-icon" /></a>
-					<div class="features-top-circle floating-small" aria-hidden="true" />
+					<div class="features-top-circle no-phone-deco floating-small" aria-hidden="true" />
 					<div class="support-right-inner">
 						<span class="support-eyebrow">{{ t('landing.support.eyebrow') }}</span>
 						<h2 class="support-heading">{{ t('landing.support.heading') }}</h2>
 						<p>{{ t('landing.support.desc') }}</p>
 						<a :href="t('landing.support.link')" target="_blank" rel="noopener" class="btn-landing-outline">{{ t('landing.support.button') }}</a>
 					</div>
-					<div class="features-bottom-circle floating-small" aria-hidden="true" />
+					<div class="features-bottom-circle no-phone-deco floating-small" aria-hidden="true" />
 				</div>
 			</div>
 		</section>
@@ -249,7 +249,7 @@ function scrollToTop() {
 			<div class="section-blob blob-show" aria-hidden="true" />
 
 			<div class="showcase-inner">
-				<div class="showcase-circle deco-circle" aria-hidden="true" />
+				<div class="showcase-circle no-phone-deco deco-circle" aria-hidden="true" />
 
 				<a href="#" class="home-link" @click.prevent="scrollToTop"><img src="/icons/home.png" alt="" class="showcase-top-icon" /></a>
 				<h2 class="sec-title text-center">{{ t('landing.showcase.title') }}</h2>
@@ -281,7 +281,7 @@ function scrollToTop() {
 					</template>
 				</div>
 			</div>
-			<div class="news-circle deco-circle" aria-hidden="true" />
+			<div class="news-circle no-phone-deco deco-circle" aria-hidden="true" />
 		</section>
 
 		<!-- News -->
@@ -316,7 +316,7 @@ function scrollToTop() {
 		<section class="helplanding-section">
 			<div class="section-blob blob-helpl" aria-hidden="true" />
 			<div class="helplanding-inner">
-				<div class="help-circle deco-circle" aria-hidden="true" />
+				<div class="help-circle no-phone-deco deco-circle" aria-hidden="true" />
 				<a href="#" class="home-link" @click.prevent="scrollToTop"><img src="/icons/home.png" alt="" class="showcase-top-icon" /></a>
 				<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
 				<p class="sec-desc showcase-desc text-center">{{ t('landing.help.desc') }}</p>
@@ -361,10 +361,10 @@ function scrollToTop() {
 			<div class="partners-inner">
 				<h2 class="sec-title">{{ t('landing.partners.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.partners.desc') }}</p>
-				<div class="partner-circle deco-circle" aria-hidden="true" />
+				<div class="partner-circle no-phone-deco deco-circle" aria-hidden="true" />
 			</div>
-			<div class="partner-circle-left deco-circle" aria-hidden="true" />
-			<div class="partner-line" aria-hidden="true" />
+			<div class="partner-circle-left no-phone-deco deco-circle" aria-hidden="true" />
+			<div class="partner-line no-phone-deco" aria-hidden="true" />
 		</section>
 
 		<!-- Footer -->
@@ -1553,6 +1553,7 @@ function scrollToTop() {
 	.support-left-deco { display: none; }
 	.support-circle-wrap { margin-left: 0; }
 	.why-side-arrow { right: 1rem; }
+	.no-phone-deco { display: none; }
 }
 @media (max-width: 575px) {
 	.landing-nav { padding: 0.75rem 1rem; }

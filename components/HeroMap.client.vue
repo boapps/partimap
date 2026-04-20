@@ -262,4 +262,22 @@ function pinStyle(_f: OlFeature) {
 	left: 5%;
 	bottom: 2%;
 }
+
+@media (max-width: 575px) {
+	.hm-btn-in {
+		right: 0;
+		bottom: auto;
+		top: 0;
+	}
+
+	.hm-btn-out {
+		right: 0;
+		bottom: 0;
+	}
+
+	.hm-btn-select {
+		left: 0;
+		bottom: 0;
+	}
+}
 </style>

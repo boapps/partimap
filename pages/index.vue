@@ -362,7 +362,7 @@ function scrollToTop() {
 				<h2 class="sec-title">{{ t('landing.partners.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.partners.desc') }}</p>
 				<div class="partner-logos">
-					<img v-for="n in 6" :key="n" src="/bus.jpg" alt="" class="partner-logo" />
+					<img v-for="n in 6" :key="n" src="/bus.webp" alt="" class="partner-logo" />
 				</div>
 				<div class="partner-circle no-phone-deco deco-circle" aria-hidden="true" />
 			</div>

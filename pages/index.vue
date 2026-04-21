@@ -168,7 +168,7 @@ function scrollToTop() {
 						<div><h4>{{ t('landing.why.feat2') }}</h4><p>{{ t('landing.why.feat2Desc') }}</p></div>
 					</div>
 					<div class="feat-card">
-						<div class="feat-icon"><i class="fas fa-sliders-h" /></div>
+						<div class="feat-icon"><img src="/icons/settings.png" alt="" /></div>
 						<div><h4>{{ t('landing.why.feat3') }}</h4><p>{{ t('landing.why.feat3Desc') }}</p></div>
 					</div>
 					<div class="feat-card">
@@ -180,7 +180,7 @@ function scrollToTop() {
 						<div><h4>{{ t('landing.why.feat5') }}</h4><p>{{ t('landing.why.feat5Desc') }}</p></div>
 					</div>
 					<div class="feat-card">
-						<div class="feat-icon"><i class="fas fa-cog" /></div>
+						<div class="feat-icon"><img src="/icons/cog.png" alt="" /></div>
 						<div><h4>{{ t('landing.why.feat6') }}</h4><p>{{ t('landing.why.feat6Desc') }}</p></div>
 					</div>
 				</div>
@@ -1557,6 +1557,29 @@ function scrollToTop() {
 	.support-section { margin-top: 0; }
 	.support-left { display: none; }
 	.support-right-inner { top: 0; }
+
+	/* Showcase: scale dots + popups to fit mobile viewport */
+	.showcase-section { padding: 3rem 1rem; }
+	.map-dot-1,
+	.map-dot-2,
+	.map-dot-3,
+	.map-dot-4,
+	.map-dot-5 { width: 60px; height: 60px; }
+	.map-popup { width: 160px; padding: 0.7rem 0.8rem 0.65rem; }
+	.map-popup-title { font-size: 0.8rem; margin-right: 1rem; }
+	.map-popup-desc { font-size: 0.7rem; }
+	/* Popups positioned to the right of the dot would overflow — flip them
+	   to sit below-left, anchored within the map bounds */
+	.map-popup-1 { top: calc(8% + 65px); left: 0; }
+	.map-popup-1::before { top: -7px; left: 20px; bottom: auto; }
+	.map-popup-2 { top: calc(15% + 65px); left: auto; right: 0; }
+	.map-popup-2::before { top: -7px; right: 20px; left: auto; bottom: auto; }
+	.map-popup-3 { top: calc(40% + 65px); right: 0; }
+	.map-popup-3::before { top: -7px; right: 20px; bottom: auto; transform: rotate(45deg); }
+	.map-popup-4 { top: calc(65% + 65px); left: 0; }
+	.map-popup-4::before { top: -7px; left: 20px; bottom: auto; }
+	.map-popup-5 { bottom: auto; top: calc(100% - 60px); right: 20%; }
+	.map-popup-5::before { top: -7px; right: 20px; bottom: auto; transform: rotate(45deg); }
 }
 @media (max-width: 575px) {
 	.landing-nav { padding: 0.75rem 1rem; }

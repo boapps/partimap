@@ -361,6 +361,9 @@ function scrollToTop() {
 			<div class="partners-inner">
 				<h2 class="sec-title">{{ t('landing.partners.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.partners.desc') }}</p>
+				<div class="partner-logos">
+					<img v-for="n in 6" :key="n" src="/bus.jpg" alt="" class="partner-logo" />
+				</div>
 				<div class="partner-circle no-phone-deco deco-circle" aria-hidden="true" />
 			</div>
 			<div class="partner-circle-left no-phone-deco deco-circle" aria-hidden="true" />
@@ -1296,6 +1299,22 @@ function scrollToTop() {
 }
 .partners-inner p {
 	max-width: 600px;
+}
+.partner-logos {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: start;
+	justify-content: start;
+	gap: 0.5rem;
+	margin: 2rem 0 3rem;
+	position: relative;
+	z-index: 2;
+}
+.partner-logo {
+	height: 80px;
+	width: auto;
+	max-width: 160px;
+	object-fit: contain;
 }
 .partner-circle {
 	width: 380px; height: 380px; bottom: 38%; right: 150px;

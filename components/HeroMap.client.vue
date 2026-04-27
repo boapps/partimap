@@ -238,8 +238,8 @@ function pinStyle(_f: OlFeature) {
 	top: 50%;
 	left: 50%;
 	width: 130%;
-	height: 2px;
-	background: #0055ff;
+	height: 0;
+	border-top: 1.5px solid #0055ff;
 	transform: translate(-50%, -50%) rotate(120deg);
 	pointer-events: none;
 	z-index: 0;

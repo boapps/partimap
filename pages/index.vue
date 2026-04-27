@@ -152,8 +152,8 @@ function scrollToTop() {
 		<section id="about" class="why-section">
 			<div class="section-blob blob-why" aria-hidden="true" />
 			<svg class="why-side-arrow" aria-hidden="true" viewBox="0 0 24 400" xmlns="http://www.w3.org/2000/svg">
-				<line x1="12" y1="0" x2="12" y2="384" stroke="currentColor" stroke-width="3"/>
-				<polyline points="4,374 12,385 20,374" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+				<line x1="12" y1="0" x2="12" y2="384" stroke="currentColor" stroke-width="1.5"/>
+				<polyline points="4,374 12,385 20,374" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
 			</svg>
 			<div class="why-inner">
 				<h2 class="sec-title">{{ t('landing.why.title') }}</h2>
@@ -602,7 +602,7 @@ function scrollToTop() {
 	padding: 1rem 2.5rem;
 	border-radius: 2.5rem;
 	text-decoration: none;
-	border: 2px solid var(--l-blue);
+	border: 1.5px solid var(--l-blue);
 	transition: background 0.2s, color 0.2s;
 }
 .btn-landing:hover {
@@ -705,9 +705,8 @@ function scrollToTop() {
 .hero-left-line {
 	margin-top: 1.5rem;
 	width: 100%;
-	height: 2px;
-	background: var(--l-blue);
-	opacity: 0.7;
+	height: 0;
+	border-top: 1.5px solid var(--l-blue);
 }
 .hero-left-circle {
 	width: 300px; height: 300px;
@@ -728,9 +727,8 @@ function scrollToTop() {
 }
 .hero-feat-sep {
 	width: 100%;
-	height: 1.5px;
-	background: var(--l-blue);
-	opacity: 0.2;
+	height: 0;
+	border-top: 1.5px solid var(--l-blue);
 	margin-bottom: 0.5rem;
 }
 .hero-right {
@@ -876,7 +874,7 @@ function scrollToTop() {
 	object-fit: cover;
 	border-radius: 8px;
 	margin-bottom: 0.4rem;
-	border: 1px solid var(--l-blue);
+	border: 1.5px solid var(--l-blue);
 	opacity: 0.85;
 }
 .example-icon {
@@ -968,8 +966,8 @@ function scrollToTop() {
 	top: 50%;
 	left: 50%;
 	width: 140%;
-	height: 2px;
-	background: #0055ff;
+	height: 0;
+	border-top: 1.5px solid #0055ff;
 	transform: translate(-50%, -50%) rotate(120deg);
 	pointer-events: none;
 	z-index: 0;
@@ -1205,9 +1203,8 @@ function scrollToTop() {
 	opacity: 0.8;
 }
 .news-line {
-	height: 2px;
-	background: var(--l-blue);
-	opacity: 0.3;
+	height: 0;
+	border-top: 1.5px solid var(--l-blue);
 }
 .news-circle {
 	width: 220px; height: 220px; bottom: -80px; right: 50px;
@@ -1330,9 +1327,8 @@ function scrollToTop() {
 	bottom: calc(10% + 190px);
 	left: 0;
 	width: 900px;
-	height: 1.8px;
-	background: var(--l-blue);
-	opacity: 0.8;
+	height: 0;
+	border-top: 1.5px solid var(--l-blue);
 }
 
 /* ── Footer ───────────────────────────────────────────── */
@@ -1372,9 +1368,8 @@ function scrollToTop() {
 }
 .footer-col a:hover { text-decoration: underline; }
 .footer-line {
-	height: 2px;
-	background: var(--l-blue);
-	opacity: 0.3;
+	height: 0;
+	border-top: 1.5px solid var(--l-blue);
 	margin-bottom: 1.5rem;
 }
 .footer-copy {
@@ -1386,7 +1381,7 @@ function scrollToTop() {
 /* ── Decorative Circles (outlines) ────────────────────── */
 .deco-circle {
 	/* position: absolute; */
-	border: 2px solid var(--l-blue);
+	border: 1.5px solid var(--l-blue);
 	border-radius: 50%;
 	pointer-events: none;
 	opacity: 0.8;
@@ -1404,18 +1399,19 @@ function scrollToTop() {
 /* ── Decorative Lines ─────────────────────────────────── */
 .deco-line {
 	position: absolute;
-	background: var(--l-blue);
+	background: transparent;
+	border-left: 1.5px solid var(--l-blue);
 	pointer-events: none;
 }
 .features-line {
 	position: relative;
-	width: 1.5px;
+	width: 0;
 	height: 120px;
 	transform: translateY(-100px);
 }
 .features-line-2 {
 	position: relative;
-	width: 1.5px;
+	width: 0;
 	height: 120px;
 	transform: translateY(100px);
 }
@@ -1464,13 +1460,13 @@ function scrollToTop() {
 	transform: translateX(300px);
 }
 .deco-hero-line-v {
-	width: 2px;
+	width: 1.5px;
 	height: 150px;
 	left: 8%;
 	bottom: 15%;
 }
 .deco-hero-line-h {
-	height: 2px;
+	height: 1.5px;
 	width: 200px;
 	left: 0;
 	bottom: calc(40px + 150px);

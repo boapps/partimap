@@ -1302,7 +1302,7 @@ function scrollToTop() {
 	flex-wrap: wrap;
 	align-items: start;
 	justify-content: start;
-	gap: 0.5rem;
+	gap: 1rem;
 	margin: 2rem 0 3rem;
 	position: relative;
 	z-index: 2;
@@ -1429,7 +1429,7 @@ function scrollToTop() {
 .features-top-icon {
 	width: 20px;
 	height: 20px;
-	transform: translate(-100px, 150px);
+	transform: translate(-100px, 130px);
 }
 .home-link:has(.showcase-top-icon) {
 	display: block;
@@ -1494,7 +1494,7 @@ function scrollToTop() {
 .blob-show  { width: 500px; height: 500px; bottom: -100px; right: -50px; background: var(--l-blue-15); }
 .blob-news  { width: 400px; height: 400px; bottom: -80px; left: -50px; background: var(--l-blue-10); }
 .blob-helpl { width: 350px; height: 350px; top: 50%; left: 10%; background: var(--l-blue-10); }
-.blob-part  { width: 500px; height: 400px; bottom: -100px; right: -50px; background: var(--l-blue-15); }
+.blob-part  { width: 1000px; height: 900px; bottom: -300px; right: -250px; background: var(--l-blue-10); filter: blur(120px); }
 
 /* ── Floating Blue Dots ───────────────────────────────── */
 .floating-dots {

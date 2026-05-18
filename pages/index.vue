@@ -331,7 +331,7 @@ function scrollToTop() {
 						<div class="helpl-icon"><img src="/icons/pin.png" alt="" class="helpl-icon-img" /></div>
 						<h4>{{ t('landing.help.card1Title') }}</h4>
 						<p>{{ t('landing.help.card1Desc') }}</p>
-						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
+						<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
 					</div>
 					<div class="helpl-card helpl-card-center">
 						<div class="helpl-icon-wrap">
@@ -349,13 +349,13 @@ function scrollToTop() {
 						</div>
 						<h4>{{ t('landing.help.card2Title') }}</h4>
 						<p>{{ t('landing.help.card2Desc') }}</p>
-						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
+						<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
 					</div>
 					<div class="helpl-card">
 						<div class="helpl-icon"><img src="/icons/magnify.png" alt="" class="helpl-icon-img" /></div>
 						<h4>{{ t('landing.help.card3Title') }}</h4>
 						<p>{{ t('landing.help.card3Desc') }}</p>
-						<a :href="localePath({ name: 'hogyan-mukodik' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
+						<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
 					</div>
 				</div>
 			</div>

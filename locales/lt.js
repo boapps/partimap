@@ -81,6 +81,14 @@ export default {
 		ec: 'Europos komisija',
 		nav: {
 			about: 'APIE PARTIMAP',
+			aboutSubmenu: {
+				whatIs: 'Kas yra PARTIMAP?',
+				plan: 'Kaip suplanuoti Partimap projektą',
+				questionnaire: 'Kaip parašyti klausimyną',
+				create: 'Kaip sukurti Partimap',
+				analyze: 'Kaip analizuoti surinktus duomenis',
+				visualize: 'Kaip pavaizduoti surinktus duomenis',
+			},
 			aboutUs: 'KAIP VEIKIA',
 			pricing: 'KAINOS',
 			contact: 'KONTAKTAI',

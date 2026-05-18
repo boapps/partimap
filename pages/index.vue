@@ -40,9 +40,22 @@ function scrollToTop() {
 					<img src="/logo.svg" alt="PARTIMAP" height="24" />
 				</NuxtLink>
 				<div class="nav-links d-none d-lg-flex">
-					<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-link-item">
-						{{ t('landing.nav.about') }}
-					</NuxtLink>
+					<div class="nav-dropdown">
+						<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-link-item nav-dropdown-toggle">
+							{{ t('landing.nav.about') }}
+							<span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+						</NuxtLink>
+						<div class="nav-dropdown-menu">
+							<NuxtLink
+								v-for="key in ['whatIs', 'plan', 'questionnaire', 'create', 'analyze', 'visualize']"
+								:key="key"
+								:to="localePath({ name: 'partimaprol' })"
+								class="nav-dropdown-item"
+							>
+								{{ t(`landing.nav.aboutSubmenu.${key}`) }}
+							</NuxtLink>
+						</div>
+					</div>
 					<NuxtLink :to="localePath({ name: 'sugo' })" class="nav-link-item">
 						{{ t('landing.nav.aboutUs') }}
 					</NuxtLink>
@@ -511,6 +524,61 @@ function scrollToTop() {
 	white-space: nowrap;
 }
 .nav-link-item:hover { text-decoration: underline; }
+.nav-dropdown {
+	position: relative;
+}
+.nav-dropdown-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+.nav-dropdown-caret {
+	font-size: 0.65rem;
+	line-height: 1;
+	transition: transform 0.2s ease;
+}
+.nav-dropdown:hover .nav-dropdown-caret,
+.nav-dropdown:focus-within .nav-dropdown-caret {
+	transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 280px;
+	background: rgba(255, 255, 255, 0.96);
+	backdrop-filter: blur(8px);
+	border: 1.5px solid var(--l-blue);
+	border-radius: 12px;
+	padding: 0.5rem 0;
+	margin-top: 0.5rem;
+	box-shadow: 0 8px 24px rgba(0, 85, 255, 0.12);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-4px);
+	transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+	z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+.nav-dropdown-item {
+	display: block;
+	padding: 0.55rem 1.1rem;
+	color: var(--l-blue);
+	font-size: 0.8rem;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: normal;
+	line-height: 1.35;
+}
+.nav-dropdown-item:hover {
+	background: rgba(0, 85, 255, 0.08);
+	text-decoration: none;
+}
 .nav-btn-filled {
 	background: var(--l-blue);
 	color: #fff !important;

@@ -82,6 +82,14 @@ export default {
 		ec: 'Európai Bizottság',
 		nav: {
 			about: 'A PARTIMAPRÓL',
+			aboutSubmenu: {
+				whatIs: 'Mi az a PARTIMAP?',
+				plan: 'Hogyan tervezz meg egy Partimap projektet',
+				questionnaire: 'Hogyan írj kérdőívet',
+				create: 'Hogyan csinálj Partimapot?',
+				analyze: 'Hogyan elemezd a kapott adatokat?',
+				visualize: 'Hogyan ábrázold a kapott adatokat?',
+			},
 			aboutUs: 'HOGYAN MŰKÖDIK',
 			pricing: 'ÁRAZÁS',
 			contact: 'KAPCSOLAT',

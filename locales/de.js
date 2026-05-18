@@ -83,6 +83,14 @@ export default {
 		ec: 'Europäische Kommission',
 		nav: {
 			about: 'ÜBER PARTIMAP',
+			aboutSubmenu: {
+				whatIs: 'Was ist PARTIMAP?',
+				plan: 'Wie man ein Partimap-Projekt plant',
+				questionnaire: 'Wie man einen Fragebogen schreibt',
+				create: 'Wie man eine Partimap erstellt',
+				analyze: 'Wie man die gesammelten Daten analysiert',
+				visualize: 'Wie man die gesammelten Daten darstellt',
+			},
 			aboutUs: 'WIE ES FUNKTIONIERT',
 			pricing: 'PREISE',
 			contact: 'KONTAKT',

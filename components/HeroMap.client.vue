@@ -232,14 +232,24 @@ function pinStyle(_f: OlFeature) {
 	color: #fff;
 }
 
-/* Diagonal line at 30°, sits behind the circle */
+/* Diagonal line at 30°, sits behind the circle.
+   Middle is transparent so the visible end-segments don't touch
+   the rotating text band that wraps around the circle. */
 .hm-diag-line {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	width: 130%;
-	height: 0;
-	border-top: 1.5px solid #0055ff;
+	height: 1.5px;
+	background: linear-gradient(
+		to right,
+		#0055ff 0%,
+		#0055ff 11%,
+		transparent 11%,
+		transparent 89%,
+		#0055ff 89%,
+		#0055ff 100%
+	);
 	transform: translate(-50%, -50%) rotate(120deg);
 	pointer-events: none;
 	z-index: 0;

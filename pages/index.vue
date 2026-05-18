@@ -40,10 +40,16 @@ function scrollToTop() {
 					<img src="/logo.svg" alt="PARTIMAP" height="24" />
 				</NuxtLink>
 				<div class="nav-links d-none d-lg-flex">
-					<a href="#" class="nav-link-item">{{ t('landing.nav.about') }}</a>
-					<a href="#" class="nav-link-item">{{ t('landing.nav.aboutUs') }}</a>
-					<a href="#" class="nav-link-item">{{ t('landing.nav.pricing') }}</a>
-					<a href="#" class="nav-link-item">{{ t('landing.nav.contact') }}</a>
+					<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-link-item">
+						{{ t('landing.nav.about') }}
+					</NuxtLink>
+					<NuxtLink :to="localePath({ name: 'rolunk' })" class="nav-link-item">
+						{{ t('landing.nav.aboutUs') }}
+					</NuxtLink>
+					<NuxtLink :to="localePath({ name: 'arazas' })" class="nav-link-item">
+						{{ t('landing.nav.pricing') }}
+					</NuxtLink>
+					<a href="#contact" class="nav-link-item">{{ t('landing.nav.contact') }}</a>
 					<a
 						:href="t('landing.tryLink')"
 						target="_blank"

@@ -82,7 +82,6 @@ function scrollToTop() {
 						target="_blank"
 						class="btn-landing"
 					>{{ t('landing.hero.cta') }}</a>
-					<div class="hero-left-line" aria-hidden="true" />
 					<div class="deco-circle hero-left-circle no-phone-deco" aria-hidden="true" />
 					<div class="hero-left-arrow" aria-hidden="true">↓</div>
 				</div>
@@ -121,12 +120,23 @@ function scrollToTop() {
 						<h3>{{ t('landing.hero.feat3Title') }}</h3>
 						<p>{{ t('landing.hero.feat3Desc') }}</p>
 					</div>
+					<!-- <div class="hero-right-scroll" aria-hidden="true">
+						<span class="hero-right-scroll-label">SCROLL</span>
+						<span class="hero-right-scroll-line" />
+						<span class="hero-right-scroll-arrow">↓</span>
+					</div> -->
 				</div>
 			</div>
+			<a href="#examples" class="hero-scroll-indicator" aria-label="Scroll down">
+				<span class="hero-scroll-mouse">
+					<span class="hero-scroll-wheel" />
+				</span>
+				<span class="hero-scroll-chevron">↓</span>
+			</a>
 		</section>
 
 		<!-- Examples / Use cases -->
-		<section class="examples-section">
+		<section id="examples" class="examples-section">
 			<div class="section-blob blob-examples" aria-hidden="true" />
 			<div class="examples-inner">
 				<h2 class="sec-title">{{ t('landing.examples.title') }}</h2>
@@ -578,10 +588,14 @@ function scrollToTop() {
 	font-weight: 500;
 	margin-bottom: 3rem;
 }
+.hero-left {
+	margin-top: 7rem;
+}
 .hero-left-arrow {
 	color: var(--l-blue);
 	font-size: 1.5rem;
 	text-align: left;
+	margin-top: 6rem;
 }
 .sec-arrow {
 	color: var(--l-blue);
@@ -740,7 +754,7 @@ function scrollToTop() {
 .hero-right {
 	padding-left: 2rem;
 	padding-right: 1rem;
-	margin-top: 200px;
+	margin-top: 10rem;
 }
 .hero-feat {
 	margin-bottom: 1rem;
@@ -780,6 +794,90 @@ function scrollToTop() {
 	text-align: left;
 	padding-left: 6rem;
 	margin-top: auto;
+}
+
+/* Right-side scroll indicator inside hero-right */
+.hero-right-scroll {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	margin-top: 3rem;
+	color: var(--l-blue);
+}
+.hero-right-scroll-label {
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.25em;
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	opacity: 0.8;
+}
+.hero-right-scroll-line {
+	width: 1.5px;
+	height: 60px;
+	background: var(--l-blue);
+	animation: scrollLineGrow 1.8s ease-in-out infinite;
+	transform-origin: top center;
+}
+.hero-right-scroll-arrow {
+	font-size: 1.2rem;
+	animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+/* Centered animated scroll indicator at hero bottom */
+.hero-scroll-indicator {
+	position: absolute;
+	left: 50%;
+	bottom: 1.5rem;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4rem;
+	color: var(--l-blue);
+	text-decoration: none;
+	z-index: 5;
+	animation: scrollBlink 1.8s ease-in-out infinite;
+}
+.hero-scroll-indicator:hover { opacity: 1; }
+.hero-scroll-mouse {
+	width: 24px;
+	height: 38px;
+	border: 1.5px solid var(--l-blue);
+	border-radius: 14px;
+	display: flex;
+	justify-content: center;
+	padding-top: 6px;
+}
+.hero-scroll-wheel {
+	width: 3px;
+	height: 8px;
+	background: var(--l-blue);
+	border-radius: 2px;
+	animation: scrollWheel 1.6s ease-in-out infinite;
+}
+.hero-scroll-chevron {
+	font-size: 1.2rem;
+	line-height: 1;
+	animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollBlink {
+	0%, 100% { opacity: 0.4; }
+	50% { opacity: 1; }
+}
+@keyframes scrollBounce {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(6px); }
+}
+@keyframes scrollWheel {
+	0% { transform: translateY(0); opacity: 1; }
+	100% { transform: translateY(12px); opacity: 0; }
+}
+@keyframes scrollLineGrow {
+	0%, 100% { transform: scaleY(0.6); opacity: 0.4; }
+	50% { transform: scaleY(1); opacity: 1; }
 }
 
 /* ── Why / Features Section ───────────────────────────── */

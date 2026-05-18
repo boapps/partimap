@@ -108,11 +108,20 @@ function pinStyle(_f: OlFeature) {
 		</div>
 
 		<!-- Zoom controls, outside the circle -->
-		<button class="hm-btn hm-btn-in" aria-label="Zoom in" @click.stop="zoomIn">+</button>
-		<button class="hm-btn hm-btn-out" aria-label="Zoom out" @click.stop="zoomOut">−</button>
+		<button class="hm-btn hm-btn-in" :aria-label="t('landing.hero.btnZoomIn')" @click.stop="zoomIn">
+			<span class="hm-btn-glyph">+</span>
+			<span class="hm-btn-label">{{ t('landing.hero.btnZoomIn') }}</span>
+		</button>
+		<button class="hm-btn hm-btn-out" :aria-label="t('landing.hero.btnZoomOut')" @click.stop="zoomOut">
+			<span class="hm-btn-glyph">−</span>
+			<span class="hm-btn-label">{{ t('landing.hero.btnZoomOut') }}</span>
+		</button>
 
 		<!-- Select location button -->
-		<button class="hm-btn hm-btn-select" aria-label="Select location" @click.stop="selectLocation">→</button>
+		<button class="hm-btn hm-btn-select" :aria-label="t('landing.hero.btnPin')" @click.stop="selectLocation">
+			<span class="hm-btn-glyph">→</span>
+			<span class="hm-btn-label">{{ t('landing.hero.btnPin') }}</span>
+		</button>
 	</div>
 </template>
 
@@ -230,6 +239,37 @@ function pinStyle(_f: OlFeature) {
 .hm-btn:hover {
 	background: #0055ff;
 	color: #fff;
+}
+
+/* Glyph keeps the +/−/→ centered in the round button */
+.hm-btn-glyph {
+	display: block;
+	line-height: 1;
+}
+
+/* Tooltip label below each button, shown on hover/focus */
+.hm-btn-label {
+	position: absolute;
+	top: calc(100% + 6px);
+	left: 50%;
+	transform: translateX(-50%) translateY(-2px);
+	background: #0055ff;
+	color: #fff;
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	padding: 4px 8px;
+	border-radius: 4px;
+	white-space: nowrap;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.15s ease, transform 0.15s ease;
+	z-index: 3;
+}
+.hm-btn:hover .hm-btn-label,
+.hm-btn:focus-visible .hm-btn-label {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
 }
 
 /* Diagonal line at 30°, sits behind the circle.

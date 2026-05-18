@@ -43,7 +43,7 @@ function scrollToTop() {
 					<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-link-item">
 						{{ t('landing.nav.about') }}
 					</NuxtLink>
-					<NuxtLink :to="localePath({ name: 'rolunk' })" class="nav-link-item">
+					<NuxtLink :to="localePath({ name: 'sugo' })" class="nav-link-item">
 						{{ t('landing.nav.aboutUs') }}
 					</NuxtLink>
 					<NuxtLink :to="localePath({ name: 'arazas' })" class="nav-link-item">
@@ -57,7 +57,6 @@ function scrollToTop() {
 					>{{ t('landing.nav.tryIt') }}</a>
 				</div>
 				<b-navbar-nav class="nav-right">
-					<span class="nav-lang-label d-none d-lg-inline">{{ t('landing.nav.langSwitch') }}</span>
 					<LangSwitcher />
 					<b-nav-item class="nav-login-item">
 						<NuxtLink :to="localePath('/admin')" class="nav-btn-outline">
@@ -78,8 +77,7 @@ function scrollToTop() {
 					<span class="hero-brand">PARTIMAP</span>
 					<h1 class="hero-title" v-html="t('landing.hero.tagline')" />
 					<a
-						:href="t('landing.tryLink')"
-						target="_blank"
+						href="#examples"
 						class="btn-landing"
 					>{{ t('landing.hero.cta') }}</a>
 					<div class="deco-circle hero-left-circle no-phone-deco" aria-hidden="true" />
@@ -96,9 +94,12 @@ function scrollToTop() {
 									d="M 150,150 m -130,0 a 130,130 0 1,1 260,0 a 130,130 0 1,1 -260,0"
 								/>
 							</defs>
-							<text font-size="13" fill="var(--l-blue)" font-weight="500" letter-spacing="1">
-								<textPath href="#heroTextPath">
-									{{ t('landing.hero.circleText') }}{{ t('landing.hero.circleText') }}
+							<text font-size="13" fill="var(--l-blue)" font-weight="500" letter-spacing="5">
+								<textPath href="#heroTextPath" startOffset="0%">
+									{{ t('landing.hero.circleText') }}
+								</textPath>
+								<textPath href="#heroTextPath" startOffset="50%">
+									{{ t('landing.hero.circleText') }}
 								</textPath>
 							</text>
 						</svg>
@@ -705,9 +706,14 @@ function scrollToTop() {
 	height: 100%;
 	z-index: 2;
 	pointer-events: none;
+	transform-origin: center center;
+	animation: spin 30s linear infinite;
 }
 .rotating-svg-sm {
 	animation-duration: 20s;
+}
+@media (prefers-reduced-motion: reduce) {
+	.rotating-svg { animation: none; }
 }
 .hero-arrow-circle {
 	color: var(--l-blue);

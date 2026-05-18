@@ -163,15 +163,17 @@ function scrollToTop() {
 							class="example-map-img"
 							aria-hidden="true"
 						/>
-						<div class="example-icon">
-							<i :class="`fas fa-${['city','bus','tree','users'][n-1]}`" />
+						<div class="example-card-content">
+							<div class="example-icon">
+								<i :class="`fas fa-${['city','bus','tree','users'][n-1]}`" />
+							</div>
+							<span class="example-badge">{{ t(`landing.examples.card${n}Badge`) }}</span>
+							<h4>{{ t(`landing.examples.card${n}Title`) }}</h4>
+							<p>{{ t(`landing.examples.card${n}Desc`) }}</p>
+							<a :href="t(`landing.examples.card${n}Link`)" target="_blank" class="btn-landing-outline btn-sm">
+								{{ t('landing.examples.viewBtn') }}
+							</a>
 						</div>
-						<span class="example-badge">{{ t(`landing.examples.card${n}Badge`) }}</span>
-						<h4>{{ t(`landing.examples.card${n}Title`) }}</h4>
-						<p>{{ t(`landing.examples.card${n}Desc`) }}</p>
-						<a :href="t(`landing.examples.card${n}Link`)" target="_blank" class="btn-landing-outline btn-sm">
-							{{ t('landing.examples.viewBtn') }}
-						</a>
 					</div>
 				</div>
 			</div>
@@ -1028,30 +1030,35 @@ function scrollToTop() {
 }
 .examples-grid {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 1.5rem;
+	grid-template-columns: 1fr;
+	gap: 2rem;
 	margin-top: 2.5rem;
 }
 .example-card {
 	border: 1.5px solid var(--l-blue);
 	border-radius: 12px;
-	padding: 1.8rem 1.4rem;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 0.7rem;
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+	align-items: center;
+	gap: 2.5rem;
 	transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .example-card:hover {
 	transform: translateY(-4px);
 	box-shadow: 0 8px 24px rgba(0, 85, 255, 0.12);
 }
+.example-card-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.7rem;
+}
 .example-map-img {
 	width: 100%;
-	height: 130px;
+	height: 320px;
 	object-fit: cover;
 	border-radius: 8px;
-	margin-bottom: 0.4rem;
 	border: 1.5px solid var(--l-blue);
 	opacity: 0.85;
 }
@@ -1097,11 +1104,13 @@ function scrollToTop() {
 	top: -100px;
 	right: -200px;
 }
-@media (max-width: 1024px) {
-	.examples-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 576px) {
-	.examples-grid { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+	.example-card {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		padding: 1.5rem;
+	}
+	.example-map-img { height: 220px; }
 }
 
 /* ── Support Section ──────────────────────────────────── */

@@ -24,6 +24,59 @@ function scrollToTop() {
 	document.getElementById('app')?.scrollTo({ top: 0, behavior: 'smooth' });
 	document.getElementById('__nuxt')?.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+const statsSection = ref<HTMLElement | null>(null);
+const statTargets = computed(() => [
+	parseStat(t('landing.stats.stat1Value')),
+	parseStat(t('landing.stats.stat2Value')),
+	parseStat(t('landing.stats.stat3Value')),
+]);
+const statDisplays = ref<string[]>(['0', '0', '0']);
+
+function parseStat(raw: string) {
+	const match = String(raw).match(/^(\D*)(\d[\d\s,.]*)(\D*)$/);
+	if (!match) return { prefix: '', number: 0, suffix: String(raw), raw };
+	const numeric = parseInt(match[2].replace(/[^\d]/g, ''), 10) || 0;
+	return { prefix: match[1], number: numeric, suffix: match[3], raw };
+}
+
+function animateStats() {
+	const duration = 2500;
+	const start = performance.now();
+	const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+	const tick = (now: number) => {
+		const progress = Math.min((now - start) / duration, 1);
+		const eased = easeOut(progress);
+		statDisplays.value = statTargets.value.map((s) => {
+			const current = Math.round(s.number * eased);
+			return `${s.prefix}${current}${s.suffix}`;
+		});
+		if (progress < 1) requestAnimationFrame(tick);
+	};
+	requestAnimationFrame(tick);
+}
+
+onMounted(() => {
+	if (!statsSection.value) return;
+	const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (reduced) {
+		statDisplays.value = statTargets.value.map((s) => s.raw);
+		return;
+	}
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (entry.isIntersecting) {
+					animateStats();
+					observer.disconnect();
+					break;
+				}
+			}
+		},
+		{ threshold: 0.3 },
+	);
+	observer.observe(statsSection.value);
+});
 </script>
 
 <template>
@@ -244,24 +297,24 @@ function scrollToTop() {
 		</section>
 
 		<!-- Statistics -->
-		<section id="stats" class="stats-section">
+		<section id="stats" ref="statsSection" class="stats-section">
 			<div class="section-blob blob-stats" aria-hidden="true" />
 			<div class="stats-inner">
 				<h2 class="sec-title">{{ t('landing.stats.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.stats.desc') }}</p>
 				<div class="stats-grid">
 					<div class="stat-item">
-						<div class="stat-circle">{{ t('landing.stats.stat1Value') }}</div>
+						<div class="stat-circle">{{ statDisplays[0] }}</div>
 						<h4>{{ t('landing.stats.stat1Title') }}</h4>
 						<p>{{ t('landing.stats.stat1Desc') }}</p>
 					</div>
 					<div class="stat-item">
-						<div class="stat-circle">{{ t('landing.stats.stat2Value') }}</div>
+						<div class="stat-circle">{{ statDisplays[1] }}</div>
 						<h4>{{ t('landing.stats.stat2Title') }}</h4>
 						<p>{{ t('landing.stats.stat2Desc') }}</p>
 					</div>
 					<div class="stat-item">
-						<div class="stat-circle">{{ t('landing.stats.stat3Value') }}</div>
+						<div class="stat-circle">{{ statDisplays[2] }}</div>
 						<h4>{{ t('landing.stats.stat3Title') }}</h4>
 						<p>{{ t('landing.stats.stat3Desc') }}</p>
 					</div>

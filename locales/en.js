@@ -150,13 +150,6 @@ export default {
 			feat6Desc: 'Proin auctor quam quis neque pharetra, vel accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex.',
 			readMore: 'READ MORE',
 		},
-		support: {
-			eyebrow: 'Like our application?',
-			heading: 'Support us!',
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
-			button: 'SUPPORT',
-			link: 'https://tamogatas.k-monitor.hu/',
-		},
 		stats: {
 			title: 'Some statistics',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',

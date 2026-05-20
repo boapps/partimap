@@ -243,36 +243,6 @@ function scrollToTop() {
 			</div>
 		</section>
 
-		<!-- Support -->
-		<section id="features" class="support-section">
-			<div class="section-blob blob-sup" aria-hidden="true" />
-
-			<div class="support-inner">
-				<div class="support-left">
-					<div class="support-left-deco no-phone-deco">
-						<div class="features-line deco-line" aria-hidden="true" />
-						<img src="/icons/handshake.png" alt="" class="features-icon" />
-						<div class="features-line-2 deco-line" aria-hidden="true" />
-					</div>
-					<div class="support-circle-wrap no-phone-deco">
-						<div class="hm-diag-line" aria-hidden="true" />
-						<div class="support-circle floating-big" />
-					</div>
-				</div>
-				<div class="support-right">
-					<a href="#" class="home-link features-top-icon-wrap" @click.prevent="scrollToTop"><img src="/icons/home.png" alt="" class="features-top-icon" /></a>
-					<div class="features-top-circle no-phone-deco floating-small" aria-hidden="true" />
-					<div class="support-right-inner">
-						<span class="support-eyebrow">{{ t('landing.support.eyebrow') }}</span>
-						<h2 class="support-heading">{{ t('landing.support.heading') }}</h2>
-						<p>{{ t('landing.support.desc') }}</p>
-						<a :href="t('landing.support.link')" target="_blank" rel="noopener" class="btn-landing-outline">{{ t('landing.support.button') }}</a>
-					</div>
-					<div class="features-bottom-circle no-phone-deco floating-small" aria-hidden="true" />
-				</div>
-			</div>
-		</section>
-
 		<!-- Statistics -->
 		<section id="stats" class="stats-section">
 			<div class="section-blob blob-stats" aria-hidden="true" />
@@ -1155,86 +1125,6 @@ function scrollToTop() {
 	.example-map-img { height: 220px; }
 }
 
-/* ── Support Section ──────────────────────────────────── */
-.support-section {
-	position: relative;
-	padding: 6rem 2rem;
-	margin-top: 100px;
-}
-.support-inner {
-	max-width: 1000px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	align-items: center;
-	gap: 4rem;
-}
-.support-left {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 350px;
-}
-.support-circle {
-	width: 400px;
-	height: 400px;
-	background-image: url('/bus.webp');
-	border-radius: 50%;
-	z-index: 1;
-	position: relative;
-}
-.support-circle-wrap {
-	margin-left: 100px;
-	width: 400px;
-	height: 400px;
-}
-/* Diagonal line at 30°, sits behind the circle */
-.hm-diag-line {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	width: 140%;
-	height: 0;
-	border-top: 1.5px solid #0055ff;
-	transform: translate(-50%, -50%) rotate(120deg);
-	pointer-events: none;
-	z-index: 0;
-}
-.support-floater {
-	position: absolute;
-	top: 10%;
-	left: 10%;
-	color: var(--l-blue);
-	font-size: 2rem;
-	z-index: 1;
-}
-.support-eyebrow {
-	color: var(--l-blue);
-	font-size: 0.85rem;
-	font-weight: 500;
-	display: block;
-	margin-bottom: 0.5rem;
-}
-.support-heading {
-	color: var(--l-blue);
-	font-size: clamp(2.5rem, 5vw, 4rem);
-	font-weight: 500;
-	margin-bottom: 1rem;
-	line-height: 1.1;
-}
-.support-right p {
-	font-size: 0.85rem;
-	line-height: 1.7;
-	font-weight: 500;
-	opacity: 0.8;
-	margin-bottom: 2rem;
-}
-.support-right-inner {
-	position: relative;
-	top: 100px;
-}
-
 /* ── Statistics Section ───────────────────────────────── */
 .stats-section {
 	position: relative;
@@ -1632,33 +1522,10 @@ function scrollToTop() {
 	border-left: 1.5px solid var(--l-blue);
 	pointer-events: none;
 }
-.features-line {
-	position: relative;
-	width: 0;
-	height: 120px;
-	transform: translateY(-100px);
-}
-.features-line-2 {
-	position: relative;
-	width: 0;
-	height: 120px;
-	transform: translateY(100px);
-}
-.features-icon {
-	position: relative;
-	width: 40px;
-	height: 40px;
-	transform: translateX(-20px);
-}
 .home-link {
 	cursor: pointer;
 	z-index: 10;
 	pointer-events: all;
-}
-.features-top-icon {
-	width: 20px;
-	height: 20px;
-	transform: translate(-100px, 130px);
 }
 .home-link:has(.showcase-top-icon) {
 	display: block;
@@ -1671,22 +1538,6 @@ function scrollToTop() {
 	display: block;
 	width: 20px;
 	height: 20px;
-}
-.features-top-circle {
-	position: relative;
-	width: 180px;
-	height: 180px;
-	border: 1.5px solid var(--l-blue);
-	border-radius: 50%;
-	transform: translate(-30px, 20px);
-}
-.features-bottom-circle {
-	position: relative;
-	width: 380px;
-	height: 380px;
-	border: 1.5px solid var(--l-blue);
-	border-radius: 50%;
-	transform: translateX(300px);
 }
 .deco-hero-line-v {
 	width: 1.5px;
@@ -1718,7 +1569,6 @@ function scrollToTop() {
 .blob-tr  { width: 500px; height: 500px; top: -100px; right: -100px; background: var(--l-blue-15); }
 .blob-bl  { width: 400px; height: 400px; bottom: -50px; left: -50px; background: var(--l-blue-10); }
 .blob-why  { width: 500px; height: 400px; bottom: -100px; left: 20%; background: var(--l-blue-10); }
-.blob-sup  { width: 400px; height: 400px; bottom: -50px; left: 10%; background: var(--l-blue-15); }
 .blob-stats { width: 350px; height: 350px; top: -80px; right: 10%; background: var(--l-blue-10); }
 .blob-show  { width: 500px; height: 500px; bottom: -100px; right: -50px; background: var(--l-blue-15); }
 .blob-news  { width: 400px; height: 400px; bottom: -80px; left: -50px; background: var(--l-blue-10); }
@@ -1786,21 +1636,14 @@ function scrollToTop() {
 	.hero-left { margin-top: 1rem; }
 	.hero-scroll { text-align: center; padding-left: 0; }
 	.feat-grid { grid-template-columns: 1fr; }
-	.support-inner { grid-template-columns: 1fr; text-align: center; }
-	.support-left { min-height: 250px; }
 	.stats-grid { grid-template-columns: 1fr; gap: 3rem; }
 	.news-grid { grid-template-columns: 1fr; }
 	.helpl-grid { grid-template-columns: 1fr; gap: 3rem; }
 	.footer-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 599px) {
-	.support-left-deco { display: none; }
-	.support-circle-wrap { margin-left: 0; }
 	.why-side-arrow { right: 1rem; }
 	.no-phone-deco { display: none; }
-	.support-section { margin-top: 0; }
-	.support-left { display: none; }
-	.support-right-inner { top: 0; }
 
 	/* Showcase: scale dots + popups to fit mobile viewport */
 	.showcase-section { padding: 3rem 1rem; }

@@ -151,13 +151,6 @@ export default {
 			feat6Desc: 'Proin auctor quam quis neque pharetra, vel accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex.',
 			readMore: 'OLVASS TOVÁBB!',
 		},
-		support: {
-			eyebrow: 'Tetszik az alkalmazásunk?',
-			heading: 'Támogass!',
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
-			button: 'TÁMOGATÁS',
-			link: 'https://tamogatas.k-monitor.hu/',
-		},
 		stats: {
 			title: 'Egy kis statisztika',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',

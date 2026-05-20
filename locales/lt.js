@@ -150,13 +150,6 @@ export default {
 			feat6Desc: 'Proin auctor quam quis neque pharetra, vel accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex.',
 			readMore: 'SKAITYTI DAUGIAU',
 		},
-		support: {
-			eyebrow: 'Patinka mūsų programa?',
-			heading: 'Palaikyk mus!',
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
-			button: 'PAREMTI',
-			link: 'https://tamogatas.k-monitor.hu/',
-		},
 		stats: {
 			title: 'Šiek tiek statistikos',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',

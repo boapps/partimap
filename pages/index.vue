@@ -177,13 +177,13 @@ function scrollToTop() {
 					</div>
 				</div>
 			</div>
-			<div class="sec-arrow" aria-hidden="true">↓</div>
+			<div class="sec-arrow" aria-hidden="true"><span class="sec-arrow-glyph">↓</span></div>
 		</section>
 
 		<!-- Why use it -->
 		<section id="about" class="why-section">
 			<div class="section-blob blob-why" aria-hidden="true" />
-			<svg class="why-side-arrow" aria-hidden="true" viewBox="0 0 24 400" xmlns="http://www.w3.org/2000/svg">
+			<svg class="why-side-arrow" aria-hidden="true" viewBox="0 0 24 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
 				<line x1="12" y1="0" x2="12" y2="384" stroke="currentColor" stroke-width="1.5"/>
 				<polyline points="4,374 12,385 20,374" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
 			</svg>
@@ -193,27 +193,51 @@ function scrollToTop() {
 				<div class="feat-grid">
 					<div class="feat-card">
 						<div class="feat-icon"><img src="/icons/hand.png" alt="" /></div>
-						<div><h4>{{ t('landing.why.feat1') }}</h4><p>{{ t('landing.why.feat1Desc') }}</p></div>
+						<div class="feat-body">
+							<h4>{{ t('landing.why.feat1') }}</h4>
+							<p>{{ t('landing.why.feat1Desc') }}</p>
+							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+						</div>
 					</div>
 					<div class="feat-card">
 						<div class="feat-icon"><img src="/icons/money.png" alt="" /></div>
-						<div><h4>{{ t('landing.why.feat2') }}</h4><p>{{ t('landing.why.feat2Desc') }}</p></div>
+						<div class="feat-body">
+							<h4>{{ t('landing.why.feat2') }}</h4>
+							<p>{{ t('landing.why.feat2Desc') }}</p>
+							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+						</div>
 					</div>
 					<div class="feat-card">
-						<div class="feat-icon"><img src="/icons/settings.png" alt="" /></div>
-						<div><h4>{{ t('landing.why.feat3') }}</h4><p>{{ t('landing.why.feat3Desc') }}</p></div>
+						<div class="feat-icon"><img src="/icons/settings.png" alt="" class="feat-icon-img-sm" /></div>
+						<div class="feat-body">
+							<h4>{{ t('landing.why.feat3') }}</h4>
+							<p>{{ t('landing.why.feat3Desc') }}</p>
+							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+						</div>
 					</div>
 					<div class="feat-card">
-						<div class="feat-icon"><img src="/icons/language.png" alt="" /></div>
-						<div><h4>{{ t('landing.why.feat4') }}</h4><p>{{ t('landing.why.feat4Desc') }}</p></div>
+						<div class="feat-icon"><img src="/icons/language.png" alt="" class="feat-icon-img-sm" /></div>
+						<div class="feat-body">
+							<h4>{{ t('landing.why.feat4') }}</h4>
+							<p>{{ t('landing.why.feat4Desc') }}</p>
+							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+						</div>
 					</div>
 					<div class="feat-card">
 						<div class="feat-icon"><img src="/icons/pin.png" alt="" /></div>
-						<div><h4>{{ t('landing.why.feat5') }}</h4><p>{{ t('landing.why.feat5Desc') }}</p></div>
+						<div class="feat-body">
+							<h4>{{ t('landing.why.feat5') }}</h4>
+							<p>{{ t('landing.why.feat5Desc') }}</p>
+							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+						</div>
 					</div>
 					<div class="feat-card">
 						<div class="feat-icon"><img src="/icons/cog.png" alt="" /></div>
-						<div><h4>{{ t('landing.why.feat6') }}</h4><p>{{ t('landing.why.feat6Desc') }}</p></div>
+						<div class="feat-body">
+							<h4>{{ t('landing.why.feat6') }}</h4>
+							<p>{{ t('landing.why.feat6Desc') }}</p>
+							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -672,7 +696,13 @@ function scrollToTop() {
 	color: var(--l-blue);
 	font-size: 1.5rem;
 	text-align: right;
-	padding: 0 4rem 2rem 0;
+	padding: 0 8rem 2rem 0;
+}
+.sec-arrow-glyph {
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	line-height: 1;
 }
 .stat-arrow {
 	color: var(--l-blue);
@@ -1002,9 +1032,17 @@ function scrollToTop() {
 	height: 40px;
 	object-fit: contain;
 }
+.feat-icon img.feat-icon-img-sm {
+	width: 28px;
+	height: 28px;
+}
 .feat-icon i {
 	font-size: 1.7rem;
 	color: var(--l-blue);
+}
+.feat-body {
+	flex: 1;
+	min-width: 0;
 }
 .feat-card h4 {
 	color: var(--l-blue);
@@ -1016,7 +1054,11 @@ function scrollToTop() {
 	font-size: 0.8rem;
 	opacity: 0.7;
 	font-weight: 500;
-	margin: 0;
+	margin: 0 0 0.8rem 0;
+	line-height: 1.6;
+}
+.feat-readmore {
+	margin-top: 0.2rem;
 }
 
 /* ── Examples Section ─────────────────────────────────── */

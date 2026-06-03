@@ -293,6 +293,35 @@ onMounted(() => {
 						</div>
 					</div>
 				</div>
+
+				<div class="why-help-block">
+					<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
+					<p class="sec-desc showcase-desc text-center">{{ t('landing.help.desc') }}</p>
+					<div class="helpl-grid">
+						<div class="helpl-card">
+							<div class="helpl-icon"><img src="/icons/pin.png" alt="" class="helpl-icon-img" /></div>
+							<h4>{{ t('landing.help.card1Title') }}</h4>
+							<p>{{ t('landing.help.card1Desc') }}</p>
+							<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
+						</div>
+						<div class="helpl-card">
+							<div class="helpl-icon"><img src="/icons/pencil.png" alt="" class="helpl-icon-img" /></div>
+							<h4>{{ t('landing.help.card2Title') }}</h4>
+							<p>{{ t('landing.help.card2Desc') }}</p>
+							<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
+						</div>
+						<div class="helpl-card">
+							<div class="helpl-icon"><img src="/icons/magnify.png" alt="" class="helpl-icon-img" /></div>
+							<h4>{{ t('landing.help.card3Title') }}</h4>
+							<p>{{ t('landing.help.card3Desc') }}</p>
+							<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
+						</div>
+					</div>
+					<div class="why-contact">
+						<span class="why-contact-label">{{ t('landing.help.contactPrefix') }}</span>
+						<a href="mailto:hello@partimap.eu" class="why-contact-email">hello@partimap.eu</a>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -391,49 +420,6 @@ onMounted(() => {
 			</div>
 		</section>
 
-		<!-- Help -->
-		<section class="helplanding-section">
-			<div class="section-blob blob-helpl" aria-hidden="true" />
-			<div class="helplanding-inner">
-				<div class="help-circle no-phone-deco deco-circle" aria-hidden="true" />
-				<a href="#" class="home-link" @click.prevent="scrollToTop"><img src="/icons/home.png" alt="" class="showcase-top-icon" /></a>
-				<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
-				<p class="sec-desc showcase-desc text-center">{{ t('landing.help.desc') }}</p>
-				<div class="helpl-grid">
-					<div class="helpl-card">
-						<div class="helpl-icon"><img src="/icons/pin.png" alt="" class="helpl-icon-img" /></div>
-						<h4>{{ t('landing.help.card1Title') }}</h4>
-						<p>{{ t('landing.help.card1Desc') }}</p>
-						<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
-					</div>
-					<div class="helpl-card helpl-card-center">
-						<div class="helpl-icon-wrap">
-							<div class="helpl-icon"><img src="/icons/pencil.png" alt="" class="helpl-icon-img" /></div>
-							<svg class="rotating-svg rotating-svg-sm" viewBox="0 0 200 200" aria-hidden="true">
-								<defs>
-									<path id="helpTextPath" d="M 100,100 m -85,0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0" />
-								</defs>
-								<text font-size="10" fill="var(--l-blue)" font-weight="500" letter-spacing="0.5">
-									<textPath href="#helpTextPath">
-										{{ t('landing.help.circleText') }}{{ t('landing.help.circleText') }}
-									</textPath>
-								</text>
-							</svg>
-						</div>
-						<h4>{{ t('landing.help.card2Title') }}</h4>
-						<p>{{ t('landing.help.card2Desc') }}</p>
-						<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
-					</div>
-					<div class="helpl-card">
-						<div class="helpl-icon"><img src="/icons/magnify.png" alt="" class="helpl-icon-img" /></div>
-						<h4>{{ t('landing.help.card3Title') }}</h4>
-						<p>{{ t('landing.help.card3Desc') }}</p>
-						<a :href="localePath({ name: 'sugo' })" class="btn-landing-outline btn-sm">{{ t('landing.help.readMore') }}</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
 		<!-- Partners -->
 		<section class="partners-section">
 			<div class="section-blob blob-part" aria-hidden="true" />
@@ -447,6 +433,17 @@ onMounted(() => {
 			</div>
 			<div class="partner-circle-left no-phone-deco deco-circle" aria-hidden="true" />
 			<div class="partner-line no-phone-deco" aria-hidden="true" />
+		</section>
+
+		<!-- Funding -->
+		<section class="funding-section">
+			<div class="funding-inner">
+				<div class="funding-logos">
+					<img src="/eu-commission-logo-en.svg" :alt="t('landing.funding.euAlt')" class="funding-logo funding-logo-eu" />
+					<img src="/heinrich-boll-logo.svg" :alt="t('landing.funding.bollAlt')" class="funding-logo funding-logo-boll" />
+				</div>
+				<p class="funding-text">{{ t('landing.funding.text') }}</p>
+			</div>
 		</section>
 
 		<!-- Footer -->
@@ -832,9 +829,6 @@ onMounted(() => {
 	transform-origin: center center;
 	animation: spin 30s linear infinite;
 }
-.rotating-svg-sm {
-	animation-duration: 20s;
-}
 @media (prefers-reduced-motion: reduce) {
 	.rotating-svg { animation: none; }
 }
@@ -1082,6 +1076,43 @@ onMounted(() => {
 }
 .feat-readmore {
 	margin-top: 0.2rem;
+}
+.why-help-block {
+	margin-top: 5rem;
+}
+.why-help-block .sec-title {
+	margin-bottom: 1rem;
+}
+.why-contact {
+	margin-top: 3rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.6rem;
+}
+.why-contact-label {
+	font-size: 0.95rem;
+	color: var(--l-text);
+	opacity: 0.8;
+	font-weight: 500;
+}
+.why-contact-email {
+	display: inline-block;
+	background: var(--l-blue);
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	padding: 0.85rem 2.2rem;
+	border-radius: 2.5rem;
+	text-decoration: none;
+	border: 1.5px solid var(--l-blue);
+	transition: background 0.2s, color 0.2s;
+}
+.why-contact-email:hover {
+	background: transparent;
+	color: var(--l-blue);
 }
 
 /* ── Examples Section ─────────────────────────────────── */
@@ -1383,15 +1414,7 @@ onMounted(() => {
 	position: absolute;
 }
 
-/* ── Help Section ─────────────────────────────────────── */
-.helplanding-section {
-	position: relative;
-	padding: 5rem 2rem;
-}
-.helplanding-inner {
-	max-width: 1000px;
-	margin: 0 auto;
-}
+/* ── Help cards (merged into Why section) ─────────────── */
 .helpl-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -1414,31 +1437,12 @@ onMounted(() => {
 	justify-content: center;
 	color: var(--l-blue);
 	font-size: 1.75rem;
-	margin: 37.5px auto calc(37.5px + 1.5rem);
+	margin: 0 auto 1.5rem;
 }
 .helpl-icon-img {
 	width: 40px;
 	height: 40px;
 	object-fit: contain;
-}
-.helpl-icon-wrap {
-	position: relative;
-	width: 180px;
-	height: 180px;
-	margin: 0 auto 1.5rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.helpl-icon-wrap .helpl-icon {
-	margin: 0;
-	position: relative;
-	z-index: 1;
-}
-.helpl-icon-wrap .rotating-svg-sm {
-	position: absolute;
-	width: 100%;
-	height: 100%;
 }
 .helpl-card h4 {
 	color: var(--l-blue);
@@ -1451,10 +1455,6 @@ onMounted(() => {
 	line-height: 1.7;
 	opacity: 0.8;
 	margin-bottom: 1.5rem;
-}
-.help-circle {
-	width: 480px; height: 480px; bottom: 40%; right: -250px;
-	position: absolute;
 }
 
 /* ── Partners Section ─────────────────────────────────── */
@@ -1501,6 +1501,49 @@ onMounted(() => {
 	width: 900px;
 	height: 0;
 	border-top: 1.5px solid var(--l-blue);
+}
+
+/* ── Funding Section ──────────────────────────────────── */
+.funding-section {
+	position: relative;
+	padding: 2rem 2rem 3rem;
+}
+.funding-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 2.5rem;
+	flex-wrap: wrap;
+}
+.funding-logos {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	flex-shrink: 0;
+}
+.funding-logo {
+	height: 60px;
+	width: auto;
+	object-fit: contain;
+}
+.funding-logo-eu { height: 60px; }
+.funding-logo-boll { height: 60px; }
+.funding-text {
+	flex: 1;
+	min-width: 280px;
+	font-size: 0.8rem;
+	line-height: 1.7;
+	opacity: 0.8;
+	font-weight: 500;
+	margin: 0;
+}
+@media (max-width: 768px) {
+	.funding-inner {
+		flex-direction: column;
+		text-align: center;
+	}
+	.funding-logos { flex-wrap: wrap; justify-content: center; }
 }
 
 /* ── Footer ───────────────────────────────────────────── */
@@ -1564,7 +1607,6 @@ onMounted(() => {
 .deco-show-tl  { width: 350px; height: 350px; top: -100px; left: -100px; }
 .deco-show-br  { width: 300px; height: 300px; bottom: -80px; right: -80px; }
 .deco-news-tr  { width: 280px; height: 280px; top: -60px; right: -80px; }
-.deco-helpl-tr { width: 400px; height: 400px; top: 0; right: -150px; }
 .deco-part-bl  { width: 350px; height: 350px; bottom: -60px; left: -120px; }
 .deco-part-tr  { width: 400px; height: 400px; top: -20px; right: -120px; }
 
@@ -1625,7 +1667,6 @@ onMounted(() => {
 .blob-stats { width: 350px; height: 350px; top: -80px; right: 10%; background: var(--l-blue-10); }
 .blob-show  { width: 500px; height: 500px; bottom: -100px; right: -50px; background: var(--l-blue-15); }
 .blob-news  { width: 400px; height: 400px; bottom: -80px; left: -50px; background: var(--l-blue-10); }
-.blob-helpl { width: 350px; height: 350px; top: 50%; left: 10%; background: var(--l-blue-10); }
 .blob-part  { width: 1000px; height: 900px; bottom: -300px; right: -250px; background: var(--l-blue-10); filter: blur(120px); }
 
 /* ── Floating Blue Dots ───────────────────────────────── */

@@ -194,6 +194,7 @@ export default {
 			title: '¿Atascado?<br>¡Te ayudamos!',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
 			circleText: "¿Preguntas? ¡Contáctanos en hello{'@'}partimap.eu! ",
+			contactPrefix: '¿Preguntas? Contáctanos:',
 			card1Title: '¿Cómo crear un PARTIMAP?',
 			card1Desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales non nunc at congue. Nulla quis est vitae enim semper lacinia et eget ipsum. Cras elementum ultrices nibh, vitae mollis nisi hendrerit eu. Sed sit amet tincidunt velit. Maecenas ultricies mauris vitae est varius, vitae pulvinar sapien malesuada.',
 			card2Title: '¿Cómo escribir una encuesta?',
@@ -203,8 +204,13 @@ export default {
 			readMore: '¡LEER MÁS!',
 		},
 		partners: {
-			title: 'Nuestros socios',
+			title: 'Nuestros clientes',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+		},
+		funding: {
+			text: 'El desarrollo se lleva a cabo en el marco del proyecto Participatory Mapping in Cohesion Policy in Hungary (PartiMap), financiado por la Comisión Europea (DG Regio). El desarrollo posterior de la herramienta fue apoyado por la oficina en Praga de la Fundación Heinrich Böll.',
+			euAlt: 'Comisión Europea',
+			bollAlt: 'Fundación Heinrich Böll',
 		},
 		footer: {
 			contact: '¡Escríbenos!',

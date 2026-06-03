@@ -193,6 +193,7 @@ export default {
 			title: 'Elakadtál?<br>Segítünk!',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
 			circleText: "Kérdésed van? Keress minket bátran a hello{'@'}partimap.eu címen! ",
+			contactPrefix: 'Kérdésed van? Keress minket bátran:',
 			card1Title: 'Hogyan készítsünk PARTIMAPOT?',
 			card1Desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales non nunc at congue. Nulla quis est vitae enim semper lacinia et eget ipsum. Cras elementum ultrices nibh, vitae mollis nisi hendrerit eu. Sed sit amet tincidunt velit. Maecenas ultricies mauris vitae est varius, vitae pulvinar sapien malesuada.',
 			card2Title: 'Hogyan írjunk kérdőívet?',
@@ -202,8 +203,13 @@ export default {
 			readMore: 'OLVASS TOVÁBB!',
 		},
 		partners: {
-			title: 'Partnereink',
+			title: 'Ügyfeleink',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+		},
+		funding: {
+			text: 'A fejlesztés az Európai Bizottság (DG Regio) által támogatott Participatory Mapping in Cohesion Policy in Hungary (PartiMap) elnevezésű projekt keretében valósul meg. Az eszköz továbbfejlesztését a Heinrich Böll Alapítvány prágai irodája támogatta.',
+			euAlt: 'Európai Bizottság',
+			bollAlt: 'Heinrich Böll Alapítvány',
 		},
 		footer: {
 			contact: 'Írj nekünk!',

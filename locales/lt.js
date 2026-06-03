@@ -192,6 +192,7 @@ export default {
 			title: 'Užstrigote?<br>Padėsime!',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
 			circleText: "Turite klausimų? Susisiekite hello{'@'}partimap.eu! ",
+			contactPrefix: 'Turite klausimų? Susisiekite su mumis:',
 			card1Title: 'Kaip sukurti PARTIMAP?',
 			card1Desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales non nunc at congue. Nulla quis est vitae enim semper lacinia et eget ipsum. Cras elementum ultrices nibh, vitae mollis nisi hendrerit eu. Sed sit amet tincidunt velit. Maecenas ultricies mauris vitae est varius, vitae pulvinar sapien malesuada.',
 			card2Title: 'Kaip parašyti apklausą?',
@@ -201,8 +202,13 @@ export default {
 			readMore: 'SKAITYTI DAUGIAU!',
 		},
 		partners: {
-			title: 'Mūsų partneriai',
+			title: 'Mūsų klientai',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+		},
+		funding: {
+			text: 'Plėtra vykdoma įgyvendinant projektą „Participatory Mapping in Cohesion Policy in Hungary" (PartiMap), kurį remia Europos Komisija (DG Regio). Tolesnį priemonės tobulinimą parėmė Heinricho Böllio fondo Prahos biuras.',
+			euAlt: 'Europos Komisija',
+			bollAlt: 'Heinricho Böllio fondas',
 		},
 		footer: {
 			contact: 'Parašykite mums!',

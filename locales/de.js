@@ -194,6 +194,7 @@ export default {
 			title: 'Nicht weiter?<br>Wir helfen!',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
 			circleText: "Fragen? Kontaktieren Sie uns unter hello{'@'}partimap.eu! ",
+			contactPrefix: 'Fragen? Kontaktieren Sie uns:',
 			card1Title: 'Wie erstellt man eine PARTIMAP?',
 			card1Desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales non nunc at congue. Nulla quis est vitae enim semper lacinia et eget ipsum. Cras elementum ultrices nibh, vitae mollis nisi hendrerit eu. Sed sit amet tincidunt velit. Maecenas ultricies mauris vitae est varius, vitae pulvinar sapien malesuada.',
 			card2Title: 'Wie schreibt man eine Umfrage?',
@@ -203,8 +204,13 @@ export default {
 			readMore: 'WEITERLESEN!',
 		},
 		partners: {
-			title: 'Unsere Partner',
+			title: 'Unsere Kunden',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+		},
+		funding: {
+			text: 'Die Entwicklung erfolgt im Rahmen des von der Europäischen Kommission (GD Regio) geförderten Projekts Participatory Mapping in Cohesion Policy in Hungary (PartiMap). Die Weiterentwicklung des Tools wurde vom Prager Büro der Heinrich-Böll-Stiftung unterstützt.',
+			euAlt: 'Europäische Kommission',
+			bollAlt: 'Heinrich-Böll-Stiftung',
 		},
 		footer: {
 			contact: 'Schreiben Sie uns!',

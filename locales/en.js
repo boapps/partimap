@@ -192,6 +192,7 @@ export default {
 			title: 'Stuck?<br>We can help!',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
 			circleText: "Got questions? Contact us at hello{'@'}partimap.eu! ",
+			contactPrefix: 'Got questions? Reach out to us:',
 			card1Title: 'How to create a PARTIMAP?',
 			card1Desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales non nunc at congue. Nulla quis est vitae enim semper lacinia et eget ipsum. Cras elementum ultrices nibh, vitae mollis nisi hendrerit eu. Sed sit amet tincidunt velit. Maecenas ultricies mauris vitae est varius, vitae pulvinar sapien malesuada.',
 			card2Title: 'How to write a survey?',
@@ -201,8 +202,13 @@ export default {
 			readMore: 'READ MORE!',
 		},
 		partners: {
-			title: 'Our partners',
+			title: 'Our clients',
 			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+		},
+		funding: {
+			text: 'The development is carried out as part of the Participatory Mapping in Cohesion Policy in Hungary (PartiMap) project, supported by the European Commission (DG Regio). Further development of the tool was supported by the Prague office of the Heinrich Böll Foundation.',
+			euAlt: 'European Commission',
+			bollAlt: 'Heinrich Böll Foundation',
 		},
 		footer: {
 			contact: 'Contact us!',

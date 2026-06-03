@@ -187,11 +187,13 @@ onMounted(() => {
 						<h3>{{ t('landing.hero.feat3Title') }}</h3>
 						<p>{{ t('landing.hero.feat3Desc') }}</p>
 					</div>
-					<!-- <div class="hero-right-scroll" aria-hidden="true">
-						<span class="hero-right-scroll-label">SCROLL</span>
-						<span class="hero-right-scroll-line" />
-						<span class="hero-right-scroll-arrow">↓</span>
-					</div> -->
+					<div class="hero-right-scroll" aria-hidden="true">
+						<span class="hero-chevrons">
+							<span class="hero-chevron" />
+							<span class="hero-chevron" />
+							<span class="hero-chevron" />
+						</span>
+					</div>
 				</div>
 			</div>
 			<a href="#examples" class="hero-scroll-indicator" aria-label="Scroll down">
@@ -205,6 +207,7 @@ onMounted(() => {
 		<!-- Examples / Use cases -->
 		<section id="examples" class="examples-section">
 			<div class="section-blob blob-examples" aria-hidden="true" />
+			<div class="sec-arrow sec-arrow-top" aria-hidden="true"><span class="sec-arrow-glyph">↓</span></div>
 			<div class="examples-inner">
 				<h2 class="sec-title">{{ t('landing.examples.title') }}</h2>
 				<p class="sec-sub">{{ t('landing.examples.sub') }}</p>
@@ -349,7 +352,7 @@ onMounted(() => {
 					</div>
 				</div>
 			</div>
-			<div class="stat-arrow" aria-hidden="true">↓</div>
+			<div class="stat-arrow" aria-hidden="true"><span class="sec-arrow-glyph">↓</span></div>
 		</section>
 
 		<!-- Showcase -->
@@ -714,22 +717,36 @@ onMounted(() => {
 }
 .sec-arrow {
 	color: var(--l-blue);
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	text-align: right;
 	padding: 0 8rem 2rem 0;
+}
+.sec-arrow-top {
+	position: absolute;
+	top: 11rem;
+	right: 8rem;
+	padding: 0;
 }
 .sec-arrow-glyph {
 	display: inline-block;
 	width: 24px;
 	text-align: center;
 	line-height: 1;
+	animation: secArrowBounce 1.6s ease-in-out infinite;
+}
+@keyframes secArrowBounce {
+	0%, 100% { transform: translateY(0); opacity: 0.55; }
+	50% { transform: translateY(7px); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.sec-arrow-glyph { animation: none; }
 }
 .stat-arrow {
 	color: var(--l-blue);
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	text-align: right;
 	margin-top: 4rem;
-	padding: 0 4rem 2rem 0;
+	padding: 0 8rem 2rem 0;
 }
 
 /* ── Buttons ──────────────────────────────────────────── */
@@ -936,16 +953,31 @@ onMounted(() => {
 	transform: rotate(180deg);
 	opacity: 0.8;
 }
-.hero-right-scroll-line {
-	width: 1.5px;
-	height: 60px;
-	background: var(--l-blue);
-	animation: scrollLineGrow 1.8s ease-in-out infinite;
-	transform-origin: top center;
+.hero-chevrons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
 }
-.hero-right-scroll-arrow {
-	font-size: 1.2rem;
-	animation: scrollBounce 1.8s ease-in-out infinite;
+.hero-chevron {
+	width: 12px;
+	height: 12px;
+	border-right: 2px solid var(--l-blue);
+	border-bottom: 2px solid var(--l-blue);
+	transform: rotate(45deg);
+	opacity: 0;
+	animation: chevronCascade 1.6s ease-in-out infinite;
+}
+.hero-chevron:nth-child(2) { animation-delay: 0.2s; }
+.hero-chevron:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes chevronCascade {
+	0% { opacity: 0; transform: rotate(45deg) translate(-3px, -3px); }
+	50% { opacity: 1; }
+	100% { opacity: 0; transform: rotate(45deg) translate(3px, 3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.hero-chevron { animation: none; opacity: 0.7; }
 }
 
 /* Centered animated scroll indicator at hero bottom */

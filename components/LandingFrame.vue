@@ -29,33 +29,51 @@ withDefaults(
 					<input type="text" :placeholder="t('landing.nav.search')" />
 				</div>
 
-				<div v-else class="nav-links d-none d-lg-flex">
-					<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-link-item">
-						{{ t('landing.nav.about') }}
-					</NuxtLink>
-					<NuxtLink :to="localePath({ name: 'rolunk' })" class="nav-link-item">
+				<div class="nav-links d-none d-lg-flex">
+					<div class="nav-dropdown">
+						<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-link-item nav-dropdown-toggle">
+							{{ t('landing.nav.about') }}
+							<span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+						</NuxtLink>
+						<div class="nav-dropdown-menu">
+							<NuxtLink
+								v-for="key in ['whatIs', 'plan', 'questionnaire', 'create', 'analyze', 'visualize']"
+								:key="key"
+								:to="localePath({ name: 'partimaprol' })"
+								class="nav-dropdown-item"
+							>
+								{{ t(`landing.nav.aboutSubmenu.${key}`) }}
+							</NuxtLink>
+						</div>
+					</div>
+					<NuxtLink :to="localePath({ name: 'sugo' })" class="nav-link-item">
 						{{ t('landing.nav.aboutUs') }}
 					</NuxtLink>
 					<NuxtLink :to="localePath({ name: 'arazas' })" class="nav-link-item">
 						{{ t('landing.nav.pricing') }}
 					</NuxtLink>
-					<a href="#contact" class="nav-link-item">{{ t('landing.nav.contact') }}</a>
+					<div class="nav-dropdown">
+						<button type="button" class="nav-link-item nav-dropdown-toggle nav-dropdown-btn">
+							{{ t('landing.nav.contact') }}
+							<span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+						</button>
+						<div class="nav-dropdown-menu">
+							<NuxtLink :to="localePath({ name: 'rolunk' })" class="nav-dropdown-item">
+								{{ t('landing.nav.contactSubmenu.rolunk') }}
+							</NuxtLink>
+							<NuxtLink :to="localePath({ name: 'impresszum' })" class="nav-dropdown-item">
+								{{ t('landing.nav.contactSubmenu.impresszum') }}
+							</NuxtLink>
+						</div>
+					</div>
 					<a
-						:href="t('landing.tryLink')"
+						:href="t('landing.tryLink')" 
 						target="_blank"
 						class="nav-btn-filled"
 					>{{ t('landing.nav.tryIt') }}</a>
 				</div>
 
 				<b-navbar-nav class="nav-right">
-					<NuxtLink
-						v-if="showSearch"
-						:to="localePath({ name: 'sugo' })"
-						class="nav-link-item d-none d-lg-inline"
-					>
-						{{ t('landing.nav.help') }}
-					</NuxtLink>
-					<span class="nav-lang-label d-none d-lg-inline">{{ t('landing.nav.langSwitch') }}</span>
 					<LangSwitcher />
 					<b-nav-item class="nav-login-item">
 						<NuxtLink :to="localePath('/admin')" class="nav-btn-outline">
@@ -184,9 +202,7 @@ withDefaults(
 	margin-left: auto;
 }
 .nav-search {
-	flex: 1;
-	max-width: 600px;
-	margin: 0 auto;
+	flex: 0 1 260px;
 	display: flex;
 	align-items: center;
 	gap: 0.6rem;
@@ -217,6 +233,68 @@ withDefaults(
 	white-space: nowrap;
 }
 .nav-link-item:hover { text-decoration: underline; }
+.nav-dropdown {
+	position: relative;
+}
+.nav-dropdown-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+.nav-dropdown-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	font-family: inherit;
+	cursor: pointer;
+}
+.nav-dropdown-caret {
+	font-size: 0.65rem;
+	line-height: 1;
+	transition: transform 0.2s ease;
+}
+.nav-dropdown:hover .nav-dropdown-caret,
+.nav-dropdown:focus-within .nav-dropdown-caret {
+	transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 280px;
+	background: rgba(255, 255, 255, 0.96);
+	backdrop-filter: blur(8px);
+	border: 1.5px solid var(--l-blue);
+	border-radius: 12px;
+	padding: 0.5rem 0;
+	margin-top: 0.5rem;
+	box-shadow: 0 8px 24px rgba(0, 85, 255, 0.12);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-4px);
+	transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+	z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+.nav-dropdown-item {
+	display: block;
+	padding: 0.55rem 1.1rem;
+	color: var(--l-blue);
+	font-size: 0.8rem;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: normal;
+	line-height: 1.35;
+}
+.nav-dropdown-item:hover {
+	background: rgba(0, 85, 255, 0.08);
+	text-decoration: none;
+}
 .nav-btn-filled {
 	background: var(--l-blue);
 	color: #fff !important;
@@ -242,13 +320,6 @@ withDefaults(
 .nav-right :deep(.nav-item) { list-style: none; }
 .nav-login-item { list-style: none; }
 .nav-login-item :deep(.nav-link) { padding: 0; }
-.nav-lang-label {
-	color: var(--l-blue);
-	font-size: 0.7rem;
-	font-weight: 500;
-	letter-spacing: 0.08em;
-	white-space: nowrap;
-}
 .nav-btn-outline {
 	border: 1.5px solid var(--l-blue);
 	color: var(--l-blue);

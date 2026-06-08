@@ -89,9 +89,14 @@ export default {
 				analyze: 'How to analyze the collected data',
 				visualize: 'How to visualize the collected data',
 			},
+			rolunk: 'ABOUT US',
 			aboutUs: 'HOW IT WORKS',
 			pricing: 'PRICING',
 			contact: 'CONTACT',
+			contactSubmenu: {
+				rolunk: 'About us',
+				impresszum: 'Imprint',
+			},
 			tryIt: 'TRY IT!',
 			langSwitch: 'LANGUAGE',
 			login: 'LOGIN / REGISTER',
@@ -100,6 +105,7 @@ export default {
 		},
 		hero: {
 			tagline: 'Citizen<br>engagement<br>made easy!',
+			subtitle: 'Try our free map-based survey application!',
 			cta: 'I\'M INTERESTED!',
 			circleText: 'MARK WHERE YOU CAME FROM! ',
 			btnZoomIn: 'Zoom in',
@@ -257,6 +263,13 @@ export default {
 		hl2Title: 'Lorem ipsum',
 		missionTitle: 'Lorem ipsum',
 		missionDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id velit vel elit fermentum ultrices. Phasellus faucibus, turpis facilisis luctus convallis, lectus turpis sodales nisi, vel facilisis erat ipsum at neque.',
+	},
+	impresszum: {
+		title: 'Imprint',
+		intro: 'PARTIMAP is operated and published by:',
+		operator: 'K-Monitor Public Benefit Association',
+		contactLabel: 'Contact',
+		email: 'hello@partimap.eu',
 	},
 	aboutPartimap: {
 		title: 'About PARTIMAP',

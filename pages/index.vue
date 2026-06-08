@@ -115,7 +115,20 @@ onMounted(() => {
 					<NuxtLink :to="localePath({ name: 'arazas' })" class="nav-link-item">
 						{{ t('landing.nav.pricing') }}
 					</NuxtLink>
-					<a href="#contact" class="nav-link-item">{{ t('landing.nav.contact') }}</a>
+					<div class="nav-dropdown">
+						<button type="button" class="nav-link-item nav-dropdown-toggle nav-dropdown-btn">
+							{{ t('landing.nav.contact') }}
+							<span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+						</button>
+						<div class="nav-dropdown-menu">
+							<NuxtLink :to="localePath({ name: 'rolunk' })" class="nav-dropdown-item">
+								{{ t('landing.nav.contactSubmenu.rolunk') }}
+							</NuxtLink>
+							<NuxtLink :to="localePath({ name: 'impresszum' })" class="nav-dropdown-item">
+								{{ t('landing.nav.contactSubmenu.impresszum') }}
+							</NuxtLink>
+						</div>
+					</div>
 					<a
 						:href="t('landing.tryLink')"
 						target="_blank"
@@ -142,6 +155,7 @@ onMounted(() => {
 				<div class="hero-left">
 					<span class="hero-brand">PARTIMAP</span>
 					<h1 class="hero-title" v-html="t('landing.hero.tagline')" />
+					<p class="hero-subtitle">{{ t('landing.hero.subtitle') }}</p>
 					<a
 						href="#examples"
 						class="btn-landing"
@@ -581,6 +595,13 @@ onMounted(() => {
 	align-items: center;
 	gap: 0.25rem;
 }
+.nav-dropdown-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	font-family: inherit;
+	cursor: pointer;
+}
 .nav-dropdown-caret {
 	font-size: 0.65rem;
 	line-height: 1;
@@ -820,6 +841,13 @@ onMounted(() => {
 	font-weight: 500;
 	/* font-style: italic; */
 	line-height: 1.1;
+	margin-bottom: 1rem;
+}
+.hero-subtitle {
+	color: var(--l-blue);
+	font-size: clamp(1rem, 2vw, 1.25rem);
+	font-weight: 400;
+	line-height: 1.4;
 	margin-bottom: 2rem;
 }
 .hero-center {

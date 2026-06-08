@@ -89,9 +89,14 @@ export default {
 				analyze: 'Kaip analizuoti surinktus duomenis',
 				visualize: 'Kaip pavaizduoti surinktus duomenis',
 			},
+			rolunk: 'APIE MUS',
 			aboutUs: 'KAIP VEIKIA',
 			pricing: 'KAINOS',
 			contact: 'KONTAKTAI',
+			contactSubmenu: {
+				rolunk: 'Apie mus',
+				impresszum: 'Rekvizitai',
+			},
 			tryIt: 'IŠBANDYK!',
 			langSwitch: 'KALBA',
 			login: 'PRISIJUNGTI / REGISTRUOTIS',
@@ -100,6 +105,7 @@ export default {
 		},
 		hero: {
 			tagline: 'Piliečių<br>dalyvavimas<br>lengvai!',
+			subtitle: 'Išbandykite mūsų nemokamą žemėlapiais pagrįstą apklausų programą!',
 			cta: 'DOMINA!',
 			circleText: 'PAŽYMĖKITE, IŠ KUR ATVYKOTE! ',
 			btnZoomIn: 'Priartinti',
@@ -257,6 +263,13 @@ export default {
 		hl2Title: 'Lorem ipsum',
 		missionTitle: 'Lorem ipsum',
 		missionDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id velit vel elit fermentum ultrices. Phasellus faucibus, turpis facilisis luctus convallis, lectus turpis sodales nisi, vel facilisis erat ipsum at neque.',
+	},
+	impresszum: {
+		title: 'Rekvizitai',
+		intro: 'PARTIMAP administruoja ir leidžia:',
+		operator: 'K-Monitor viešosios naudos asociacija',
+		contactLabel: 'Kontaktai',
+		email: 'hello@partimap.eu',
 	},
 	aboutPartimap: {
 		title: 'About PARTIMAP',

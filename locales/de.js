@@ -91,9 +91,14 @@ export default {
 				analyze: 'Wie man die gesammelten Daten analysiert',
 				visualize: 'Wie man die gesammelten Daten darstellt',
 			},
+			rolunk: 'ÜBER UNS',
 			aboutUs: 'WIE ES FUNKTIONIERT',
 			pricing: 'PREISE',
 			contact: 'KONTAKT',
+			contactSubmenu: {
+				rolunk: 'Über uns',
+				impresszum: 'Impressum',
+			},
 			tryIt: 'AUSPROBIEREN!',
 			langSwitch: 'SPRACHE',
 			login: 'ANMELDEN / REGISTRIEREN',
@@ -102,6 +107,7 @@ export default {
 		},
 		hero: {
 			tagline: 'Bürgerbeteiligung<br>leicht<br>gemacht!',
+			subtitle: 'Probieren Sie unsere kostenlose kartenbasierte Umfrage-Anwendung aus!',
 			cta: 'INTERESSIERT!',
 			circleText: 'MARKIERE, WOHER DU KOMMST! ',
 			btnZoomIn: 'Vergrößern',
@@ -259,6 +265,13 @@ export default {
 		hl2Title: 'Lorem ipsum',
 		missionTitle: 'Lorem ipsum',
 		missionDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id velit vel elit fermentum ultrices. Phasellus faucibus, turpis facilisis luctus convallis, lectus turpis sodales nisi, vel facilisis erat ipsum at neque.',
+	},
+	impresszum: {
+		title: 'Impressum',
+		intro: 'PARTIMAP wird betrieben und herausgegeben von:',
+		operator: 'K-Monitor Gemeinnütziger Verein',
+		contactLabel: 'Kontakt',
+		email: 'hello@partimap.eu',
 	},
 	aboutPartimap: {
 		title: 'About PARTIMAP',

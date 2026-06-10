@@ -64,8 +64,11 @@ useHead({
 						<div class="circle-glow" />
 					</div>
 					<div class="mission-text">
+						<span class="mission-eyebrow">{{ t('aboutUs.supportEyebrow') }}</span>
 						<h2>{{ t('aboutUs.missionTitle') }}</h2>
+						<p class="mission-note">{{ t('aboutUs.supportNote') }}</p>
 						<p>{{ t('aboutUs.missionDesc') }}</p>
+						<a href="https://tamogatas.k-monitor.hu/" target="_blank" rel="noopener" class="mission-btn">{{ t('aboutUs.supportBtn') }}</a>
 					</div>
 				</div>
 
@@ -206,6 +209,16 @@ useHead({
 .mission-text {
 	width: 400px;
 }
+.mission-eyebrow {
+	display: block;
+	color: #0055FF;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	opacity: 0.7;
+	margin-bottom: 0.5rem;
+}
 .mission-text h2 {
 	color: #0055FF;
 	font-size: 1.8rem;
@@ -217,6 +230,28 @@ useHead({
 	line-height: 1.7;
 	color: #333;
 	opacity: 0.9;
+	margin-bottom: 1rem;
+}
+.mission-note {
+	font-weight: 500;
+}
+.mission-btn {
+	display: inline-block;
+	margin-top: 0.5rem;
+	background: #0055FF;
+	color: #fff;
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	padding: 0.8rem 2.2rem;
+	border-radius: 2rem;
+	text-decoration: none;
+	border: 1.5px solid #0055FF;
+	transition: background 0.2s, color 0.2s;
+}
+.mission-btn:hover {
+	background: transparent;
+	color: #0055FF;
 }
 
 /* ── Mission circle decoration ────────────────── */

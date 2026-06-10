@@ -27,7 +27,7 @@ useHead({
 					<div class="pricing-intro">
 						<h2>{{ t('pricing.introTitle') }}</h2>
 						<p>{{ t('pricing.introP1') }}</p>
-						<p>{{ t('pricing.introP2') }}</p>
+						<p v-if="t('pricing.introP2')">{{ t('pricing.introP2') }}</p>
 						<div class="pricing-arrow" aria-hidden="true">↓</div>
 					</div>
 
@@ -41,28 +41,22 @@ useHead({
 							<h3>{{ t(`pricing.${plan}.name`) }}</h3>
 							<p>{{ t(`pricing.${plan}.tagline`) }}</p>
 							<NuxtLink
-								v-if="plan === 'free'"
 								:to="localePath({ name: 'register' })"
 								class="btn-landing-outline btn-sm"
 							>
-								{{ t('pricing.free.cta') }}
+								{{ t(`pricing.${plan}.cta`) }}
 							</NuxtLink>
-							<a
-								v-else
-								href="mailto:hello@partimap.eu"
-								class="btn-landing-outline btn-sm"
-							>
-								{{ t('pricing.extra.cta') }}
-							</a>
 						</div>
 						<div class="plan-banner">{{ t(`pricing.${plan}.bannerTitle`) }}</div>
 						<div class="plan-body">
 							<h4>{{ t(`pricing.${plan}.includesTitle`) }}</h4>
 							<ul>
-								<li v-for="n in 3" :key="n">
-									<i class="fas fa-check" />
-									<span>{{ t(`pricing.${plan}.feat${n}`) }}</span>
-								</li>
+								<template v-for="n in 3" :key="n">
+									<li v-if="t(`pricing.${plan}.feat${n}`)">
+										<i class="fas fa-check" />
+										<span>{{ t(`pricing.${plan}.feat${n}`) }}</span>
+									</li>
+								</template>
 							</ul>
 							<div class="plan-divider" />
 							<a href="#" class="plan-more">{{ t('pricing.more') }}</a>

@@ -266,8 +266,11 @@ export default {
 		stat1: 'We\'ve been an active NGO in Budapest for 18 years!',
 		hl1Title: 'Lorem ipsum',
 		hl2Title: 'Lorem ipsum',
-		missionTitle: 'Lorem ipsum',
-		missionDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id velit vel elit fermentum ultrices. Phasellus faucibus, turpis facilisis luctus convallis, lectus turpis sodales nisi, vel facilisis erat ipsum at neque.',
+		supportEyebrow: '¿Te gusta nuestra aplicación?',
+		missionTitle: '¡Apóyanos!',
+		supportNote: 'Si quieres apoyar nuestro trabajo, tu donación ayuda a que K-Monitor siga siendo independiente y a que PARTIMAP siga siendo gratuito.',
+		missionDesc: 'Para que PARTIMAP no solo funcione, sino que siga mejorando, necesitamos colaboradores habituales. Las donaciones nos permiten seguir desarrollando las funciones de mapas y cuestionarios de PARTIMAP y ofrecer una herramienta de recogida de datos aún más fácil de usar, abierta y transparente para iniciativas ciudadanas y comunidades, todo ello preservando la independencia y el libre acceso de PARTIMAP.',
+		supportBtn: 'DONAR',
 	},
 	impresszum: {
 		title: 'Aviso legal',

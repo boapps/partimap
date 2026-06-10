@@ -264,8 +264,11 @@ export default {
 		stat1: 'We\'ve been an active NGO in Budapest for 18 years!',
 		hl1Title: 'Lorem ipsum',
 		hl2Title: 'Lorem ipsum',
-		missionTitle: 'Lorem ipsum',
-		missionDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id velit vel elit fermentum ultrices. Phasellus faucibus, turpis facilisis luctus convallis, lectus turpis sodales nisi, vel facilisis erat ipsum at neque.',
+		supportEyebrow: 'Patinka mūsų programa?',
+		missionTitle: 'Paremkite mus!',
+		supportNote: 'Jei norite paremti mūsų darbą, jūsų auka padeda „K-Monitor“ išlikti nepriklausomam, o PARTIMAP – nemokamam.',
+		missionDesc: 'Kad PARTIMAP ne tik veiktų, bet ir nuolat tobulėtų, mums reikia nuolatinių rėmėjų. Aukos leidžia toliau plėtoti PARTIMAP žemėlapių ir apklausų funkcijas bei suteikti dar patogesnį, atvirą ir skaidrų duomenų rinkimo įrankį pilietinėms iniciatyvoms ir bendruomenėms – ir visa tai išsaugant PARTIMAP nepriklausomumą ir laisvą prieinamumą.',
+		supportBtn: 'PAREMTI',
 	},
 	impresszum: {
 		title: 'Rekvizitai',

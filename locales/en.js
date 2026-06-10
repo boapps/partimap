@@ -218,6 +218,9 @@ export default {
 		},
 		footer: {
 			contact: 'Contact us!',
+			contactDesc: 'Do you have a question about using PARTIMAP, are you considering a collaboration, or would you like to know how we can support your work? Get in touch with us by email!',
+			follow: 'Follow us!',
+			office: 'Registered office:',
 			privacy: 'Privacy policy',
 			terms: 'Terms of use',
 			imprint: 'Imprint',

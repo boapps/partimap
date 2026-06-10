@@ -218,6 +218,9 @@ export default {
 		},
 		footer: {
 			contact: 'Parašykite mums!',
+			contactDesc: 'Turite klausimų apie naudojimąsi PARTIMAP, svarstote apie bendradarbiavimą ar norėtumėte sužinoti, kaip galime padėti jūsų darbui? Susisiekite su mumis el. paštu!',
+			follow: 'Sekite mus!',
+			office: 'Registruota buveinė:',
 			privacy: 'Privatumo politika',
 			terms: 'Naudojimo sąlygos',
 			imprint: 'Leidėjo informacija',

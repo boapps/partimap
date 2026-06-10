@@ -220,6 +220,9 @@ export default {
 		},
 		footer: {
 			contact: '¡Escríbenos!',
+			contactDesc: '¿Tienes alguna pregunta sobre el uso de PARTIMAP, estás pensando en colaborar o te gustaría saber cómo podemos apoyar tu trabajo? ¡Ponte en contacto con nosotros por correo electrónico!',
+			follow: '¡Síguenos!',
+			office: 'Domicilio social:',
 			privacy: 'Política de privacidad',
 			terms: 'Condiciones de uso',
 			imprint: 'Aviso legal',

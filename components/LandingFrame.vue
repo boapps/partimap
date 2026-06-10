@@ -95,32 +95,34 @@ withDefaults(
 				<div class="footer-grid">
 					<div class="footer-col">
 						<h5>{{ t('landing.footer.contact') }}</h5>
+						<p class="footer-desc">{{ t('landing.footer.contactDesc') }}</p>
 						<ul>
 							<li><a href="mailto:hello@partimap.eu">hello@partimap.eu</a></li>
+							<li><a href="mailto:info@k-monitor.hu">info@k-monitor.hu</a></li>
 						</ul>
 					</div>
 					<div class="footer-col">
-						<h5>{{ t('landing.footer.privacy') }}</h5>
+						<h5 class="footer-col-spacer" aria-hidden="true">&nbsp;</h5>
 						<ul>
-							<li>{{ t('landing.footer.placeholder') }}</li>
-							<li>{{ t('landing.footer.placeholder') }}</li>
-							<li>{{ t('landing.footer.placeholder') }}</li>
+							<li><a href="#">{{ t('landing.footer.privacy') }}</a></li>
+							<li><a href="#">{{ t('landing.footer.terms') }}</a></li>
 						</ul>
 					</div>
 					<div class="footer-col">
-						<h5>{{ t('landing.footer.terms') }}</h5>
+						<h5>{{ t('landing.footer.follow') }}</h5>
 						<ul>
-							<li>{{ t('landing.footer.placeholder') }}</li>
-							<li>{{ t('landing.footer.placeholder') }}</li>
-							<li>{{ t('landing.footer.placeholder') }}</li>
+							<li><a href="https://k.blog.hu" target="_blank" rel="noopener">k.blog</a></li>
+							<li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+							<li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+							<li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
 						</ul>
 					</div>
 					<div class="footer-col">
 						<h5>{{ t('landing.footer.imprint') }}</h5>
 						<ul>
-							<li>{{ t('landing.footer.placeholder') }}</li>
-							<li>{{ t('landing.footer.placeholder') }}</li>
-							<li>{{ t('landing.footer.placeholder') }}</li>
+							<li>K-Monitor Közhasznú Egyesület</li>
+							<li>{{ t('landing.footer.office') }}</li>
+							<li>1077 Budapest, Rózsa utca 8.</li>
 						</ul>
 					</div>
 				</div>
@@ -407,6 +409,13 @@ withDefaults(
 	font-size: 0.85rem;
 	font-weight: 700;
 	margin-bottom: 0.8rem;
+}
+.footer-desc {
+	font-size: 0.8rem;
+	line-height: 1.6;
+	opacity: 0.8;
+	font-weight: 500;
+	margin-bottom: 1rem;
 }
 .footer-col ul {
 	list-style: none;

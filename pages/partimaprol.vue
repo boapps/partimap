@@ -9,6 +9,7 @@ defineI18nRoute({
 });
 
 const { t } = useI18n();
+const localePath = useLocalePath();
 
 useHead({
 	title: t('aboutPartimap.title'),
@@ -20,8 +21,8 @@ useHead({
 		<section class="ap-hero">
 			<img src="/map.webp" alt="" class="ap-map" aria-hidden="true" />
 			<div class="ap-hero-inner">
-				<div class="ap-pill ap-pill-1">{{ t('aboutPartimap.q1') }}</div>
-				<div class="ap-pill ap-pill-2">{{ t('aboutPartimap.q2') }}</div>
+				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-1">{{ t('aboutPartimap.q1') }}</NuxtLink>
+				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-2">{{ t('aboutPartimap.q2') }}</NuxtLink>
 			</div>
 		</section>
 
@@ -95,6 +96,12 @@ useHead({
 	display: inline-flex;
 	align-items: center;
 	width: fit-content;
+	text-decoration: none;
+	transition: background 0.15s ease;
+}
+.ap-pill:hover {
+	background: #0044CC;
+	color: #fff;
 }
 .ap-pill-1 { align-self: flex-start; }
 .ap-pill-2 { align-self: center; }

@@ -122,9 +122,9 @@ useHead({
 	width: 280px;
 	height: 280px;
 	border-radius: 50%;
-	background-image: url('/bus.webp');
+	background-image: url('/rolunk.jpg');
 	background-size: cover;
-	background-position: center;
+	background-position: 20% center;
 }
 
 /* ── Highlights / Big circles ─────────────────── */

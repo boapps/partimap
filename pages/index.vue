@@ -310,7 +310,12 @@ onMounted(() => {
 						</div>
 					</div>
 				</div>
+			</div>
+		</section>
 
+		<!-- How we can help -->
+		<section id="help" class="help-section">
+			<div class="help-inner">
 				<div class="why-help-block">
 					<h2 class="sec-title text-center" v-html="t('landing.help.title')" />
 					<p class="sec-desc showcase-desc text-center">{{ t('landing.help.desc') }}</p>
@@ -1070,7 +1075,7 @@ onMounted(() => {
 }
 .why-side-arrow {
 	position: absolute;
-	right: 10rem;
+	right: 5rem;
 	top: 65%;
 	transform: translateY(-50%);
 	width: 24px;
@@ -1092,6 +1097,9 @@ onMounted(() => {
 	display: flex;
 	align-items: flex-start;
 	gap: 1.2rem;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .feat-icon {
 	flex-shrink: 0;
@@ -1137,8 +1145,16 @@ onMounted(() => {
 .feat-readmore {
 	margin-top: 0.2rem;
 }
+.help-section {
+	position: relative;
+	padding: 3rem 2rem 5rem;
+}
+.help-inner {
+	max-width: 1000px;
+	margin: 0 auto;
+}
 .why-help-block {
-	margin-top: 5rem;
+	margin-top: 0;
 }
 .why-help-block .sec-title {
 	margin-bottom: 1rem;
@@ -1486,6 +1502,9 @@ onMounted(() => {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .helpl-icon {
 	width: 105px;
@@ -1781,6 +1800,9 @@ onMounted(() => {
 }
 
 /* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 1250px) {
+	.why-side-arrow { display: none; }
+}
 @media (max-width: 991px) {
 	.hero-inner {
 		grid-template-columns: 1fr;
@@ -1794,9 +1816,21 @@ onMounted(() => {
 	.news-grid { grid-template-columns: 1fr; }
 	.helpl-grid { grid-template-columns: 1fr; gap: 3rem; }
 	.footer-grid { grid-template-columns: repeat(2, 1fr); }
+
+	/* Hide long decorative arrows; center the small ↓ glyphs */
+	.sec-arrow,
+	.stat-arrow {
+		text-align: center;
+		padding: 0 0 2rem 0;
+	}
+	.sec-arrow-top {
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
 }
 @media (max-width: 599px) {
-	.why-side-arrow { right: 1rem; }
+	/* .why-side-arrow { right: 1rem; } */
 	.no-phone-deco { display: none; }
 
 	/* Showcase: scale dots + popups to fit mobile viewport */

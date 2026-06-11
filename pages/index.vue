@@ -1183,7 +1183,7 @@ onMounted(() => {
 }
 .help-section {
 	position: relative;
-	padding: 3rem 2rem 5rem;
+	padding: 8rem 2rem 5rem;
 }
 .help-inner {
 	max-width: 1000px;

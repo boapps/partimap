@@ -23,3 +23,12 @@ const { locale, locales, setLocale } = useI18n();
 		</b-dropdown-item>
 	</b-nav-item-dropdown>
 </template>
+
+<style scoped>
+.fa-globe {
+	color: #0055ff;
+}
+:deep(.nav-link) {
+	color: #0055ff;
+}
+</style>

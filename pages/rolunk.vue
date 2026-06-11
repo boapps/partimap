@@ -122,8 +122,8 @@ useHead({
 	justify-content: center;
 }
 .team-photo {
-	width: 280px;
-	height: 280px;
+	width: 380px;
+	height: 380px;
 	border-radius: 50%;
 	background-image: url('/rolunk.jpg');
 	background-size: cover;

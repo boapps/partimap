@@ -1368,7 +1368,7 @@ onMounted(() => {
 /* ── Showcase Section ─────────────────────────────────── */
 .showcase-section {
 	position: relative;
-	padding: 5rem 2rem;
+	padding: 0rem 2rem;
 }
 .showcase-inner {
 	max-width: 800px;

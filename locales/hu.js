@@ -245,6 +245,7 @@ export default {
 			feat1: 'A PARTIMAP teljes körű elérése',
 			feat2: 'Hozzáférés a PARTIMAP súgójához',
 			feat3: 'Értesítések a PARTIMAP legújabb fejlesztéseiről',
+			details: 'A Basic csomaggal regisztráció után azonnal létrehozhatod saját térképes kérdőíveidet, testreszabhatod az arculatukat, és korlátlanul gyűjtheted a válaszokat. A nyílt forráskódnak és a részletes súgónak köszönhetően önállóan, bármilyen szervezeti háttér nélkül is elindulhatsz.',
 		},
 		extra: {
 			name: 'Plus',
@@ -255,6 +256,7 @@ export default {
 			feat1: 'A „Basic” csomag minden eleme',
 			feat2: 'Személyes tanácsadás a kérdőív tervezéséhez, az adatok ábrázolásához és az eredmények kommunikációjához.',
 			feat3: '',
+			details: 'A Plus csomagban szakértőink végigkísérnek a teljes folyamaton: segítünk a kérdések megfogalmazásában, a térképes elemek beállításában, majd az összegyűlt adatok elemzésében és látványos, közérthető bemutatásában. Ideális választás, ha az eredményeket döntéshozatalhoz vagy kommunikációhoz szeretnéd felhasználni.',
 		},
 	},
 	aboutUs: {

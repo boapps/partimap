@@ -8,6 +8,14 @@ useHead({
 
 const activePopup = ref<number | null>(null);
 
+const partners = [
+	{ name: 'BKK', src: '/partners/bkk.png' },
+	{ name: 'Értékterv', src: '/partners/ertekterv.png' },
+	{ name: 'ITI', src: '/partners/iti-logo.svg' },
+	{ name: 'Mobilissimus', src: '/partners/mobilissimus.png' },
+	{ name: 'MÖK', src: '/partners/mok.jpg' },
+];
+
 function togglePopup(n: number) {
 	activePopup.value = activePopup.value === n ? null : n;
 }
@@ -221,10 +229,14 @@ onMounted(() => {
 		<!-- Examples / Use cases -->
 		<section id="examples" class="examples-section">
 			<div class="section-blob blob-examples" aria-hidden="true" />
-			<div class="sec-arrow sec-arrow-top" aria-hidden="true"><span class="sec-arrow-glyph">↓</span></div>
 			<div class="examples-inner">
-				<h2 class="sec-title">{{ t('landing.examples.title') }}</h2>
-				<p class="sec-sub" v-html="t('landing.examples.sub')" />
+				<div class="examples-head">
+					<div class="examples-head-text">
+						<h2 class="sec-title">{{ t('landing.examples.title') }}</h2>
+						<p class="sec-sub" v-html="t('landing.examples.sub')" />
+					</div>
+					<div class="sec-arrow sec-arrow-top" aria-hidden="true"><span class="sec-arrow-glyph">↓</span></div>
+				</div>
 				<div class="examples-grid">
 					<div v-for="n in 4" :key="n" class="example-card">
 						<img
@@ -449,7 +461,7 @@ onMounted(() => {
 				<h2 class="sec-title">{{ t('landing.partners.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.partners.desc') }}</p>
 				<div class="partner-logos">
-					<img v-for="n in 6" :key="n" src="/bus.webp" alt="" class="partner-logo" />
+					<img v-for="p in partners" :key="p.name" :src="p.src" :alt="p.name" class="partner-logo" />
 				</div>
 				<div class="partner-circle no-phone-deco deco-circle" aria-hidden="true" />
 			</div>
@@ -761,11 +773,21 @@ onMounted(() => {
 	text-align: right;
 	padding: 0 8rem 2rem 0;
 }
+.examples-head-text .sec-sub {
+	margin-bottom: 0;
+}
 .sec-arrow-top {
-	position: absolute;
-	top: 11rem;
-	right: 8rem;
-	padding: 0;
+	padding: 0.5rem 8rem 1rem 0;
+}
+/* On wide screens there's room in the right margin: lift the arrow up beside
+   the text and align it horizontally with the section's bottom arrow. */
+@media (min-width: 1200px) {
+	.sec-arrow-top {
+		position: absolute;
+		top: 11rem;
+		right: 10rem;
+		padding: 0;
+	}
 }
 .sec-arrow-glyph {
 	display: inline-block;
@@ -1565,18 +1587,26 @@ onMounted(() => {
 .partner-logos {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: start;
+	align-items: stretch;
 	justify-content: start;
-	gap: 1rem;
+	gap: 1.25rem;
 	margin: 2rem 0 3rem;
 	position: relative;
 	z-index: 2;
 }
 .partner-logo {
-	height: 80px;
-	width: auto;
-	max-width: 160px;
+	height: 110px;
+	width: 190px;
 	object-fit: contain;
+	background: #fff;
+	border-radius: 12px;
+	padding: 1rem 1.25rem;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.partner-logo:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .partner-circle {
 	width: 380px; height: 380px; bottom: 38%; right: 150px;

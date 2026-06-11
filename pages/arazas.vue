@@ -14,6 +14,11 @@ const { t } = useI18n();
 useHead({
 	title: t('pricing.title'),
 });
+
+const expanded = reactive<Record<string, boolean>>({});
+function toggle(plan: string) {
+	expanded[plan] = !expanded[plan];
+}
 </script>
 
 <template>
@@ -59,7 +64,25 @@ useHead({
 								</template>
 							</ul>
 							<div class="plan-divider" />
-							<a href="#" class="plan-more">{{ t('pricing.more') }}</a>
+							<button
+								type="button"
+								class="plan-more"
+								:aria-expanded="!!expanded[plan]"
+								@click="toggle(plan)"
+							>
+								<span>{{ t('pricing.more') }}</span>
+								<i
+									class="fas fa-chevron-down plan-more-icon"
+									:class="{ open: expanded[plan] }"
+								/>
+							</button>
+							<div class="plan-extra" :class="{ open: expanded[plan] }">
+								<div class="plan-extra-inner">
+									<p v-if="t(`pricing.${plan}.details`)">
+										{{ t(`pricing.${plan}.details`) }}
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -188,13 +211,41 @@ useHead({
 	margin: auto 0 1rem 0;
 }
 .plan-more {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
 	color: #333;
+	font-family: inherit;
 	font-size: 0.85rem;
 	font-weight: 500;
 	text-decoration: none;
 	align-self: flex-start;
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
 }
 .plan-more:hover { color: #0055FF; }
+.plan-more-icon {
+	font-size: 0.7rem;
+	transition: transform 0.3s ease;
+}
+.plan-more-icon.open { transform: rotate(180deg); }
+
+.plan-extra {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
+}
+.plan-extra.open { grid-template-rows: 1fr; }
+.plan-extra-inner { overflow: hidden; }
+.plan-extra p {
+	font-size: 0.85rem;
+	line-height: 1.7;
+	color: #333;
+	opacity: 0.85;
+	margin: 0.9rem 0 0;
+}
 
 .btn-landing-outline {
 	display: inline-block;

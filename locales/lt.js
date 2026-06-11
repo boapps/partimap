@@ -244,6 +244,7 @@ export default {
 			feat1: 'Lorem ipsum',
 			feat2: 'Lorem ipsum',
 			feat3: 'Lorem ipsum',
+			details: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
 		},
 		extra: {
 			name: 'Extra',
@@ -254,6 +255,7 @@ export default {
 			feat1: 'Lorem ipsum',
 			feat2: 'Lorem ipsum',
 			feat3: 'Lorem ipsum',
+			details: 'Nullam mattis commodo tempor. In hac habitasse platea dictumst. Mauris semper justo ante, vel interdum mauris scelerisque ac.',
 		},
 	},
 	aboutUs: {

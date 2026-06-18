@@ -291,6 +291,8 @@ export default {
 		longTitle: 'In detail',
 		longDesc: 'Participatory mapping: this is what they call the process by which the irreplaceable knowledge of those involved is built into the community development projects designed for them. PARTIMAP\'s map-based survey interface makes contact with citizens faster, more efficient and easier. After free registration, the program can be customised with your own branding and, thanks to its open source code, freely further developed. Whether you\'re a state body, a local government or a local advocacy group - if you\'re looking for a smart and transparent way to understand the opinions of those around you, try PARTIMAP and join the development!',
 		longDescExtra: 'PARTIMAP is not just a tool, but a mindset: a means of shared planning, shared decision-making and shared responsibility. We believe that incorporating local knowledge and citizen feedback leads to better, more sustainable and more widely accepted developments.',
+		interested: '¿TE INTERESA?',
+		registerCta: 'REGISTRARSE',
 	},
 	helpPage: {
 		title: 'Help',

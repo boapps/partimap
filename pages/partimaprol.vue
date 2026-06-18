@@ -53,6 +53,11 @@ useHead({
 						<p>{{ t('aboutPartimap.longDesc') }}</p>
 					</div>
 				</div>
+
+				<div class="ap-cta">
+					<p class="ap-cta-text">{{ t('aboutPartimap.interested') }}</p>
+					<NuxtLink :to="localePath('/register')" class="ap-pill">{{ t('aboutPartimap.registerCta') }}</NuxtLink>
+				</div>
 			</div>
 		</section>
 	</LandingFrame>
@@ -60,7 +65,7 @@ useHead({
 
 <style scoped>
 #details {
-	margin-top: 20rem;
+	margin-top: 8rem;
 }
 
 .ap-hero {
@@ -149,15 +154,15 @@ useHead({
 	min-height: 250px;
 }
 .ap-disc {
-	width: 200px;
-	height: 200px;
+	width: 290px;
+	height: 290px;
 	background: #0055FF;
 	border-radius: 50%;
 	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.25);
 }
 .ap-line {
 	position: absolute;
-	top: 200px;
+	top: 290px;
 	left: 50%;
 	width: 1.5px;
 	height: 80px;
@@ -188,8 +193,8 @@ useHead({
 .ap-block-left-stack > .ap-circle-outline {
 	position: absolute;
 	top: 0;
-	left: 50%;
-	transform: translate(-50%, -120%);
+	left: 0;
+	transform: translate(-55%, -80%);
 }
 .ap-extra-text {
 	font-size: 0.9rem;
@@ -197,6 +202,19 @@ useHead({
 	color: #333;
 	opacity: 0.9;
 	max-width: 360px;
+}
+
+.ap-cta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
+.ap-cta-text {
+	color: #0055FF;
+	font-size: clamp(2rem, 4vw, 2.6rem);
+	font-weight: 500;
 }
 
 @media (max-width: 991px) {

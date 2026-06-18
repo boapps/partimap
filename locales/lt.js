@@ -284,6 +284,7 @@ export default {
 		title: 'About PARTIMAP',
 		q1: 'What is PARTIMAP?',
 		q2: 'How can it be used?',
+		q3: 'How to write a survey',
 		shortTitle: 'Long story short',
 		shortDesc: 'PARTIMAP is a free, easy-to-use and flexibly customisable map-based survey platform that can be used by researchers, NGOs, local governments and local communities alike. It allows you to combine survey data collection with map-based visualisation, and to gather feedback, opinions and local experience. PARTIMAP is particularly useful for centrally funded development projects, key policy questions or community planning processes, where the voice of those affected matters and results need to be available in a clear, visual and easily interpretable form.',
 		longTitle: 'In detail',

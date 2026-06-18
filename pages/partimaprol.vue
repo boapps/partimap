@@ -23,6 +23,7 @@ useHead({
 			<div class="ap-hero-inner">
 				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-1">{{ t('aboutPartimap.q1') }}</NuxtLink>
 				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-2">{{ t('aboutPartimap.q2') }}</NuxtLink>
+				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-3">{{ t('aboutPartimap.q3') }}</NuxtLink>
 			</div>
 		</section>
 
@@ -108,8 +109,9 @@ useHead({
 	background: #0044CC;
 	color: #fff;
 }
-.ap-pill-1 { align-self: flex-start; }
-.ap-pill-2 { align-self: center; }
+.ap-pill-1 { align-self: flex-start; margin-left: 0; }
+.ap-pill-2 { align-self: flex-start; margin-left: 25%; }
+.ap-pill-3 { align-self: flex-end; margin-right: 18%; }
 
 .ap-section {
 	font-family: 'Apex New', 'Segoe UI', sans-serif;

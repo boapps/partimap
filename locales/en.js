@@ -155,6 +155,7 @@ export default {
 			feat6: 'Under continuous development',
 			feat6Desc: 'Proin auctor quam quis neque pharetra, vel accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex.',
 			readMore: 'READ MORE',
+			registerCta: 'REGISTER',
 		},
 		stats: {
 			title: 'Some statistics',

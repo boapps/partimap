@@ -164,10 +164,10 @@ onMounted(() => {
 					<span class="hero-brand">PARTIMAP</span>
 					<h1 class="hero-title" v-html="t('landing.hero.tagline')" />
 					<p class="hero-subtitle">{{ t('landing.hero.subtitle') }}</p>
-					<a
-						href="#examples"
+					<NuxtLink
+						:to="localePath('/register')"
 						class="btn-landing"
-					>{{ t('landing.hero.cta') }}</a>
+					>{{ t('landing.hero.cta') }}</NuxtLink>
 					<div class="deco-circle hero-left-circle no-phone-deco" aria-hidden="true" />
 					<div class="hero-left-arrow" aria-hidden="true">↓</div>
 				</div>
@@ -321,6 +321,9 @@ onMounted(() => {
 							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
 						</div>
 					</div>
+				</div>
+				<div class="why-cta text-center">
+					<NuxtLink :to="localePath('/register')" class="btn-landing">{{ t('landing.why.registerCta') }}</NuxtLink>
 				</div>
 			</div>
 		</section>
@@ -1124,6 +1127,9 @@ onMounted(() => {
 	max-width: 1000px;
 	margin: 0 auto;
 }
+.why-cta {
+	margin-top: 3rem;
+}
 .feat-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -1575,7 +1581,7 @@ onMounted(() => {
 /* ── Partners Section ─────────────────────────────────── */
 .partners-section {
 	position: relative;
-	padding: 5rem 2rem 8rem;
+	padding: 5rem 2rem 2rem;
 }
 .partners-inner {
 	max-width: 1000px;
@@ -1616,10 +1622,11 @@ onMounted(() => {
 	width: 380px; height: 380px;
 	position: relative;
 	bottom: 10%;
+	margin-bottom: -260px;
 }
 .partner-line {
 	position: absolute;
-	bottom: calc(10% + 190px);
+	bottom: calc(10% + 90px);
 	left: 0;
 	width: 900px;
 	height: 0;

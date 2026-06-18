@@ -155,6 +155,7 @@ export default {
 			feat6: 'Nuolat tobulinama',
 			feat6Desc: 'Proin auctor quam quis neque pharetra, vel accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex.',
 			readMore: 'SKAITYTI DAUGIAU',
+			registerCta: 'REGISTRUOTIS',
 		},
 		stats: {
 			title: 'Šiek tiek statistikos',

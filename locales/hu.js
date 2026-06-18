@@ -156,6 +156,7 @@ export default {
 			feat6: 'Folyamatos szerkesztés alatt áll',
 			feat6Desc: 'A PARTIMAP egy élő, folyamatosan fejlődő alkalmazás: rendszeresen javítjuk a meglévő funkciókat, új megoldásokat tesztelünk, és a felhasználói visszajelzések alapján alakítjuk tovább a felületet.',
 			readMore: 'OLVASS TOVÁBB!',
+			registerCta: 'REGISZTRÁLOK',
 		},
 		stats: {
 			title: 'Egy kis statisztika',

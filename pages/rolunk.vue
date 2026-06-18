@@ -135,9 +135,9 @@ useHead({
 	position: relative;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 2rem;
+	gap: 1rem;
 	margin: 4rem 0;
-	min-height: 360px;
+	min-height: 300px;
 }
 .highlight {
 	position: relative;
@@ -168,8 +168,8 @@ useHead({
 	height: 130px;
 	font-size: 0.85rem;
 	position: absolute;
-	top: -30px;
-	left: 30%;
+	top: 0;
+	left: 5%;
 }
 .hl-circle-lg {
 	width: 280px;
@@ -177,8 +177,8 @@ useHead({
 	font-size: 1.6rem;
 	font-weight: 500;
 }
-.highlight-1 { justify-self: start; }
-.highlight-3 { grid-column: 2; justify-self: end; }
+.highlight-1 { justify-self: end; }
+.highlight-3 { grid-column: 2; justify-self: start; }
 
 /* ── Mission block ─────────────────────────────── */
 .mission {

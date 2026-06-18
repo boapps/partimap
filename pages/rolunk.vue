@@ -53,11 +53,6 @@ useHead({
 
 				<!-- Mission block -->
 				<div class="mission">
-					<div class="mission-deco" aria-hidden="true">
-						<div class="line" />
-						<i class="fas fa-users" />
-						<div class="line" />
-					</div>
 					<div class="mission-circle" aria-hidden="true">
 						<div class="diagonal-line" />
 						<div class="circle" />
@@ -183,28 +178,10 @@ useHead({
 /* ── Mission block ─────────────────────────────── */
 .mission {
 	display: grid;
-	grid-template-columns: auto auto 1fr;
+	grid-template-columns: auto 1fr;
 	gap: 6rem;
 	align-items: center;
 	margin-top: 4rem;
-}
-.mission-deco {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: #0055FF;
-	font-size: 4rem;
-	opacity: 0.6;
-	gap: 2rem;
-	min-height: 360px;
-	width: fit-content;
-}
-.mission-deco .line {
-	width: 1.5px;
-	flex: 1;
-	background: #0055FF;
-	min-height: 80px;
 }
 .mission-text {
 	width: 400px;
@@ -221,7 +198,7 @@ useHead({
 }
 .mission-text h2 {
 	color: #0055FF;
-	font-size: 1.8rem;
+	font-size: clamp(2rem, 4.5vw, 3rem);
 	font-weight: 500;
 	margin-bottom: 1rem;
 }
@@ -304,8 +281,8 @@ useHead({
 .deco-outline-1 {
 	width: 280px;
 	height: 280px;
-	bottom: -100px;
-	right: -80px;
+	bottom: -160px;
+	right: -220px;
 }
 
 @media (max-width: 991px) {
@@ -316,7 +293,5 @@ useHead({
 	.highlight-3 { grid-column: 1; justify-self: center; }
 	.highlight-1 { justify-self: center; }
 	.mission { grid-template-columns: 1fr; text-align: center; }
-	.mission-deco { flex-direction: row; min-height: auto; }
-	.mission-deco .line { width: auto; height: 1.5px; min-height: 0; min-width: 60px; }
 }
 </style>

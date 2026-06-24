@@ -402,7 +402,7 @@ onMounted(() => {
 				<p class="sec-desc showcase-desc text-center">{{ t('landing.showcase.desc') }}</p>
 				<div class="map-visual" @click.self="closePopup">
 					<img src="/map.webp" alt="" class="map-svg" aria-hidden="true">
-					<template v-for="n in 5" :key="n">
+					<template v-for="n in 6" :key="n">
 						<div
 							:class="`map-dot map-dot-${n}`"
 							:aria-label="t(`landing.showcase.dot${n}Title`)"
@@ -422,6 +422,7 @@ onMounted(() => {
 								<button class="map-popup-close" aria-label="Close" @click="closePopup">×</button>
 								<h4 class="map-popup-title">{{ t(`landing.showcase.dot${n}Title`) }}</h4>
 								<p class="map-popup-desc">{{ t(`landing.showcase.dot${n}Desc`) }}</p>
+								<p v-if="t(`landing.showcase.dot${n}Author`)" class="map-popup-author">{{ t('landing.showcase.author') }}: {{ t(`landing.showcase.dot${n}Author`) }}</p>
 							</div>
 						</Transition>
 					</template>
@@ -1398,7 +1399,6 @@ onMounted(() => {
 }
 .map-dot {
 	position: absolute;
-	background-image: url('/bus.webp');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1423,11 +1423,12 @@ onMounted(() => {
 .map-dot:hover::after {
 	opacity: 0;
 }
-.map-dot-1 { width: 130px; height: 130px; top: 8%; left: 12%; }
-.map-dot-2 { width: 130px; height: 130px; top: 15%; left: 55%; }
-.map-dot-3 { width: 130px; height: 130px; top: 40%; right: 15%; }
-.map-dot-4 { width: 130px; height: 130px; top: 65%; left: 15%; }
-.map-dot-5 { width: 130px; height: 130px; bottom: 10%; right: 30%; }
+.map-dot-1 { width: 130px; height: 130px; top: 8%; left: 12%; background-image: url('/buszkeseg1.png'); }
+.map-dot-2 { width: 130px; height: 130px; top: 15%; left: 55%; background-image: url('/buszkeseg2.png'); }
+.map-dot-3 { width: 130px; height: 130px; top: 40%; right: 15%; background-image: url('/buszkeseg3.png'); }
+.map-dot-4 { width: 130px; height: 130px; top: 65%; left: 15%; background-image: url('/buszkeseg4.png'); }
+.map-dot-5 { width: 130px; height: 130px; bottom: 10%; right: 30%; background-image: url('/buszkeseg5.png'); }
+.map-dot-6 { width: 130px; height: 130px; top: 42%; left: 35%; background-image: url('/buszkeseg6.png'); }
 
 /* ── Map Popups ───────────────────────────────────────── */
 .map-popup {
@@ -1460,6 +1461,8 @@ onMounted(() => {
 .map-popup-4::before { bottom: 30%; left: -7px; }
 .map-popup-5 { bottom: 5%; right: calc(30% + 140px); }
 .map-popup-5::before { bottom: 30%; right: -7px; transform: rotate(45deg); }
+.map-popup-6 { top: 38%; left: calc(35% + 140px); }
+.map-popup-6::before { bottom: 30%; left: -7px; }
 
 .map-popup-close {
 	position: absolute;
@@ -1487,6 +1490,13 @@ onMounted(() => {
 	color: #444;
 	margin: 0;
 	line-height: 1.5;
+}
+.map-popup-author {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #0055FF;
+	margin: 0.6rem 0 0;
+	line-height: 1.4;
 }
 
 /* Popup enter/leave transitions */

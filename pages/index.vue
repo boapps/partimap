@@ -36,9 +36,9 @@ function scrollToTop() {
 
 const statsSection = ref<HTMLElement | null>(null);
 const statTargets = computed(() => [
-	parseStat(t('landing.stats.stat1Value')),
-	parseStat(t('landing.stats.stat2Value')),
-	parseStat(t('landing.stats.stat3Value')),
+	parseStat('1007'),
+	parseStat('245154'),
+	parseStat('103672'),
 ]);
 const statDisplays = ref<string[]>(['0', '0', '0']);
 
@@ -99,7 +99,7 @@ onMounted(() => {
 		<nav class="landing-nav">
 			<div class="nav-inner">
 				<NuxtLink :to="localePath('/')" class="nav-brand">
-					<img src="/logo.svg" alt="PARTIMAP" height="24" />
+					<img src="/logo_kek.png" alt="PARTIMAP" />
 				</NuxtLink>
 				<div class="nav-links d-none d-lg-flex">
 					<div class="nav-dropdown">
@@ -605,7 +605,10 @@ onMounted(() => {
 	flex-shrink: 0;
 }
 .nav-brand img {
-	height: 28px;
+	height: 64px;
+	width: auto;
+	display: block;
+	margin-left: -24px; /* nudge logo's left edge back out toward the nav edge */
 }
 .nav-links {
 	display: flex;

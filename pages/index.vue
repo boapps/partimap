@@ -14,6 +14,7 @@ const partners = [
 	{ name: 'ITI', src: '/partners/iti-logo.svg' },
 	{ name: 'Mobilissimus', src: '/partners/mobilissimus.png' },
 	{ name: 'MÖK', src: '/partners/mok.jpg' },
+	{ name: 'NTVESZ', src: '/partners/ntvesz.jpg' },
 ];
 
 function togglePopup(n: number) {

@@ -44,6 +44,15 @@ useHead({
 					</div>
 				</div>
 
+				<div class="ap-gallery">
+					<div class="ap-gallery-circle agc-1" aria-hidden="true" />
+					<div class="ap-gallery-circle agc-2" aria-hidden="true" />
+					<div class="ap-gallery-circle agc-3" aria-hidden="true" />
+					<div class="ap-gallery-circle agc-4" aria-hidden="true" />
+					<div class="ap-gallery-circle agc-5" aria-hidden="true" />
+					<div class="ap-gallery-circle agc-6" aria-hidden="true" />
+				</div>
+
 				<div id="details" class="ap-block ap-block-reverse">
 					<div class="ap-block-left-stack">
 						<div class="ap-circle-outline" />
@@ -206,6 +215,45 @@ useHead({
 	max-width: 360px;
 }
 
+/* ── Photo gallery circles ─────────────────────── */
+.ap-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+}
+.ap-gallery-circle {
+	position: relative;
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.18);
+	transition: transform 0.4s ease;
+}
+.ap-gallery-circle::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: #0055FF40;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+.ap-gallery-circle:hover {
+	transform: scale(1.04);
+}
+.ap-gallery-circle:hover::after {
+	opacity: 0;
+}
+.agc-1 { width: 200px; height: 200px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
+.agc-2 { width: 140px; height: 140px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
+.agc-3 { width: 175px; height: 175px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
+.agc-4 { width: 135px; height: 135px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
+.agc-5 { width: 190px; height: 190px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
+.agc-6 { width: 150px; height: 150px; background-image: url('/whatis/ogimage.png'); }
+
 .ap-cta {
 	display: flex;
 	flex-direction: column;
@@ -227,6 +275,9 @@ useHead({
 	.ap-block-left-stack > .ap-circle-outline {
 		position: static;
 		transform: none;
+	}
+	.ap-circle-outline {
+		display: none;
 	}
 }
 .why-side-arrow {

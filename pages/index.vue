@@ -15,6 +15,8 @@ const partners = [
 	{ name: 'Mobilissimus', src: '/partners/mobilissimus.png' },
 	{ name: 'MÖK', src: '/partners/mok.jpg' },
 	{ name: 'NTVESZ', src: '/partners/ntvesz.jpg' },
+	{ name: 'AKE', src: '/partners/ake_logo.jpg' },
+	{ name: 'Tavirozsa', src: '/partners/tavirozsa_logo.jpg' },
 ];
 
 function togglePopup(n: number) {
@@ -439,22 +441,21 @@ onMounted(() => {
 				<h2 class="sec-title">{{ t('landing.news.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.news.desc') }}</p>
 				<div class="news-grid">
-					<div class="news-card">
-						<h4>{{ t('landing.news.news1Title') }}</h4>
-						<p>{{ t('landing.news.news1Desc') }}</p>
-					</div>
-					<div class="news-card">
-						<h4>{{ t('landing.news.news2Title') }}</h4>
-						<p>{{ t('landing.news.news2Desc') }}</p>
-					</div>
-					<div class="news-card">
-						<h4>{{ t('landing.news.news3Title') }}</h4>
-						<p>{{ t('landing.news.news3Desc') }}</p>
+					<div v-for="n in 3" :key="n" class="news-card">
+						<span class="news-date">{{ t(`landing.news.news${n}Date`) }}</span>
+						<h4>{{ t(`landing.news.news${n}Title`) }}</h4>
+						<p>{{ t(`landing.news.news${n}Desc`) }}</p>
+						<a
+							:href="t(`landing.news.news${n}Link`)"
+							target="_blank"
+							rel="noopener"
+							class="news-readmore"
+						>{{ t('landing.news.readMore') }}</a>
 					</div>
 				</div>
 				<div class="news-line" aria-hidden="true" />
 				<div class="text-center mt-4">
-					<a href="#" class="btn-landing-outline">{{ t('landing.news.readMore') }}</a>
+					<a href="https://k.blog.hu" target="_blank" rel="noopener" class="btn-landing-outline">{{ t('landing.news.readMore') }}</a>
 				</div>
 			</div>
 		</section>
@@ -519,6 +520,8 @@ onMounted(() => {
 							<li>K-Monitor Közhasznú Egyesület</li>
 							<li>{{ t('landing.footer.office') }}</li>
 							<li>1077 Budapest, Rózsa utca 8.</li>
+							<li>Tel.: +36 1 789 5005</li>
+							<li>Adószám: 18193288-1-42</li>
 						</ul>
 					</div>
 				</div>
@@ -1525,6 +1528,18 @@ onMounted(() => {
 	gap: 2rem;
 	margin-bottom: 1rem;
 }
+.news-card {
+	display: flex;
+	flex-direction: column;
+}
+.news-date {
+	color: var(--l-blue);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	opacity: 0.7;
+	margin-bottom: 0.4rem;
+}
 .news-card h4 {
 	color: var(--l-blue);
 	font-size: 1rem;
@@ -1536,6 +1551,19 @@ onMounted(() => {
 	line-height: 1.7;
 	font-weight: 500;
 	opacity: 0.8;
+	margin-bottom: 1rem;
+}
+.news-readmore {
+	margin-top: auto;
+	align-self: flex-start;
+	color: var(--l-blue);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-decoration: none;
+}
+.news-readmore:hover {
+	text-decoration: underline;
 }
 .news-line {
 	height: 0;

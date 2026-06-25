@@ -18,6 +18,9 @@ const partners = [
 	{ name: 'AKE', src: '/partners/ake_logo.jpg' },
 	{ name: 'Tavirozsa', src: '/partners/tavirozsa_logo.jpg' },
 	{ name: 'TU/e', src: '/partners/tue_logo.png' },
+	{ name: 'Alba Natura', src: '/partners/alba_natura.jpg' },
+	{ name: 'Magyar Kerékpárosklubb', src: '/partners/kerekparos.png' },
+	{ name: 'RÉV8', src: '/partners/rev_logo.png' },
 ];
 
 function togglePopup(n: number) {

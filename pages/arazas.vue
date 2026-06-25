@@ -9,7 +9,7 @@ defineI18nRoute({
 });
 
 const localePath = useLocalePath();
-const { t } = useI18n();
+const { t, tm, rt } = useI18n();
 
 useHead({
 	title: t('pricing.title'),
@@ -33,6 +33,12 @@ function toggle(plan: string) {
 						<h2>{{ t('pricing.introTitle') }}</h2>
 						<p>{{ t('pricing.introP1') }}</p>
 						<p v-if="t('pricing.introP2')">{{ t('pricing.introP2') }}</p>
+						<NuxtLink
+							:to="localePath({ name: 'register' })"
+							class="btn-landing-outline pricing-intro-cta"
+						>
+							{{ t('pricing.introCta') }}
+						</NuxtLink>
 						<div class="pricing-arrow" aria-hidden="true">↓</div>
 					</div>
 
@@ -56,12 +62,13 @@ function toggle(plan: string) {
 						<div class="plan-body">
 							<h4>{{ t(`pricing.${plan}.includesTitle`) }}</h4>
 							<ul>
-								<template v-for="n in 3" :key="n">
-									<li v-if="t(`pricing.${plan}.feat${n}`)">
-										<i class="fas fa-check" />
-										<span>{{ t(`pricing.${plan}.feat${n}`) }}</span>
-									</li>
-								</template>
+								<li
+									v-for="(feat, i) in (tm(`pricing.${plan}.features`) as any[])"
+									:key="i"
+								>
+									<i class="fas fa-check" />
+									<span>{{ rt(feat) }}</span>
+								</li>
 							</ul>
 							<div class="plan-divider" />
 							<button
@@ -132,6 +139,9 @@ function toggle(plan: string) {
 	line-height: 1.7;
 	opacity: 0.85;
 	margin-bottom: 1rem;
+}
+.pricing-intro-cta {
+	margin-top: 1rem;
 }
 .pricing-arrow {
 	color: #0055FF;
@@ -248,21 +258,27 @@ function toggle(plan: string) {
 }
 
 .btn-landing-outline {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	border: 1.5px solid #0055FF;
 	color: #0055FF;
 	font-family: 'Apex New', 'Segoe UI', sans-serif;
 	font-size: 0.8rem;
 	font-weight: 700;
 	letter-spacing: 0.1em;
-	padding: 0.7rem 2rem;
+	text-indent: 0.1em;
+	padding: 0.8rem 2rem 0.62rem;
 	border-radius: 2rem;
 	text-decoration: none;
+	text-align: center;
+	line-height: 1;
 	transition: background 0.2s, color 0.2s;
 }
 .btn-landing-outline:hover {
 	background: #0055FF;
 	color: #fff;
+	text-decoration: none;
 }
 .btn-sm {
 	font-size: 0.7rem;

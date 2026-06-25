@@ -17,6 +17,7 @@ const partners = [
 	{ name: 'NTVESZ', src: '/partners/ntvesz.jpg' },
 	{ name: 'AKE', src: '/partners/ake_logo.jpg' },
 	{ name: 'Tavirozsa', src: '/partners/tavirozsa_logo.jpg' },
+	{ name: 'TU/e', src: '/partners/tue_logo.png' },
 ];
 
 function togglePopup(n: number) {

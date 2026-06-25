@@ -51,6 +51,16 @@ useHead({
 					</div>
 				</div>
 
+				<!-- Photo gallery circles -->
+				<div class="gallery">
+					<div class="gallery-circle gc-1" aria-hidden="true" />
+					<div class="gallery-circle gc-2" aria-hidden="true" />
+					<div class="gallery-circle gc-3" aria-hidden="true" />
+					<div class="gallery-circle gc-4" aria-hidden="true" />
+					<div class="gallery-circle gc-5" aria-hidden="true" />
+					<div class="gallery-circle gc-6" aria-hidden="true" />
+				</div>
+
 				<!-- Mission block -->
 				<div class="mission">
 					<div class="mission-circle" aria-hidden="true">
@@ -175,6 +185,47 @@ useHead({
 .highlight-1 { justify-self: end; }
 .highlight-3 { grid-column: 2; justify-self: start; }
 
+/* ── Photo gallery circles ─────────────────────── */
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+	margin: 5rem 0;
+}
+.gallery-circle {
+	position: relative;
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.18);
+	transition: transform 0.4s ease;
+}
+.gallery-circle::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	/* Blue cover like the BÜSZKESÉGEINK busses (#0055FF80) but with less opacity */
+	background: #0055FF40;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+.gallery-circle:hover {
+	transform: scale(1.04);
+}
+.gallery-circle:hover::after {
+	opacity: 0;
+}
+.gc-1 { width: 200px; height: 200px; background-image: url('/rolunk/1A0A6439%20(red).jpg'); }
+.gc-2 { width: 140px; height: 140px; background-image: url('/rolunk/1A0A6861%20(red).jpg'); }
+.gc-3 { width: 175px; height: 175px; background-image: url('/rolunk/1A0A9461.jpg'); }
+.gc-4 { width: 135px; height: 135px; background-image: url('/rolunk/DSC_7250.jpg'); }
+.gc-5 { width: 190px; height: 190px; background-image: url('/rolunk/ELTE_T%C3%A1TK_hackathon_20230512_038.JPG'); }
+.gc-6 { width: 150px; height: 150px; background-image: url('/rolunk/P1067637.jpg'); }
+
 /* ── Mission block ─────────────────────────────── */
 .mission {
 	display: grid;
@@ -243,8 +294,21 @@ useHead({
 	position: absolute;
 	inset: 0;
 	border-radius: 50%;
-	background: #0066FF;
+	background-color: #0066FF;
+	background-image: url('/rolunk/DSC_7250.jpg');
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
 	z-index: 2;
+}
+.mission-circle .circle::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	/* Same blue cover as the gallery photos, less opacity than the busses */
+	background: #0055FF40;
+	pointer-events: none;
 }
 .mission-circle .circle-glow {
 	position: absolute;

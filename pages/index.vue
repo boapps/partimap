@@ -1661,18 +1661,31 @@ onMounted(() => {
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .partner-circle {
-	width: 380px; height: 380px; bottom: 38%; right: 150px;
+	width: 380px; height: 380px;
 	position: absolute;
+	/* Mirror of .partner-circle-left on the right side: pin the circle's left
+	   edge ~20px right of the centered 1000px content column (column right edge =
+	   50vw + 500px). Uses left + 50vw (anchored to the viewport via the section's
+	   left edge) rather than `right`, so it's deterministic and clears the logos
+	   at every width, sliding off-screen right as the viewport narrows. */
+	left: calc(50vw + 520px);
+	bottom: 38%;
 }
 .partner-circle-left {
 	width: 380px; height: 380px;
-	position: relative;
-	bottom: 10%;
-	margin-bottom: -260px;
+	position: absolute;
+	/* Pin the circle's right edge ~20px left of the centered 1000px content
+	   column. The column's left edge sits at (50vw - 500px), so the circle's
+	   right edge lands at (50vw - 520px) — always clear of the content. Must use
+	   50vw (viewport), not 50% (which resolves against .partners-section, not the
+	   viewport). It sits in the left gutter on wide screens and slides off-screen
+	   left as the viewport narrows, so it never overlaps the funding/footer text. */
+	left: calc(50vw - 900px);
+	bottom: -300px;
 }
 .partner-line {
 	position: absolute;
-	bottom: calc(10% + 90px);
+	bottom: calc(10% - 60px);
 	left: 0;
 	width: 900px;
 	height: 0;
@@ -1914,9 +1927,19 @@ onMounted(() => {
 	}
 	.hero-center { order: -1; }
 	.hero-left { margin-top: 1rem; }
+	/* Centered single-column layout: the decorative circle would overlap
+	   the centered text (and the examples title below), so hide it. */
+	.hero-left-circle { display: none; }
+	/* Same overlap problem at the bottom once the layout narrows: hide the
+	   remaining partner decorations. (.partner-circle-left needs no rule here —
+	   it slides off-screen on its own as the gutter shrinks.) */
+	.partner-circle,
+	.partner-line { display: none; }
 	.hero-scroll { text-align: center; padding-left: 0; }
 	.feat-grid { grid-template-columns: 1fr; }
 	.stats-grid { grid-template-columns: 1fr; gap: 3rem; }
+	/* Single column: center the fixed-width stat items in the column. */
+	.stat-item { justify-self: center; }
 	.news-grid { grid-template-columns: 1fr; }
 	.helpl-grid { grid-template-columns: 1fr; gap: 3rem; }
 	.footer-grid { grid-template-columns: repeat(2, 1fr); }

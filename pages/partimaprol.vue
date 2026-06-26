@@ -50,7 +50,6 @@ useHead({
 					<div class="ap-gallery-circle agc-3" aria-hidden="true" />
 					<div class="ap-gallery-circle agc-4" aria-hidden="true" />
 					<div class="ap-gallery-circle agc-5" aria-hidden="true" />
-					<div class="ap-gallery-circle agc-6" aria-hidden="true" />
 				</div>
 
 				<div id="details" class="ap-block ap-block-reverse">
@@ -75,7 +74,7 @@ useHead({
 
 <style scoped>
 #details {
-	margin-top: 8rem;
+	margin-top: 2rem;
 }
 
 .ap-hero {
@@ -142,6 +141,7 @@ useHead({
 }
 .ap-block-reverse {
 	grid-template-columns: 1fr 1.2fr;
+	align-items: start;
 }
 .ap-block h2 {
 	color: #0055FF;
@@ -167,7 +167,10 @@ useHead({
 .ap-disc {
 	width: 290px;
 	height: 290px;
-	background: #0055FF;
+	background-color: #0055FF;
+	background-image: url('/whatis/ogimage.png');
+	background-size: cover;
+	background-position: center;
 	border-radius: 50%;
 	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.25);
 }
@@ -252,7 +255,24 @@ useHead({
 .agc-3 { width: 175px; height: 175px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
 .agc-4 { width: 135px; height: 135px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
 .agc-5 { width: 190px; height: 190px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
-.agc-6 { width: 150px; height: 150px; background-image: url('/whatis/ogimage.png'); }
+
+/* Desktop: scatter the photo circles like the rólunk page */
+@media (min-width: 992px) {
+	.ap-gallery {
+		display: block;
+		position: relative;
+		height: 450px;
+		margin: 0;
+	}
+	.ap-gallery-circle {
+		position: absolute;
+	}
+	.agc-1 { left: 6%; top: 0; }
+	.agc-2 { left: 40%; top: 40px; }
+	.agc-3 { left: 66%; top: 0; }
+	.agc-4 { left: 22%; top: 250px; }
+	.agc-5 { left: 52%; top: 240px; }
+}
 
 .ap-cta {
 	display: flex;
@@ -299,5 +319,6 @@ useHead({
 		text-align: center;
 	}
 	.ap-pill { font-size: 1.1rem; padding: 1rem 2rem; }
+	.why-side-arrow { display: none; }
 }
 </style>

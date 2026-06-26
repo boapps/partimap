@@ -32,33 +32,23 @@ useHead({
 					</div>
 				</div>
 
-				<!-- Highlights with decorative circles -->
-				<div class="highlights">
-					<div class="highlight highlight-1">
-						<div class="hl-circle hl-circle-stat">
-							<span>{{ t('aboutUs.stat1') }}</span>
-						</div>
+				<!-- Scattered circles: blue highlights + photos intermixed -->
+				<div class="scatter">
+					<div class="hl-circle hl-circle-stat sc sc-stat">
+						<span>{{ t('aboutUs.stat1') }}</span>
 					</div>
-					<div class="highlight highlight-2">
-						<div class="hl-circle hl-circle-sm">
-							<span>{{ t('aboutUs.hl1Title') }}</span>
-						</div>
+					<div class="hl-circle hl-circle-sm sc sc-sm">
+						<span>{{ t('aboutUs.hl1Title') }}</span>
 					</div>
-					<div class="highlight highlight-3">
-						<div class="hl-circle hl-circle-lg">
-							<span>{{ t('aboutUs.hl2Title') }}</span>
-						</div>
+					<div class="hl-circle hl-circle-lg sc sc-lg">
+						<span>{{ t('aboutUs.hl2Title') }}</span>
 					</div>
-				</div>
-
-				<!-- Photo gallery circles -->
-				<div class="gallery">
-					<div class="gallery-circle gc-1" aria-hidden="true" />
-					<div class="gallery-circle gc-2" aria-hidden="true" />
-					<div class="gallery-circle gc-3" aria-hidden="true" />
-					<div class="gallery-circle gc-4" aria-hidden="true" />
-					<div class="gallery-circle gc-5" aria-hidden="true" />
-					<div class="gallery-circle gc-6" aria-hidden="true" />
+					<div class="gallery-circle sc gc-1" aria-hidden="true" />
+					<div class="gallery-circle sc gc-2" aria-hidden="true" />
+					<div class="gallery-circle sc gc-3" aria-hidden="true" />
+					<div class="gallery-circle sc gc-4" aria-hidden="true" />
+					<div class="gallery-circle sc gc-5" aria-hidden="true" />
+					<div class="gallery-circle sc gc-6" aria-hidden="true" />
 				</div>
 
 				<!-- Mission block -->
@@ -135,20 +125,18 @@ useHead({
 	background-position: 20% center;
 }
 
-/* ── Highlights / Big circles ─────────────────── */
-.highlights {
-	position: relative;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1rem;
-	margin: 4rem 0;
-	min-height: 300px;
-}
-.highlight {
-	position: relative;
+/* ── Scattered circles (blue highlights + photos) ── */
+.scatter {
 	display: flex;
-	align-items: center;
+	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+	margin: 4rem 0;
+}
+.scatter .sc {
+	position: relative;
+	flex: 0 0 auto;
 }
 .hl-circle {
 	background: #0055FF;
@@ -172,9 +160,6 @@ useHead({
 	width: 130px;
 	height: 130px;
 	font-size: 0.85rem;
-	position: absolute;
-	top: 0;
-	left: 5%;
 }
 .hl-circle-lg {
 	width: 280px;
@@ -182,18 +167,8 @@ useHead({
 	font-size: 1.6rem;
 	font-weight: 500;
 }
-.highlight-1 { justify-self: end; }
-.highlight-3 { grid-column: 2; justify-self: start; }
 
 /* ── Photo gallery circles ─────────────────────── */
-.gallery {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	gap: 1.5rem;
-	margin: 5rem 0;
-}
 .gallery-circle {
 	position: relative;
 	border-radius: 50%;
@@ -349,13 +324,31 @@ useHead({
 	right: -220px;
 }
 
+/* ── Desktop scatter: blue + photo circles intermixed ── */
+@media (min-width: 992px) {
+	.scatter {
+		display: block;
+		position: relative;
+		height: 640px;
+		margin: 5rem 0;
+	}
+	.scatter .sc {
+		position: absolute;
+	}
+	.sc-stat { left: 4%; top: 20px; }
+	.gc-1 { left: 29%; top: 0; }
+	.gc-2 { left: 42%; top: 210px; }
+	.sc-lg { left: 56%; top: 60px; }
+	.sc-sm { left: 25%; top: 240px; }
+	.gc-3 { left: 4%; top: 270px; }
+	.gc-4 { left: 60%; top: 380px; }
+	.gc-5 { left: 23%; top: 420px; }
+	.gc-6 { left: 78%; top: 430px; }
+}
+
 @media (max-width: 991px) {
 	.about-intro { grid-template-columns: 1fr; text-align: center; }
 	.intro-arrow { display: none; }
-	.highlights { grid-template-columns: 1fr; min-height: auto; gap: 1rem; }
-	.hl-circle-sm { position: static; margin: 0 auto; }
-	.highlight-3 { grid-column: 1; justify-self: center; }
-	.highlight-1 { justify-self: center; }
 	.mission { grid-template-columns: 1fr; text-align: center; }
 }
 </style>

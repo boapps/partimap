@@ -194,8 +194,8 @@ useHead({
 .gallery-circle:hover::after {
 	opacity: 0;
 }
-.gc-1 { width: 200px; height: 200px; background-image: url('/rolunk/1A0A6439%20(red).jpg'); }
-.gc-2 { width: 140px; height: 140px; background-image: url('/rolunk/1A0A6861%20(red).jpg'); }
+.gc-1 { width: 200px; height: 200px; background-image: url('/rolunk/1A0A6439-red.jpg'); }
+.gc-2 { width: 140px; height: 140px; background-image: url('/rolunk/1A0A6861-red.jpg'); }
 .gc-3 { width: 175px; height: 175px; background-image: url('/rolunk/1A0A9461.jpg'); }
 .gc-4 { width: 135px; height: 135px; background-image: url('/rolunk/DSC_7250.jpg'); }
 .gc-5 { width: 190px; height: 190px; background-image: url('/rolunk/ELTE_T%C3%A1TK_hackathon_20230512_038.JPG'); }

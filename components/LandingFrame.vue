@@ -75,11 +75,11 @@ withDefaults(
 
 				<b-navbar-nav class="nav-right">
 					<LangSwitcher />
-					<b-nav-item class="nav-login-item">
+					<li class="nav-item nav-login-item">
 						<NuxtLink :to="localePath('/admin')" class="nav-btn-outline">
 							{{ t('landing.nav.login') }}
 						</NuxtLink>
-					</b-nav-item>
+					</li>
 				</b-navbar-nav>
 			</div>
 		</nav>

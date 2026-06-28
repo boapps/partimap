@@ -78,9 +78,6 @@ export default {
 					'<p>El software PARTIMAP fue desarrollado por K-Monitor con el apoyo de la Comisión Europea (DG Regio) en 2021. Se realizaron más desarrollos en 2022, en cooperación con la oficina de Praga de la Fundación Heinrich-Böll-Stiftung. ¡Pero el proyecto está lejos de terminar con el lanzamiento de la versión actual! La plataforma gratuita y de código abierto fue creada para autoridades públicas, municipios y ONG con el objetivo de ayudarles a mejorar la participación en sus decisiones de desarrollo, para que podamos administrar nuestros activos públicos de manera más eficiente.</p><p>Si estás interesado en el proyecto y deseas participar en su desarrollo, o simplemente quieres compartir tus opiniones sobre PARTIMAP con nosotros, contáctanos en <a href="mailto:hello@partimap.eu">hello@partimap.eu</a>. Si deseas apoyar el desarrollo económicamente para poner a disposición el software de código abierto y gratuito para tantas personas como sea posible, por favor <a href="https://k-monitor.hu/support" target="_blank">apoya a K-Monitor</a>.</p>',
 			},
 		],
-		funding:
-			'El desarrollo es respaldado por la Comisión Europea (DG Regio) en el marco del proyecto <a href="https://k-monitor.hu/activities/20230201-partimap-hu-en" target="_blank">Participatory Mapping in Cohesion Policy in Hungary (PartiMap)</a>. El desarrollo adicional de la herramienta fue respaldado por la Oficina de Praga de la Fundación Heinrich Böll.',
-		ec: 'Comisión Europea',
 		nav: {
 			about: 'SOBRE PARTIMAP',
 			aboutSubmenu: {

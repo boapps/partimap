@@ -77,9 +77,6 @@ export default {
 					'<p>A PARTIMAP szoftvert a K-Monitor egyesület az Európai Bizottság (DG Regio) támogatásából valósította meg 2021-ben. A jelenlegi verzió publikálásával a projekt azonban korántsem ért véget! Az ingyenes, szabadon felhasználható felületet állami szerveknek, önkormányzatoknak, érdekérvényesítő civil szervezeteknek készítettük azzal a céllal, hogy az eszköz segíti őket a fejlesztésekkel kapcsolatos döntések társadalmasításában, így közös vagyonunkkal takarékosabban gazdálkodhatunk.</p><p>Ha érdekel a projekt, és szeretnél bekapcsolódni a fejlesztésbe, vagy csak megosztanád velünk a gondolataidat a PARTIMAP-ról, írj nekünk a <a href="mailto:hello@partimap.eu-ra.">hello@partimap.eu-ra.</a>-ra. Ha anyagilag támogatnád a fejlesztést, hogy az ingyenes, szabadon felhasználható szoftver minél többek számára legyen elérhető, <a href="https://tamogatas.k-monitor.hu/" target="_blank">támogasd a K-Monitort!</a></p>',
 			},
 		],
-		funding:
-			'A fejlesztés az Európai Bizottság (DG Regio) által támogatott <a href="https://k-monitor.hu/tevekenysegek/20210324-partimap" target="_blank">Participatory Mapping in Cohesion Policy in Hungary (PartiMap)</a> elnevezésű projekt keretében valósul meg. Az eszköz továbbfejlesztését a Heinrich Böll Alapítvány prágai irodája támogatta.',
-		ec: 'Európai Bizottság',
 		nav: {
 			about: 'A PARTIMAPRÓL',
 			aboutSubmenu: {
@@ -196,7 +193,7 @@ export default {
 		},
 		news: {
 			title: 'Híreink',
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et ex non tellus ullamcorper congue ut ut ex. Proin auctor quam quis neque pharetra, vel accumsan quam tincidunt.',
+			desc: 'Ismerd meg a PARTIMAP legújabb fejlesztéseit, inspiráló projektjeit és a közösségi térképezés gyakorlati alkalmazásait. Híreinkben rendszeresen beszámolunk újdonságainkról és szakmai tapasztalatainkról.',
 			news1Title: 'Legújabb fejlesztéseink',
 			news1Date: '2025.07.15.',
 			news1Desc: 'A PARTIMAP legújabb fejlesztései még egyszerűbbé és rugalmasabbá teszik a térképes kérdőívek készítését. Az újdonságok között megtalálható a kvíz mód, a weboldalakba beágyazható kérdőív, a részletesebb statisztikai riport, valamint a projektek másolásának és átadásának lehetősége. Fejlődtek a feltételes kérdések, a térképes munkalapok és a többnyelvű projektek kezelési funkciói is. Az új eszközök segítségével gyorsabban és hatékonyabban gyűjthetsz helyhez kötött véleményeket és adatokat. A fejlesztések mellett további újdonságok is készülnek, köztük új kérdéstípusok és GPS pont jelölés.',
@@ -207,7 +204,7 @@ export default {
 			news2Link: 'https://k.blog.hu/2025/05/21/a_kerdoiveken_tul_helyszini_felterkepezes_partimappal',
 			news3Title: 'Hogyan zajlik egy PartiMap projekt? Közösségi térképezés lépésről lépésre',
 			news3Date: '2025.02.06.',
-			news3Desc: 'A Közösen Monitorozunk! projekt keretében a K-Monitor három civil szervezettel együttműködve valósított meg közösségi térképezési és lakossági véleménygyűjtési projekteket Debrecenben, Gárdonyban és Veresegyházon. A kezdeményezés célja az volt, hogy a helyi közösségek adatokkal és lakossági visszajelzésekkel támasszák alá fejlesztési javaslataikat, különösen a zöldfelületek, a közlekedés és a közterületek használatának témájában. A projekt során a résztvevők a PARTIMAP segítségével térképes kérdőíveket készítettek, adatokat gyűjtöttek, majd elemezték és bemutatták az eredményeket a helyi döntéshozók számára. A program egyben gyakorlati útmutatót is nyújtott ahhoz, hogyan lehet a közösségi térképezést és a részvételi adatgyűjtést hatékonyan alkalmazni helyi ügyekben.',
+			news3Desc: 'A Közösen Monitorozunk! projekt keretében a K-Monitor három civil szervezettel együttműködve valósított meg közösségi térképezési és lakossági véleménygyűjtési projekteket Debrecenben, Gárdonyban és Veresegyházon. A résztvevők a PARTIMAP segítségével térképes kérdőíveket készítettek, adatokat gyűjtöttek és elemeztek, majd az eredményeket bemutatták a helyi döntéshozóknak. A projekt gyakorlati útmutatót is nyújtott a közösségi térképezés és a részvételi adatgyűjtés helyi alkalmazásához.',
 			news3Link: 'https://k.blog.hu/2025/02/06/egy_partimap_projekt_elete_partimap_kozossegi_terkepezes_gardonyban_es_veresegyhazan',
 			readMore: 'OLVASS TOVÁBB!',
 		},

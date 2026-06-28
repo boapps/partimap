@@ -76,9 +76,6 @@ export default {
 					'<p>2021 m. „PARTIMAP“ programinę įrangą sukūrė „K-Monitor“, remiant Europos Komisijai (DG Regio). 2022 m. bendradarbiaujant su „Heinrich-Böll-Stiftung“ Prahos biuru ji buvo tobulinama. Tačiau projektas toli gražu nesibaigė! Nemokama ir atvira platforma buvo sukurta valdžios institucijoms, savivaldybėms ir nevyriausybinėms organizacijoms, siekiant padėti joms aktyviau dalyvauti priimant sprendimus dėl plėtros, efektyviau valdant savo viešąjį turtą.</p><p> Jei susidomėjote projektu ir norėtumėte prisidėti prie jo kūrimo, arba tiesiog norite pasidalinti mintimis apie PARTIMAP, susisiekite su mumis adresu <a href="mailto:hello@partimap.eu">hello@partimap.eu</a>. Jei norite finansiškai paremti kūrimą, kad nemokama atvirojo kodo programinė įranga būtų prieinama kuo daugiau žmonių, prašome <a href="https://k-monitor.hu/support" target="_blank">palaikyti K-Monitor!</a></p>',
 			},
 		],
-		funding:
-			'Projekto plėtrą remia Europos Komisija (DG Regio) pagal <a href="https://k-monitor.hu/activities/20230201-partimap-hu-en" target="_blank">dalyvavimo programą. Sanglaudos dalyvavimo žemėlapių sudarymas Vengrijoje (PartiMap)</a> projektas. Tolesnį įrankio kūrimą parėmė Heinricho Böll fondo Prahos biuras.',
-		ec: 'Europos komisija',
 		nav: {
 			about: 'APIE PARTIMAP',
 			aboutSubmenu: {

@@ -48,6 +48,12 @@ const statTargets = computed(() => [
 ]);
 const statDisplays = ref<string[]>(['0', '0', '0']);
 
+function statFontSize(display: string) {
+	// Keep the same fill ratio as the reference (4 chars @ 2rem).
+	const len = Math.max(String(display).length, 4);
+	return `${(2 * 4) / len}rem`;
+}
+
 function parseStat(raw: string) {
 	const match = String(raw).match(/^(\D*)(\d[\d\s,.]*)(\D*)$/);
 	if (!match) return { prefix: '', number: 0, suffix: String(raw), raw };
@@ -377,17 +383,17 @@ onMounted(() => {
 				<p class="sec-desc">{{ t('landing.stats.desc') }}</p>
 				<div class="stats-grid">
 					<div class="stat-item">
-						<div class="stat-circle">{{ statDisplays[0] }}</div>
+						<div class="stat-circle" :style="{ fontSize: statFontSize(statDisplays[0]) }">{{ statDisplays[0] }}</div>
 						<h4>{{ t('landing.stats.stat1Title') }}</h4>
 						<p>{{ t('landing.stats.stat1Desc') }}</p>
 					</div>
 					<div class="stat-item">
-						<div class="stat-circle">{{ statDisplays[1] }}</div>
+						<div class="stat-circle" :style="{ fontSize: statFontSize(statDisplays[1]) }">{{ statDisplays[1] }}</div>
 						<h4>{{ t('landing.stats.stat2Title') }}</h4>
 						<p>{{ t('landing.stats.stat2Desc') }}</p>
 					</div>
 					<div class="stat-item">
-						<div class="stat-circle">{{ statDisplays[2] }}</div>
+						<div class="stat-circle" :style="{ fontSize: statFontSize(statDisplays[2]) }">{{ statDisplays[2] }}</div>
 						<h4>{{ t('landing.stats.stat3Title') }}</h4>
 						<p>{{ t('landing.stats.stat3Desc') }}</p>
 					</div>

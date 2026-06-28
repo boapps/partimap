@@ -1553,6 +1553,8 @@ onMounted(() => {
 	color: var(--l-blue);
 	font-size: 1rem;
 	font-weight: 400;
+	line-height: 1.3;
+	min-height: 2.6em;
 	margin-bottom: 1rem;
 }
 .news-card p {

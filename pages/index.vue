@@ -1446,11 +1446,11 @@ onMounted(() => {
 .map-popup {
 	position: absolute;
 	z-index: 10;
-	width: 220px;
+	width: 320px;
 	background: #fff;
 	border-radius: 16px;
 	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.18), 0 2px 8px rgba(0,0,0,0.10);
-	padding: 1.1rem 1.1rem 1rem;
+	padding: 1.4rem 1.4rem 1.25rem;
 	pointer-events: all;
 }
 .map-popup::before {
@@ -1491,20 +1491,20 @@ onMounted(() => {
 }
 .map-popup-close:hover { color: #0055FF; }
 .map-popup-title {
-	font-size: 0.95rem;
+	font-size: 1.05rem;
 	font-weight: 700;
 	color: #0055FF;
 	margin: 0 1.2rem 0.5rem 0;
 	line-height: 1.3;
 }
 .map-popup-desc {
-	font-size: 0.8rem;
+	font-size: 0.875rem;
 	color: #444;
 	margin: 0;
-	line-height: 1.5;
+	line-height: 1.55;
 }
 .map-popup-author {
-	font-size: 0.75rem;
+	font-size: 0.8rem;
 	font-weight: 600;
 	color: #0055FF;
 	margin: 0.6rem 0 0;

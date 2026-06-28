@@ -613,10 +613,9 @@ onMounted(() => {
 	flex-shrink: 0;
 }
 .nav-brand img {
-	height: 64px;
+	height: 28px;
 	width: auto;
 	display: block;
-	margin-left: -24px; /* nudge logo's left edge back out toward the nav edge */
 }
 .nav-links {
 	display: flex;

@@ -21,7 +21,7 @@ withDefaults(
 		<nav class="landing-nav">
 			<div class="nav-inner">
 				<NuxtLink :to="localePath('/')" class="nav-brand">
-					<img src="/logo.svg" alt="PARTIMAP" height="24" />
+					<img src="/logo_kek.png" alt="PARTIMAP" height="24" />
 				</NuxtLink>
 
 				<div v-if="showSearch" class="nav-search d-none d-lg-flex">

@@ -168,6 +168,11 @@ useHead({
 	font-weight: 500;
 	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.18);
 }
+/* Keep the text within the square that fits inside the circle so the
+   lines wrap into a rounded block instead of a wide rectangle. */
+.hl-circle span {
+	max-width: 75%;
+}
 .hl-circle-stat {
 	width: 200px;
 	height: 200px;

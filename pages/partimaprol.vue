@@ -270,17 +270,17 @@ useHead({
 	.ap-gallery {
 		display: block;
 		position: relative;
-		height: 860px;
+		height: 760px;
 		margin: 2rem 0;
 	}
 	.ap-gallery-circle {
 		position: absolute;
 	}
-	.agc-1 { left: -20%; top: 0; }
-	.agc-3 { left: 30%; top: -100px; }
-	.agc-5 { left: 55%; top: 430px; }
-	.agc-2 { left: 20%; top: 320px; }
-	.agc-4 { left: 23%; top: 660px; }
+	.agc-1 { left: -8%; top: 0; }
+	.agc-3 { left: 33%; top: -70px; }
+	.agc-5 { left: 52%; top: 370px; }
+	.agc-2 { left: 24%; top: 290px; }
+	.agc-4 { left: 26%; top: 560px; }
 }
 
 .ap-cta {

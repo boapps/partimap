@@ -337,7 +337,7 @@ export default {
 		title: 'A PARTIMAPról',
 		q1: 'Mi az a PARTIMAP?',
 		q2: 'Hogyan alkalmazható?',
-		q3: 'Hogyan írj kérdőívet',
+		q3: 'Hogyan írj kérdőívet?',
 		shortTitle: 'Long story short',
 		shortDesc: 'A PARTIMAP egy ingyenes, könnyen kezelhető és rugalmasan testreszabható, térképes kérdőívező felület, amelyet kutatók, civil szervezetek, önkormányzatok és helyi közösségek egyaránt használhatnak. Lehetővé teszi, hogy a kérdőíves adatgyűjtést térképes megjelenítéssel ötvözve gyűjtsünk visszajelzéseket, véleményeket és helyi tapasztalatokat. A PARTIMAP különösen hasznos közpénzből megvalósuló fejlesztések, közpolitikai döntések vagy közösségi tervezési folyamatok esetében, ahol fontos, hogy az érintettek hangja is megjelenjen, és az eredmények átlátható, vizuálisan jól értelmezhető formában álljanak rendelkezésre.',
 		longTitle: 'Részletesen',

@@ -19,6 +19,11 @@ useHead({
 <template>
 	<LandingFrame>
 		<section class="imprint-section">
+			<!-- <div class="imprint-blob imprint-blob-1" aria-hidden="true" /> -->
+			<div class="imprint-blob imprint-blob-2" aria-hidden="true" />
+			<div class="imprint-blob imprint-blob-3" aria-hidden="true" />
+			<div class="imprint-outline imprint-outline-1" aria-hidden="true" />
+			<div class="imprint-outline imprint-outline-2" aria-hidden="true" />
 			<div class="imprint-inner">
 				<h1>{{ t('impresszum.title') }}</h1>
 
@@ -91,10 +96,44 @@ useHead({
 .imprint-section {
 	padding: 4rem 2rem 6rem;
 	font-family: 'Apex New', 'Segoe UI', sans-serif;
+	position: relative;
+	overflow: hidden;
+	min-height: calc(100vh - 80px);
 }
 .imprint-inner {
+	position: relative;
+	z-index: 1;
 	max-width: 720px;
 	margin: 0 auto;
+}
+
+/* ── Background Gradient Blobs ────────────────────────── */
+.imprint-blob {
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+	filter: blur(80px);
+	z-index: 0;
+}
+.imprint-blob-1 { width: 500px; height: 400px; top: -80px; right: -120px; background: rgba(0, 85, 255, 0.3); }
+.imprint-blob-2 { width: 450px; height: 450px; top: 45%; left: -180px; background: rgba(0, 85, 255, 0.3); }
+.imprint-blob-3 { width: 300px; height: 300px; bottom: 220px; right: 8%; background: rgba(0, 85, 255, 0.4); }
+
+/* ── Decorative circle outlines ───────────────────────── */
+.imprint-outline {
+	position: absolute;
+	border: 1.5px solid #0055FF;
+	border-radius: 50%;
+	pointer-events: none;
+	opacity: 0.6;
+	z-index: 0;
+}
+.imprint-outline-1 { width: 280px; height: 280px; top: 140px; left: 80px; }
+.imprint-outline-2 { width: 180px; height: 180px; bottom: 260px; right: 90px; }
+@media (max-width: 1450px) {
+	.imprint-outline {
+		display: none;
+	}
 }
 .imprint-inner h1 {
 	color: #0055FF;

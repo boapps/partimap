@@ -19,6 +19,8 @@ useHead({
 <template>
 	<LandingFrame>
 		<section class="ap-hero">
+			<!-- <div class="ap-blob ap-blob-hero-tr" aria-hidden="true" /> -->
+			<!-- <div class="ap-blob ap-blob-hero-bl" aria-hidden="true" /> -->
 			<img src="/map.webp" alt="" class="ap-map" aria-hidden="true" />
 			<div class="ap-hero-inner">
 				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-1">{{ t('aboutPartimap.q1') }}</NuxtLink>
@@ -28,6 +30,9 @@ useHead({
 		</section>
 
 		<section class="ap-section">
+			<div class="ap-blob ap-blob-1" aria-hidden="true" />
+			<div class="ap-blob ap-blob-2" aria-hidden="true" />
+			<div class="ap-blob ap-blob-3" aria-hidden="true" />
 			<div class="ap-section-inner">
 				<div class="ap-block">
 					<div class="ap-block-text ap-block-text-left">
@@ -125,14 +130,31 @@ useHead({
 	font-family: 'Apex New', 'Segoe UI', sans-serif;
 	padding: 4rem 2rem 6rem;
 	position: relative;
+	overflow: hidden;
 }
 .ap-section-inner {
+	position: relative;
+	z-index: 1;
 	max-width: 1000px;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	gap: 5rem;
 }
+
+/* ── Background Gradient Blobs ────────────────────────── */
+.ap-blob {
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+	filter: blur(80px);
+	z-index: 0;
+}
+.ap-blob-hero-tr { width: 500px; height: 500px; top: -100px; right: -100px; background: rgba(0, 85, 255, 0.4); }
+.ap-blob-hero-bl { width: 400px; height: 400px; bottom: -50px; left: -50px; background: rgba(0, 85, 255, 0.3); }
+.ap-blob-1 { width: 500px; height: 400px; top: 100px; right: 20%; background: rgba(0, 85, 255, 0.3); }
+.ap-blob-2 { width: 450px; height: 450px; top: 40%; left: 120px; background: rgba(0, 85, 255, 0.3); }
+.ap-blob-3 { width: 300px; height: 300px; bottom: 200px; right: 280px; background: rgba(0, 85, 255, 0.4); }
 .ap-block {
 	display: grid;
 	grid-template-columns: 1.2fr 1fr;

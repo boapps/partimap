@@ -165,6 +165,7 @@ useHead({
 	min-height: 250px;
 }
 .ap-disc {
+	position: relative;
 	width: 290px;
 	height: 290px;
 	background-color: #0055FF;
@@ -172,7 +173,15 @@ useHead({
 	background-size: cover;
 	background-position: center;
 	border-radius: 50%;
+	overflow: hidden;
 	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.25);
+}
+.ap-disc::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: #0055FF40;
+	pointer-events: none;
 }
 .ap-line {
 	position: absolute;
@@ -250,28 +259,28 @@ useHead({
 .ap-gallery-circle:hover::after {
 	opacity: 0;
 }
-.agc-1 { width: 200px; height: 200px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
-.agc-2 { width: 140px; height: 140px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
-.agc-3 { width: 175px; height: 175px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
-.agc-4 { width: 135px; height: 135px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
-.agc-5 { width: 190px; height: 190px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
+.agc-1 { width: 400px; height: 400px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
+.agc-2 { width: 280px; height: 280px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
+.agc-3 { width: 350px; height: 350px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
+.agc-4 { width: 270px; height: 270px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
+.agc-5 { width: 380px; height: 380px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
 
 /* Desktop: scatter the photo circles like the rólunk page */
 @media (min-width: 992px) {
 	.ap-gallery {
 		display: block;
 		position: relative;
-		height: 450px;
-		margin: 0;
+		height: 860px;
+		margin: 2rem 0;
 	}
 	.ap-gallery-circle {
 		position: absolute;
 	}
-	.agc-1 { left: 6%; top: 0; }
-	.agc-2 { left: 40%; top: 40px; }
-	.agc-3 { left: 66%; top: 0; }
-	.agc-4 { left: 22%; top: 250px; }
-	.agc-5 { left: 52%; top: 240px; }
+	.agc-1 { left: -20%; top: 0; }
+	.agc-3 { left: 30%; top: -100px; }
+	.agc-5 { left: 55%; top: 430px; }
+	.agc-2 { left: 20%; top: 320px; }
+	.agc-4 { left: 23%; top: 660px; }
 }
 
 .ap-cta {

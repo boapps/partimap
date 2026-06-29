@@ -64,6 +64,8 @@ useHead({
 				</div>
 
 				<div class="ap-cta">
+					<div class="ap-circle-outline ap-cta-circle ap-cta-circle-left" />
+					<div class="ap-circle-outline ap-cta-circle ap-cta-circle-right" />
 					<p class="ap-cta-text">{{ t('aboutPartimap.interested') }}</p>
 					<NuxtLink :to="localePath('/register')" class="ap-pill">{{ t('aboutPartimap.registerCta') }}</NuxtLink>
 				</div>
@@ -188,8 +190,8 @@ useHead({
 	font-size: 1.4rem;
 }
 .ap-circle-outline {
-	width: 240px;
-	height: 240px;
+	width: 340px;
+	height: 340px;
 	border: 1.5px solid #0055FF;
 	border-radius: 50%;
 	opacity: 0.7;
@@ -273,11 +275,27 @@ useHead({
 }
 
 .ap-cta {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 1.5rem;
-	margin-top: 2rem;
+	gap: 0.75rem;
+	margin-top: 1rem;
+}
+.ap-cta-circle {
+	position: absolute;
+	top: 50%;
+	opacity: 0.5;
+}
+.ap-cta-circle-left {
+	left: -2%;
+	width: 180px;
+	height: 180px;
+	transform: translateY(-35%);
+}
+.ap-cta-circle-right {
+	right: -20%;
+	transform: translateY(-60%);
 }
 .ap-cta-text {
 	color: #0055FF;

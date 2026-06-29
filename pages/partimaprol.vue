@@ -349,7 +349,7 @@ useHead({
 		position: static;
 		left: auto;
 		top: auto;
-		align-self: flex-start;
+		align-self: center;
 	}
 }
 </style>

@@ -92,7 +92,7 @@ useHead({
 	grid-template-columns: 1.2fr 1fr;
 	gap: 3rem;
 	align-items: start;
-	margin-bottom: 5rem;
+	margin-bottom: 1.5rem;
 }
 .about-intro h1 {
 	color: #0055FF;
@@ -117,12 +117,30 @@ useHead({
 	justify-content: center;
 }
 .team-photo {
+	position: relative;
 	width: 380px;
 	height: 380px;
 	border-radius: 50%;
 	background-image: url('/rolunk.jpg');
 	background-size: cover;
 	background-position: 20% center;
+	overflow: hidden;
+	transition: transform 0.4s ease;
+}
+.team-photo::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	/* Same blue cover as the gallery photos and partimaprol/Büszkeségeink discs */
+	background: #0055FF40;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+.team-photo:hover {
+	transform: scale(1.04);
+}
+.team-photo:hover::after {
+	opacity: 0;
 }
 
 /* ── Scattered circles (blue highlights + photos) ── */
@@ -132,7 +150,7 @@ useHead({
 	justify-content: center;
 	align-items: center;
 	gap: 1.5rem;
-	margin: 4rem 0;
+	margin: 1.5rem 0 4rem;
 }
 .scatter .sc {
 	position: relative;
@@ -157,14 +175,17 @@ useHead({
 	line-height: 1.3;
 }
 .hl-circle-sm {
-	width: 130px;
-	height: 130px;
-	font-size: 0.85rem;
+	width: 185px;
+	height: 185px;
+	padding: 1.1rem;
+	font-size: 0.8rem;
+	line-height: 1.4;
 }
 .hl-circle-lg {
 	width: 280px;
 	height: 280px;
-	font-size: 1.6rem;
+	font-size: 1.05rem;
+	line-height: 1.35;
 	font-weight: 500;
 }
 
@@ -194,12 +215,12 @@ useHead({
 .gallery-circle:hover::after {
 	opacity: 0;
 }
-.gc-1 { width: 200px; height: 200px; background-image: url('/rolunk/1A0A6439-red.jpg'); }
-.gc-2 { width: 140px; height: 140px; background-image: url('/rolunk/1A0A6861-red.jpg'); }
-.gc-3 { width: 175px; height: 175px; background-image: url('/rolunk/1A0A9461.jpg'); }
-.gc-4 { width: 135px; height: 135px; background-image: url('/rolunk/DSC_7250.jpg'); }
-.gc-5 { width: 190px; height: 190px; background-image: url('/rolunk/ELTE_T%C3%A1TK_hackathon_20230512_038.JPG'); }
-.gc-6 { width: 150px; height: 150px; background-image: url('/rolunk/P1067637.jpg'); }
+.gc-1 { width: 230px; height: 230px; background-image: url('/rolunk/1A0A6439-red.jpg'); }
+.gc-2 { width: 200px; height: 200px; background-image: url('/rolunk/1A0A6861-red.jpg'); }
+.gc-3 { width: 230px; height: 230px; background-image: url('/rolunk/1A0A9461.jpg'); }
+.gc-4 { width: 200px; height: 200px; background-image: url('/rolunk/DSC_7250.jpg'); }
+.gc-5 { width: 230px; height: 230px; background-image: url('/rolunk/ELTE_T%C3%A1TK_hackathon_20230512_038.JPG'); }
+.gc-6 { width: 200px; height: 200px; background-image: url('/rolunk/P1067637.jpg'); }
 
 /* ── Mission block ─────────────────────────────── */
 .mission {
@@ -329,21 +350,21 @@ useHead({
 	.scatter {
 		display: block;
 		position: relative;
-		height: 640px;
-		margin: 5rem 0;
+		height: 760px;
+		margin: 1.5rem 0 4rem;
 	}
 	.scatter .sc {
 		position: absolute;
 	}
-	.sc-stat { left: 4%; top: 20px; }
+	.sc-stat { left: 3%; top: 30px; }
 	.gc-1 { left: 29%; top: 0; }
-	.gc-2 { left: 42%; top: 210px; }
-	.sc-lg { left: 56%; top: 60px; }
-	.sc-sm { left: 25%; top: 240px; }
-	.gc-3 { left: 4%; top: 270px; }
-	.gc-4 { left: 60%; top: 380px; }
-	.gc-5 { left: 23%; top: 420px; }
-	.gc-6 { left: 78%; top: 430px; }
+	.sc-lg { left: 61%; top: 50px; }
+	.gc-3 { left: 2%; top: 290px; }
+	.sc-sm { left: 28%; top: 285px; }
+	.gc-2 { left: 48%; top: 325px; }
+	.gc-5 { left: 17%; top: 500px; }
+	.gc-4 { left: 43%; top: 540px; }
+	.gc-6 { left: 73%; top: 450px; }
 }
 
 @media (max-width: 991px) {

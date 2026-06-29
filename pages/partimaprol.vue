@@ -310,8 +310,8 @@ useHead({
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 0.75rem;
-	margin-top: 1rem;
+	gap: 0rem;
+	margin-top: -2rem;
 }
 .ap-cta-circle {
 	position: absolute;
@@ -332,6 +332,7 @@ useHead({
 	color: #0055FF;
 	font-size: clamp(2rem, 4vw, 2.6rem);
 	font-weight: 500;
+	margin-bottom: 0;
 }
 
 @media (max-width: 991px) {

@@ -117,9 +117,9 @@ useHead({
 	background: #0044CC;
 	color: #fff;
 }
-.ap-pill-1 { position: absolute; left: 12%; top: 45%; }
-.ap-pill-2 { position: absolute; left: 34%; top: 75%; }
-.ap-pill-3 { position: absolute; left: 56%; top: 8%; }
+.ap-pill-1 { position: absolute; left: 10%; top: 40%; }
+.ap-pill-2 { position: absolute; left: 34%; top: 70%; }
+.ap-pill-3 { position: absolute; left: 56%; top: 10%; }
 
 .ap-section {
 	font-family: 'Apex New', 'Segoe UI', sans-serif;
@@ -217,7 +217,7 @@ useHead({
 	position: absolute;
 	top: 0;
 	left: 0;
-	transform: translate(-55%, -80%);
+	transform: translate(-60%, -140%);
 }
 .ap-extra-text {
 	font-size: 0.9rem;
@@ -259,11 +259,11 @@ useHead({
 .ap-gallery-circle:hover::after {
 	opacity: 0;
 }
-.agc-1 { width: 400px; height: 400px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
-.agc-2 { width: 280px; height: 280px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
-.agc-3 { width: 350px; height: 350px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
-.agc-4 { width: 270px; height: 270px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
-.agc-5 { width: 380px; height: 380px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
+.agc-1 { width: 350px; height: 350px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
+.agc-2 { width: 220px; height: 220px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
+.agc-3 { width: 300px; height: 300px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
+.agc-4 { width: 230px; height: 230px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
+.agc-5 { width: 320px; height: 320px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
 
 /* Desktop: scatter the photo circles like the rólunk page */
 @media (min-width: 992px) {

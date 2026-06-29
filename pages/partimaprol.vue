@@ -94,11 +94,9 @@ useHead({
 .ap-hero-inner {
 	position: relative;
 	max-width: 1000px;
+	min-height: 400px;
 	margin: 0 auto;
 	padding: 4rem 2rem;
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
 }
 .ap-pill {
 	background: #0055FF;
@@ -117,9 +115,9 @@ useHead({
 	background: #0044CC;
 	color: #fff;
 }
-.ap-pill-1 { align-self: flex-start; margin-left: 0; }
-.ap-pill-2 { align-self: flex-start; margin-left: 25%; }
-.ap-pill-3 { align-self: flex-end; margin-right: 18%; }
+.ap-pill-1 { position: absolute; left: 12%; top: 45%; }
+.ap-pill-2 { position: absolute; left: 34%; top: 75%; }
+.ap-pill-3 { position: absolute; left: 56%; top: 8%; }
 
 .ap-section {
 	font-family: 'Apex New', 'Segoe UI', sans-serif;
@@ -320,5 +318,20 @@ useHead({
 	}
 	.ap-pill { font-size: 1.1rem; padding: 1rem 2rem; }
 	.why-side-arrow { display: none; }
+
+	.ap-hero-inner {
+		min-height: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	.ap-pill-1,
+	.ap-pill-2,
+	.ap-pill-3 {
+		position: static;
+		left: auto;
+		top: auto;
+		align-self: flex-start;
+	}
 }
 </style>

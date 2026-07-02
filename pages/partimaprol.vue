@@ -188,8 +188,8 @@ useHead({
 }
 .ap-disc {
 	position: relative;
-	width: 290px;
-	height: 290px;
+	width: 232px;
+	height: 232px;
 	background-color: #0055FF;
 	background-image: url('/whatis/ogimage.png');
 	background-size: cover;
@@ -207,7 +207,7 @@ useHead({
 }
 .ap-line {
 	position: absolute;
-	top: 290px;
+	top: 232px;
 	left: 50%;
 	width: 1.5px;
 	height: 80px;
@@ -215,7 +215,7 @@ useHead({
 }
 .ap-arrow {
 	position: absolute;
-	top: 290px;
+	top: 232px;
 	left: calc(50% - 9px);
 	color: #0055FF;
 	font-size: 1.4rem;
@@ -239,7 +239,7 @@ useHead({
 	position: absolute;
 	top: 0;
 	left: 0;
-	transform: translate(-60%, -140%);
+	transform: translate(-60%, -100%);
 }
 .ap-extra-text {
 	font-size: 0.9rem;
@@ -281,28 +281,28 @@ useHead({
 .ap-gallery-circle:hover::after {
 	opacity: 0;
 }
-.agc-1 { width: 350px; height: 350px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
-.agc-2 { width: 220px; height: 220px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
-.agc-3 { width: 300px; height: 300px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
-.agc-4 { width: 230px; height: 230px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
-.agc-5 { width: 320px; height: 320px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
+.agc-1 { width: 280px; height: 280px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
+.agc-2 { width: 176px; height: 176px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
+.agc-3 { width: 240px; height: 240px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
+.agc-4 { width: 184px; height: 184px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
+.agc-5 { width: 256px; height: 256px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
 
 /* Desktop: scatter the photo circles like the rólunk page */
 @media (min-width: 992px) {
 	.ap-gallery {
 		display: block;
 		position: relative;
-		height: 760px;
-		margin: 2rem 0;
+		height: 620px;
+		margin: 1rem 0 -2rem;
 	}
 	.ap-gallery-circle {
 		position: absolute;
 	}
-	.agc-1 { left: -8%; top: 0; }
-	.agc-3 { left: 33%; top: -70px; }
-	.agc-5 { left: 52%; top: 370px; }
-	.agc-2 { left: 24%; top: 290px; }
-	.agc-4 { left: 26%; top: 560px; }
+	.agc-1 { left: -6%; top: 20px; }
+	.agc-3 { left: 28%; top: -30px; }
+	.agc-5 { left: 44%; top: 250px; }
+	.agc-2 { left: 20%; top: 250px; }
+	.agc-4 { left: 22%; top: 495px; }
 }
 
 .ap-cta {

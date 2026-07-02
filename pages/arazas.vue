@@ -24,6 +24,11 @@ function toggle(plan: string) {
 <template>
 	<LandingFrame>
 		<section class="pricing-section">
+			<div class="pricing-blob pricing-blob-1" aria-hidden="true" />
+			<div class="pricing-blob pricing-blob-2" aria-hidden="true" />
+			<div class="pricing-blob pricing-blob-3" aria-hidden="true" />
+			<div class="pricing-outline pricing-outline-1" aria-hidden="true" />
+			<div class="pricing-outline pricing-outline-2" aria-hidden="true" />
 			<div class="pricing-inner">
 				<h1 class="sec-title text-center">{{ t('pricing.heading') }}</h1>
 
@@ -102,10 +107,42 @@ function toggle(plan: string) {
 .pricing-section {
 	position: relative;
 	padding: 4rem 2rem 6rem;
+	overflow: hidden;
 }
 .pricing-inner {
+	position: relative;
+	z-index: 1;
 	max-width: 1100px;
 	margin: 0 auto;
+}
+
+/* ── Background Gradient Blobs ────────────────────────── */
+.pricing-blob {
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+	filter: blur(80px);
+	z-index: 0;
+}
+.pricing-blob-1 { width: 500px; height: 400px; top: -80px; right: -120px; background: rgba(0, 85, 255, 0.3); }
+.pricing-blob-2 { width: 450px; height: 450px; top: 45%; left: -180px; background: rgba(0, 85, 255, 0.3); }
+.pricing-blob-3 { width: 300px; height: 300px; bottom: 200px; right: 6%; background: rgba(0, 85, 255, 0.4); }
+
+/* ── Decorative circle outlines ───────────────────────── */
+.pricing-outline {
+	position: absolute;
+	border: 1.5px solid #0055FF;
+	border-radius: 50%;
+	pointer-events: none;
+	opacity: 0.6;
+	z-index: 0;
+}
+.pricing-outline-1 { width: 280px; height: 280px; top: 120px; left: 60px; }
+.pricing-outline-2 { width: 180px; height: 180px; bottom: 220px; right: 70px; }
+@media (max-width: 1450px) {
+	.pricing-outline {
+		display: none;
+	}
 }
 .sec-title {
 	color: #0055FF;

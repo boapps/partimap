@@ -356,6 +356,7 @@ watch([geolocationPosition, geolocationAccuracy], () => {
 
 <template>
 	<ol-map
+		class="position-relative"
 		:load-tiles-while-animating="true"
 		:load-tiles-while-interacting="true"
 		style="height: 100%"

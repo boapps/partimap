@@ -49,23 +49,14 @@ function onBlur() {
 </script>
 
 <template>
-	<div
-		class="position-absolute"
-		style="
-			top: 0.5rem;
-			left: 50%;
-			transform: translateX(-50%);
-			z-index: 1;
-			max-width: calc(100% - 1rem);
-		"
-	>
+	<div class="position-absolute map-search-container">
 		<div class="d-flex flex-column">
 			<div class="d-flex shadow-sm">
 				<input
 					v-model="query"
 					autocomplete="off"
 					class="form-control rounded-0 border-secondary"
-					style="border-radius: 0.5rem 0 0 0.5rem !important; min-width: 220px"
+					style="border-radius: 0.5rem 0 0 0.5rem !important"
 					:placeholder="t('Map.search')"
 					@blur="onBlur"
 					@keyup.enter="search"
@@ -104,3 +95,30 @@ function onBlur() {
 		</div>
 	</div>
 </template>
+
+<style scoped>
+.map-search-container {
+	top: 0.5rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+	max-width: calc(100% - 1rem);
+
+	input {
+		min-width: 220px;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.map-search-container {
+		left: auto;
+		right: 4rem;
+		transform: none;
+		max-width: calc(100% - 10rem);
+
+		input {
+			min-width: 0;
+		}
+	}
+}
+</style>

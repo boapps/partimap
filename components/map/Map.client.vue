@@ -35,9 +35,6 @@ const {
 
 // map initialization
 
-const GOOGLEMAPS_PROJECTION = 'EPSG:4326';
-const PARTIMAP_PROJECTION = 'EPSG:3857'; // OL default
-
 const { t } = useI18n();
 const coords = t('Map.initialCenter').split(',');
 const gm2ol = (coords: number[]) => transform(coords, GOOGLEMAPS_PROJECTION, PARTIMAP_PROJECTION);

@@ -31,8 +31,15 @@ async function search() {
 
 function selectResult(result: NominatimResult) {
 	const [minlat, maxlat, minlon, maxlon] = result.boundingbox.map(Number);
-	const extent = transformExtent([minlon, minlat, maxlon, maxlat], 'EPSG:4326', 'EPSG:3857');
-	map?.getView().fit(extent, { duration: 500, padding: [50, 50, 50, 50] });
+	const extent = transformExtent(
+		[minlon, minlat, maxlon, maxlat],
+		GOOGLEMAPS_PROJECTION,
+		PARTIMAP_PROJECTION,
+	);
+	map?.getView().fit(extent, {
+		duration: 200,
+		padding: [80, 80, 80, 80],
+	});
 	results.value = [];
 }
 
@@ -44,7 +51,13 @@ function onBlur() {
 <template>
 	<div
 		class="position-absolute"
-		style="top: 0.5rem; left: 50%; transform: translateX(-50%); z-index: 1; max-width: calc(100% - 1rem)"
+		style="
+			top: 0.5rem;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 1;
+			max-width: calc(100% - 1rem);
+		"
 	>
 		<div class="d-flex flex-column">
 			<div class="d-flex shadow-sm">
@@ -81,7 +94,7 @@ function onBlur() {
 				<button
 					v-for="result in results"
 					:key="result.place_id"
-					class="list-group-item list-group-item-action list-group-item-dark py-2 text-start"
+					class="list-group-item list-group-item-action py-2 text-start"
 					style="font-size: 0.85rem"
 					@mousedown.prevent="selectResult(result)"
 				>

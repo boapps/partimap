@@ -10,6 +10,7 @@ interface NominatimResult {
 
 const { t } = useI18n();
 const map = inject<Map | undefined>('map');
+const { sidebarVisible } = useStore();
 
 const query = ref('');
 const results = ref<NominatimResult[]>([]);
@@ -49,7 +50,10 @@ function onBlur() {
 </script>
 
 <template>
-	<div class="position-absolute map-search-container">
+	<div
+		class="position-absolute map-search-container"
+		:class="{ 'sidebar-open': sidebarVisible }"
+	>
 		<div class="d-flex flex-column">
 			<div class="d-flex shadow-sm">
 				<input
@@ -106,6 +110,12 @@ function onBlur() {
 
 	input {
 		min-width: 220px;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.map-search-container.sidebar-open {
+		display: none;
 	}
 }
 

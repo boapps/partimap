@@ -427,6 +427,7 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Basiskarte wechseln',
+		search: 'Ort suchen',
 			geolocationTracking: 'Eigenen Standort verfolgen',
 		initialCenter: '48.1036533,4.1777465', // Europa
 		initialZoom: '4',

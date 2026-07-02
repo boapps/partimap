@@ -439,6 +439,7 @@ watch([geolocationPosition, geolocationAccuracy], () => {
 			</ol-source-vector>
 		</ol-vector-layer>
 
+		<MapSearch />
 		<MapControls />
 	</ol-map>
 </template>

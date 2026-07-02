@@ -416,6 +416,7 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Change base map',
+		search: 'Search location',
 			geolocationTracking: 'Track my location',
 		initialCenter: '48.1036533,4.1777465', // Europe
 		initialZoom: '4',

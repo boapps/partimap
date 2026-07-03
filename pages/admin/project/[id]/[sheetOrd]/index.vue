@@ -399,7 +399,7 @@ function handleExtentDrawn(extent: Extent) {
 				/>
 			</form-group>
 
-			<form-group v-if="isInteractive">
+			<form-group v-if="isInteractive || sheet.features">
 				<b-form-checkbox
 					v-model="interactions.showSearch"
 					value="ShowResultsOnly"

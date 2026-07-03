@@ -1,10 +1,17 @@
 <script setup lang="ts">
+import Feature from 'ol/Feature';
 import type Map from 'ol/Map';
-import { transformExtent } from 'ol/proj';
+import Point from 'ol/geom/Point';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import { transform, transformExtent } from 'ol/proj';
+import { Circle, Fill, Stroke, Style } from 'ol/style';
 
 interface NominatimResult {
 	place_id: number;
 	display_name: string;
+	lat: string;
+	lon: string;
 	boundingbox: [string, string, string, string]; // [minlat, maxlat, minlon, maxlon]
 }
 
@@ -15,6 +22,21 @@ const { sidebarVisible } = useStore();
 const query = ref('');
 const results = ref<NominatimResult[]>([]);
 const loading = ref(false);
+
+const markerSource = new VectorSource();
+const markerLayer = new VectorLayer({
+	source: markerSource,
+	style: new Style({
+		image: new Circle({
+			radius: 8,
+			fill: new Fill({ color: 'rgba(0, 0, 0, 0.85)' }),
+		}),
+	}),
+	zIndex: 100,
+});
+
+onMounted(() => map?.addLayer(markerLayer));
+onUnmounted(() => map?.removeLayer(markerLayer));
 
 async function search() {
 	if (!query.value.trim()) return;
@@ -41,6 +63,15 @@ function selectResult(result: NominatimResult) {
 		duration: 200,
 		padding: [80, 80, 80, 80],
 	});
+
+	const coord = transform(
+		[Number(result.lon), Number(result.lat)],
+		GOOGLEMAPS_PROJECTION,
+		PARTIMAP_PROJECTION,
+	);
+	markerSource.clear();
+	markerSource.addFeature(new Feature(new Point(coord)));
+
 	results.value = [];
 }
 

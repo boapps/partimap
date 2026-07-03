@@ -236,6 +236,7 @@ export default {
 			RatingResults: 'Show rating results',
 			ShowResultsOnly: 'Display only the results',
 			SocialSharing: 'Share page on social media',
+			showSearch: 'Show search box',
 		},
 		numberOfStars: 'Set scale (1-10)',
 		ratingQuestion: 'Follow-up text question',

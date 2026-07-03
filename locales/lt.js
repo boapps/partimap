@@ -240,6 +240,7 @@ export default {
 			RatingResults: 'Rodyti įvertinimo rezultatus',
 			ShowResultsOnly: 'Rodyti tik rezultatus',
 			SocialSharing: 'Bendrinkite puslapį socialinėje erdvėje',
+			showSearch: 'Rodyti paieškos laukelį',
 		},
 		numberOfStars: 'Skalės ribos (1-10)',
 		ratingQuestion: 'Papildomas tekstinis klausimas',

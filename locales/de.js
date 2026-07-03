@@ -246,6 +246,7 @@ export default {
 			RatingResults: 'Bewertungsergebnisse anzeigen',
 			ShowResultsOnly: 'Nur Ergebnisse anzeigen',
 			SocialSharing: 'Seite in sozialen Medien teilen',
+			showSearch: 'Suchfeld anzeigen',
 		},
 		numberOfStars: 'Skala festlegen (1–10)',
 		ratingQuestion: 'Textfolgefrage',

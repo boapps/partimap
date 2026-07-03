@@ -245,6 +245,7 @@ export default {
 			RatingResults: 'Mostrar resultados de calificación',
 			ShowResultsOnly: 'Mostrar solo los resultados',
 			SocialSharing: 'Compartir página en redes sociales',
+			showSearch: 'Mostrar cuadro de búsqueda',
 		},
 		numberOfStars: 'Establecer escala (1-10)',
 		ratingQuestion: 'Pregunta de seguimiento de texto',

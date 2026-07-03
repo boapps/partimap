@@ -238,6 +238,7 @@ export default {
 			RatingResults: 'Afișați rezultatele evaluării',
 			ShowResultsOnly: 'Afișați doar rezultatele',
 			SocialSharing: 'Distribuiți pagina pe rețelele sociale',
+			showSearch: 'Afișați caseta de căutare',
 		},
 		numberOfStars: 'Setați intervalul (1-10)',
 		ratingQuestion: 'Întrebare text suplimentară',

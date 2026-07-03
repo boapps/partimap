@@ -237,6 +237,7 @@ export default {
 			RatingResults: 'Értékelés eredmények megjelenítése',
 			ShowResultsOnly: 'Csak az eredmények megjelenítése',
 			SocialSharing: 'Megosztás gombok',
+			showSearch: 'Kereső megjelenítése',
 		},
 		numberOfStars: 'Csillagok száma (1-10)',
 		ratingQuestion: 'Kérdés a szöveges indokláshoz',

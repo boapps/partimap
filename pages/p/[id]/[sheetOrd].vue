@@ -488,6 +488,7 @@ const localePath = useLocalePath();
 						:gray-rated="!resultsShown"
 						:label-overrides="labels"
 						:show-bubbles="isInteractive"
+						:show-search="interactions.showSearch"
 						:view-extent="safeParseJSON(sheet.extent) || undefined"
 						visitor
 						@feature-drawn="handleFeatureDrawn"

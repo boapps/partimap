@@ -126,6 +126,11 @@ export type Interactions = {
 	ratingQuestion: string;
 
 	/**
+	 * Whether to show search box
+	 */
+	showSearch: boolean;
+
+	/**
 	 * Number of stars for Rating interaction
 	 */
 	stars: number;
@@ -151,6 +156,7 @@ export function createInteractions(data: Partial<Interactions>): Interactions {
 		drawing: Array.isArray(data.drawing) ? data.drawing.map(createDrawingInteraction) : [],
 		enabled: data.enabled || [],
 		ratingQuestion: data.ratingQuestion || '',
+		showSearch: data.showSearch || false,
 		stars: data.stars || 5,
 	};
 }

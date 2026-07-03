@@ -398,6 +398,15 @@ function handleExtentDrawn(extent: Extent) {
 				/>
 			</form-group>
 
+			<form-group v-if="isInteractive">
+				<b-form-checkbox
+					v-model="interactions.showSearch"
+					value="ShowResultsOnly"
+				>
+					{{ $t('sheetEditor.interactions.showSearch') }}
+				</b-form-checkbox>
+			</form-group>
+
 			<div
 				v-if="isInteractive"
 				class="form-group"

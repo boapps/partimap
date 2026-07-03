@@ -18,6 +18,7 @@ const props = defineProps<{
 	grayRated?: boolean;
 	labelOverrides?: Record<string, string>;
 	showBubbles?: boolean;
+	showSearch?: boolean;
 	viewExtent?: Extent;
 	visitor?: boolean;
 }>();
@@ -437,7 +438,7 @@ watch([geolocationPosition, geolocationAccuracy], () => {
 			</ol-source-vector>
 		</ol-vector-layer>
 
-		<MapSearch />
+		<MapSearch v-if="showSearch" />
 		<MapControls />
 	</ol-map>
 </template>

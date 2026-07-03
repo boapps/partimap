@@ -48,6 +48,7 @@ function back() {
 				:key="$route.path"
 				:features="features"
 				fit-selected
+				show-search
 				:view-extent="safeParseJSON(sheet?.extent) || undefined"
 			/>
 		</div>

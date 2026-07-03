@@ -479,6 +479,7 @@ function handleExtentDrawn(extent: Extent) {
 				:key="$route.path"
 				:features="features"
 				:show-bubbles="isInteractive"
+				show-search
 				:view-extent="safeParseJSON(sheet.extent) || undefined"
 				@extent-drawn="handleExtentDrawn"
 				@feature-drawn="handleFeatureDrawn"

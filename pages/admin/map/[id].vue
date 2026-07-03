@@ -92,6 +92,7 @@ async function save() {
 				:key="$route.path"
 				:features="features"
 				fit-selected
+				show-search
 				@feature-drawn="handleFeatureDrawn"
 			/>
 			<EdgeDrawingButtons side="right" />

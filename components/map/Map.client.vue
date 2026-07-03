@@ -18,6 +18,7 @@ const props = defineProps<{
 	grayRated?: boolean;
 	labelOverrides?: Record<string, string>;
 	showBubbles?: boolean;
+	showSearch?: boolean;
 	viewExtent?: Extent;
 	visitor?: boolean;
 }>();
@@ -34,9 +35,6 @@ const {
 } = useStore();
 
 // map initialization
-
-const GOOGLEMAPS_PROJECTION = 'EPSG:4326';
-const PARTIMAP_PROJECTION = 'EPSG:3857'; // OL default
 
 const { t } = useI18n();
 const coords = t('Map.initialCenter').split(',');
@@ -356,6 +354,7 @@ watch([geolocationPosition, geolocationAccuracy], () => {
 
 <template>
 	<ol-map
+		class="position-relative"
 		:load-tiles-while-animating="true"
 		:load-tiles-while-interacting="true"
 		style="height: 100%"
@@ -439,6 +438,7 @@ watch([geolocationPosition, geolocationAccuracy], () => {
 			</ol-source-vector>
 		</ol-vector-layer>
 
+		<MapSearch v-if="showSearch && !drawType" />
 		<MapControls />
 	</ol-map>
 </template>

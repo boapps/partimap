@@ -246,6 +246,7 @@ export default {
 			RatingResults: 'Bewertungsergebnisse anzeigen',
 			ShowResultsOnly: 'Nur Ergebnisse anzeigen',
 			SocialSharing: 'Seite in sozialen Medien teilen',
+			showSearch: 'Suchfeld anzeigen',
 		},
 		numberOfStars: 'Skala festlegen (1–10)',
 		ratingQuestion: 'Textfolgefrage',
@@ -427,6 +428,7 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Basiskarte wechseln',
+		search: 'Ort suchen',
 			geolocationTracking: 'Eigenen Standort verfolgen',
 		initialCenter: '48.1036533,4.1777465', // Europa
 		initialZoom: '4',

@@ -237,6 +237,7 @@ export default {
 			RatingResults: 'Értékelés eredmények megjelenítése',
 			ShowResultsOnly: 'Csak az eredmények megjelenítése',
 			SocialSharing: 'Megosztás gombok',
+			showSearch: 'Kereső megjelenítése',
 		},
 		numberOfStars: 'Csillagok száma (1-10)',
 		ratingQuestion: 'Kérdés a szöveges indokláshoz',
@@ -418,6 +419,7 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Alaptérkép váltás',
+		search: 'Helyszín keresése',
 		geolocationTracking: 'Saját pozíció követése',
 		initialCenter: '47.4811281,18.9902211', // Budapest
 		initialZoom: '10',

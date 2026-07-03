@@ -4,7 +4,8 @@
 import type { Feature as GeoJsonFeature } from 'geojson';
 import useSheetTimer from '~/composables/useSheetTimer';
 import type { Project } from '~/server/data/projects';
-import type { Survey } from '~/server/data/surveyAnswers';
+import { PARTIMAP_BLUE } from '~/utils/color';
+import { safeParseJSON } from '~/utils/json';
 
 const { user } = useAuth();
 const { fullPath, params, query } = useRoute();
@@ -61,7 +62,6 @@ const {
 	getVisitorFeatures,
 	getVisitorRatings,
 	setVisitorFeatures,
-	featureCountByInteraction,
 } = useVisitorData();
 
 function goToSheetOrd(ord: number) {
@@ -395,7 +395,7 @@ const localePath = useLocalePath();
 										})
 									"
 									target="_blank"
-									:title="$t('PublicFrame.help')"
+									:title="t('PublicFrame.help')"
 								>
 									<Logo />
 								</a>
@@ -488,6 +488,7 @@ const localePath = useLocalePath();
 						:gray-rated="!resultsShown"
 						:label-overrides="labels"
 						:show-bubbles="isInteractive"
+						:show-search="interactions.showSearch"
 						:view-extent="safeParseJSON(sheet.extent) || undefined"
 						visitor
 						@feature-drawn="handleFeatureDrawn"
@@ -512,8 +513,8 @@ const localePath = useLocalePath();
 					<div class="card m-3 shadow-sm">
 						<h5 class="card-header">PARTIMAP</h5>
 						<div class="card-body">
-							<p>{{ $t('sheet.restricted') }}</p>
-							<p>{{ $t('sheet.passwordRequired') }}</p>
+							<p>{{ t('sheet.restricted') }}</p>
+							<p>{{ t('sheet.passwordRequired') }}</p>
 							<div class="form-group">
 								<div class="input-group">
 									<div class="input-group-text">
@@ -523,7 +524,7 @@ const localePath = useLocalePath();
 										ref="passwordInput"
 										v-model="password"
 										class="form-control"
-										:placeholder="$t('sheet.password')"
+										:placeholder="t('sheet.password')"
 										type="password"
 									/>
 								</div>
@@ -532,7 +533,7 @@ const localePath = useLocalePath();
 						</div>
 						<div class="card-footer text-end">
 							<button class="btn btn-primary">
-								{{ $t('sheet.view') }}
+								{{ t('sheet.view') }}
 								<i class="fas fa-sign-in-alt ms-1" />
 							</button>
 						</div>

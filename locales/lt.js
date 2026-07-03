@@ -240,6 +240,7 @@ export default {
 			RatingResults: 'Rodyti įvertinimo rezultatus',
 			ShowResultsOnly: 'Rodyti tik rezultatus',
 			SocialSharing: 'Bendrinkite puslapį socialinėje erdvėje',
+			showSearch: 'Rodyti paieškos laukelį',
 		},
 		numberOfStars: 'Skalės ribos (1-10)',
 		ratingQuestion: 'Papildomas tekstinis klausimas',
@@ -420,6 +421,7 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Pakeisti pagrindo žemėlapį',
+		search: 'Ieškoti vietos',
 			geolocationTracking: 'Sekti savo buvimo vietą',
 		initialCenter: '48.1036533,4.1777465', // Europe
 		initialZoom: '4',

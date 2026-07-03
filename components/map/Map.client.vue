@@ -438,7 +438,7 @@ watch([geolocationPosition, geolocationAccuracy], () => {
 			</ol-source-vector>
 		</ol-vector-layer>
 
-		<MapSearch v-if="showSearch" />
+		<MapSearch v-if="showSearch && !drawType" />
 		<MapControls />
 	</ol-map>
 </template>

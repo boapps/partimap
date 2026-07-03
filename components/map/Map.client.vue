@@ -430,7 +430,7 @@ watch([geolocationPosition, geolocationAccuracy], () => {
 					>
 						<ol-style :override-style-function="drawingStyleOverride" />
 					</ol-interaction-draw>
-					<ol-interaction-dragbox
+					<ol-interaction-drag-box
 						v-else
 						@boxend="handleBoxEnd"
 						@boxstart="handleBoxStart"

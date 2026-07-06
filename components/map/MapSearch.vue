@@ -5,7 +5,7 @@ import Point from 'ol/geom/Point';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import { transform, transformExtent } from 'ol/proj';
-import { Circle, Fill, Stroke, Style } from 'ol/style';
+import { Circle, Fill, Style } from 'ol/style';
 
 interface NominatimResult {
 	place_id: number;
@@ -28,8 +28,8 @@ const markerLayer = new VectorLayer({
 	source: markerSource,
 	style: new Style({
 		image: new Circle({
-			radius: 8,
-			fill: new Fill({ color: 'rgba(0, 0, 0, 0.85)' }),
+			radius: 16,
+			fill: new Fill({ color: 'rgba(255, 0, 0, 0.85)' }),
 		}),
 	}),
 	zIndex: 100,

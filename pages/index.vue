@@ -9,18 +9,18 @@ useHead({
 const activePopup = ref<number | null>(null);
 
 const partners = [
-	{ name: 'BKK', src: '/partners/bkk.png' },
-	{ name: 'Értékterv', src: '/partners/ertekterv.png' },
-	{ name: 'ITI', src: '/partners/iti-logo.svg' },
-	{ name: 'Mobilissimus', src: '/partners/mobilissimus.png' },
-	{ name: 'MÖK', src: '/partners/mok.jpg' },
-	{ name: 'NTVESZ', src: '/partners/ntvesz.jpg' },
-	{ name: 'AKE', src: '/partners/ake_logo.jpg' },
-	{ name: 'Tavirozsa', src: '/partners/tavirozsa_logo.jpg' },
-	{ name: 'TU/e', src: '/partners/tue_logo.png' },
-	{ name: 'Alba Natura', src: '/partners/alba_natura.jpg' },
-	{ name: 'Magyar Kerékpárosklubb', src: '/partners/kerekparos.png' },
-	{ name: 'RÉV8', src: '/partners/rev_logo.png' },
+	{ name: 'BKK', src: '/partners/bkk.png', url: 'https://bkk.hu/' },
+	{ name: 'Értékterv', src: '/partners/ertekterv.png', url: 'https://ertekterv.hu/' },
+	{ name: 'ITI', src: '/partners/iti-logo.svg', url: 'https://itimagyarorszag.hu/' },
+	{ name: 'Mobilissimus', src: '/partners/mobilissimus.png', url: 'https://mobilissimus.hu/' },
+	{ name: 'MÖK', src: '/partners/mok.jpg', url: 'https://mok.hu/' },
+	{ name: 'NTVESZ', src: '/partners/ntvesz.jpg', url: 'https://nagytavak.hu/rolunk/' },
+	{ name: 'AKE', src: '/partners/ake_logo.jpg', url: 'https://altkozegy.hu/' },
+	{ name: 'Tavirozsa', src: '/partners/tavirozsa_logo.jpg', url: 'https://www.tavirozsa-egyesulet.hu/' },
+	{ name: 'TU/e', src: '/partners/tue_logo.png', url: 'https://www.tue.nl/en/' },
+	{ name: 'Alba Natura', src: '/partners/alba_natura.jpg', url: 'https://www.facebook.com/albanaturaalapitvany/' },
+	{ name: 'Magyar Kerékpárosklubb', src: '/partners/kerekparos.png', url: 'https://kerekparosklub.hu/' },
+	{ name: 'RÉV8', src: '/partners/rev_logo.png', url: 'https://rev8.hu/' },
 ];
 
 function togglePopup(n: number) {
@@ -471,7 +471,16 @@ onMounted(() => {
 				<h2 class="sec-title">{{ t('landing.partners.title') }}</h2>
 				<p class="sec-desc">{{ t('landing.partners.desc') }}</p>
 				<div class="partner-logos">
-					<img v-for="p in partners" :key="p.name" :src="p.src" :alt="p.name" class="partner-logo" />
+					<a
+						v-for="p in partners"
+						:key="p.name"
+						:href="p.url"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="partner-logo-link"
+					>
+						<img :src="p.src" :alt="p.name" class="partner-logo" />
+					</a>
 				</div>
 				<div class="partner-circle no-phone-deco deco-circle" aria-hidden="true" />
 			</div>
@@ -1647,19 +1656,24 @@ onMounted(() => {
 	position: relative;
 	z-index: 2;
 }
+.partner-logo-link {
+	display: block;
+	border-radius: 12px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.partner-logo-link:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
 .partner-logo {
+	display: block;
 	height: 110px;
 	width: 190px;
 	object-fit: contain;
 	background: #fff;
 	border-radius: 12px;
 	padding: 1rem 1.25rem;
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.partner-logo:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .partner-circle {
 	width: 380px; height: 380px;

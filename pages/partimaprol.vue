@@ -41,7 +41,6 @@ useHead({
 					</div>
 					<div class="ap-block-deco">
 						<div class="ap-disc" />
-						<div class="ap-line" aria-hidden="true" />
 						<svg class="why-side-arrow" aria-hidden="true" viewBox="0 0 24 400" xmlns="http://www.w3.org/2000/svg">
 							<line x1="12" y1="50" x2="12" y2="384" stroke="currentColor" stroke-width="1.5"/>
 							<polyline points="4,374 12,385 20,374" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -184,12 +183,12 @@ useHead({
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 250px;
+	min-height: 320px;
 }
 .ap-disc {
 	position: relative;
-	width: 232px;
-	height: 232px;
+	width: 300px;
+	height: 300px;
 	background-color: #0055FF;
 	background-image: url('/whatis/ogimage.png');
 	background-size: cover;
@@ -204,14 +203,6 @@ useHead({
 	inset: 0;
 	background: #0055FF40;
 	pointer-events: none;
-}
-.ap-line {
-	position: absolute;
-	top: 232px;
-	left: 50%;
-	width: 1.5px;
-	height: 80px;
-	background: #0055FF;
 }
 .ap-arrow {
 	position: absolute;
@@ -332,7 +323,7 @@ useHead({
 	color: #0055FF;
 	font-size: clamp(2rem, 4vw, 2.6rem);
 	font-weight: 500;
-	margin-bottom: 0;
+	margin-bottom: 6px;
 }
 
 @media (max-width: 991px) {

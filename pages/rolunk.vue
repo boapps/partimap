@@ -54,7 +54,6 @@ useHead({
 				<!-- Mission block -->
 				<div class="mission">
 					<div class="mission-circle" aria-hidden="true">
-						<div class="diagonal-line" />
 						<div class="circle" />
 						<div class="circle-glow" />
 					</div>
@@ -118,8 +117,8 @@ useHead({
 }
 .team-photo {
 	position: relative;
-	width: 380px;
-	height: 380px;
+	width: 440px;
+	height: 440px;
 	border-radius: 50%;
 	background-image: url('/rolunk.jpg');
 	background-size: cover;
@@ -323,18 +322,6 @@ useHead({
 	pointer-events: none;
 	z-index: 3;
 }
-.mission-circle .diagonal-line {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 400px;
-	height: 1.5px;
-	background: #0055FF;
-	opacity: 0.9;
-	transform: translate(-50%, -50%) rotate(-55deg);
-	z-index: 1;
-}
-
 /* ── Decorative outline ────────────────────────── */
 .deco-outline {
 	position: absolute;

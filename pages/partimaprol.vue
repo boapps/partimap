@@ -54,6 +54,7 @@ useHead({
 					<div class="ap-gallery-circle agc-3" aria-hidden="true" />
 					<div class="ap-gallery-circle agc-4" aria-hidden="true" />
 					<div class="ap-gallery-circle agc-5" aria-hidden="true" />
+					<div class="ap-gallery-circle agc-6" aria-hidden="true" />
 				</div>
 
 				<div id="details" class="ap-block ap-block-reverse">
@@ -212,8 +213,8 @@ useHead({
 	font-size: 1.4rem;
 }
 .ap-circle-outline {
-	width: 340px;
-	height: 340px;
+	width: 390px;
+	height: 390px;
 	border: 1.5px solid #0055FF;
 	border-radius: 50%;
 	opacity: 0.7;
@@ -230,7 +231,7 @@ useHead({
 	position: absolute;
 	top: 0;
 	left: 0;
-	transform: translate(-60%, -100%);
+	transform: translate(-50%, -110%);
 }
 .ap-extra-text {
 	font-size: 0.9rem;
@@ -274,12 +275,13 @@ useHead({
 }
 .agc-1 { width: 280px; height: 280px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
 .agc-2 { width: 176px; height: 176px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
+.agc-6 { width: 126px; height: 126px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
 .agc-3 { width: 240px; height: 240px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
 .agc-4 { width: 184px; height: 184px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
 .agc-5 { width: 256px; height: 256px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
 
 /* Desktop: scatter the photo circles like the rólunk page */
-@media (min-width: 992px) {
+@media (min-width: 1500px) {
 	.ap-gallery {
 		display: block;
 		position: relative;
@@ -289,11 +291,12 @@ useHead({
 	.ap-gallery-circle {
 		position: absolute;
 	}
-	.agc-1 { left: -6%; top: 20px; }
-	.agc-3 { left: 28%; top: -30px; }
-	.agc-5 { left: 44%; top: 250px; }
-	.agc-2 { left: 20%; top: 250px; }
-	.agc-4 { left: 22%; top: 495px; }
+	.agc-1 { left: -26%; top: -150px; }
+	.agc-3 { left: 46%; top: -100px; }
+	.agc-5 { left: 60%; top: 150px; }
+	.agc-2 { left: 25%; top: 100px; }
+	.agc-6 { left: 5%; top: 80px; }
+	.agc-4 { left: 36%; top: 305px; }
 }
 
 .ap-cta {
@@ -326,7 +329,7 @@ useHead({
 	margin-bottom: 6px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1500px) {
 	.ap-block-left-stack {
 		padding-top: 0;
 		gap: 2rem;
@@ -351,7 +354,7 @@ useHead({
 	pointer-events: none;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1500px) {
 	.ap-block,
 	.ap-block-reverse {
 		grid-template-columns: 1fr;

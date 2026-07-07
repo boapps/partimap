@@ -137,7 +137,7 @@ function toggle(plan: string) {
 	opacity: 0.6;
 	z-index: 0;
 }
-.pricing-outline-1 { width: 280px; height: 280px; top: 120px; left: 60px; }
+.pricing-outline-1 { width: 340px; height: 340px; top: 680px; left: -30px; }
 .pricing-outline-2 { width: 180px; height: 180px; bottom: 220px; right: 70px; }
 @media (max-width: 1450px) {
 	.pricing-outline {

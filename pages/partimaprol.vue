@@ -274,7 +274,7 @@ useHead({
 	opacity: 0;
 }
 .agc-1 { width: 280px; height: 280px; background-image: url('/whatis/geojango-maps-Z8UgB80_46w-unsplash.jpg'); }
-.agc-2 { width: 176px; height: 176px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
+.agc-2 { width: 176px; height: 176px; background-image: url('/whatis/fak.jpg'); }
 .agc-6 { width: 126px; height: 126px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
 .agc-3 { width: 240px; height: 240px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
 .agc-4 { width: 184px; height: 184px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }

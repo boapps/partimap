@@ -219,10 +219,10 @@ useHead({
 .gallery-circle:hover::after {
 	opacity: 0;
 }
-.gc-1 { width: 230px; height: 230px; background-image: url('/rolunk/1A0A6439-red.jpg'); }
+.gc-1 { width: 230px; height: 230px; background-image: url('/rolunk/pisti.jpg'); }
 .gc-2 { width: 200px; height: 200px; background-image: url('/rolunk/1A0A6861-red.jpg'); }
 .gc-3 { width: 290px; height: 290px; background-image: url('/rolunk/1A0A9461.jpg'); }
-.gc-4 { width: 300px; height: 300px; background-image: url('/rolunk/DSC_7250.jpg'); }
+.gc-4 { width: 300px; height: 300px; background-image: url('/rolunk/dorka.jpg'); }
 .gc-5 { width: 270px; height: 270px; background-image: url('/rolunk/ELTE_T%C3%A1TK_hackathon_20230512_038.JPG'); }
 .gc-6 { width: 230px; height: 230px; background-image: url('/rolunk/P1067637.jpg'); }
 

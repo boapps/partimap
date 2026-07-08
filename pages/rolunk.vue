@@ -173,8 +173,8 @@ useHead({
 	max-width: 75%;
 }
 .hl-circle-stat {
-	width: 200px;
-	height: 200px;
+	width: 275px;
+	height: 275px;
 	font-size: 0.95rem;
 	line-height: 1.3;
 }
@@ -186,8 +186,8 @@ useHead({
 	line-height: 1.4;
 }
 .hl-circle-lg {
-	width: 280px;
-	height: 280px;
+	width: 360px;
+	height: 360px;
 	font-size: 1.05rem;
 	line-height: 1.35;
 	font-weight: 500;
@@ -221,10 +221,10 @@ useHead({
 }
 .gc-1 { width: 230px; height: 230px; background-image: url('/rolunk/1A0A6439-red.jpg'); }
 .gc-2 { width: 200px; height: 200px; background-image: url('/rolunk/1A0A6861-red.jpg'); }
-.gc-3 { width: 230px; height: 230px; background-image: url('/rolunk/1A0A9461.jpg'); }
-.gc-4 { width: 200px; height: 200px; background-image: url('/rolunk/DSC_7250.jpg'); }
-.gc-5 { width: 230px; height: 230px; background-image: url('/rolunk/ELTE_T%C3%A1TK_hackathon_20230512_038.JPG'); }
-.gc-6 { width: 200px; height: 200px; background-image: url('/rolunk/P1067637.jpg'); }
+.gc-3 { width: 290px; height: 290px; background-image: url('/rolunk/1A0A9461.jpg'); }
+.gc-4 { width: 300px; height: 300px; background-image: url('/rolunk/DSC_7250.jpg'); }
+.gc-5 { width: 270px; height: 270px; background-image: url('/rolunk/ELTE_T%C3%A1TK_hackathon_20230512_038.JPG'); }
+.gc-6 { width: 230px; height: 230px; background-image: url('/rolunk/P1067637.jpg'); }
 
 /* ── Mission block ─────────────────────────────── */
 .mission {
@@ -338,7 +338,7 @@ useHead({
 }
 
 /* ── Desktop scatter: blue + photo circles intermixed ── */
-@media (min-width: 992px) {
+@media (min-width: 1220px) {
 	.scatter {
 		display: block;
 		position: relative;
@@ -348,18 +348,20 @@ useHead({
 	.scatter .sc {
 		position: absolute;
 	}
-	.sc-stat { left: 3%; top: 30px; }
-	.gc-1 { left: 29%; top: 0; }
-	.sc-lg { left: 61%; top: 50px; }
-	.gc-3 { left: 2%; top: 290px; }
-	.sc-sm { left: 28%; top: 285px; }
-	.gc-2 { left: 48%; top: 325px; }
-	.gc-5 { left: 17%; top: 500px; }
-	.gc-4 { left: 43%; top: 540px; }
+	.sc-stat { left: -15%; top: 30px; }
+	.gc-1 { left: 39%; top: -70px; }
+	.sc-lg { left: 68%; top: 70px; }
+	.gc-3 { left: 14%; top: 170px; }
+	.sc-sm { left: 48%; top: 325px; }
+	.gc-2 { left: -11%; top: 355px; }
+	.gc-5 { left: 7%; top: 500px; }
+	.gc-4 { left: 41%; top: 550px; }
 	.gc-6 { left: 73%; top: 450px; }
+	/* Extra gap so the mission heading clears the overflowing circles above */
+	.mission { margin-top: 9rem; }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1220px) {
 	.about-intro { grid-template-columns: 1fr; text-align: center; }
 	.intro-arrow { display: none; }
 	.mission { grid-template-columns: 1fr; text-align: center; }

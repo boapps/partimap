@@ -107,7 +107,9 @@ function toggle(plan: string) {
 .pricing-section {
 	position: relative;
 	padding: 4rem 2rem 6rem;
-	overflow: hidden;
+	/* Let decorative circles spill past the section (e.g. onto the footer).
+	   Horizontal bleed is still clipped by `.landing`'s overflow-x: hidden. */
+	overflow: visible;
 }
 .pricing-inner {
 	position: relative;

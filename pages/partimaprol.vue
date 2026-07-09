@@ -258,6 +258,8 @@ useHead({
 	overflow: hidden;
 	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.18);
 	transition: transform 0.4s ease;
+	will-change: transform;
+	backface-visibility: hidden;
 }
 .ap-gallery-circle::after {
 	content: '';

@@ -341,6 +341,9 @@ withDefaults(
 .landing-main {
 	padding-top: 5rem;
 	min-height: calc(100vh - 5rem);
+	/* Sit above the fixed floating dots (z-index: 1) so they drift behind the content */
+	position: relative;
+	z-index: 2;
 }
 
 /* ── Floating Dots ────────────────────────────────────── */

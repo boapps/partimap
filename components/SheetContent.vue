@@ -139,7 +139,7 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 		</div>
 		<b-modal
 			v-model="termsModalVisible"
-			hide-footer
+			no-footer
 			scrollable
 			size="lg"
 			:title="$t('legal.termsOfUse')"
@@ -148,7 +148,7 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 		</b-modal>
 		<b-modal
 			v-model="privacyModalVisible"
-			hide-footer
+			no-footer
 			scrollable
 			size="lg"
 			:title="$t('legal.privacyPolicy')"

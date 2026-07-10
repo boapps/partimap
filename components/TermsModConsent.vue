@@ -48,6 +48,7 @@ async function handleOk() {
 			{{ t('TermsModConsent.info') }}
 		</BAlert>
 		<Terms />
+		<hr />
 		<Privacy />
 	</b-modal>
 </template>

@@ -1,4 +1,4 @@
-# I. Felhasználási feltételek
+# Felhasználási feltételek
 
 ## 1\. A PARTIMAP célja
 

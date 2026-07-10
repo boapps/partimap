@@ -1,4 +1,4 @@
-# II. Política de Privacidad
+# Política de Privacidad
 
 ## 1\. Propósito de la Política de Privacidad
 

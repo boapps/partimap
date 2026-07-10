@@ -1,4 +1,4 @@
-# I. Condiții de utilizare
+# Condiții de utilizare
 
 ## 1\. Scopul PARTIMAP
 

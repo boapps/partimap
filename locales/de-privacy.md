@@ -1,4 +1,4 @@
-# II. Datenschutzerklärung
+# Datenschutzerklärung
 
 ## 1\. Zweck der Datenschutzerklärung
 

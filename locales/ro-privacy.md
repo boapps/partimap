@@ -1,4 +1,4 @@
-# II. Politica de confidențialitate
+# Politica de confidențialitate
 
 ## 1\. Scopul Politicii de confidențialitate
 

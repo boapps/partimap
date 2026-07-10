@@ -1,4 +1,4 @@
-# I. Terms of Use
+# Terms of Use
 
 ## 1\. The purpose of PARTIMAP
 

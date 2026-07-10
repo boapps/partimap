@@ -1,4 +1,4 @@
-# II. Privacy Policy
+# Privacy Policy
 
 ## 1\. Purpose of the Privacy Policy
 

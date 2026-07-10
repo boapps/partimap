@@ -1,4 +1,4 @@
-# II. Adatkezelési tájékoztató
+# Adatkezelési tájékoztató
 
 ## 1\. A tájékoztató célja
 

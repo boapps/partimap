@@ -1,4 +1,4 @@
-# I. Términos de Uso
+# Términos de Uso
 
 ## 1\. El propósito de PARTIMAP
 

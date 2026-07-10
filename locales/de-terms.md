@@ -1,4 +1,4 @@
-# I. Nutzungsbedingungen
+# Nutzungsbedingungen
 
 ## 1\. Der Zweck von PARTIMAP
 

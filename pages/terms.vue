@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import getTermsContent from '~/locales/terms';
 
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 const md = computed(() => getTermsContent(locale.value));
-const title = computed(() => md.value.match(/^# (.+)$/m)?.[1] ?? 'Terms of Use');
+const title = computed(() => md.value.match(/^# (.+)$/m)?.[1] ?? t('sheet.termsOfUse'));
 
 useHead(() => ({ title: title.value }));
 </script>

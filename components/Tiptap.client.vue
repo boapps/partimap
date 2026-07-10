@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Image } from '@tiptap/extension-image';
-import { Link } from '@tiptap/extension-link';
 import TextAlign from '@tiptap/extension-text-align';
 import { Youtube } from '@tiptap/extension-youtube';
 
@@ -9,11 +8,10 @@ const html = defineModel<string>();
 const editor = useEditor({
 	content: html.value || '',
 	extensions: [
-		TiptapStarterKit,
-		Image,
-		Link.configure({
-			openOnClick: false,
+		TiptapStarterKit.configure({
+			link: { openOnClick: false },
 		}),
+		Image,
 		TextAlign.configure({
 			types: ['heading', 'paragraph'],
 		}),

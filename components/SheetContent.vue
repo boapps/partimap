@@ -144,7 +144,7 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 			size="lg"
 			:title="$t('sheet.termsOfUse')"
 		>
-			<Terms />
+			<Terms hide-title />
 		</b-modal>
 		<b-modal
 			v-model="privacyModalVisible"
@@ -153,7 +153,10 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 			size="lg"
 			:title="$t('sheet.privacyPolicy')"
 		>
-			<Privacy :project-data-processor="project.privacyPolicy" />
+			<Privacy
+				hide-title
+				:project-data-processor="project.privacyPolicy"
+			/>
 		</b-modal>
 	</div>
 	<div v-else>

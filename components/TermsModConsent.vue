@@ -8,9 +8,9 @@ const { t } = useI18n();
 const modalVisible = ref(false);
 
 onMounted(async () => {
-	//if (!u.value?.consent25Aug) {
-	modalVisible.value = true;
-	//}
+	if (!u.value?.consent25Aug) {
+		modalVisible.value = true;
+	}
 });
 
 const { errorToast } = useToasts();

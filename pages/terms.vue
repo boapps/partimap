@@ -12,9 +12,6 @@ useHead(() => ({ title: title.value }));
 <template>
 	<PublicFrame>
 		<div class="container my-5 terms">
-			<header class="my-5">
-				<h1 class="border-bottom">{{ title }}</h1>
-			</header>
 			<Markdown
 				class="terms mb-5"
 				:md="md"

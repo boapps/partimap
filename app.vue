@@ -186,6 +186,16 @@ fieldset,
 	display: none;
 }
 
+.terms h1,
+.terms h2 {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+
+.terms h2 {
+	margin-top: 2rem;
+}
+
 .toast,
 .toast-container,
 .toast-header {

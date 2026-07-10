@@ -180,10 +180,6 @@ export default {
 		views: 'megtekintések',
 	},
 	register: {
-		consentTerms1: 'Elolvastam és elfogadom a',
-		consentTerms2: 'felhasználási&nbsp;feltételeket.',
-		consentPrivacy1: 'Elolvastam és elfogadom az',
-		consentPrivacy2: 'adatkezelési&nbsp;tájékoztatót.',
 		email: 'Email cím',
 		login: 'Már van fiókom',
 		name: 'Név',
@@ -192,15 +188,12 @@ export default {
 			'A fiók aktiválásához a Regisztráció gomb megnyomása után a megadott e-mail címére küldünk egy levelet, amellyel aktiválhatja a regisztrációját.',
 		registrationFailed: 'Regisztráció sikertelen',
 		submit: 'Regisztráció',
-		termsTitle: 'Felhasználási feltételek és adatvédelmi nyilatkozat',
 		title: 'Regisztráció',
 	},
 	sheet: {
 		invalidPassword: 'Érvénytelen jelszó!',
 		password: 'Jelszó',
 		passwordRequired: 'Kérlek írd be a jelszót a megtekintéshez!',
-		privacyPolicy: 'Adatkezelési tájékoztató',
-		termsOfUse: 'Felhasználási feltételek',
 		restricted: 'Ez a kérdőív jelenleg le van zárva.',
 		restrictedTitle: 'Jelszóval védett kérdőív',
 		submitFailed: 'Beküldés sikertelen',
@@ -498,10 +491,6 @@ export default {
 		saved: 'Mentve',
 	},
 	SheetContent: {
-		consentTerms1: 'Elolvastam és elfogadom a',
-		consentTerms2: 'felhasználási&nbsp;feltételeket.',
-		consentPrivacy1: 'Elolvastam és elfogadom az',
-		consentPrivacy2: 'adatkezelési&nbsp;tájékoztatót.',
 		next: 'Tovább',
 		results: 'Eredmények',
 		resultsDescription:
@@ -562,9 +551,6 @@ export default {
 		numberOfSubmissions: 'Válaszadók száma',
 		other: 'Egyéb',
 	},
-	TermsModConsent: {
-		info: 'Változtak az adatkezelési irányelveink és felhasználási feltételeink.',
-	},
 	VisitorDrawButtonsInner: {
 		noFeatures: 'Nem adott hozzá helyet itt: "{di}"',
 	},
@@ -577,6 +563,16 @@ export default {
 		failed: 'Kép feltöltése sikertelen',
 		maxFileSize: 'Maximális fájlméret: 5 MB',
 		remove: 'Kép törlése',
+	},
+	legal: {
+		changedTitle: 'Felhasználási feltételek és adatvédelmi nyilatkozat',
+		changedNotice: 'Változtak az adatkezelési irányelveink és felhasználási feltételeink.',
+		privacyPolicy: 'Adatkezelési tájékoztató',
+		termsOfUse: 'Felhasználási feltételek',
+		consentTerms1: 'Elolvastam és elfogadom a',
+		consentTerms2: 'felhasználási&nbsp;feltételeket.',
+		consentPrivacy1: 'Elolvastam és elfogadom az',
+		consentPrivacy2: 'adatkezelési&nbsp;tájékoztatót.',
 	},
 	modals: {
 		cancel: 'Mégsem',

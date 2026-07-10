@@ -4,7 +4,7 @@ import getTermsContent from '~/locales/terms';
 const { locale, t } = useI18n();
 
 const md = computed(() => getTermsContent(locale.value));
-const title = computed(() => md.value.match(/^# (.+)$/m)?.[1] ?? t('sheet.termsOfUse'));
+const title = computed(() => md.value.match(/^# (.+)$/m)?.[1] ?? t('legal.termsOfUse'));
 
 useHead(() => ({ title: title.value }));
 </script>

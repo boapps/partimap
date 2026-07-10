@@ -102,11 +102,11 @@ async function userReg() {
 										for="consentTerms"
 										class="form-check-label"
 									>
-										{{ $t('register.consentTerms1') }}
+										{{ $t('legal.consentTerms1') }}
 										<a
 											:href="localePath('/terms')"
 											target="_blank"
-											v-html="$t('register.consentTerms2')"
+											v-html="$t('legal.consentTerms2')"
 										/>
 									</label>
 								</div>
@@ -123,11 +123,11 @@ async function userReg() {
 										for="consentPrivacy"
 										class="form-check-label"
 									>
-										{{ $t('register.consentPrivacy1') }}
+										{{ $t('legal.consentPrivacy1') }}
 										<a
 											:href="localePath('/privacy')"
 											target="_blank"
-											v-html="$t('register.consentPrivacy2')"
+											v-html="$t('legal.consentPrivacy2')"
 										/>
 									</label>
 								</div>

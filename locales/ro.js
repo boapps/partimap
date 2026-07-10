@@ -180,10 +180,6 @@ export default {
 		views: 'Vizualizări',
 	},
 	register: {
-		consentTerms1: 'Am citit și accept',
-		consentTerms2: 'Condițiile&nbsp;de&nbsp;Utilizare.',
-		consentPrivacy1: 'Am citit și accept',
-		consentPrivacy2: 'Politica&nbsp;de&nbsp;Confidențialitate.',
 		email: 'Introdu o adresă de email validă',
 		login: 'Ai deja cont?',
 		name: 'Nume',
@@ -193,15 +189,12 @@ export default {
 		registrationFailed:
 			'Înregistrarea a eșuat. Este posibil ca adresa de e-mail furnizată să fie deja înregistrată. Încercați din nou sau contactați administratorul.',
 		submit: 'Înregistrare',
-		termsTitle: 'Condiții de Utilizare și Politica de Confidențialitate',
 		title: 'Înregistrare',
 	},
 	sheet: {
 		invalidPassword: 'Parola greșită. Încearcă din nou sau fă click pe ‘Am uitat parola’',
 		password: 'Parola',
 		passwordRequired: 'Introdu parola sau contactează autorul acestui chestionar.',
-		privacyPolicy: 'Politica de confidențialitate',
-		termsOfUse: 'Condiții de Utilizare',
 		restricted: 'Acest chestionar PARTIMAP a fost închis.',
 		restrictedTitle: 'Chestionar accesibil doar prin utilizarea parolei',
 		submitFailed: 'Încercare eșuată',
@@ -499,10 +492,6 @@ export default {
 		saved: 'Salvat',
 	},
 	SheetContent: {
-		consentTerms1: 'Am citit și accept',
-		consentTerms2: 'Condițiile&nbsp;de&nbsp;Utilizare.',
-		consentPrivacy1: 'Am citit și accept',
-		consentPrivacy2: 'Politica&nbsp;de&nbsp;Confidențialitate.',
 		next: 'Următorul',
 		results: 'Rezultate',
 		resultsDescription:
@@ -563,9 +552,6 @@ export default {
 		numberOfSubmissions: 'Număr răspunsuri',
 		other: 'Altele',
 	},
-	TermsModConsent: {
-		info: 'Politica noastră de Confidențialitate și Termenii de Utilizare s-au modificat.',
-	},
 	VisitorDrawButtonsInner: {
 		noFeatures: 'Acțiune incompletă: "{di}"',
 	},
@@ -578,6 +564,16 @@ export default {
 		failed: 'Încărcarea imaginii nu a reușit',
 		maxFileSize: 'Dimensiune max: 5 MB',
 		remove: 'Eliminați imaginea',
+	},
+	legal: {
+		changedTitle: 'Condiții de Utilizare și Politica de Confidențialitate',
+		changedNotice: 'Politica noastră de Confidențialitate și Termenii de Utilizare s-au modificat.',
+		privacyPolicy: 'Politica de confidențialitate',
+		termsOfUse: 'Condiții de Utilizare',
+		consentTerms1: 'Am citit și accept',
+		consentTerms2: 'Condițiile&nbsp;de&nbsp;Utilizare.',
+		consentPrivacy1: 'Am citit și accept',
+		consentPrivacy2: 'Politica&nbsp;de&nbsp;Confidențialitate.',
 	},
 	modals: {
 		cancel: 'Anulare',

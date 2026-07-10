@@ -104,12 +104,12 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 					for="consentTerms"
 					class="form-check-label"
 				>
-					{{ $t('SheetContent.consentTerms1') }}
+					{{ $t('legal.consentTerms1') }}
 					<a
 						class="alert-link"
 						href="javascript:void(0)"
 						@click.stop="termsModalVisible = true"
-						v-html="$t('SheetContent.consentTerms2')"
+						v-html="$t('legal.consentTerms2')"
 					/>
 				</label>
 			</div>
@@ -127,12 +127,12 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 					for="consentPrivacy"
 					class="form-check-label"
 				>
-					{{ $t('SheetContent.consentPrivacy1') }}
+					{{ $t('legal.consentPrivacy1') }}
 					<a
 						class="alert-link"
 						href="javascript:void(0)"
 						@click.stop="privacyModalVisible = true"
-						v-html="$t('SheetContent.consentPrivacy2')"
+						v-html="$t('legal.consentPrivacy2')"
 					/>
 				</label>
 			</div>
@@ -142,7 +142,7 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 			hide-footer
 			scrollable
 			size="lg"
-			:title="$t('sheet.termsOfUse')"
+			:title="$t('legal.termsOfUse')"
 		>
 			<Terms hide-title />
 		</b-modal>
@@ -151,7 +151,7 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 			hide-footer
 			scrollable
 			size="lg"
-			:title="$t('sheet.privacyPolicy')"
+			:title="$t('legal.privacyPolicy')"
 		>
 			<Privacy
 				hide-title

@@ -180,8 +180,10 @@ export default {
 		views: 'megtekintések',
 	},
 	register: {
-		consent1: 'Elolvastam és elfogadom a',
-		consent2: 'felhasználási&nbsp;feltételeket és az&nbsp;adatkezelési&nbsp;tájékoztatót.',
+		consentTerms1: 'Elolvastam és elfogadom a',
+		consentTerms2: 'felhasználási&nbsp;feltételeket.',
+		consentPrivacy1: 'Elolvastam és elfogadom az',
+		consentPrivacy2: 'adatkezelési&nbsp;tájékoztatót.',
 		email: 'Email cím',
 		login: 'Már van fiókom',
 		name: 'Név',
@@ -198,6 +200,7 @@ export default {
 		password: 'Jelszó',
 		passwordRequired: 'Kérlek írd be a jelszót a megtekintéshez!',
 		privacyPolicy: 'Felhasználási feltételek és adatvédelmi nyilatkozat',
+		termsOfUse: 'Felhasználási feltételek',
 		restricted: 'Ez a kérdőív jelenleg le van zárva.',
 		restrictedTitle: 'Jelszóval védett kérdőív',
 		submitFailed: 'Beküldés sikertelen',
@@ -495,8 +498,10 @@ export default {
 		saved: 'Mentve',
 	},
 	SheetContent: {
-		consent1: 'Elolvastam és elfogadom a',
-		consent2: 'felhasználási&nbsp;feltételeket és az&nbsp;adatkezelési&nbsp;tájékoztatót.',
+		consentTerms1: 'Elolvastam és elfogadom a',
+		consentTerms2: 'felhasználási&nbsp;feltételeket.',
+		consentPrivacy1: 'Elolvastam és elfogadom az',
+		consentPrivacy2: 'adatkezelési&nbsp;tájékoztatót.',
 		next: 'Tovább',
 		results: 'Eredmények',
 		resultsDescription:

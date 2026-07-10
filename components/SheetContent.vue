@@ -16,11 +16,25 @@ const interactions = inject<Ref<Interactions | null>>('interactions', ref(null))
 
 const { consent, submitted } = useStore();
 
+const termsModalVisible = ref(false);
 const privacyModalVisible = ref(false);
 
-// disable checkbox later, when user comes back to this sheet
+const localConsentTerms = ref(false);
+const localConsentPrivacy = ref(false);
+
+// disable checkboxes later, when user comes back to this sheet
 const consented = ref(false);
-onMounted(() => (consented.value = consent.value));
+onMounted(() => {
+	consented.value = consent.value;
+	if (consent.value) {
+		localConsentTerms.value = true;
+		localConsentPrivacy.value = true;
+	}
+});
+
+watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
+	consent.value = t && p;
+});
 </script>
 
 <template>
@@ -78,28 +92,60 @@ onMounted(() => (consented.value = consent.value));
 		>
 			<div class="form-check">
 				<input
-					id="consent"
-					v-model="consent"
+					id="consentTerms"
+					v-model="localConsentTerms"
 					class="form-check-input"
 					:disabled="consented"
-					name="consent"
+					name="consentTerms"
 					required
 					type="checkbox"
 				/>
 				<label
-					for="consent"
+					for="consentTerms"
 					class="form-check-label"
 				>
-					{{ $t('SheetContent.consent1') }}
+					{{ $t('SheetContent.consentTerms1') }}
+					<a
+						class="alert-link"
+						href="javascript:void(0)"
+						@click.stop="termsModalVisible = true"
+						v-html="$t('SheetContent.consentTerms2')"
+					/>
+				</label>
+			</div>
+			<div class="form-check mt-2">
+				<input
+					id="consentPrivacy"
+					v-model="localConsentPrivacy"
+					class="form-check-input"
+					:disabled="consented"
+					name="consentPrivacy"
+					required
+					type="checkbox"
+				/>
+				<label
+					for="consentPrivacy"
+					class="form-check-label"
+				>
+					{{ $t('SheetContent.consentPrivacy1') }}
 					<a
 						class="alert-link"
 						href="javascript:void(0)"
 						@click.stop="privacyModalVisible = true"
-						v-html="$t('SheetContent.consent2')"
+						v-html="$t('SheetContent.consentPrivacy2')"
 					/>
 				</label>
 			</div>
 		</div>
+		<b-modal
+			v-model="termsModalVisible"
+			hide-footer
+			scrollable
+			size="lg"
+			:title="$t('sheet.termsOfUse')"
+		>
+			<Terms />
+		</b-modal>
 		<b-modal
 			v-model="privacyModalVisible"
 			hide-footer
@@ -107,7 +153,7 @@ onMounted(() => (consented.value = consent.value));
 			size="lg"
 			:title="$t('sheet.privacyPolicy')"
 		>
-			<Terms :project-data-processor="project.privacyPolicy" />
+			<Privacy :project-data-processor="project.privacyPolicy" />
 		</b-modal>
 	</div>
 	<div v-else>

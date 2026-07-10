@@ -186,8 +186,10 @@ export default {
 		views: 'Aufrufe',
 	},
 	register: {
-		consent1: 'Ich bestätige, dass ich die',
-		consent2: 'Nutzungsbedingungen und die Datenschutzerklärung gelesen und verstanden habe.',
+		consentTerms1: 'Ich habe die',
+		consentTerms2: 'Nutzungsbedingungen gelesen und akzeptiere sie.',
+		consentPrivacy1: 'Ich habe die',
+		consentPrivacy2: 'Datenschutzerklärung gelesen und akzeptiere sie.',
 		email: 'Geben Sie eine gültige E-Mail-Adresse ein',
 		login: 'Haben Sie bereits ein Konto?',
 		name: 'Name',
@@ -207,6 +209,7 @@ export default {
 		passwordRequired:
 			'Bitte geben Sie das Passwort ein oder kontaktieren Sie den Autor der Umfrage.',
 		privacyPolicy: 'Nutzungsbedingungen und Datenschutzerklärung',
+		termsOfUse: 'Nutzungsbedingungen',
 		restricted: 'Diese PARTIMAP-Umfrage ist derzeit geschlossen.',
 		restrictedTitle: 'Passwortgeschütztes Umfrage',
 		submitFailed: 'Absenden fehlgeschlagen',
@@ -504,8 +507,10 @@ export default {
 		saved: 'Gespeichert',
 	},
 	SheetContent: {
-		consent1: 'Ich bestätige, dass ich die',
-		consent2: 'Nutzungsbedingungen und die Datenschutzerklärung gelesen und verstanden habe.',
+		consentTerms1: 'Ich habe die',
+		consentTerms2: 'Nutzungsbedingungen gelesen und akzeptiere sie.',
+		consentPrivacy1: 'Ich habe die',
+		consentPrivacy2: 'Datenschutzerklärung gelesen und akzeptiere sie.',
 		next: 'Weiter',
 		results: 'Ergebnisse',
 		resultsDescription:

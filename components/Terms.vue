@@ -1,18 +1,9 @@
 <script setup lang="ts">
 import getTermsContent from '~/locales/terms';
 
-const props = defineProps<{
-	projectDataProcessor?: string;
-}>();
-
 const { locale } = useI18n();
 
-const md = computed(() => {
-	return getTermsContent(locale.value).replace(
-		'$_PROJECT_DATA_PROCESSOR_$',
-		props.projectDataProcessor || '',
-	);
-});
+const md = computed(() => getTermsContent(locale.value));
 </script>
 
 <template>

@@ -180,8 +180,10 @@ export default {
 		views: 'Vizualizări',
 	},
 	register: {
-		consent1: ' Confirm că am citit și am înțeles',
-		consent2: 'Condiții&nbsp;de&nbsp;Utilizare și Politica&nbsp;de&nbsp;Confidențialitate.',
+		consentTerms1: 'Am citit și accept',
+		consentTerms2: 'Condițiile&nbsp;de&nbsp;Utilizare.',
+		consentPrivacy1: 'Am citit și accept',
+		consentPrivacy2: 'Politica&nbsp;de&nbsp;Confidențialitate.',
 		email: 'Introdu o adresă de email validă',
 		login: 'Ai deja cont?',
 		name: 'Nume',
@@ -199,6 +201,7 @@ export default {
 		password: 'Parola',
 		passwordRequired: 'Introdu parola sau contactează autorul acestui chestionar.',
 		privacyPolicy: 'Condiții de Utilizare și Politica de Confidențialitate',
+		termsOfUse: 'Condiții de Utilizare',
 		restricted: 'Acest chestionar PARTIMAP a fost închis.',
 		restrictedTitle: 'Chestionar accesibil doar prin utilizarea parolei',
 		submitFailed: 'Încercare eșuată',
@@ -496,8 +499,10 @@ export default {
 		saved: 'Salvat',
 	},
 	SheetContent: {
-		consent1: 'Confirm că am citit și înțeles',
-		consent2: 'Condiții&nbsp;de&nbsp;Utilizare și Politica&nbsp;de&nbsp;Confidențialitate.',
+		consentTerms1: 'Am citit și accept',
+		consentTerms2: 'Condițiile&nbsp;de&nbsp;Utilizare.',
+		consentPrivacy1: 'Am citit și accept',
+		consentPrivacy2: 'Politica&nbsp;de&nbsp;Confidențialitate.',
 		next: 'Următorul',
 		results: 'Rezultate',
 		resultsDescription:

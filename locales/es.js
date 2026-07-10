@@ -186,8 +186,10 @@ export default {
 		views: 'vistas',
 	},
 	register: {
-		consent1: 'Reconozco que he leído y comprendido',
-		consent2: 'los&nbsp;Términos&nbsp;de&nbsp;Uso y la&nbsp;Política&nbsp;de&nbsp;Privacidad.',
+		consentTerms1: 'He leído y acepto',
+		consentTerms2: 'los&nbsp;Términos&nbsp;de&nbsp;Uso.',
+		consentPrivacy1: 'He leído y acepto',
+		consentPrivacy2: 'la&nbsp;Política&nbsp;de&nbsp;Privacidad.',
 		email: 'Ingresa un correo válido',
 		login: '¿Ya tienes una cuenta?',
 		name: 'Nombre',
@@ -206,6 +208,7 @@ export default {
 		password: 'Contraseña',
 		passwordRequired: 'Por favor, ingresa la contraseña o contacta al autor de esta encuesta.',
 		privacyPolicy: 'Términos de Uso y Política de Privacidad',
+		termsOfUse: 'Términos de Uso',
 		restricted: 'Esta encuesta de PARTIMAP está cerrada actualmente.',
 		restrictedTitle: 'Encuesta protegida por contraseña',
 		submitFailed: 'Envío fallido',
@@ -504,8 +507,10 @@ export default {
 		saved: 'Guardado',
 	},
 	SheetContent: {
-		consent1: 'Reconozco que he leído y comprendido',
-		consent2: 'los&nbsp;Términos&nbsp;de&nbsp;Uso y la&nbsp;Política&nbsp;de&nbsp;Privacidad.',
+		consentTerms1: 'He leído y acepto',
+		consentTerms2: 'los&nbsp;Términos&nbsp;de&nbsp;Uso.',
+		consentPrivacy1: 'He leído y acepto',
+		consentPrivacy2: 'la&nbsp;Política&nbsp;de&nbsp;Privacidad.',
 		next: 'Siguiente',
 		results: 'Resultados',
 		resultsDescription:

@@ -178,8 +178,10 @@ export default {
 		views: 'views',
 	},
 	register: {
-		consent1: 'I acknowledge that I have read and understand',
-		consent2: 'the&nbsp;Terms&nbsp;of&nbsp;Use and the&nbsp;Privacy&nbsp;Policy.',
+		consentTerms1: 'I have read and accept',
+		consentTerms2: 'the&nbsp;Terms&nbsp;of&nbsp;Use.',
+		consentPrivacy1: 'I have read and accept',
+		consentPrivacy2: 'the&nbsp;Privacy&nbsp;Policy.',
 		email: 'Enter a valid email',
 		login: 'Already have an account?',
 		name: 'Name',
@@ -197,6 +199,7 @@ export default {
 		password: 'Password',
 		passwordRequired: 'Please enter the password or contact the author of this survey.',
 		privacyPolicy: 'Terms of Use and Privacy Policy',
+		termsOfUse: 'Terms of Use',
 		restricted: 'This PARTIMAP survey is currently closed.',
 		restrictedTitle: 'Password-protected survey',
 		submitFailed: 'Submit Failed',
@@ -492,8 +495,10 @@ export default {
 		saved: 'Saved',
 	},
 	SheetContent: {
-		consent1: 'I acknowledge that I have read and understand',
-		consent2: 'the&nbsp;Terms&nbsp;of&nbsp;Use and the&nbsp;Privacy&nbsp;Policy.',
+		consentTerms1: 'I have read and accept',
+		consentTerms2: 'the&nbsp;Terms&nbsp;of&nbsp;Use.',
+		consentPrivacy1: 'I have read and accept',
+		consentPrivacy2: 'the&nbsp;Privacy&nbsp;Policy.',
 		next: 'Next',
 		results: 'Results',
 		resultsDescription:

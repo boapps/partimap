@@ -200,7 +200,7 @@ export default {
 		invalidPassword: 'Parola greșită. Încearcă din nou sau fă click pe ‘Am uitat parola’',
 		password: 'Parola',
 		passwordRequired: 'Introdu parola sau contactează autorul acestui chestionar.',
-		privacyPolicy: 'Condiții de Utilizare și Politica de Confidențialitate',
+		privacyPolicy: 'Politica de confidențialitate',
 		termsOfUse: 'Condiții de Utilizare',
 		restricted: 'Acest chestionar PARTIMAP a fost închis.',
 		restrictedTitle: 'Chestionar accesibil doar prin utilizarea parolei',

@@ -202,7 +202,7 @@ export default {
 			'Neteisingas slaptažodis. Pabandykite dar kartą arba spauskite ‘Pamiršau slaptažodį’',
 		password: 'Slaptažodis',
 		passwordRequired: 'Įveskite slaptažodį arba susisiekite su klausimyno autoriumi',
-		privacyPolicy: 'Naudojimo ir privatumo taisyklės',
+		privacyPolicy: 'Privatumo politika',
 		termsOfUse: 'Naudojimo taisyklės',
 		restricted: 'Ši PARTIMAP anketa šiuo metu neprieinama.',
 		restrictedTitle: 'Apklausa saugoma slaptažodžiu',

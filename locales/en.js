@@ -198,7 +198,7 @@ export default {
 		invalidPassword: 'Wrong password. Try again or click ‘I forgot my password’',
 		password: 'Password',
 		passwordRequired: 'Please enter the password or contact the author of this survey.',
-		privacyPolicy: 'Terms of Use and Privacy Policy',
+		privacyPolicy: 'Privacy policy',
 		termsOfUse: 'Terms of Use',
 		restricted: 'This PARTIMAP survey is currently closed.',
 		restrictedTitle: 'Password-protected survey',

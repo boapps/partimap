@@ -199,7 +199,7 @@ export default {
 		invalidPassword: 'Érvénytelen jelszó!',
 		password: 'Jelszó',
 		passwordRequired: 'Kérlek írd be a jelszót a megtekintéshez!',
-		privacyPolicy: 'Felhasználási feltételek és adatvédelmi nyilatkozat',
+		privacyPolicy: 'Adatkezelési tájékoztató',
 		termsOfUse: 'Felhasználási feltételek',
 		restricted: 'Ez a kérdőív jelenleg le van zárva.',
 		restrictedTitle: 'Jelszóval védett kérdőív',

@@ -207,7 +207,7 @@ export default {
 			'Contraseña incorrecta. Inténtalo de nuevo o haz clic en ‘Olvidé mi contraseña’',
 		password: 'Contraseña',
 		passwordRequired: 'Por favor, ingresa la contraseña o contacta al autor de esta encuesta.',
-		privacyPolicy: 'Términos de Uso y Política de Privacidad',
+		privacyPolicy: 'Política de privacidad',
 		termsOfUse: 'Términos de Uso',
 		restricted: 'Esta encuesta de PARTIMAP está cerrada actualmente.',
 		restrictedTitle: 'Encuesta protegida por contraseña',

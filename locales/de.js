@@ -208,7 +208,7 @@ export default {
 		password: 'Passwort',
 		passwordRequired:
 			'Bitte geben Sie das Passwort ein oder kontaktieren Sie den Autor der Umfrage.',
-		privacyPolicy: 'Nutzungsbedingungen und Datenschutzerklärung',
+		privacyPolicy: 'Datenschutzerklärung',
 		termsOfUse: 'Nutzungsbedingungen',
 		restricted: 'Diese PARTIMAP-Umfrage ist derzeit geschlossen.',
 		restrictedTitle: 'Passwortgeschütztes Umfrage',

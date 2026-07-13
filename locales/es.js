@@ -270,7 +270,7 @@ export default {
 			name: 'Plus',
 			tagline: 'Soporte personalizado desde el diseño de la encuesta hasta la interpretación de los resultados.',
 			cta: 'REGISTRARSE',
-			bannerTitle: 'SOLICITA UNA OFERTA',
+			bannerTitle: 'SOLICITA UNA OFERTA!',
 			includesTitle: 'Incluye:',
 			features: [
 				'Todo lo incluido en el plan Basic',

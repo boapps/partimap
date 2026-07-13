@@ -269,7 +269,7 @@ export default {
 			name: 'Plus',
 			tagline: 'Személyre szabott támogatás a kérdőív összeállításától az eredmények értelmezéséig.',
 			cta: 'REGISZTRÁCIÓ',
-			bannerTitle: 'KÉRJ AJÁNLATOT',
+			bannerTitle: 'KÉRJ AJÁNLATOT!',
 			includesTitle: 'Tartalmazza:',
 			features: [
 				'A Basic csomag minden eleme',

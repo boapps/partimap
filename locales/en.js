@@ -268,7 +268,7 @@ export default {
 			name: 'Plus',
 			tagline: 'Personalized support from designing your survey to interpreting the results.',
 			cta: 'REGISTER',
-			bannerTitle: 'REQUEST A QUOTE',
+			bannerTitle: 'REQUEST A QUOTE!',
 			includesTitle: 'Includes:',
 			features: [
 				'Everything in the Basic plan',

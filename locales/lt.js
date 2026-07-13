@@ -268,7 +268,7 @@ export default {
 			name: 'Plus',
 			tagline: 'Individualizuota pagalba nuo apklausos rengimo iki rezultatų interpretavimo.',
 			cta: 'REGISTRUOTIS',
-			bannerTitle: 'PRAŠYTI PASIŪLYMO',
+			bannerTitle: 'PRAŠYTI PASIŪLYMO!',
 			includesTitle: 'Apima:',
 			features: [
 				'Viskas, kas yra Basic pakete',

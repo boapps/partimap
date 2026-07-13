@@ -270,7 +270,7 @@ export default {
 			name: 'Plus',
 			tagline: 'Individuelle Unterstützung von der Erstellung der Umfrage bis zur Interpretation der Ergebnisse.',
 			cta: 'REGISTRIEREN',
-			bannerTitle: 'ANGEBOT ANFORDERN',
+			bannerTitle: 'ANGEBOT ANFORDERN!',
 			includesTitle: 'Enthält:',
 			features: [
 				'Alle Funktionen des Basic-Pakets',

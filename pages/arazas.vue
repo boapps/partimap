@@ -63,7 +63,17 @@ function toggle(plan: string) {
 								{{ t(`pricing.${plan}.cta`) }}
 							</NuxtLink>
 						</div>
-						<div class="plan-banner">{{ t(`pricing.${plan}.bannerTitle`) }}</div>
+						<div class="plan-banner">
+							<template v-if="plan === 'extra'">
+								<a class="plan-banner-link" href="mailto:hello@partimap.eu">
+									{{ t(`pricing.${plan}.bannerTitle`) }}
+								</a>
+								<span class="plan-banner-email">hello@partimap.eu</span>
+							</template>
+							<template v-else>
+								{{ t(`pricing.${plan}.bannerTitle`) }}
+							</template>
+						</div>
 						<div class="plan-body">
 							<h4>{{ t(`pricing.${plan}.includesTitle`) }}</h4>
 							<ul>
@@ -224,6 +234,25 @@ function toggle(plan: string) {
 	font-size: 0.95rem;
 	font-weight: 500;
 	letter-spacing: 0.05em;
+}
+.plan-banner-link {
+	display: block;
+	color: #fff;
+	font-weight: 700;
+	text-decoration: none;
+}
+.plan-banner-link:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+.plan-banner-email {
+	display: block;
+	margin-top: 0.25rem;
+	color: #fff;
+	font-size: 0.8rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	opacity: 0.9;
 }
 .plan-body {
 	padding: 1.5rem 1.8rem 1.8rem;

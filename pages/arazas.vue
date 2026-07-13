@@ -68,7 +68,6 @@ function toggle(plan: string) {
 								<a class="plan-banner-link" href="mailto:hello@partimap.eu">
 									{{ t(`pricing.${plan}.bannerTitle`) }}
 								</a>
-								<span class="plan-banner-email">hello@partimap.eu</span>
 							</template>
 							<template v-else>
 								{{ t(`pricing.${plan}.bannerTitle`) }}
@@ -244,15 +243,6 @@ function toggle(plan: string) {
 .plan-banner-link:hover {
 	color: #fff;
 	text-decoration: underline;
-}
-.plan-banner-email {
-	display: block;
-	margin-top: 0.25rem;
-	color: #fff;
-	font-size: 0.8rem;
-	font-weight: 500;
-	letter-spacing: 0.02em;
-	opacity: 0.9;
 }
 .plan-body {
 	padding: 1.5rem 1.8rem 1.8rem;

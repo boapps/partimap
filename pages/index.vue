@@ -10,7 +10,7 @@ const activePopup = ref<number | null>(null);
 
 const partners = [
 	{ name: 'BKK', src: '/partners/bkk.png', url: 'https://bkk.hu/' },
-	{ name: 'Értékterv', src: '/partners/ertekterv.png', url: 'https://ertekterv.hu/' },
+	{ name: 'Megérti', src: '/partners/megerti.png', url: 'https://megerti.hu/index.php/fejlesztespolitikai-tanacsadas/' },
 	{ name: 'ITI', src: '/partners/iti-logo.svg', url: 'https://itimagyarorszag.hu/' },
 	{ name: 'Mobilissimus', src: '/partners/mobilissimus.png', url: 'https://mobilissimus.hu/' },
 	{ name: 'MÖK', src: '/partners/mok.jpg', url: 'https://mok.hu/' },

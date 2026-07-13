@@ -81,7 +81,7 @@ useHead({
 
 <style scoped>
 #details {
-	margin-top: 2rem;
+	margin-top: -5rem;
 }
 
 .ap-hero {
@@ -231,7 +231,7 @@ useHead({
 	position: absolute;
 	top: 0;
 	left: 0;
-	transform: translate(-50%, -110%);
+	transform: translate(-50%, -90%);
 }
 .ap-extra-text {
 	font-size: 0.9rem;

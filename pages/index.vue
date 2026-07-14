@@ -7,6 +7,7 @@ useHead({
 });
 
 const activePopup = ref<number | null>(null);
+const activeFeature = ref<number | null>(null);
 
 const partners = [
 	{ name: 'BKK', src: '/partners/bkk.png', url: 'https://bkk.hu/' },
@@ -29,6 +30,18 @@ function togglePopup(n: number) {
 
 function closePopup() {
 	activePopup.value = null;
+}
+
+function openFeature(n: number) {
+	activeFeature.value = n;
+}
+
+function closeFeature() {
+	activeFeature.value = null;
+}
+
+function onKeydown(e: KeyboardEvent) {
+	if (e.key === 'Escape') closeFeature();
 }
 
 function scrollToTop() {
@@ -72,6 +85,7 @@ function animateStats() {
 }
 
 onMounted(() => {
+	window.addEventListener('keydown', onKeydown);
 	if (!statsSection.value) return;
 	const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	if (reduced) {
@@ -91,6 +105,10 @@ onMounted(() => {
 		{ threshold: 0.3 },
 	);
 	observer.observe(statsSection.value);
+});
+
+onBeforeUnmount(() => {
+	window.removeEventListener('keydown', onKeydown);
 });
 </script>
 
@@ -228,7 +246,7 @@ onMounted(() => {
 						<div class="feat-body">
 							<h4>{{ t('landing.why.feat1') }}</h4>
 							<p>{{ t('landing.why.feat1Desc') }}</p>
-							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+							<button type="button" class="btn-landing-outline btn-sm feat-readmore" @click="openFeature(1)">{{ t('landing.why.readMore') }}</button>
 						</div>
 					</div>
 					<div class="feat-card">
@@ -236,7 +254,7 @@ onMounted(() => {
 						<div class="feat-body">
 							<h4>{{ t('landing.why.feat2') }}</h4>
 							<p>{{ t('landing.why.feat2Desc') }}</p>
-							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+							<button type="button" class="btn-landing-outline btn-sm feat-readmore" @click="openFeature(2)">{{ t('landing.why.readMore') }}</button>
 						</div>
 					</div>
 					<div class="feat-card">
@@ -244,7 +262,7 @@ onMounted(() => {
 						<div class="feat-body">
 							<h4>{{ t('landing.why.feat3') }}</h4>
 							<p>{{ t('landing.why.feat3Desc') }}</p>
-							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+							<button type="button" class="btn-landing-outline btn-sm feat-readmore" @click="openFeature(3)">{{ t('landing.why.readMore') }}</button>
 						</div>
 					</div>
 					<div class="feat-card">
@@ -252,7 +270,7 @@ onMounted(() => {
 						<div class="feat-body">
 							<h4>{{ t('landing.why.feat4') }}</h4>
 							<p>{{ t('landing.why.feat4Desc') }}</p>
-							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+							<button type="button" class="btn-landing-outline btn-sm feat-readmore" @click="openFeature(4)">{{ t('landing.why.readMore') }}</button>
 						</div>
 					</div>
 					<div class="feat-card">
@@ -260,7 +278,7 @@ onMounted(() => {
 						<div class="feat-body">
 							<h4>{{ t('landing.why.feat5') }}</h4>
 							<p>{{ t('landing.why.feat5Desc') }}</p>
-							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+							<button type="button" class="btn-landing-outline btn-sm feat-readmore" @click="openFeature(5)">{{ t('landing.why.readMore') }}</button>
 						</div>
 					</div>
 					<div class="feat-card">
@@ -268,7 +286,7 @@ onMounted(() => {
 						<div class="feat-body">
 							<h4>{{ t('landing.why.feat6') }}</h4>
 							<p>{{ t('landing.why.feat6Desc') }}</p>
-							<a href="#" class="btn-landing-outline btn-sm feat-readmore">{{ t('landing.why.readMore') }}</a>
+							<button type="button" class="btn-landing-outline btn-sm feat-readmore" @click="openFeature(6)">{{ t('landing.why.readMore') }}</button>
 						</div>
 					</div>
 				</div>
@@ -276,6 +294,22 @@ onMounted(() => {
 					<NuxtLink :to="localePath('/register')" class="btn-landing">{{ t('landing.why.registerCta') }}</NuxtLink>
 				</div>
 			</div>
+
+			<Teleport to="body">
+				<Transition name="fmodal">
+					<div
+						v-if="activeFeature !== null"
+						class="feature-modal-overlay"
+						@click.self="closeFeature"
+					>
+						<div class="feature-modal" role="dialog" aria-modal="true" :aria-label="t(`landing.why.feat${activeFeature}`)">
+							<button class="feature-modal-close" aria-label="Close" @click="closeFeature">×</button>
+							<h3 class="feature-modal-title">{{ t(`landing.why.feat${activeFeature}`) }}</h3>
+							<div class="feature-modal-body" v-html="t(`landing.why.feat${activeFeature}Full`)" />
+						</div>
+					</div>
+				</Transition>
+			</Teleport>
 		</section>
 
 		<!-- How we can help -->
@@ -989,6 +1023,9 @@ onMounted(() => {
 }
 .feat-readmore {
 	margin-top: 0.2rem;
+	background: transparent;
+	font-family: inherit;
+	cursor: pointer;
 }
 .help-section {
 	position: relative;
@@ -1306,6 +1343,75 @@ onMounted(() => {
 .popup-leave-to {
 	opacity: 0;
 	transform: scale(0.92) translateY(4px);
+}
+
+/* ── Feature Modal (Why section "read more") ──────────── */
+.feature-modal-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 1rem;
+	background: rgba(0, 20, 60, 0.45);
+	backdrop-filter: blur(3px);
+	font-family: 'Apex New', 'Segoe UI', sans-serif;
+}
+.feature-modal {
+	position: relative;
+	width: 100%;
+	max-width: 560px;
+	max-height: 85vh;
+	overflow-y: auto;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 8px 32px rgba(0, 85, 255, 0.18), 0 2px 8px rgba(0, 0, 0, 0.10);
+	padding: 2.5rem 2rem 2rem;
+	animation: fmodalPop 0.24s ease;
+}
+@keyframes fmodalPop {
+	from { opacity: 0; transform: scale(0.94) translateY(8px); }
+	to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.feature-modal { animation: none; }
+}
+.feature-modal-close {
+	position: absolute;
+	top: 0.8rem;
+	right: 1rem;
+	background: none;
+	border: none;
+	font-size: 1.6rem;
+	line-height: 1;
+	color: #aaa;
+	cursor: pointer;
+	padding: 0;
+	transition: color 0.2s;
+}
+.feature-modal-close:hover { color: #0055FF; }
+.feature-modal-title {
+	font-size: 1.4rem;
+	font-weight: 700;
+	color: #0055FF;
+	margin: 0 1.5rem 1rem 0;
+	line-height: 1.25;
+}
+.feature-modal-body {
+	font-size: 0.9rem;
+	color: #444;
+	line-height: 1.7;
+}
+
+/* Feature modal enter/leave transitions */
+.fmodal-enter-active,
+.fmodal-leave-active {
+	transition: opacity 0.22s ease;
+}
+.fmodal-enter-from,
+.fmodal-leave-to {
+	opacity: 0;
 }
 
 /* ── News Section ─────────────────────────────────────── */

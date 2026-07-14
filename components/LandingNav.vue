@@ -9,10 +9,9 @@ withDefaults(
 	{ showSearch: false },
 );
 
-// Colour-coded "A PARTIMAPRÓL" dropdown items: the three help topics link to
+// "HOGYAN MŰKÖDIK" dropdown items: the three colour-coded help topics link to
 // their matching Súgó subpage (same targets as the colour-paired help cards).
-const aboutSubmenu = computed(() => [
-	{ key: 'whatIs', to: localePath({ name: 'partimaprol' }) },
+const howItWorksSubmenu = computed(() => [
 	{ key: 'plan', to: localePath({ name: 'partimaprol' }) },
 	{ key: 'questionnaire', to: localePath({ name: 'sugo-kerdoiv' }) },
 	{ key: 'create', to: localePath({ name: 'sugo-keszites' }) },
@@ -33,14 +32,17 @@ const aboutSubmenu = computed(() => [
 			</div>
 
 			<div class="nav-links d-none d-lg-flex">
+				<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-link-item">
+					{{ t('landing.nav.about') }}
+				</NuxtLink>
 				<div class="nav-dropdown">
-					<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-link-item nav-dropdown-toggle">
-						{{ t('landing.nav.about') }}
+					<NuxtLink :to="localePath({ name: 'sugo' })" class="nav-link-item nav-dropdown-toggle">
+						{{ t('landing.nav.aboutUs') }}
 						<span class="nav-dropdown-caret" aria-hidden="true">▾</span>
 					</NuxtLink>
 					<div class="nav-dropdown-menu">
 						<NuxtLink
-							v-for="item in aboutSubmenu"
+							v-for="item in howItWorksSubmenu"
 							:key="item.key"
 							:to="item.to"
 							class="nav-dropdown-item"
@@ -49,9 +51,6 @@ const aboutSubmenu = computed(() => [
 						</NuxtLink>
 					</div>
 				</div>
-				<NuxtLink :to="localePath({ name: 'sugo' })" class="nav-link-item">
-					{{ t('landing.nav.aboutUs') }}
-				</NuxtLink>
 				<NuxtLink :to="localePath({ name: 'arazas' })" class="nav-link-item">
 					{{ t('landing.nav.pricing') }}
 				</NuxtLink>

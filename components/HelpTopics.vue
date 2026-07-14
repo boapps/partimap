@@ -1,20 +1,4 @@
 <script setup lang="ts">
-defineI18nRoute({
-	paths: {
-		en: '/help',
-		es: '/ayuda',
-		lt: '/pagalba',
-		de: '/hilfe',
-	},
-});
-
-const localePath = useLocalePath();
-const { t } = useI18n();
-
-useHead({
-	title: t('helpPage.title'),
-});
-
 const topics = [
 	'registration',
 	'newQuestionnaire',
@@ -26,7 +10,16 @@ const topics = [
 	'tips',
 ] as const;
 
-const activeTopic = ref<(typeof topics)[number]>('reports');
+type Topic = (typeof topics)[number];
+
+const props = withDefaults(defineProps<{ initialTopic?: Topic }>(), {
+	initialTopic: 'reports',
+});
+
+const localePath = useLocalePath();
+const { t } = useI18n();
+
+const activeTopic = ref<Topic>(props.initialTopic);
 </script>
 
 <template>

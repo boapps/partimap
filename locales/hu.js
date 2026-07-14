@@ -81,11 +81,10 @@ export default {
 			about: 'A PARTIMAPRÓL',
 			aboutSubmenu: {
 				whatIs: 'Mi az a PARTIMAP?',
-				plan: 'Hogyan tervezz meg egy Partimap projektet',
-				questionnaire: 'Hogyan írj kérdőívet',
+				plan: 'Hogyan tervezz meg egy Partimap projektet?',
+				questionnaire: 'Hogyan írj kérdőívet?',
 				create: 'Hogyan csinálj Partimapot?',
 				analyze: 'Hogyan elemezd a kapott adatokat?',
-				visualize: 'Hogyan ábrázold a kapott adatokat?',
 			},
 			rolunk: 'RÓLUNK',
 			aboutUs: 'HOGYAN MŰKÖDIK',

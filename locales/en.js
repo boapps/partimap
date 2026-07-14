@@ -84,7 +84,6 @@ export default {
 				questionnaire: 'How to write a questionnaire',
 				create: 'How to create a Partimap',
 				analyze: 'How to analyze the collected data',
-				visualize: 'How to visualize the collected data',
 			},
 			rolunk: 'ABOUT US',
 			aboutUs: 'HOW IT WORKS',

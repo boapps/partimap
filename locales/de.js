@@ -86,7 +86,6 @@ export default {
 				questionnaire: 'Wie man einen Fragebogen schreibt',
 				create: 'Wie man eine Partimap erstellt',
 				analyze: 'Wie man die gesammelten Daten analysiert',
-				visualize: 'Wie man die gesammelten Daten darstellt',
 			},
 			rolunk: 'ÜBER UNS',
 			aboutUs: 'WIE ES FUNKTIONIERT',

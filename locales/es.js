@@ -86,7 +86,6 @@ export default {
 				questionnaire: 'Cómo escribir un cuestionario',
 				create: 'Cómo crear un Partimap',
 				analyze: 'Cómo analizar los datos recopilados',
-				visualize: 'Cómo visualizar los datos recopilados',
 			},
 			rolunk: 'SOBRE NOSOTROS',
 			aboutUs: 'CÓMO FUNCIONA',

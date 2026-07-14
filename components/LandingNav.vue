@@ -9,12 +9,12 @@ withDefaults(
 	{ showSearch: false },
 );
 
-// "HOGYAN MŰKÖDIK" dropdown items: the three colour-coded help topics link to
-// their matching Súgó subpage (same targets as the colour-paired help cards).
+// "HOGYAN MŰKÖDIK" dropdown items. "create" leads the list and points to the
+// main Súgó page; the rest link to their matching Súgó subpage.
 const howItWorksSubmenu = computed(() => [
+	{ key: 'create', to: localePath({ name: 'sugo' }) },
 	{ key: 'plan', to: localePath({ name: 'partimaprol' }) },
 	{ key: 'questionnaire', to: localePath({ name: 'sugo-kerdoiv' }) },
-	{ key: 'create', to: localePath({ name: 'sugo-keszites' }) },
 	{ key: 'analyze', to: localePath({ name: 'sugo-elemzes' }) },
 ]);
 </script>

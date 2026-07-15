@@ -505,6 +505,7 @@ export default {
 		addQuestion: 'Add question',
 		addToFeatures: 'Add responses to map markings for analysis purposes',
 		and: 'AND',
+		cloneQuestion: 'Clone question',
 		conditionalQuestion: 'Conditionally visible',
 		deleteCondition: 'Remove condition',
 		deleteQuestion: 'Remove question',

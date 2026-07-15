@@ -509,6 +509,7 @@ export default {
 		addQuestion: 'Adaugă întrebare',
 		addToFeatures: 'Adaugă mențiuni la simbolurile de pe hartă pentru analiză ',
 		and: 'ȘI',
+		cloneQuestion: 'Duplicați întrebarea',
 		conditionalQuestion: 'Vizualizare condiționată',
 		deleteCondition: 'Elimină condiția',
 		deleteQuestion: 'Eliminați întrebarea',

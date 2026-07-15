@@ -517,6 +517,7 @@ export default {
 		addQuestion: 'Frage hinzufügen',
 		addToFeatures: 'Antworten zur Kartenauswertung hinzufügen',
 		and: 'UND',
+		cloneQuestion: 'Frage duplizieren',
 		conditionalQuestion: 'Bedingt sichtbar',
 		deleteCondition: 'Bedingung entfernen',
 		deleteQuestion: 'Frage entfernen',

@@ -103,10 +103,6 @@ const cancelledDrag = ref<number[]>([]);
 const question = ref<Question | null>(null);
 const questionIndex = ref(0);
 
-const hasOptions = computed(
-	() => question.value?.type && questionTypesWithOptions.includes(question.value.type),
-);
-
 const questionsFromNextSheets = computed(() => {
 	if (!sheet?.value) return [];
 	return (project?.value?.sheets || [])
@@ -171,6 +167,18 @@ function canHaveResults(q: Question) {
 }
 
 const { confirmDeletion } = useConfirmation();
+
+function cloneQuestion(i: number) {
+	const q = survey.value.questions[i];
+	const newQ: Question = {
+		...q,
+		id: new Date().getTime(),
+		label: q.label + ' (1)',
+	};
+	survey.value.questions.splice(i + 1, 0, newQ);
+	emitSurvey();
+	editQuestion(i + 1);
+}
 
 async function delQuestion(i: number) {
 	const confirmed = await confirmDeletion(survey.value.questions[i].label);
@@ -355,7 +363,17 @@ async function moveQuestion(questionIndex: number, targetSheetId: number) {
 									"
 									:title="t('SurveyEditor.conditionalQuestion')"
 								/>
-								<div class="ms-auto flex gap-2">
+								<div class="ms-auto d-flex gap-1">
+									<b-button
+										v-if="!props.readonly"
+										v-b-tooltip.hover.bottom
+										class="border-0"
+										size="sm"
+										:title="t('SurveyEditor.cloneQuestion')"
+										variant="light"
+										@click.stop="cloneQuestion(i)"
+										><i class="fas fa-fw fa-clone" />
+									</b-button>
 									<QuestionMoveButton
 										v-if="!props.readonly && project?.sheets && sheet"
 										:sheets="project.sheets"

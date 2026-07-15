@@ -509,6 +509,7 @@ export default {
 		addQuestion: 'Pridėti klausimą',
 		addToFeatures: 'Pridėti klausimus kaip žymeklius žemėlapyje analizei',
 		and: 'IR',
+		cloneQuestion: 'Klonuoti klausimą',
 		conditionalQuestion: 'Matomas tik su tam tikra sąlyga',
 		deleteCondition: 'Pašalinti sąlygą',
 		deleteQuestion: 'Pašalinti klausimą',

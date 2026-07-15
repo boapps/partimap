@@ -508,6 +508,7 @@ export default {
 		addQuestion: 'Új kérdés hozzáadása',
 		addToFeatures: 'Válaszok hozzáadása a térképes jelölésekhez elemzés céljára',
 		and: 'ÉS',
+		cloneQuestion: 'Kérdés megkettőzése',
 		conditionalQuestion: 'Feltételesen jelenik meg',
 		deleteCondition: 'Feltétel törlése',
 		deleteQuestion: 'Kérdés törlése',

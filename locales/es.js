@@ -517,6 +517,7 @@ export default {
 		addQuestion: 'Agregar pregunta',
 		addToFeatures: 'Agregar respuestas a marcadores de mapas con fines de análisis',
 		and: 'Y',
+		cloneQuestion: 'Duplicar pregunta',
 		conditionalQuestion: 'Condicionalmente visible',
 		deleteCondition: 'Eliminar condicionante',
 		deleteQuestion: 'Eliminar pregunta',

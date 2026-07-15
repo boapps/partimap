@@ -186,8 +186,6 @@ export default {
 		views: 'Aufrufe',
 	},
 	register: {
-		consent1: 'Ich bestätige, dass ich die',
-		consent2: 'Nutzungsbedingungen und die Datenschutzerklärung gelesen und verstanden habe.',
 		email: 'Geben Sie eine gültige E-Mail-Adresse ein',
 		login: 'Haben Sie bereits ein Konto?',
 		name: 'Name',
@@ -197,7 +195,6 @@ export default {
 		registrationFailed:
 			'Registrierung fehlgeschlagen. Die angegebene E-Mail-Adresse ist möglicherweise bereits registriert. Bitte erneut versuchen oder Administrator kontaktieren.',
 		submit: 'Registrieren',
-		termsTitle: 'Nutzungsbedingungen und Datenschutzerklärung',
 		title: 'Registrierung',
 	},
 	sheet: {
@@ -206,7 +203,6 @@ export default {
 		password: 'Passwort',
 		passwordRequired:
 			'Bitte geben Sie das Passwort ein oder kontaktieren Sie den Autor der Umfrage.',
-		privacyPolicy: 'Nutzungsbedingungen und Datenschutzerklärung',
 		restricted: 'Diese PARTIMAP-Umfrage ist derzeit geschlossen.',
 		restrictedTitle: 'Passwortgeschütztes Umfrage',
 		submitFailed: 'Absenden fehlgeschlagen',
@@ -504,8 +500,6 @@ export default {
 		saved: 'Gespeichert',
 	},
 	SheetContent: {
-		consent1: 'Ich bestätige, dass ich die',
-		consent2: 'Nutzungsbedingungen und die Datenschutzerklärung gelesen und verstanden habe.',
 		next: 'Weiter',
 		results: 'Ergebnisse',
 		resultsDescription:
@@ -565,9 +559,6 @@ export default {
 		numberOfSubmissions: 'Anzahl Antworten',
 		other: 'Sonstiges',
 	},
-	TermsModConsent: {
-		info: 'Unsere Datenschutzerklärung und Nutzungsbedingungen haben sich geändert.',
-	},
 	VisitorDrawButtonsInner: {
 		noFeatures: 'Unvollständige Aufgabe: "{di}"',
 	},
@@ -580,6 +571,16 @@ export default {
 		failed: 'Bild-Upload fehlgeschlagen',
 		maxFileSize: 'Maximalgröße: 5 MB',
 		remove: 'Bild entfernen',
+	},
+	legal: {
+		changedTitle: 'Nutzungsbedingungen und Datenschutzerklärung',
+		changedNotice: 'Unsere Datenschutzerklärung und Nutzungsbedingungen haben sich geändert.',
+		privacyPolicy: 'Datenschutzerklärung',
+		termsOfUse: 'Nutzungsbedingungen',
+		consentTerms1: 'Ich habe die',
+		consentTerms2: 'Nutzungsbedingungen gelesen und akzeptiere sie.',
+		consentPrivacy1: 'Ich habe die',
+		consentPrivacy2: 'Datenschutzerklärung gelesen und akzeptiere sie.',
 	},
 	modals: {
 		cancel: 'Abbrechen',

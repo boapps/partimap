@@ -14,9 +14,9 @@ const email = ref('');
 const emailInput = ref<HTMLInputElement>();
 const name = ref('');
 const password = ref('');
-const consent = ref(false);
+const consentTerms = ref(false);
+const consentPrivacy = ref(false);
 const loading = ref(true);
-const termsModal = ref(false);
 
 onMounted(async () => {
 	loading.value = false;
@@ -34,7 +34,7 @@ async function userReg() {
 			method: 'POST',
 			body: {
 				captcha: captcha.value,
-				consent: consent.value,
+				consent: consentTerms.value && consentPrivacy.value,
 				email: email.value,
 				locale: locale.value,
 				name: name.value,
@@ -91,22 +91,43 @@ async function userReg() {
 							<form-group>
 								<div class="form-check">
 									<input
-										id="consent"
-										v-model="consent"
+										id="consentTerms"
+										v-model="consentTerms"
 										class="form-check-input"
-										name="consent"
+										name="consentTerms"
 										required
 										type="checkbox"
 									/>
 									<label
-										for="consent"
+										for="consentTerms"
 										class="form-check-label"
 									>
-										{{ $t('register.consent1') }}
+										{{ $t('legal.consentTerms1') }}
 										<a
-											href="javascript:void(0)"
-											@click.stop="termsModal = true"
-											v-html="$t('register.consent2')"
+											:href="localePath('/terms')"
+											target="_blank"
+											v-html="$t('legal.consentTerms2')"
+										/>
+									</label>
+								</div>
+								<div class="form-check mt-2">
+									<input
+										id="consentPrivacy"
+										v-model="consentPrivacy"
+										class="form-check-input"
+										name="consentPrivacy"
+										required
+										type="checkbox"
+									/>
+									<label
+										for="consentPrivacy"
+										class="form-check-label"
+									>
+										{{ $t('legal.consentPrivacy1') }}
+										<a
+											:href="localePath('/privacy')"
+											target="_blank"
+											v-html="$t('legal.consentPrivacy2')"
 										/>
 									</label>
 								</div>
@@ -136,15 +157,6 @@ async function userReg() {
 					</div>
 				</form>
 			</div>
-			<b-modal
-				v-model="termsModal"
-				hide-footer
-				scrollable
-				size="lg"
-				:title="$t('register.termsTitle')"
-			>
-				<Terms />
-			</b-modal>
 		</div>
 	</div>
 </template>

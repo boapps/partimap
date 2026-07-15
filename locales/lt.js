@@ -181,8 +181,6 @@ export default {
 		views: 'peržiūros',
 	},
 	register: {
-		consent1: 'Aš perskaičiau ir sutinku su taisyklėmis',
-		consent2: 'ir sąlygomis bei su Privatumo politika.',
 		email: 'Įveskite galiojantį el.pašto adresą',
 		login: 'Jau turite paskyrą?',
 		name: 'Paskyros vardas',
@@ -192,7 +190,6 @@ export default {
 		registrationFailed:
 			'Registracija nepavyko. Gali būti, kad el.paštas jau egzistuoja. Pabandykite dar kartą arba susisiekite su administratoriumi.',
 		submit: 'Registruotis',
-		termsTitle: 'Naudojimo ir privatumo taisyklės',
 		title: 'Registracija',
 	},
 	sheet: {
@@ -200,7 +197,6 @@ export default {
 			'Neteisingas slaptažodis. Pabandykite dar kartą arba spauskite ‘Pamiršau slaptažodį’',
 		password: 'Slaptažodis',
 		passwordRequired: 'Įveskite slaptažodį arba susisiekite su klausimyno autoriumi',
-		privacyPolicy: 'Naudojimo ir privatumo taisyklės',
 		restricted: 'Ši PARTIMAP anketa šiuo metu neprieinama.',
 		restrictedTitle: 'Apklausa saugoma slaptažodžiu',
 		submitFailed: 'Pateikti nepavyko',
@@ -497,8 +493,6 @@ export default {
 		saved: 'Išsaugota',
 	},
 	SheetContent: {
-		consent1: 'Aš perskaičiau ir sutinku su taisyklėmis',
-		consent2: 'ir sąlygomis bei su Privatumo politika.',
 		next: 'Kitas',
 		results: 'Rezultatai',
 		resultsDescription: 'Prieš tęsiant, galite susipažinti su kitų respondentų atsakymais',
@@ -558,9 +552,6 @@ export default {
 		numberOfSubmissions: 'Atsakymų skaičius',
 		other: 'Kita',
 	},
-	TermsModConsent: {
-		info: 'Mūsų privatumo politika ir naudojimosi sąlygos pasikeitė.',
-	},
 	VisitorDrawButtonsInner: {
 		noFeatures: 'Neįvykdyta užduotis: "{di}"',
 	},
@@ -573,6 +564,16 @@ export default {
 		failed: 'Nuotraukas įterpimas nepavyko',
 		maxFileSize: 'Maksimalus dydis: 5 MB',
 		remove: 'Pašalinti nuotrauką',
+	},
+	legal: {
+		changedTitle: 'Naudojimo ir privatumo taisyklės',
+		changedNotice: 'Mūsų privatumo politika ir naudojimosi sąlygos pasikeitė.',
+		privacyPolicy: 'Privatumo politika',
+		termsOfUse: 'Naudojimo taisyklės',
+		consentTerms1: 'Perskaičiau ir sutinku su',
+		consentTerms2: 'naudojimo taisyklėmis.',
+		consentPrivacy1: 'Perskaičiau ir sutinku su',
+		consentPrivacy2: 'Privatumo politika.',
 	},
 	modals: {
 		cancel: 'Atšaukti',

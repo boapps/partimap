@@ -44,10 +44,10 @@ export default defineNuxtConfig({
 	// module settings
 	i18n: {
 		baseUrl: env.NUXT_PUBLIC_BASE_URL,
-		bundle: {
-			optimizeTranslationDirective: false,
-		},
 		defaultLocale: 'hu',
+		detectBrowserLanguage: {
+			redirectOn: 'no prefix',
+		},
 		compilation: {
 			strictMessage: false,
 		},

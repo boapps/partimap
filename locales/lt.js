@@ -513,6 +513,7 @@ export default {
 		conditionalQuestion: 'Matomas tik su tam tikra sąlyga',
 		deleteCondition: 'Pašalinti sąlygą',
 		deleteQuestion: 'Pašalinti klausimą',
+		html: 'Tekstas',
 		maxName: 'Etiketė (didžiausia vertė)',
 		maxSelect: 'Maximum number of choices:',
 		maxValue: 'Didžiausia vertė',
@@ -535,6 +536,7 @@ export default {
 			range: 'Skaičiaus įvedimas slankikliu',
 			rating: 'Įvertinimas žvaigždutėmis (1-5)',
 			singleChoiceMatrix: 'Vieno pasirinkimų lentelė',
+			static: 'Statinis teksto blokas',
 			text: 'Tekstinis laukas',
 		},
 		referencedQuestion:

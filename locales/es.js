@@ -521,6 +521,7 @@ export default {
 		conditionalQuestion: 'Condicionalmente visible',
 		deleteCondition: 'Eliminar condicionante',
 		deleteQuestion: 'Eliminar pregunta',
+		html: 'Texto',
 		maxName: 'Etiqueta (máximo)',
 		maxSelect: 'Número máximo de opciones:',
 		maxValue: 'Valor máximo',
@@ -543,6 +544,7 @@ export default {
 			range: 'Control deslizante numérico',
 			rating: 'Calificación por estrellas (1-5)',
 			singleChoiceMatrix: 'Matriz de casillas de verificación',
+			static: 'Bloque de texto estático',
 			text: 'Cuadro de texto',
 		},
 		referencedQuestion:

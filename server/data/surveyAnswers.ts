@@ -34,6 +34,7 @@ export type QuestionType =
 	| 'range'
 	| 'rating'
 	| 'singleChoiceMatrix'
+	| 'static'
 	| 'text';
 
 export type Question = {
@@ -41,6 +42,7 @@ export type Question = {
 	addToFeatures?: boolean;
 	columns?: string[];
 	label: string;
+	html?: string;
 	max?: number;
 	maxLabel?: string;
 	min?: number;

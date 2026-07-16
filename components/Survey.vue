@@ -100,8 +100,12 @@ const { t } = useI18n();
 				</b-button>
 			</div>
 		</template>
+		<TipTapDisplay
+			v-if="q.type === 'static'"
+			:html="q.html"
+		/>
 		<CheckboxGroup
-			v-if="q.type == 'checkbox'"
+			v-else-if="q.type === 'checkbox'"
 			v-model="answers[q.id]"
 			:q="q"
 		/>
@@ -119,7 +123,7 @@ const { t } = useI18n();
 				:required="!!q.required"
 			/>
 		</template>
-		<template v-else-if="'number|range'.includes(q.type)">
+		<template v-else-if="['number', 'range'].includes(q.type)">
 			<div
 				v-if="q.type === 'range' && q.minLabel && q.maxLabel"
 				class="align-items-end d-flex justify-content-between small"
@@ -147,13 +151,13 @@ const { t } = useI18n();
 					type="range"
 				/>
 				<strong
-					v-if="q.type == 'range' && (!q.minLabel || !q.maxLabel)"
+					v-if="q.type === 'range' && (!q.minLabel || !q.maxLabel)"
 					class="ms-2 text-end"
 					style="min-width: 2rem"
 					>{{ answers[q.id] }}</strong
 				>
 				<input
-					v-if="q.type == 'range' && q.required"
+					v-if="q.type === 'range' && q.required"
 					autocomplete="off"
 					class="position-absolute"
 					required

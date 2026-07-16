@@ -33,6 +33,8 @@ const questionTypesWithOptions: QuestionType[] = [
 	'radiogroup',
 ];
 
+const questionTypesWithoutResults: QuestionType[] = ['static', 'text'];
+
 const questionTypesWithRowsAndColumns: QuestionType[] = [
 	'singleChoiceMatrix',
 	'multipleChoiceMatrix',
@@ -48,6 +50,7 @@ const icon: Record<QuestionType, string> = {
 	ordering: 'fa-list-ol',
 	rating: 'fa-star-half-alt',
 	singleChoiceMatrix: 'fa-dot-circle',
+	static: 'fa-paragraph',
 	multipleChoiceMatrix: 'fa-check-square',
 	distributeUnits: 'fa-balance-scale',
 };
@@ -96,6 +99,10 @@ const questionTypes: { value: QuestionType; text: string }[] = [
 	{
 		value: 'distributeUnits',
 		text: t('SurveyEditor.questionTypes.distributeUnits'),
+	},
+	{
+		value: 'static',
+		text: t('SurveyEditor.questionTypes.static'),
 	},
 ];
 
@@ -163,7 +170,7 @@ function handleQuestionLabelBlur() {
 }
 
 function canHaveResults(q: Question) {
-	return q.type && q.type !== 'text';
+	return !questionTypesWithoutResults.includes(q.type);
 }
 
 const { confirmDeletion } = useConfirmation();
@@ -454,6 +461,13 @@ async function moveQuestion(questionIndex: number, targetSheetId: number) {
 						:options="questionTypes"
 					/>
 				</b-form-group>
+				<form-group
+					v-if="question.type === 'static'"
+					class="rich"
+					:label="t('SurveyEditor.html')"
+				>
+					<tiptap v-model="question.html" />
+				</form-group>
 				<b-row v-if="'number|range'.includes(question.type)">
 					<b-col>
 						<b-form-group :label="t('SurveyEditor.minValue')">
@@ -547,7 +561,7 @@ async function moveQuestion(questionIndex: number, targetSheetId: number) {
 						{{ t('SurveyEditor.multiline') }}
 					</b-form-checkbox>
 				</b-form-group>
-				<b-form-group>
+				<b-form-group v-if="question.type !== 'static'">
 					<b-form-checkbox v-model="question.required">
 						{{ t('SurveyEditor.required') }}
 					</b-form-checkbox>

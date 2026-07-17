@@ -57,6 +57,7 @@ export default defineNuxtConfig({
 			{ code: 'es', language: 'es-ES', name: 'Español' },
 			{ code: 'lt', language: 'lt-LT', name: 'Lietuvių' },
 			{ code: 'de', language: 'de-DE', name: 'Deutsch'},
+			{ code: 'ro', language: 'ro-RO', name: 'Română' },
 		],
 		strategy: 'prefix',
 		vueI18n: 'i18n.config.ts',

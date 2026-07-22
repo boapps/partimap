@@ -336,7 +336,7 @@ export default {
 		title: 'Apie PARTIMAP',
 		q1: 'Kas yra PARTIMAP?',
 		q2: 'Kaip jį galima naudoti?',
-		q3: 'Kaip parengti apklausą',
+		q3: 'Kaip parengti apklausą?',
 		shortTitle: 'Trumpai',
 		shortDesc: 'PARTIMAP yra nemokama, paprasta naudoti ir lanksčiai pritaikoma žemėlapiais grįsta apklausų platforma, kurią gali naudoti tiek tyrėjai, tiek nevyriausybinės organizacijos, savivaldybės ir vietos bendruomenės. Ji leidžia apklausų duomenų rinkimą derinti su vaizdavimu žemėlapyje ir taip rinkti atsiliepimus, nuomones bei vietos patirtį. PARTIMAP ypač naudinga įgyvendinant iš viešųjų lėšų finansuojamus plėtros projektus, sprendžiant svarbius viešosios politikos klausimus ar vykdant bendruomenės planavimo procesus, kai svarbu, kad būtų išgirstas ir suinteresuotų asmenų balsas, o rezultatai būtų pateikiami aiškia, vaizdžia ir lengvai suprantama forma.',
 		longTitle: 'Išsamiau',

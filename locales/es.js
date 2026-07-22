@@ -338,7 +338,7 @@ export default {
 		title: 'Sobre PARTIMAP',
 		q1: '¿Qué es PARTIMAP?',
 		q2: '¿Cómo se puede utilizar?',
-		q3: 'Cómo redactar una encuesta',
+		q3: '¿Cómo redactar una encuesta?',
 		shortTitle: 'En pocas palabras',
 		shortDesc: 'PARTIMAP es una plataforma de encuestas basadas en mapas gratuita, fácil de usar y flexiblemente personalizable, que pueden utilizar por igual investigadores, ONG, administraciones locales y comunidades locales. Permite combinar la recogida de datos mediante encuestas con la visualización cartográfica para reunir opiniones, comentarios y experiencias locales. PARTIMAP resulta especialmente útil en proyectos de desarrollo financiados con fondos públicos, decisiones de política pública o procesos de planificación comunitaria, donde importa que también se escuche la voz de las personas afectadas y donde los resultados deben estar disponibles de forma clara, visual y fácil de interpretar.',
 		longTitle: 'En detalle',

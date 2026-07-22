@@ -17,7 +17,7 @@ const partners = [
 	{ name: 'MÖK', src: '/partners/mok.jpg', url: 'https://mok.hu/' },
 	{ name: 'NTVESZ', src: '/partners/ntvesz.jpg', url: 'https://nagytavak.hu/rolunk/' },
 	{ name: 'AKE', src: '/partners/ake_logo.jpg', url: 'https://altkozegy.hu/' },
-	{ name: 'Tavirozsa', src: '/partners/tavirozsa_logo.jpg', url: 'https://www.tavirozsa-egyesulet.hu/' },
+	{ name: 'Tavirozsa', src: '/partners/tavirozsa_logo.png', url: 'https://www.tavirozsa-egyesulet.hu/' },
 	{ name: 'TU/e', src: '/partners/tue_logo.png', url: 'https://www.tue.nl/en/' },
 	{ name: 'Alba Natura', src: '/partners/alba_natura.jpg', url: 'https://www.facebook.com/albanaturaalapitvany/' },
 	{ name: 'Magyar Kerékpárosklubb', src: '/partners/kerekparos.png', url: 'https://kerekparosklub.hu/' },

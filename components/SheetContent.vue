@@ -3,7 +3,7 @@ import type { Project } from '~/server/data/projects';
 import type { Sheet } from '~/server/data/sheets';
 import type { AggregatedAnswers } from '~/server/data/surveyAnswers';
 
-defineProps<{
+const props = defineProps<{
 	brandColor?: string | null;
 	project: Project;
 	results?: boolean;
@@ -35,6 +35,17 @@ onMounted(() => {
 watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 	consent.value = t && p;
 });
+
+const { capturedParams } = useCapturedParams();
+const sheetDescription = computed(() => {
+	return interpolateParams(sheet.value?.description || '', capturedParams.value);
+});
+const thanks = computed(() => {
+	return interpolateParams(props.project.thanks || '', capturedParams.value);
+});
+const thanksUrl = computed(() => {
+	return interpolateParams(props.project.thanksUrl || '', capturedParams.value);
+});
 </script>
 
 <template>
@@ -60,7 +71,7 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 		<TipTapDisplay
 			v-if="!results"
 			class="my-4"
-			:html="sheet?.description"
+			:html="sheetDescription"
 		/>
 		<div
 			v-if="sheet?.survey"
@@ -162,14 +173,14 @@ watch([localConsentTerms, localConsentPrivacy], ([t, p]) => {
 	<div v-else>
 		<TipTapDisplay
 			class="mb-5"
-			:html="project.thanks"
+			:html="thanks"
 		/>
 		<div
-			v-if="project.thanksUrl"
+			v-if="thanksUrl"
 			class="text-center mb-5"
 		>
 			<b-button
-				:href="project.thanksUrl"
+				:href="thanksUrl"
 				variant="primary"
 			>
 				{{ $t('SheetContent.next') }}

@@ -17,3 +17,13 @@ export function captureParams(query: Record<string, string | string[] | undefine
 	}
 	return captured;
 }
+
+export function interpolateParams(text: string, params: CapturedParams) {
+	return text.replace(/\{([a-zA-Z0-9_\-]+)\}/g, (match, key) => {
+		if (CAPTURED_PARAMS.includes(key as keyof CapturedParams)) {
+			const value = params[key as keyof CapturedParams];
+			return encodeURIComponent(value || '');
+		}
+		return match;
+	});
+}

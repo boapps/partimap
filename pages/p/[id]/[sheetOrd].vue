@@ -12,6 +12,13 @@ const { fullPath, params, query } = useRoute();
 const forcedSheetOrd = user && query.force;
 const visitId = useState('visitId', () => 0);
 
+const { capturedParameters } = useCapturedParameters();
+onMounted(() => {
+	capturedParameters.value = captureParameters(
+		query as Record<string, string | string[] | undefined>,
+	);
+});
+
 if (Number(params.sheetOrd) > 0 && !visitId.value && !forcedSheetOrd) {
 	// before visitId generation, so it's a manual navigation
 	navigateTo({

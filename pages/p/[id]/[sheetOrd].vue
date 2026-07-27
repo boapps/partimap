@@ -8,7 +8,7 @@ import { PARTIMAP_BLUE } from '~/utils/color';
 import { safeParseJSON } from '~/utils/json';
 
 const { user } = useAuth();
-const { fullPath, params, query } = useRoute();
+const { fullPath, params, path, query } = useRoute();
 const forcedSheetOrd = user && query.force;
 const visitId = useState('visitId', () => 0);
 
@@ -499,7 +499,7 @@ const localePath = useLocalePath();
 					class="flex-grow-1"
 				>
 					<Map
-						:key="$route.path"
+						:key="path"
 						:features="features"
 						fit-selected
 						:gray-rated="!resultsShown"

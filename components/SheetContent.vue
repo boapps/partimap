@@ -46,6 +46,8 @@ const thanks = computed(() => {
 const thanksUrl = computed(() => {
 	return interpolateParams(props.project.thanksUrl || '', capturedParams.value);
 });
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -53,12 +55,12 @@ const thanksUrl = computed(() => {
 		<b-navbar class="m-0 mb-4 p-0">
 			<div v-if="results">
 				<h1 class="h3 text-primary">
-					{{ $t('SheetContent.results') }}
+					{{ t('SheetContent.results') }}
 				</h1>
 				<h2 class="h4">
 					{{ sheet?.title }}
 				</h2>
-				<p class="my-4">{{ $t('SheetContent.resultsDescription') }}</p>
+				{{ t('SheetContent.resultsDescription') }}
 			</div>
 			<h1
 				v-else
@@ -115,12 +117,12 @@ const thanksUrl = computed(() => {
 					for="consentTerms"
 					class="form-check-label"
 				>
-					{{ $t('legal.consentTerms1') }}
+					{{ t('legal.consentTerms1') }}
 					<a
 						class="alert-link"
 						href="javascript:void(0)"
 						@click.stop="termsModalVisible = true"
-						v-html="$t('legal.consentTerms2')"
+						v-html="t('legal.consentTerms2')"
 					/>
 				</label>
 			</div>
@@ -138,12 +140,12 @@ const thanksUrl = computed(() => {
 					for="consentPrivacy"
 					class="form-check-label"
 				>
-					{{ $t('legal.consentPrivacy1') }}
+					{{ t('legal.consentPrivacy1') }}
 					<a
 						class="alert-link"
 						href="javascript:void(0)"
 						@click.stop="privacyModalVisible = true"
-						v-html="$t('legal.consentPrivacy2')"
+						v-html="t('legal.consentPrivacy2')"
 					/>
 				</label>
 			</div>
@@ -153,7 +155,7 @@ const thanksUrl = computed(() => {
 			no-footer
 			scrollable
 			size="lg"
-			:title="$t('legal.termsOfUse')"
+			:title="t('legal.termsOfUse')"
 		>
 			<Terms hide-title />
 		</b-modal>
@@ -162,7 +164,7 @@ const thanksUrl = computed(() => {
 			no-footer
 			scrollable
 			size="lg"
-			:title="$t('legal.privacyPolicy')"
+			:title="t('legal.privacyPolicy')"
 		>
 			<Privacy
 				hide-title
@@ -183,7 +185,7 @@ const thanksUrl = computed(() => {
 				:href="thanksUrl"
 				variant="primary"
 			>
-				{{ $t('SheetContent.next') }}
+				{{ t('SheetContent.next') }}
 				<i class="fas fa-chevron-right ms-2" />
 			</b-button>
 		</div>

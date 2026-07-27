@@ -362,6 +362,7 @@ async function submit(captcha: string) {
 				method: 'PUT',
 				body: {
 					...data,
+					query: capturedParams.value,
 					captcha, // intentionally using function argument, not the ref!
 				},
 			});

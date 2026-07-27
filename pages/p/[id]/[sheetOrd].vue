@@ -12,11 +12,9 @@ const { fullPath, params, query } = useRoute();
 const forcedSheetOrd = user && query.force;
 const visitId = useState('visitId', () => 0);
 
-const { capturedParameters } = useCapturedParameters();
+const { capturedParams } = useCapturedParams();
 onMounted(() => {
-	capturedParameters.value = captureParameters(
-		query as Record<string, string | string[] | undefined>,
-	);
+	capturedParams.value = captureParams(query as Record<string, string | string[] | undefined>);
 });
 
 if (Number(params.sheetOrd) > 0 && !visitId.value && !forcedSheetOrd) {

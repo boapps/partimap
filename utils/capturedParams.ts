@@ -1,5 +1,5 @@
 const NORSTAT_PARAMS = ['source', 'state'] as const;
-export const CAPTURED_PARAMS = [...NORSTAT_PARAMS];
+export const CAPTURED_PARAMS = Array.from(new Set([...NORSTAT_PARAMS]));
 
 export function isAcceptable(value: string) {
 	return value.length <= 256 && /^[a-zA-Z0-9_\-=/+]*$/.test(value);

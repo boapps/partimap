@@ -47,9 +47,10 @@ withDefaults(
 						<h5>{{ t('landing.footer.follow') }}</h5>
 						<ul>
 							<li><a href="https://k.blog.hu" target="_blank" rel="noopener">k.blog</a></li>
-							<li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
-							<li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-							<li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+							<li><a href="#" target="_blank">Facebook</a></li>
+							<li><a href="#" target="_blank">Instagram</a></li>
+							<li><a href="#" target="_blank">YouTube</a></li>
+							<li><a href="https://k-monitor.hu/" target="_blank" rel="noopener">k-monitor.hu</a></li>
 						</ul>
 					</div>
 					<div class="footer-col">

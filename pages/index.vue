@@ -502,6 +502,7 @@ onBeforeUnmount(() => {
 							<li><a href="https://www.facebook.com/Kmonitor/" target="_blank" rel="noopener">Facebook</a></li>
 							<li><a href="https://www.instagram.com/kmonitorhu/" target="_blank" rel="noopener">Instagram</a></li>
 							<li><a href="https://www.youtube.com/@k-monitor" target="_blank" rel="noopener">YouTube</a></li>
+							<li><a href="https://k-monitor.hu/" target="_blank" rel="noopener">k-monitor.hu</a></li>
 						</ul>
 					</div>
 					<div class="footer-col">

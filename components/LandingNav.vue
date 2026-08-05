@@ -222,7 +222,9 @@ const howItWorksSubmenu = computed(() => [
 	font-size: 0.9rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
-	padding: 0.6rem 1.6rem;
+	/* +0.125em top / -0.125em bottom optically centres the caps: Apex New's
+	   ascent equals its cap height, so the descent space all sits below. */
+	padding: calc(0.6rem + 0.125em) 1.6rem calc(0.6rem - 0.125em);
 	border-radius: 2rem;
 	text-decoration: none;
 	white-space: nowrap;
@@ -256,7 +258,7 @@ const howItWorksSubmenu = computed(() => [
 	font-size: 0.8rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
-	padding: 0.55rem 1.6rem;
+	padding: calc(0.55rem + 0.125em) 1.6rem calc(0.55rem - 0.125em);
 	border-radius: 2rem;
 	text-decoration: none;
 	white-space: nowrap;

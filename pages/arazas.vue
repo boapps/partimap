@@ -326,7 +326,9 @@ function toggle(plan: string) {
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	text-indent: 0.1em;
-	padding: 0.8rem 2rem 0.62rem;
+	/* +0.125em top / -0.125em bottom optically centres the caps: Apex New's
+	   ascent equals its cap height, so the descent space all sits below. */
+	padding: calc(0.7rem + 0.125em) 2rem calc(0.7rem - 0.125em);
 	border-radius: 2rem;
 	text-decoration: none;
 	text-align: center;
@@ -340,7 +342,7 @@ function toggle(plan: string) {
 }
 .btn-sm {
 	font-size: 0.7rem;
-	padding: 0.55rem 1.5rem;
+	padding: calc(0.55rem + 0.125em) 1.5rem calc(0.55rem - 0.125em);
 }
 
 .text-center { text-align: center; }

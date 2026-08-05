@@ -271,7 +271,9 @@ useHead({
 	font-size: 0.85rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
-	padding: 0.8rem 2.2rem;
+	/* +0.125em top / -0.125em bottom optically centres the caps: Apex New's
+	   ascent equals its cap height, so the descent space all sits below. */
+	padding: calc(0.8rem + 0.125em) 2.2rem calc(0.8rem - 0.125em);
 	border-radius: 2rem;
 	text-decoration: none;
 	border: 1.5px solid #0055FF;

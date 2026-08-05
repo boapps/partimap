@@ -653,6 +653,9 @@ onBeforeUnmount(() => {
 }
 
 /* ── Buttons ──────────────────────────────────────────── */
+/* Apex New's ascent (750) equals its cap height, so all 250 units of descent
+   space sit below the glyphs and centred text reads as too high. The button
+   paddings below correct for that with +0.125em top / -0.125em bottom. */
 .btn-landing {
 	display: inline-block;
 	background: var(--l-blue);
@@ -660,7 +663,7 @@ onBeforeUnmount(() => {
 	font-size: 0.9rem;
 	font-weight: 700;
 	letter-spacing: 0.1em;
-	padding: 1rem 2.5rem;
+	padding: calc(1rem + 0.125em) 2.5rem calc(1rem - 0.125em);
 	border-radius: 2.5rem;
 	text-decoration: none;
 	border: 1.5px solid var(--l-blue);
@@ -677,7 +680,7 @@ onBeforeUnmount(() => {
 	font-size: 0.8rem;
 	font-weight: 700;
 	letter-spacing: 0.1em;
-	padding: 0.7rem 2rem;
+	padding: calc(0.7rem + 0.125em) 2rem calc(0.7rem - 0.125em);
 	border-radius: 2rem;
 	text-decoration: none;
 	transition: background 0.2s, color 0.2s;
@@ -688,7 +691,7 @@ onBeforeUnmount(() => {
 }
 .btn-sm {
 	font-size: 0.7rem;
-	padding: 0.5rem 1.4rem;
+	padding: calc(0.5rem + 0.125em) 1.4rem calc(0.5rem - 0.125em);
 }
 
 /* ── Hero Section ─────────────────────────────────────── */
@@ -1063,7 +1066,7 @@ onBeforeUnmount(() => {
 	font-size: 1.1rem;
 	font-weight: 700;
 	letter-spacing: 0.04em;
-	padding: 0.85rem 2.2rem;
+	padding: calc(0.85rem + 0.125em) 2.2rem calc(0.85rem - 0.125em);
 	border-radius: 2.5rem;
 	text-decoration: none;
 	border: 1.5px solid var(--l-blue);

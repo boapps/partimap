@@ -111,7 +111,9 @@ useHead({
 	font-size: 1.4rem;
 	font-weight: 500;
 	border-radius: 999px;
-	padding: 1.2rem 2.5rem;
+	/* +0.125em top / -0.125em bottom optically centres the caps: Apex New's
+	   ascent equals its cap height, so the descent space all sits below. */
+	padding: calc(1.2rem + 0.125em) 2.5rem calc(1.2rem - 0.125em);
 	display: inline-flex;
 	align-items: center;
 	width: fit-content;
@@ -362,7 +364,7 @@ useHead({
 		grid-template-columns: 1fr;
 		text-align: center;
 	}
-	.ap-pill { font-size: 1.1rem; padding: 1rem 2rem; }
+	.ap-pill { font-size: 1.1rem; padding: calc(1rem + 0.125em) 2rem calc(1rem - 0.125em); }
 	.why-side-arrow { display: none; }
 
 	.ap-hero-inner {

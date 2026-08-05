@@ -10,7 +10,15 @@ const router = useRouter();
 const { t } = useI18n();
 
 const section = computed(() => getHelpSection(props.section));
-const otherSections = computed(() => helpSections.filter((s) => s.slug !== props.section));
+
+const sections = helpSections;
+// The section we are on starts open, the others can be unfolded in place.
+const expanded = ref<string[]>([props.section]);
+function toggle(slug: string) {
+	expanded.value = expanded.value.includes(slug)
+		? expanded.value.filter((s) => s !== slug)
+		: [...expanded.value, slug];
+}
 
 // The hash is not sent to the server, so the first page is rendered on SSR and
 // the hash is applied once we are on the client.
@@ -52,31 +60,55 @@ useHead({
 		<section class="help-section">
 			<div class="help-inner">
 				<aside class="help-sidebar">
-					<h2 class="help-sidebar-title">{{ section.title }}</h2>
-					<ul>
+					<h2 class="help-sidebar-title">{{ t('helpPage.topics') }}</h2>
+					<ul class="help-tree">
 						<li
-							v-for="page in section.pages"
-							:key="page.slug"
+							v-for="s in sections"
+							:key="s.slug"
+							class="help-tree-section"
 						>
-							<a
-								:class="{ active: activeSlug === page.slug }"
-								:href="`#${page.slug}`"
-								@click.prevent="selectPage(page.slug)"
+							<button
+								:aria-expanded="expanded.includes(s.slug)"
+								:class="{ current: s.slug === props.section }"
+								class="help-tree-toggle"
+								type="button"
+								@click="toggle(s.slug)"
 							>
-								{{ page.title }}
-							</a>
-						</li>
-					</ul>
+								<i
+									aria-hidden="true"
+									class="fas fa-chevron-right help-tree-chevron"
+									:class="{ open: expanded.includes(s.slug) }"
+								/>
+								<span>{{ s.title }}</span>
+							</button>
 
-					<h3 class="help-sidebar-subtitle">{{ t('helpPage.topics') }}</h3>
-					<ul>
-						<li
-							v-for="other in otherSections"
-							:key="other.slug"
-						>
-							<NuxtLink :to="localePath({ name: other.route })">
-								{{ other.title }}
-							</NuxtLink>
+							<ul
+								v-show="expanded.includes(s.slug)"
+								class="help-tree-pages"
+							>
+								<li
+									v-for="page in s.pages"
+									:key="page.slug"
+								>
+									<a
+										v-if="s.slug === props.section"
+										:class="{ active: activeSlug === page.slug }"
+										:href="`#${page.slug}`"
+										@click.prevent="selectPage(page.slug)"
+									>
+										{{ page.title }}
+									</a>
+									<NuxtLink
+										v-else
+										:to="{
+											path: localePath({ name: s.route }),
+											hash: `#${page.slug}`,
+										}"
+									>
+										{{ page.title }}
+									</NuxtLink>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</aside>
@@ -146,24 +178,19 @@ useHead({
 }
 
 .help-sidebar {
+	max-height: calc(100vh - 8rem);
+	overflow-y: auto;
 	position: sticky;
 	top: 6rem;
 }
 .help-sidebar-title {
-	color: #0055FF;
-	font-size: 1.25rem;
-	font-weight: 700;
-	line-height: 1.3;
-	margin-bottom: 1.25rem;
-}
-.help-sidebar-subtitle {
-	border-top: 1px solid rgba(0, 85, 255, 0.25);
+	border-bottom: 1px solid rgba(0, 85, 255, 0.25);
 	color: #0055FF;
 	font-size: 0.75rem;
 	font-weight: 700;
 	letter-spacing: 0.1em;
-	margin: 1.5rem 0 0.75rem;
-	padding-top: 1.25rem;
+	margin-bottom: 1rem;
+	padding-bottom: 0.75rem;
 	text-transform: uppercase;
 }
 .help-sidebar ul {
@@ -171,15 +198,56 @@ useHead({
 	margin: 0;
 	padding: 0;
 }
-.help-sidebar a {
+
+.help-tree-section + .help-tree-section {
+	margin-top: 0.2rem;
+}
+.help-tree-toggle {
+	align-items: flex-start;
+	background: none;
+	border: 0;
 	border-radius: 8px;
+	color: #0055FF;
+	display: flex;
+	font-family: inherit;
+	font-size: 0.9rem;
+	font-weight: 500;
+	gap: 0.5rem;
+	line-height: 1.35;
+	padding: 0.5rem 0.6rem;
+	text-align: left;
+	transition: background 0.15s;
+	width: 100%;
+}
+.help-tree-toggle:hover {
+	background: rgba(0, 85, 255, 0.08);
+}
+.help-tree-toggle.current {
+	font-weight: 700;
+}
+.help-tree-chevron {
+	flex: none;
+	font-size: 0.6rem;
+	margin-top: 0.3rem;
+	transition: transform 0.15s;
+}
+.help-tree-chevron.open {
+	transform: rotate(90deg);
+}
+
+.help-sidebar .help-tree-pages {
+	border-left: 1px solid rgba(0, 85, 255, 0.25);
+	margin: 0.2rem 0 0.6rem 1.1rem;
+}
+.help-sidebar a {
+	border-radius: 0 8px 8px 0;
 	color: #333;
 	display: block;
-	font-size: 0.85rem;
+	font-size: 0.8rem;
 	font-weight: 500;
 	line-height: 1.4;
-	margin-bottom: 0.3rem;
-	padding: 0.55rem 0.8rem;
+	margin-bottom: 0.15rem;
+	padding: 0.45rem 0.8rem;
 	text-decoration: none;
 	transition: background 0.15s, color 0.15s;
 }
@@ -386,6 +454,8 @@ useHead({
 		grid-template-columns: 1fr;
 	}
 	.help-sidebar {
+		max-height: none;
+		overflow-y: visible;
 		position: static;
 	}
 }

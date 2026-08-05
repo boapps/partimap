@@ -1224,7 +1224,12 @@ onBeforeUnmount(() => {
 	margin-bottom: 1rem;
 }
 .stat-item {
-	width: 22rem;
+	/* Cap the text column, but never exceed the grid track: a fixed width
+	   overflows the viewport on narrow screens. */
+	width: 100%;
+	max-width: 22rem;
+	margin: 0 auto;
+	overflow-wrap: break-word;
 }
 .stat-item h4 {
 	color: var(--l-blue);
@@ -1869,8 +1874,6 @@ onBeforeUnmount(() => {
 	.hero-scroll { text-align: center; padding-left: 0; }
 	.feat-grid { grid-template-columns: 1fr; }
 	.stats-grid { grid-template-columns: 1fr; gap: 3rem; }
-	/* Single column: center the fixed-width stat items in the column. */
-	.stat-item { justify-self: center; }
 	.news-grid { grid-template-columns: 1fr; }
 	.helpl-grid { grid-template-columns: 1fr; gap: 3rem; }
 	.footer-grid { grid-template-columns: repeat(2, 1fr); }

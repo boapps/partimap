@@ -40,7 +40,7 @@ const howItWorksSubmenu = computed(() => [
 				</NuxtLink>
 				<div class="nav-dropdown">
 					<NuxtLink :to="localePath({ name: 'sugo' })" class="nav-link-item nav-dropdown-toggle">
-						{{ t('landing.nav.aboutUs') }}
+						<span class="nav-dropdown-label">{{ t('landing.nav.aboutUs') }}</span>
 						<span class="nav-dropdown-caret" aria-hidden="true">▾</span>
 					</NuxtLink>
 					<div class="nav-dropdown-menu">
@@ -59,7 +59,7 @@ const howItWorksSubmenu = computed(() => [
 				</NuxtLink>
 				<div class="nav-dropdown">
 					<button type="button" class="nav-link-item nav-dropdown-toggle nav-dropdown-btn">
-						{{ t('landing.nav.contact') }}
+						<span class="nav-dropdown-label">{{ t('landing.nav.contact') }}</span>
 						<span class="nav-dropdown-caret" aria-hidden="true">▾</span>
 					</button>
 					<div class="nav-dropdown-menu">
@@ -169,7 +169,18 @@ const howItWorksSubmenu = computed(() => [
 	font-family: inherit;
 	cursor: pointer;
 }
+/* Underline the label only, never the caret: the caret's 180° rotation would
+   flip an inherited underline above the arrow. */
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle:focus-visible {
+	text-decoration: none;
+}
+.nav-dropdown-toggle:hover .nav-dropdown-label,
+.nav-dropdown-toggle:focus-visible .nav-dropdown-label {
+	text-decoration: underline;
+}
 .nav-dropdown-caret {
+	display: inline-block;
 	font-size: 0.65rem;
 	line-height: 1;
 	transition: transform 0.2s ease;

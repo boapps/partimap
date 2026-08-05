@@ -7,14 +7,8 @@ defineI18nRoute({
 		de: '/hilfe/erstellen',
 	},
 });
-
-const { t } = useI18n();
-
-useHead({
-	title: t('helpPage.topic.maps'),
-});
 </script>
 
 <template>
-	<HelpTopics initial-topic="maps" />
+	<HelpSection section="keszites" />
 </template>

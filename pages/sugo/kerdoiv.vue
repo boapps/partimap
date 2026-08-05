@@ -7,14 +7,8 @@ defineI18nRoute({
 		de: '/hilfe/fragebogen',
 	},
 });
-
-const { t } = useI18n();
-
-useHead({
-	title: t('helpPage.topic.newQuestionnaire'),
-});
 </script>
 
 <template>
-	<HelpTopics initial-topic="newQuestionnaire" />
+	<HelpSection section="kerdoiv" />
 </template>

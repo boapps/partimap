@@ -9,13 +9,16 @@ withDefaults(
 	{ showSearch: false },
 );
 
-// "HOGYAN MŰKÖDIK" dropdown items. "create" leads the list and points to the
-// main Súgó page; the rest link to their matching Súgó subpage.
+// "HOGYAN MŰKÖDIK" dropdown items. "whatIs" leads the list and points to the
+// PARTIMAP intro page; the rest link to their matching Súgó section.
 const howItWorksSubmenu = computed(() => [
-	{ key: 'create', to: localePath({ name: 'sugo' }) },
-	{ key: 'plan', to: localePath({ name: 'partimaprol' }) },
-	{ key: 'questionnaire', to: localePath({ name: 'sugo-kerdoiv' }) },
+	{ key: 'whatIs', to: localePath({ name: 'partimaprol' }) },
+	{ key: 'respondents', to: localePath({ name: 'sugo-kitoltoknek' }) },
+	{ key: 'create', to: localePath({ name: 'sugo-keszites' }) },
 	{ key: 'analyze', to: localePath({ name: 'sugo-elemzes' }) },
+	{ key: 'plan', to: localePath({ name: 'sugo-projekt' }) },
+	{ key: 'questionnaire', to: localePath({ name: 'sugo-kerdoiv' }) },
+	{ key: 'methodology', to: localePath({ name: 'sugo-modszertan' }) },
 ]);
 </script>
 

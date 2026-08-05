@@ -85,6 +85,8 @@ export default {
 				questionnaire: 'Cum să scrii un chestionar?',
 				create: 'Cum să creezi un Partimap?',
 				analyze: 'Cum să analizezi datele obținute?',
+				respondents: 'Ajutor pentru completarea chestionarului',
+				methodology: 'Metodologia participativă PARTIMAP',
 			},
 			rolunk: 'DESPRE NOI',
 			aboutUs: 'CUM FUNCȚIONEAZĂ',

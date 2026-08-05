@@ -86,6 +86,8 @@ export default {
 				questionnaire: 'Cómo escribir un cuestionario',
 				create: 'Cómo crear un Partimap',
 				analyze: 'Cómo analizar los datos recopilados',
+				respondents: 'Ayuda para rellenar el cuestionario',
+				methodology: 'Metodología participativa de PARTIMAP',
 			},
 			rolunk: 'SOBRE NOSOTROS',
 			aboutUs: 'CÓMO FUNCIONA',

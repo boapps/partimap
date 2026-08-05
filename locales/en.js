@@ -84,6 +84,8 @@ export default {
 				questionnaire: 'How to write a questionnaire',
 				create: 'How to create a Partimap',
 				analyze: 'How to analyze the collected data',
+				respondents: 'Help for questionnaire respondents',
+				methodology: 'PARTIMAP participatory methodology',
 			},
 			rolunk: 'ABOUT US',
 			aboutUs: 'HOW IT WORKS',

@@ -85,6 +85,8 @@ export default {
 				questionnaire: 'Hogyan írj kérdőívet?',
 				create: 'Hogyan csinálj Partimapot?',
 				analyze: 'Hogyan elemezd a kapott adatokat?',
+				respondents: 'Segítség kérdőív kitöltőknek',
+				methodology: 'PARTIMAP részvételi módszertana',
 			},
 			rolunk: 'RÓLUNK',
 			aboutUs: 'HOGYAN MŰKÖDIK',

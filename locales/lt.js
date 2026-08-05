@@ -84,6 +84,8 @@ export default {
 				questionnaire: 'Kaip parašyti klausimyną',
 				create: 'Kaip sukurti Partimap',
 				analyze: 'Kaip analizuoti surinktus duomenis',
+				respondents: 'Pagalba pildantiems klausimyną',
+				methodology: 'PARTIMAP dalyvaujamoji metodika',
 			},
 			rolunk: 'APIE MUS',
 			aboutUs: 'KAIP VEIKIA',

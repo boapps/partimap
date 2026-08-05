@@ -86,6 +86,8 @@ export default {
 				questionnaire: 'Wie man einen Fragebogen schreibt',
 				create: 'Wie man eine Partimap erstellt',
 				analyze: 'Wie man die gesammelten Daten analysiert',
+				respondents: 'Hilfe zum Ausfüllen des Fragebogens',
+				methodology: 'Partizipative Methodik von PARTIMAP',
 			},
 			rolunk: 'ÜBER UNS',
 			aboutUs: 'WIE ES FUNKTIONIERT',

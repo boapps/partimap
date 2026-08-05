@@ -351,7 +351,9 @@ export default {
 	helpPage: {
 		title: 'Súgó',
 		topics: 'Témák',
-		fullGuide: 'Teljes útmutató megnyitása →',
+		search: 'Keresés a súgóban',
+		clearSearch: 'Keresés törlése',
+		noResults: 'Nincs találat erre: „{query}”',
 		topic: {
 			registration: 'Regisztráció',
 			newQuestionnaire: 'Új kérdőív létrehozása és korábbiak kezelése',

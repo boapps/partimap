@@ -350,7 +350,9 @@ export default {
 	helpPage: {
 		title: 'Pagalba',
 		topics: 'Temos',
-		fullGuide: 'Atverti visą vadovą →',
+		search: 'Ieškoti pagalboje',
+		clearSearch: 'Išvalyti paiešką',
+		noResults: 'Nėra rezultatų pagal „{query}“',
 		topic: {
 			registration: 'Registracija',
 			newQuestionnaire: 'Naujos apklausos kūrimas ir esamų tvarkymas',

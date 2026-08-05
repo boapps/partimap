@@ -350,7 +350,9 @@ export default {
 	helpPage: {
 		title: 'Help',
 		topics: 'Topics',
-		fullGuide: 'Open full guide →',
+		search: 'Search the help',
+		clearSearch: 'Clear search',
+		noResults: 'No results for “{query}”',
 		topic: {
 			registration: 'Registration',
 			newQuestionnaire: 'Creating a new survey and managing existing ones',

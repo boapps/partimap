@@ -351,7 +351,9 @@ export default {
 	helpPage: {
 		title: 'Ajutor',
 		topics: 'Subiecte',
-		fullGuide: 'Deschide ghidul complet →',
+		search: 'Caută în ajutor',
+		clearSearch: 'Șterge căutarea',
+		noResults: 'Niciun rezultat pentru „{query}”',
 		topic: {
 			registration: 'Înregistrare',
 			newQuestionnaire: 'Crearea unui chestionar nou și gestionarea celor existente',

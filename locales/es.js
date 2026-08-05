@@ -352,7 +352,9 @@ export default {
 	helpPage: {
 		title: 'Ayuda',
 		topics: 'Temas',
-		fullGuide: 'Abrir la guía completa →',
+		search: 'Buscar en la ayuda',
+		clearSearch: 'Borrar la búsqueda',
+		noResults: 'Sin resultados para «{query}»',
 		topic: {
 			registration: 'Registro',
 			newQuestionnaire: 'Crear una nueva encuesta y gestionar las existentes',

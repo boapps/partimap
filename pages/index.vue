@@ -1,10 +1,22 @@
 <script setup lang="ts">
 const localePath = useLocalePath();
-const { t } = useI18n();
+const { t, locale, locales } = useI18n();
 
 useHead({
 	title: t('landing.title'),
 });
+
+// news dates are not translatable, they are formatted with the active locale
+const newsDates = ['2025-07-15', '2025-05-21', '2025-02-06'];
+
+const newsDateFormat = computed(() => {
+	const language = locales.value.find(l => l.code === locale.value)?.language || locale.value;
+	return new Intl.DateTimeFormat(language, { year: 'numeric', month: 'long', day: 'numeric' });
+});
+
+function formatNewsDate(n: number) {
+	return newsDateFormat.value.format(new Date(newsDates[n - 1]));
+}
 
 const activePopup = ref<number | null>(null);
 const activeFeature = ref<number | null>(null);
@@ -423,7 +435,7 @@ onBeforeUnmount(() => {
 				<p class="sec-desc">{{ t('landing.news.desc') }}</p>
 				<div class="news-grid">
 					<div v-for="n in 3" :key="n" class="news-card">
-						<span class="news-date">{{ t(`landing.news.news${n}Date`) }}</span>
+						<span class="news-date">{{ formatNewsDate(n) }}</span>
 						<h4>{{ t(`landing.news.news${n}Title`) }}</h4>
 						<p>{{ t(`landing.news.news${n}Desc`) }}</p>
 						<a

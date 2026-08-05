@@ -754,7 +754,7 @@ onBeforeUnmount(() => {
 	z-index: 2;
 	pointer-events: none;
 	transform-origin: center center;
-	animation: spin 30s linear infinite;
+	animation: spin 30s linear infinite reverse;
 }
 @media (prefers-reduced-motion: reduce) {
 	.rotating-svg { animation: none; }

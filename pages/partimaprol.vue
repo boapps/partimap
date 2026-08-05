@@ -23,9 +23,9 @@ useHead({
 			<!-- <div class="ap-blob ap-blob-hero-bl" aria-hidden="true" /> -->
 			<img src="/map.webp" alt="" class="ap-map" aria-hidden="true" />
 			<div class="ap-hero-inner">
-				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-1">{{ t('aboutPartimap.q1') }}</NuxtLink>
-				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-2">{{ t('aboutPartimap.q2') }}</NuxtLink>
-				<NuxtLink :to="localePath({ name: 'sugo' })" class="ap-pill ap-pill-3">{{ t('aboutPartimap.q3') }}</NuxtLink>
+				<NuxtLink :to="localePath({ path: '/sugo/projekt' })" class="ap-pill ap-pill-1">{{ t('aboutPartimap.q1') }}</NuxtLink>
+				<NuxtLink :to="localePath({ path: '/sugo/modszertan' })" class="ap-pill ap-pill-2">{{ t('aboutPartimap.q2') }}</NuxtLink>
+				<NuxtLink :to="localePath({ path: '/sugo/kerdoiv' })" class="ap-pill ap-pill-3">{{ t('aboutPartimap.q3') }}</NuxtLink>
 			</div>
 		</section>
 
@@ -81,7 +81,7 @@ useHead({
 
 <style scoped>
 #details {
-	margin-top: -5rem;
+	margin-top: -4rem;
 }
 
 .ap-hero {
@@ -280,7 +280,7 @@ useHead({
 .agc-6 { width: 126px; height: 126px; background-image: url('/whatis/markus-spiske-3IEOdMrSfU8-unsplash.jpg'); }
 .agc-3 { width: 240px; height: 240px; background-image: url('/whatis/nhi-d-hfhra5dsnXg-unsplash.jpg'); }
 .agc-4 { width: 184px; height: 184px; background-image: url('/whatis/patrick-perkins-ETRPjvb0KM0-unsplash.jpg'); }
-.agc-5 { width: 256px; height: 256px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
+.agc-5 { width: 300px; height: 300px; background-image: url('/whatis/30f6fc00-bf37-40e2-8b20-4c2c74e027dd.png'); }
 
 /* Desktop: scatter the photo circles like the rólunk page */
 @media (min-width: 1500px) {
@@ -293,11 +293,11 @@ useHead({
 	.ap-gallery-circle {
 		position: absolute;
 	}
-	.agc-1 { left: -26%; top: -150px; }
+	.agc-1 { left: -10%; top: -85px; }
 	.agc-3 { left: 46%; top: -100px; }
 	.agc-5 { left: 60%; top: 150px; }
 	.agc-2 { left: 25%; top: 100px; }
-	.agc-6 { left: 5%; top: 80px; }
+	.agc-6 { left: 25%; top: -80px; }
 	.agc-4 { left: 36%; top: 305px; }
 }
 

@@ -219,7 +219,7 @@ const howItWorksSubmenu = computed(() => [
 .nav-btn-filled {
 	background: var(--l-blue);
 	color: #fff !important;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	padding: 0.6rem 1.6rem;

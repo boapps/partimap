@@ -908,7 +908,12 @@ onBeforeUnmount(() => {
 	z-index: 5;
 	animation: scrollBlink 1.8s ease-in-out infinite;
 }
-.hero-scroll-indicator:hover { opacity: 1; }
+/* The global a:hover underline would draw a line under the chevron glyph. */
+.hero-scroll-indicator:hover,
+.hero-scroll-indicator:focus-visible {
+	opacity: 1;
+	text-decoration: none;
+}
 .hero-scroll-mouse {
 	width: 24px;
 	height: 38px;

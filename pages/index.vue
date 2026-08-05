@@ -597,6 +597,12 @@ onBeforeUnmount(() => {
 	font-weight: 500;
 	margin-bottom: 1.5rem;
 	line-height: 1.15;
+	/* Long compounds (e.g. German "Anwendungsmöglichkeiten") are wider than a
+	   narrow phone viewport at the clamp minimum: hyphenate per html[lang],
+	   and hard-break if there is still no valid break point. */
+	-webkit-hyphens: auto;
+	hyphens: auto;
+	overflow-wrap: break-word;
 }
 .sec-sub {
 	font-size: 0.9rem;

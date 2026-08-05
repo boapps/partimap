@@ -100,6 +100,7 @@ export default {
 			login: 'LOGIN / REGISTER',
 			help: 'HELP',
 			search: 'Search',
+			menu: 'Menu',
 		},
 		hero: {
 			tagline: 'Citizen<br>engagement<br>made easy!',

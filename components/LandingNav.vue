@@ -20,6 +20,22 @@ const howItWorksSubmenu = computed(() => [
 	{ key: 'questionnaire', to: localePath({ name: 'sugo-kerdoiv' }) },
 	{ key: 'methodology', to: localePath({ name: 'sugo-modszertan' }) },
 ]);
+
+const contactSubmenu = computed(() => [
+	{ key: 'rolunk', to: localePath({ name: 'rolunk' }) },
+	{ key: 'impresszum', to: localePath({ name: 'impresszum' }) },
+]);
+
+// Below the lg breakpoint the horizontal links do not fit, so they move into
+// this collapsible panel.
+const menuOpen = ref(false);
+const route = useRoute();
+watch(
+	() => route.fullPath,
+	() => {
+		menuOpen.value = false;
+	},
+);
 </script>
 
 <template>
@@ -63,11 +79,13 @@ const howItWorksSubmenu = computed(() => [
 						<span class="nav-dropdown-caret" aria-hidden="true">▾</span>
 					</button>
 					<div class="nav-dropdown-menu">
-						<NuxtLink :to="localePath({ name: 'rolunk' })" class="nav-dropdown-item">
-							{{ t('landing.nav.contactSubmenu.rolunk') }}
-						</NuxtLink>
-						<NuxtLink :to="localePath({ name: 'impresszum' })" class="nav-dropdown-item">
-							{{ t('landing.nav.contactSubmenu.impresszum') }}
+						<NuxtLink
+							v-for="item in contactSubmenu"
+							:key="item.key"
+							:to="item.to"
+							class="nav-dropdown-item"
+						>
+							{{ t(`landing.nav.contactSubmenu.${item.key}`) }}
 						</NuxtLink>
 					</div>
 				</div>
@@ -80,13 +98,74 @@ const howItWorksSubmenu = computed(() => [
 
 			<b-navbar-nav class="nav-right">
 				<LangSwitcher />
-				<li class="nav-item nav-login-item">
+				<li class="nav-item nav-login-item d-none d-lg-block">
 					<NuxtLink :to="localePath('/admin')" class="nav-btn-outline">
 						{{ t('landing.nav.login') }}
 					</NuxtLink>
 				</li>
 			</b-navbar-nav>
+
+			<button
+				type="button"
+				class="nav-toggle d-lg-none"
+				:aria-label="t('landing.nav.menu')"
+				aria-controls="landing-nav-menu"
+				:aria-expanded="menuOpen"
+				@click="menuOpen = !menuOpen"
+			>
+				<i class="fas" :class="menuOpen ? 'fa-times' : 'fa-bars'" />
+			</button>
 		</div>
+
+		<Transition name="nav-panel">
+			<div v-show="menuOpen" id="landing-nav-menu" class="nav-panel d-lg-none">
+				<div v-if="showSearch" class="nav-panel-search">
+					<i class="fas fa-search" />
+					<input type="text" :placeholder="t('landing.nav.search')" />
+				</div>
+
+				<NuxtLink :to="localePath({ name: 'partimaprol' })" class="nav-panel-link">
+					{{ t('landing.nav.about') }}
+				</NuxtLink>
+
+				<NuxtLink :to="localePath({ name: 'sugo' })" class="nav-panel-link">
+					{{ t('landing.nav.aboutUs') }}
+				</NuxtLink>
+				<NuxtLink
+					v-for="item in howItWorksSubmenu"
+					:key="item.key"
+					:to="item.to"
+					class="nav-panel-link nav-panel-sublink"
+				>
+					{{ t(`landing.nav.aboutSubmenu.${item.key}`) }}
+				</NuxtLink>
+
+				<NuxtLink :to="localePath({ name: 'arazas' })" class="nav-panel-link">
+					{{ t('landing.nav.pricing') }}
+				</NuxtLink>
+
+				<span class="nav-panel-link nav-panel-heading">{{ t('landing.nav.contact') }}</span>
+				<NuxtLink
+					v-for="item in contactSubmenu"
+					:key="item.key"
+					:to="item.to"
+					class="nav-panel-link nav-panel-sublink"
+				>
+					{{ t(`landing.nav.contactSubmenu.${item.key}`) }}
+				</NuxtLink>
+
+				<div class="nav-panel-actions">
+					<a
+						:href="t('landing.tryLink')"
+						target="_blank"
+						class="nav-btn-filled"
+					>{{ t('landing.nav.tryIt') }}</a>
+					<NuxtLink :to="localePath('/admin')" class="nav-btn-outline">
+						{{ t('landing.nav.login') }}
+					</NuxtLink>
+				</div>
+			</div>
+		</Transition>
 	</nav>
 </template>
 
@@ -279,8 +358,99 @@ const howItWorksSubmenu = computed(() => [
 	color: #fff;
 }
 
+.nav-toggle {
+	background: none;
+	border: none;
+	padding: 0.25rem 0;
+	margin-left: 0;
+	color: var(--l-blue);
+	font-size: 1.35rem;
+	line-height: 1;
+	cursor: pointer;
+}
+.nav-panel {
+	max-width: 1200px;
+	margin: 1rem auto 0;
+	display: flex;
+	flex-direction: column;
+	background: rgba(255, 255, 255, 0.96);
+	backdrop-filter: blur(8px);
+	border: 1.5px solid var(--l-blue);
+	border-radius: 12px;
+	padding: 0.5rem 0;
+	box-shadow: 0 8px 24px rgba(0, 85, 255, 0.12);
+	/* The bar is fixed, so a long panel needs its own scroll area. */
+	max-height: calc(100vh - 6rem);
+	overflow-y: auto;
+}
+.nav-panel-link {
+	padding: 0.6rem 1.1rem;
+	color: var(--l-blue);
+	font-size: 0.85rem;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	line-height: 1.35;
+}
+a.nav-panel-link:hover {
+	background: rgba(0, 85, 255, 0.08);
+	text-decoration: none;
+}
+.nav-panel-heading {
+	cursor: default;
+}
+.nav-panel-sublink {
+	padding-left: 2rem;
+	font-weight: 400;
+	letter-spacing: 0;
+}
+.nav-panel-search {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	margin: 0.25rem 1.1rem 0.5rem;
+	background: rgba(255, 255, 255, 0.6);
+	border: 1px solid var(--l-blue);
+	border-radius: 2rem;
+	padding: 0.5rem 1.1rem;
+}
+.nav-panel-search i {
+	color: var(--l-blue);
+	font-size: 0.8rem;
+}
+.nav-panel-search input {
+	flex: 1;
+	min-width: 0;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-family: var(--l-font);
+	font-size: 0.85rem;
+	color: var(--l-text);
+}
+.nav-panel-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	padding: 0.75rem 1.1rem 0.25rem;
+}
+.nav-panel-enter-active,
+.nav-panel-leave-active {
+	transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.nav-panel-enter-from,
+.nav-panel-leave-to {
+	opacity: 0;
+	transform: translateY(-4px);
+}
+
 @media (max-width: 575px) {
 	.landing-nav { padding: 0.75rem 1rem; }
 	.nav-right { gap: 0.5rem; }
+	.nav-panel-actions .nav-btn-filled,
+	.nav-panel-actions .nav-btn-outline {
+		flex: 1;
+		text-align: center;
+	}
 }
 </style>

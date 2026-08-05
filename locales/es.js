@@ -102,6 +102,7 @@ export default {
 			login: 'ENTRAR / REGISTRARSE',
 			help: 'AYUDA',
 			search: 'Buscar',
+			menu: 'Menú',
 		},
 		hero: {
 			tagline: '¡Participación<br>ciudadana<br>fácil!',

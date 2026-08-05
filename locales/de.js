@@ -102,6 +102,7 @@ export default {
 			login: 'ANMELDEN / REGISTRIEREN',
 			help: 'HILFE',
 			search: 'Suche',
+			menu: 'Menü',
 		},
 		hero: {
 			tagline: 'Bürgerbeteiligung<br>leicht<br>gemacht!',

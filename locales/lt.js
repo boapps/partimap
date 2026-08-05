@@ -100,6 +100,7 @@ export default {
 			login: 'PRISIJUNGTI / REGISTRUOTIS',
 			help: 'PAGALBA',
 			search: 'Paieška',
+			menu: 'Meniu',
 		},
 		hero: {
 			tagline: 'Piliečių<br>dalyvavimas<br>lengvai!',

@@ -101,6 +101,7 @@ export default {
 			login: 'BELÉPÉS / REGISZTRÁCIÓ',
 			help: 'SÚGÓ',
 			search: 'Keresés',
+			menu: 'Menü',
 		},
 		hero: {
 			tagline: 'Lakossági<br>bevonás<br>könnyedén!',

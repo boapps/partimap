@@ -101,6 +101,7 @@ export default {
 			login: 'AUTENTIFICARE / ÎNREGISTRARE',
 			help: 'AJUTOR',
 			search: 'Căutare',
+			menu: 'Meniu',
 		},
 		hero: {
 			tagline: 'Implicare<br>cetățenească<br>cu ușurință!',

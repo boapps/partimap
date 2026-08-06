@@ -605,13 +605,13 @@ onBeforeUnmount(() => {
 	overflow-wrap: break-word;
 }
 .sec-sub {
-	font-size: 0.9rem;
+	font-size: 1.05rem;
 	opacity: 0.7;
 	font-weight: 500;
 	margin-bottom: 3rem;
 }
 .sec-desc {
-	font-size: 0.9rem;
+	font-size: 1.05rem;
 	line-height: 1.7;
 	opacity: 0.8;
 	font-weight: 500;
@@ -834,12 +834,12 @@ onBeforeUnmount(() => {
 }
 .hero-feat h3 {
 	color: var(--l-blue);
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	font-weight: 400;
 	margin-bottom: 0.3rem;
 }
 .hero-feat p {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font-weight: 500;
 	opacity: 0.7;
 	margin: 0;
@@ -1037,12 +1037,12 @@ onBeforeUnmount(() => {
 }
 .feat-card h4 {
 	color: var(--l-blue);
-	font-size: 1rem;
+	font-size: 1.15rem;
 	font-weight: 400;
 	margin-bottom: 0.3rem;
 }
 .feat-card p {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	opacity: 0.7;
 	font-weight: 500;
 	margin: 0 0 0.8rem 0;
@@ -1077,7 +1077,7 @@ onBeforeUnmount(() => {
 	gap: 0.6rem;
 }
 .why-contact-label {
-	font-size: 0.95rem;
+	font-size: 1.05rem;
 	color: var(--l-text);
 	opacity: 0.8;
 	font-weight: 500;
@@ -1166,13 +1166,14 @@ onBeforeUnmount(() => {
 }
 .example-card h4 {
 	color: var(--l-blue);
-	font-size: 0.95rem;
+	font-size: 1.15rem;
 	font-weight: 500;
 	margin: 0;
 	line-height: 1.3;
 }
 .example-card p {
-	font-size: 0.8rem;
+	font-size: 0.95rem;
+	line-height: 1.6;
 	opacity: 0.7;
 	font-weight: 500;
 	margin: 0;
@@ -1233,13 +1234,14 @@ onBeforeUnmount(() => {
 }
 .stat-item h4 {
 	color: var(--l-blue);
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	font-weight: 400;
 	letter-spacing: 0.05em;
 	margin-bottom: 1.5rem;
 }
 .stat-item p {
-	font-size: 0.8rem;
+	font-size: 0.95rem;
+	line-height: 1.6;
 	font-weight: 500;
 }
 
@@ -1346,20 +1348,20 @@ onBeforeUnmount(() => {
 }
 .map-popup-close:hover { color: #0055FF; }
 .map-popup-title {
-	font-size: 1.05rem;
+	font-size: 1.15rem;
 	font-weight: 700;
 	color: #0055FF;
 	margin: 0 1.2rem 0.5rem 0;
 	line-height: 1.3;
 }
 .map-popup-desc {
-	font-size: 0.875rem;
+	font-size: 0.95rem;
 	color: #444;
 	margin: 0;
 	line-height: 1.55;
 }
 .map-popup-author {
-	font-size: 0.8rem;
+	font-size: 0.85rem;
 	font-weight: 600;
 	color: #0055FF;
 	margin: 0.6rem 0 0;
@@ -1431,7 +1433,7 @@ onBeforeUnmount(() => {
 	line-height: 1.25;
 }
 .feature-modal-body {
-	font-size: 0.9rem;
+	font-size: 1.05rem;
 	color: #444;
 	line-height: 1.7;
 }
@@ -1475,14 +1477,14 @@ onBeforeUnmount(() => {
 }
 .news-card h4 {
 	color: var(--l-blue);
-	font-size: 1rem;
+	font-size: 1.15rem;
 	font-weight: 400;
 	line-height: 1.3;
 	min-height: 2.6em;
 	margin-bottom: 1rem;
 }
 .news-card p {
-	font-size: 0.8rem;
+	font-size: 0.95rem;
 	line-height: 1.7;
 	font-weight: 500;
 	opacity: 0.8;
@@ -1544,12 +1546,12 @@ onBeforeUnmount(() => {
 }
 .helpl-card h4 {
 	color: var(--l-blue);
-	font-size: 0.95rem;
+	font-size: 1.15rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
 }
 .helpl-card p {
-	font-size: 0.8rem;
+	font-size: 0.95rem;
 	line-height: 1.7;
 	opacity: 0.8;
 	margin-bottom: 1.5rem;
@@ -1657,7 +1659,7 @@ onBeforeUnmount(() => {
 .funding-text {
 	flex: 1;
 	min-width: 280px;
-	font-size: 0.8rem;
+	font-size: 0.95rem;
 	line-height: 1.7;
 	opacity: 0.8;
 	font-weight: 500;
@@ -1688,12 +1690,12 @@ onBeforeUnmount(() => {
 }
 .footer-col h5 {
 	color: var(--l-blue);
-	font-size: 0.85rem;
+	font-size: 0.95rem;
 	font-weight: 700;
 	margin-bottom: 0.8rem;
 }
 .footer-desc {
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	line-height: 1.6;
 	opacity: 0.8;
 	font-weight: 500;
@@ -1705,7 +1707,7 @@ onBeforeUnmount(() => {
 	margin: 0;
 }
 .footer-col li {
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	opacity: 0.7;
 	margin-bottom: 0.3rem;
 }
@@ -1721,7 +1723,7 @@ onBeforeUnmount(() => {
 }
 .footer-copy {
 	text-align: center;
-	font-size: 0.75rem;
+	font-size: 0.85rem;
 	opacity: 0.6;
 }
 
@@ -1902,8 +1904,8 @@ onBeforeUnmount(() => {
 	.map-dot-4,
 	.map-dot-5 { width: 60px; height: 60px; }
 	.map-popup { width: 160px; padding: 0.7rem 0.8rem 0.65rem; }
-	.map-popup-title { font-size: 0.8rem; margin-right: 1rem; }
-	.map-popup-desc { font-size: 0.7rem; }
+	.map-popup-title { font-size: 0.9rem; margin-right: 1rem; }
+	.map-popup-desc { font-size: 0.8rem; }
 	/* Popups positioned to the right of the dot would overflow — flip them
 	   to sit below-left, anchored within the map bounds */
 	.map-popup-1 { top: calc(8% + 65px); left: 0; }

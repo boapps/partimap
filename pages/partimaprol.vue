@@ -174,7 +174,7 @@ useHead({
 	margin-bottom: 1.2rem;
 }
 .ap-block p {
-	font-size: 0.9rem;
+	font-size: 1.1rem;
 	line-height: 1.75;
 	color: #333;
 	opacity: 0.9;

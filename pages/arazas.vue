@@ -183,7 +183,7 @@ function toggle(plan: string) {
 	margin-bottom: 1.2rem;
 }
 .pricing-intro p {
-	font-size: 0.85rem;
+	font-size: 1.05rem;
 	line-height: 1.7;
 	opacity: 0.85;
 	margin-bottom: 1rem;
@@ -219,7 +219,7 @@ function toggle(plan: string) {
 }
 .plan-head p {
 	font-family: 'Apex New', 'Segoe UI', sans-serif;
-	font-size: 0.8rem;
+	font-size: 0.95rem;
 	line-height: 1.6;
 	color: #444;
 	margin-bottom: 1.5rem;
@@ -253,7 +253,7 @@ function toggle(plan: string) {
 }
 .plan-body h4 {
 	color: #333;
-	font-size: 0.9rem;
+	font-size: 1.1rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
 }
@@ -266,7 +266,7 @@ function toggle(plan: string) {
 	display: flex;
 	align-items: center;
 	gap: 0.7rem;
-	font-size: 0.85rem;
+	font-size: 0.95rem;
 	color: #333;
 	margin-bottom: 0.6rem;
 }
@@ -284,7 +284,7 @@ function toggle(plan: string) {
 	gap: 0.5rem;
 	color: #333;
 	font-family: inherit;
-	font-size: 0.85rem;
+	font-size: 0.95rem;
 	font-weight: 500;
 	text-decoration: none;
 	align-self: flex-start;
@@ -308,7 +308,7 @@ function toggle(plan: string) {
 .plan-extra.open { grid-template-rows: 1fr; }
 .plan-extra-inner { overflow: hidden; }
 .plan-extra p {
-	font-size: 0.85rem;
+	font-size: 0.95rem;
 	line-height: 1.7;
 	color: #333;
 	opacity: 0.85;

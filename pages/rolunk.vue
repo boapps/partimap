@@ -100,7 +100,7 @@ useHead({
 	margin-bottom: 1.5rem;
 }
 .about-intro p {
-	font-size: 0.85rem;
+	font-size: 1.1rem;
 	line-height: 1.7;
 	color: #333;
 	opacity: 0.9;
@@ -240,7 +240,7 @@ useHead({
 .mission-eyebrow {
 	display: block;
 	color: #0055FF;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
@@ -254,7 +254,7 @@ useHead({
 	margin-bottom: 1rem;
 }
 .mission-text p {
-	font-size: 0.85rem;
+	font-size: 1.05rem;
 	line-height: 1.7;
 	color: #333;
 	opacity: 0.9;
@@ -268,7 +268,7 @@ useHead({
 	margin-top: 0.5rem;
 	background: #0055FF;
 	color: #fff;
-	font-size: 0.85rem;
+	font-size: 1.05rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	/* +0.125em top / -0.125em bottom optically centres the caps: Apex New's

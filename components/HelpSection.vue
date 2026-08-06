@@ -186,7 +186,7 @@ useHead({
 .help-sidebar-title {
 	border-bottom: 1px solid rgba(0, 85, 255, 0.25);
 	color: #0055FF;
-	font-size: 0.75rem;
+	font-size: 0.9rem;
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	margin-bottom: 1rem;
@@ -210,7 +210,7 @@ useHead({
 	color: #0055FF;
 	display: flex;
 	font-family: inherit;
-	font-size: 0.9rem;
+	font-size: 0.95rem;
 	font-weight: 500;
 	gap: 0.5rem;
 	line-height: 1.35;
@@ -243,7 +243,7 @@ useHead({
 	border-radius: 0 8px 8px 0;
 	color: #333;
 	display: block;
-	font-size: 0.8rem;
+	font-size: 0.85rem;
 	font-weight: 500;
 	line-height: 1.4;
 	margin-bottom: 0.15rem;
@@ -263,7 +263,7 @@ useHead({
 
 .help-eyebrow {
 	color: #0055FF;
-	font-size: 0.75rem;
+	font-size: 0.95rem;
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	margin-bottom: 0.5rem;
@@ -289,7 +289,7 @@ useHead({
 }
 .help-intro :deep(p) {
 	color: #333;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	line-height: 1.7;
 	margin-bottom: 0.75rem;
 }
@@ -304,7 +304,7 @@ useHead({
 
 .help-body {
 	color: #333;
-	font-size: 0.95rem;
+	font-size: 1.1rem;
 	line-height: 1.75;
 }
 .help-body :deep(h2) {
@@ -362,14 +362,14 @@ useHead({
 }
 .help-body :deep(figcaption) {
 	color: #666;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font-style: italic;
 	margin-top: 0.6rem;
 	text-align: center;
 }
 .help-body :deep(table) {
 	border-collapse: collapse;
-	font-size: 0.85rem;
+	font-size: 1rem;
 	margin: 1.5rem 0;
 	width: 100%;
 }
@@ -388,7 +388,7 @@ useHead({
 .help-body :deep(code) {
 	background: rgba(0, 0, 0, 0.05);
 	border-radius: 6px;
-	font-size: 0.85rem;
+	font-size: 0.95rem;
 }
 .help-body :deep(code) {
 	padding: 0.1rem 0.35rem;
@@ -412,7 +412,7 @@ useHead({
 }
 .help-pager a {
 	color: #0055FF;
-	font-size: 0.85rem;
+	font-size: 1rem;
 	font-weight: 700;
 	max-width: 45%;
 	text-decoration: none;

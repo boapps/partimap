@@ -65,6 +65,18 @@ function scrollToTop() {
 	document.getElementById('__nuxt')?.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// The ↓ arrows are scroll cues: clicking one advances to the section that
+// follows the one the arrow sits in.
+function scrollToNextSection(e: Event) {
+	let next = (e.currentTarget as HTMLElement).closest('section')?.nextElementSibling ?? null;
+	while (next && next.tagName !== 'SECTION' && next.tagName !== 'FOOTER') {
+		next = next.nextElementSibling;
+	}
+	if (!next) return;
+	const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	next.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+}
+
 const statsSection = ref<HTMLElement | null>(null);
 const statTargets = computed(() => [
 	parseStat('1007'),
@@ -149,7 +161,12 @@ onBeforeUnmount(() => {
 						class="btn-landing"
 					>{{ t('landing.hero.cta') }}</NuxtLink>
 					<div class="deco-circle hero-left-circle no-phone-deco" aria-hidden="true" />
-					<div class="hero-left-arrow" aria-hidden="true">↓</div>
+					<button
+						type="button"
+						class="hero-left-arrow"
+						aria-label="Scroll down"
+						@click="scrollToNextSection"
+					>↓</button>
 				</div>
 
 				<div class="hero-center">
@@ -189,16 +206,26 @@ onBeforeUnmount(() => {
 						<h3>{{ t('landing.hero.feat3Title') }}</h3>
 						<p>{{ t('landing.hero.feat3Desc') }}</p>
 					</div>
-					<div class="hero-right-scroll" aria-hidden="true">
-						<span class="hero-chevrons">
+					<button
+						type="button"
+						class="hero-right-scroll"
+						aria-label="Scroll down"
+						@click="scrollToNextSection"
+					>
+						<span class="hero-chevrons" aria-hidden="true">
 							<span class="hero-chevron" />
 							<span class="hero-chevron" />
 							<span class="hero-chevron" />
 						</span>
-					</div>
+					</button>
 				</div>
 			</div>
-			<a href="#examples" class="hero-scroll-indicator" aria-label="Scroll down">
+			<a
+				href="#examples"
+				class="hero-scroll-indicator"
+				aria-label="Scroll down"
+				@click.prevent="scrollToNextSection"
+			>
 				<span class="hero-scroll-mouse">
 					<span class="hero-scroll-wheel" />
 				</span>
@@ -215,7 +242,9 @@ onBeforeUnmount(() => {
 						<h2 class="sec-title">{{ t('landing.examples.title') }}</h2>
 						<p class="sec-sub" v-html="t('landing.examples.sub')" />
 					</div>
-					<div class="sec-arrow sec-arrow-top" aria-hidden="true"><span class="sec-arrow-glyph">↓</span></div>
+					<div class="sec-arrow sec-arrow-top">
+						<button type="button" class="sec-arrow-glyph" aria-label="Scroll down" @click="scrollToNextSection">↓</button>
+					</div>
 				</div>
 				<div class="examples-grid">
 					<div v-for="n in 4" :key="n" class="example-card">
@@ -239,16 +268,20 @@ onBeforeUnmount(() => {
 					</div>
 				</div>
 			</div>
-			<div class="sec-arrow" aria-hidden="true"><span class="sec-arrow-glyph">↓</span></div>
+			<div class="sec-arrow">
+				<button type="button" class="sec-arrow-glyph" aria-label="Scroll down" @click="scrollToNextSection">↓</button>
+			</div>
 		</section>
 
 		<!-- Why use it -->
 		<section id="about" class="why-section">
 			<div class="section-blob blob-why" aria-hidden="true" />
-			<svg class="why-side-arrow" aria-hidden="true" viewBox="0 0 24 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
-				<line x1="12" y1="0" x2="12" y2="384" stroke="currentColor" stroke-width="1.5"/>
-				<polyline points="4,374 12,385 20,374" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
-			</svg>
+			<button type="button" class="why-side-arrow" aria-label="Scroll down" @click="scrollToNextSection">
+				<svg aria-hidden="true" viewBox="0 0 24 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+					<line x1="12" y1="0" x2="12" y2="384" stroke="currentColor" stroke-width="1.5"/>
+					<polyline points="4,374 12,385 20,374" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+				</svg>
+			</button>
 			<div class="why-inner">
 				<h2 class="sec-title">{{ t('landing.why.title') }}</h2>
 				<p class="sec-sub" v-html="t('landing.why.sub')" />
@@ -382,7 +415,9 @@ onBeforeUnmount(() => {
 					</div>
 				</div>
 			</div>
-			<div class="stat-arrow" aria-hidden="true"><span class="sec-arrow-glyph">↓</span></div>
+			<div class="stat-arrow">
+				<button type="button" class="sec-arrow-glyph" aria-label="Scroll down" @click="scrollToNextSection">↓</button>
+			</div>
 		</section>
 
 		<!-- Showcase -->
@@ -620,7 +655,22 @@ onBeforeUnmount(() => {
 .hero-left {
 	margin-top: 7rem;
 }
+/* The ↓ cues are buttons that scroll to the next section, but they must look
+   exactly like the bare glyphs they replaced. */
+.hero-left-arrow,
+.hero-right-scroll,
+.sec-arrow-glyph,
+.why-side-arrow {
+	appearance: none;
+	background: none;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+}
 .hero-left-arrow {
+	display: block;
 	color: var(--l-blue);
 	font-size: 1.5rem;
 	text-align: left;
@@ -874,6 +924,7 @@ onBeforeUnmount(() => {
 	align-items: center;
 	gap: 0.75rem;
 	margin-top: 3rem;
+	width: 100%;
 	color: var(--l-blue);
 }
 .hero-right-scroll-label {
@@ -985,7 +1036,11 @@ onBeforeUnmount(() => {
 	height: 400px;
 	scale: 1;
 	color: var(--l-blue);
-	pointer-events: none;
+}
+.why-side-arrow svg {
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 .why-inner {
 	max-width: 1000px;
@@ -1249,6 +1304,9 @@ onBeforeUnmount(() => {
 .showcase-section {
 	position: relative;
 	padding: 0rem 2rem;
+	/* No top padding of its own, so keep it clear of the fixed nav when the
+	   statistics arrow scrolls to it. */
+	scroll-margin-top: 6rem;
 }
 .showcase-inner {
 	max-width: 800px;

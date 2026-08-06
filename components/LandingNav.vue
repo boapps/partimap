@@ -36,12 +36,36 @@ watch(
 		menuOpen.value = false;
 	},
 );
+
+// The brand links home; when we are already there, navigating is a no-op, so
+// scroll back to the top instead.
+const navEl = ref<HTMLElement | null>(null);
+
+const onBrandPage = computed(() => {
+	const strip = (p: string) => p.replace(/\/+$/, '');
+	return strip(route.path) === strip(localePath('/'));
+});
+
+function onBrandClick(e: MouseEvent) {
+	if (!onBrandPage.value) return;
+	e.preventDefault();
+	menuOpen.value = false;
+
+	const opts: ScrollToOptions = { top: 0, behavior: 'smooth' };
+	// `.landing` is a flex item inside a viewport-height `#app`, so it is capped
+	// at 100vh, and its `overflow-x: hidden` makes `overflow-y` compute to
+	// `auto` — the page scrolls inside that element, not in the document.
+	window.scrollTo(opts);
+	for (let el = navEl.value?.parentElement; el; el = el.parentElement) {
+		if (el.scrollTop > 0) el.scrollTo(opts);
+	}
+}
 </script>
 
 <template>
-	<nav class="landing-nav">
+	<nav ref="navEl" class="landing-nav">
 		<div class="nav-inner">
-			<NuxtLink :to="localePath('/')" class="nav-brand">
+			<NuxtLink :to="localePath('/')" class="nav-brand" @click="onBrandClick">
 				<img src="/logo_kek.png" alt="PARTIMAP" />
 			</NuxtLink>
 

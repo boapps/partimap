@@ -1921,8 +1921,21 @@ onBeforeUnmount(() => {
 		grid-template-columns: 1fr;
 		text-align: center;
 	}
-	.hero-center { order: -1; }
+	/* Single column: text + CTA first, map below it (DOM order). */
 	.hero-left { margin-top: 1rem; }
+	/* The ↓ cue after the CTA now sits right above the map but scrolls past it
+	   to the next section — misleading. The hero's centered scroll indicator
+	   already does that job. */
+	.hero-left-arrow { display: none; }
+	.hero-circle-wrap { margin-top: 2rem; }
+	/* With the map at the bottom of the hero, the indicator's absolute
+	   bottom placement lands on the circle — let it flow below the map. */
+	.hero-scroll-indicator {
+		position: static;
+		transform: none;
+		align-self: center;
+		margin-top: 2rem;
+	}
 	/* Centered single-column layout: the decorative circle would overlap
 	   the centered text (and the examples title below), so hide it. */
 	.hero-left-circle { display: none; }

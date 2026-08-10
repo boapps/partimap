@@ -1986,7 +1986,8 @@ onBeforeUnmount(() => {
 	.map-dot-2,
 	.map-dot-3,
 	.map-dot-4,
-	.map-dot-5 { width: 60px; height: 60px; }
+	.map-dot-5,
+	.map-dot-6 { width: 60px; height: 60px; }
 	.map-popup { width: 160px; padding: 0.7rem 0.8rem 0.65rem; }
 	.map-popup-title { font-size: 0.9rem; margin-right: 1rem; }
 	.map-popup-desc { font-size: 0.8rem; }
@@ -2002,6 +2003,10 @@ onBeforeUnmount(() => {
 	.map-popup-4::before { top: -7px; left: 20px; bottom: auto; }
 	.map-popup-5 { bottom: auto; top: calc(100% - 60px); right: 20%; }
 	.map-popup-5::before { top: -7px; right: 20px; bottom: auto; transform: rotate(45deg); }
+	/* Dot 6 sits mid-map: anchor the popup 20px left of the dot so its arrow
+	   (43px in) lands on the dot's centre, and it stays inside the map bounds. */
+	.map-popup-6 { top: calc(42% + 65px); left: calc(35% - 20px); }
+	.map-popup-6::before { top: -7px; left: 43px; bottom: auto; }
 }
 @media (max-width: 575px) {
 	.landing-nav { padding: 0.75rem 1rem; }
@@ -2009,5 +2014,14 @@ onBeforeUnmount(() => {
 	.hero-section { padding-top: 5rem; }
 	.hero-circle-wrap { width: min(420px, 90vw); height: min(420px, 90vw); }
 	.footer-grid { grid-template-columns: 1fr; }
+	/* The 190px logo tiles only fit one per row on a phone, so the list reads as
+	   an endless single column. Let each tile take half the row instead. */
+	.partner-logos { gap: 0.75rem; }
+	.partner-logo-link { flex: 0 1 calc(50% - 0.375rem); max-width: 190px; }
+	.partner-logo {
+		width: 100%;
+		height: 80px;
+		padding: 0.6rem 0.8rem;
+	}
 }
 </style>

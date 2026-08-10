@@ -377,8 +377,38 @@ useHead({
 }
 
 @media (max-width: 1220px) {
-	.about-intro { grid-template-columns: 1fr; text-align: center; }
+	/* minmax(0, …) rather than a bare 1fr: an fr track's automatic minimum is
+	   min-content, so an item wider than the container (the 440px team photo, the
+	   400px mission text) stretches the track instead of being constrained by it.
+	   The grid box stays centered but the track then overflows to the right only,
+	   so everything centered inside it sits right of the viewport centre. */
+	.about-intro { grid-template-columns: minmax(0, 1fr); text-align: center; }
 	.intro-arrow { display: none; }
-	.mission { grid-template-columns: 1fr; text-align: center; }
+	.mission {
+		grid-template-columns: minmax(0, 1fr);
+		/* 6rem is a column gap on desktop; stacked it would be a huge row gap. */
+		gap: 2.5rem;
+		text-align: center;
+	}
+	.mission-text { max-width: 100%; margin: 0 auto; }
+	/* The circles are sized in px for the desktop scatter, where the 1000px
+	   column always has room for them. Cap them at the column width here and let
+	   aspect-ratio keep them round as they shrink. */
+	.team-photo,
+	.mission-circle,
+	.scatter .sc {
+		max-width: 100%;
+		height: auto;
+		aspect-ratio: 1;
+	}
+}
+
+@media (max-width: 575px) {
+	/* Narrower gutters so the circles keep as much width as possible. Matches
+	   the landing page's sections. */
+	.about-section { padding: 3rem 1rem 4rem; }
+	/* Positioned off the right edge of .about-inner, so on a phone it only ever
+	   sits outside the viewport and gets clipped. */
+	.deco-outline-1 { display: none; }
 }
 </style>

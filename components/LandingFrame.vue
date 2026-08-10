@@ -10,7 +10,7 @@ withDefaults(
 </script>
 
 <template>
-	<div class="landing">
+	<div class="landing doc-scroll">
 		<!-- Floating animated blue dots -->
 		<div class="floating-dots" aria-hidden="true">
 			<span v-for="n in 12" :key="n" :class="`dot dot-${n}`" />

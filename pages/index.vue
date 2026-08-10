@@ -58,11 +58,6 @@ function onKeydown(e: KeyboardEvent) {
 
 function scrollToTop() {
 	window.scrollTo({ top: 0, behavior: 'smooth' });
-	document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
-	document.body.scrollTo({ top: 0, behavior: 'smooth' });
-	document.querySelector('.landing')?.scrollTo({ top: 0, behavior: 'smooth' });
-	document.getElementById('app')?.scrollTo({ top: 0, behavior: 'smooth' });
-	document.getElementById('__nuxt')?.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // The ↓ arrows are scroll cues: clicking one advances to the section that
@@ -137,7 +132,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-	<div class="landing">
+	<div class="landing doc-scroll">
 		<!-- Floating animated blue dots -->
 		<div class="floating-dots" aria-hidden="true">
 			<span v-for="n in 12" :key="n" :class="`dot dot-${n}`" />

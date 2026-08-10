@@ -16,6 +16,7 @@ useHead({
 </script>
 
 <template>
+	<!-- eslint-disable vue/no-v-html -->
 	<LandingFrame>
 		<section class="about-section">
 			<div class="about-inner">
@@ -23,7 +24,7 @@ useHead({
 				<div class="about-intro">
 					<div class="about-intro-text">
 						<h1>{{ t('aboutUs.beliefTitle') }}</h1>
-						<p>{{ t('aboutUs.beliefP1') }}</p>
+						<p v-html="t('aboutUs.beliefP1')" />
 						<p>{{ t('aboutUs.beliefP2') }}</p>
 						<div class="intro-arrow" aria-hidden="true">↓</div>
 					</div>
@@ -60,7 +61,7 @@ useHead({
 					<div class="mission-text">
 						<span class="mission-eyebrow">{{ t('aboutUs.supportEyebrow') }}</span>
 						<h2>{{ t('aboutUs.missionTitle') }}</h2>
-						<p class="mission-note">{{ t('aboutUs.supportNote') }}</p>
+						<p class="mission-note" v-html="t('aboutUs.supportNote')" />
 						<p>{{ t('aboutUs.missionDesc') }}</p>
 						<a href="https://tamogatas.k-monitor.hu/" target="_blank" rel="noopener" class="mission-btn">{{ t('aboutUs.supportBtn') }}</a>
 					</div>
@@ -83,6 +84,18 @@ useHead({
 	max-width: 1000px;
 	margin: 0 auto;
 	position: relative;
+}
+
+/* Links come from the translations via v-html, so they need :deep() */
+.about-intro p :deep(a),
+.mission-text p :deep(a) {
+	color: #0055FF;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+.about-intro p :deep(a:hover),
+.mission-text p :deep(a:hover) {
+	text-decoration: none;
 }
 
 /* ── Intro ─────────────────────────────────────── */

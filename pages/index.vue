@@ -1931,8 +1931,21 @@ onBeforeUnmount(() => {
 }
 @media (max-width: 991px) {
 	.hero-inner {
-		grid-template-columns: 1fr;
+		/* minmax(0, …) rather than a bare 1fr: an fr track's automatic minimum is
+		   min-content, so an item wider than the container (the 420px map circle on
+		   a phone) stretches the track instead of being constrained by it. The grid
+		   box itself stays centered, but the track then overflows to the right only,
+		   so everything centered inside it — title, subtitle, CTA, map — sits right
+		   of the viewport centre. */
+		grid-template-columns: minmax(0, 1fr);
 		text-align: center;
+	}
+	/* With the track capped above, the circle has to be able to shrink into it.
+	   aspect-ratio keeps it round as it does. */
+	.hero-circle-wrap {
+		width: min(420px, 100%);
+		height: auto;
+		aspect-ratio: 1;
 	}
 	/* Single column: text + CTA first, map below it (DOM order). */
 	.hero-left { margin-top: 1rem; }
@@ -2011,8 +2024,9 @@ onBeforeUnmount(() => {
 @media (max-width: 575px) {
 	.landing-nav { padding: 0.75rem 1rem; }
 	.nav-right { gap: 0.5rem; }
-	.hero-section { padding-top: 5rem; }
-	.hero-circle-wrap { width: min(420px, 90vw); height: min(420px, 90vw); }
+	/* Narrower gutters so the map circle — now capped at the column width — keeps
+	   the size it had when it was sized off 90vw. Matches .showcase-section. */
+	.hero-section { padding: 5rem 1rem 3rem; }
 	.footer-grid { grid-template-columns: 1fr; }
 	/* The 190px logo tiles only fit one per row on a phone, so the list reads as
 	   an endless single column. Let each tile take half the row instead. */

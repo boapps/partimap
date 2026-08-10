@@ -1,8 +1,8 @@
 import { useScheduler } from '#scheduler';
 import * as db from '~/server/data/projects';
-import { env } from '~~/env';
 
-const { NUXT_PUBLIC_BASE_URL, SUB_DAILY_HOUR, SUB_EVENTS_DEBOUNCE_MINS } = env;
+const SUB_DAILY_HOUR = Number(process.env.SUB_DAILY_HOUR) || 8;
+const SUB_EVENTS_DEBOUNCE_MINS = Number(process.env.SUB_EVENTS_DEBOUNCE_MINS) || 60;
 
 export default defineNitroPlugin(() => {
 	if (process.env.APP_ENV === 'build') return; // skip during build
@@ -23,12 +23,15 @@ async function sendEventBasedNotifications() {
 }
 
 async function sendNotifications(projects: db.NotificationData[]) {
+	const {
+		public: { baseUrl },
+	} = useRuntimeConfig();
 	for (let i = 0; i < projects.length; i++) {
-		const p = projects[i];
+		const p = projects[i]!;
 		const m = i18n(p.lang).notificationEmail;
-		const projectUrl = `${NUXT_PUBLIC_BASE_URL}/${p.lang}/admin/project/${p.id}`;
-		const reportUrl = `${NUXT_PUBLIC_BASE_URL}/${p.lang}/admin/projects?dlr=${p.id}`;
-		const unsubscribeUrl = `${NUXT_PUBLIC_BASE_URL}/${p.lang}/unsubscribe?id=${p.id}&token=${p.unsubscribeToken}`;
+		const projectUrl = `${baseUrl}/${p.lang}/admin/project/${p.id}`;
+		const reportUrl = `${baseUrl}/${p.lang}/admin/projects?dlr=${p.id}`;
+		const unsubscribeUrl = `${baseUrl}/${p.lang}/unsubscribe?id=${p.id}&token=${p.unsubscribeToken}`;
 		const subject = m.subject.replace(/\{title\}/g, p.title);
 		const body = (p.newSubmissions === 1 ? m.body_one : m.body_other)
 			.replace(/\{user\}/g, p.name)

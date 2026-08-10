@@ -147,6 +147,19 @@ withDefaults(
 .dot-10 { width:  5px; height:  5px; top: 42%; left: 92%; animation: driftA 16s ease-in-out infinite 0.8s; }
 .dot-11 { width:  8px; height:  8px; top: 62%; left:  5%; animation: driftB 13s ease-in-out infinite 2.2s; }
 .dot-12 { width:  4px; height:  4px; top: 92%; left: 70%; animation: driftC 18s ease-in-out infinite 4.5s; }
+/* The dots are spread in viewport percentages inside a fixed layer, so on a
+   phone all 12 crowd into a narrow strip and read as lint on the screen.
+   Keep 5 that stay spread out vertically and horizontally. */
+@media (max-width: 767px) {
+	.dot { opacity: 0.22; }
+	.dot-2,
+	.dot-4,
+	.dot-6,
+	.dot-9,
+	.dot-10,
+	.dot-11,
+	.dot-12 { display: none; }
+}
 
 @keyframes driftA {
 	0%, 100% { transform: translate(0, 0); }

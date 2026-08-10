@@ -111,6 +111,7 @@ export default {
 			circleText: 'MARKIERE, WOHER DU KOMMST! ',
 			btnZoomIn: 'Vergrößern',
 			btnZoomOut: 'Verkleinern',
+			btnLocate: 'Mein Standort',
 			btnPin: 'Standort setzen',
 			feat1Title: 'KOSTENLOS',
 			feat1Desc: 'Die Nutzung von PARTIMAP ist völlig kostenlos, ohne versteckte Kosten und ohne Abonnement.',

@@ -47,6 +47,28 @@ function zoomOut() {
 	view.animate({ zoom: (view.getZoom() || 0) - 1, duration: 200 });
 }
 
+const locating = ref(false);
+
+function locate() {
+	const view = viewRef.value?.view;
+	if (!view || locating.value || !navigator.geolocation) return;
+	locating.value = true;
+	navigator.geolocation.getCurrentPosition(
+		({ coords }) => {
+			locating.value = false;
+			view.animate({
+				center: gm2ol([coords.longitude, coords.latitude]),
+				zoom: Math.max(view.getZoom() || 0, 15),
+				duration: 600,
+			});
+		},
+		() => {
+			locating.value = false;
+		},
+		{ enableHighAccuracy: true, timeout: 10000 },
+	);
+}
+
 const pinnedCoord = ref<Coordinate | null>(null);
 
 function selectLocation() {
@@ -115,6 +137,14 @@ function pinStyle(_f: OlFeature) {
 		<button class="hm-btn hm-btn-out" :aria-label="t('landing.hero.btnZoomOut')" @click.stop="zoomOut">
 			<span class="hm-btn-glyph">−</span>
 			<span class="hm-btn-label">{{ t('landing.hero.btnZoomOut') }}</span>
+		</button>
+
+		<!-- Jump to own position button, above the select location button -->
+		<button class="hm-btn hm-btn-locate" :aria-label="t('landing.hero.btnLocate')" @click.stop="locate">
+			<span class="hm-btn-glyph">
+				<i :class="locating ? 'fas fa-spinner fa-spin' : 'fas fa-location-crosshairs'" />
+			</span>
+			<span class="hm-btn-label">{{ t('landing.hero.btnLocate') }}</span>
 		</button>
 
 		<!-- Select location button -->
@@ -305,6 +335,13 @@ function pinStyle(_f: OlFeature) {
 .hm-btn-out {
 	right: 2%;
 	bottom: -42px;
+}
+
+/* ⌖ locate button: below container, above → */
+.hm-btn-locate {
+	left: 2%;
+	bottom: 0px;
+	font-size: 0.9rem;
 }
 
 /* → select location button: below container, left corner */

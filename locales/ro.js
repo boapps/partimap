@@ -110,6 +110,7 @@ export default {
 			circleText: 'MARCHEAZĂ DE UNDE AI VENIT! ',
 			btnZoomIn: 'Mărire',
 			btnZoomOut: 'Micșorare',
+			btnLocate: 'Locația mea',
 			btnPin: 'Marchează locul',
 			feat1Title: 'GRATUIT',
 			feat1Desc: 'Utilizarea PARTIMAP este complet gratuită, fără costuri ascunse și fără abonament.',

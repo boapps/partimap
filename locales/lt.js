@@ -109,6 +109,7 @@ export default {
 			circleText: 'PAŽYMĖKITE, IŠ KUR ATVYKOTE! ',
 			btnZoomIn: 'Priartinti',
 			btnZoomOut: 'Atitolinti',
+			btnLocate: 'Mano vieta',
 			btnPin: 'Pažymėti vietą',
 			feat1Title: 'NEMOKAMA',
 			feat1Desc: 'Naudotis PARTIMAP visiškai nemokama – be paslėptų mokesčių ir be prenumeratos.',

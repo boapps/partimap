@@ -111,6 +111,7 @@ export default {
 			circleText: '¡MARCA DE DÓNDE VIENES! ',
 			btnZoomIn: 'Acercar',
 			btnZoomOut: 'Alejar',
+			btnLocate: 'Mi ubicación',
 			btnPin: 'Marcar ubicación',
 			feat1Title: 'GRATIS',
 			feat1Desc: 'El uso de PARTIMAP es completamente gratuito, sin costes ocultos ni suscripción.',

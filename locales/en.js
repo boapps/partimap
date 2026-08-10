@@ -109,6 +109,7 @@ export default {
 			circleText: 'MARK WHERE YOU CAME FROM! ',
 			btnZoomIn: 'Zoom in',
 			btnZoomOut: 'Zoom out',
+			btnLocate: 'My location',
 			btnPin: 'Place pin',
 			feat1Title: 'FREE',
 			feat1Desc: 'Using PARTIMAP is completely free, with no hidden costs and no subscription.',

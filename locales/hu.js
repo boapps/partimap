@@ -110,6 +110,7 @@ export default {
 			circleText: 'JELÖLD BE HONNAN ÉRKEZTÉL! ',
 			btnZoomIn: 'Nagyítás',
 			btnZoomOut: 'Kicsinyítés',
+			btnLocate: 'Saját helyzetem',
 			btnPin: 'Hely kijelölése',
 			feat1Title: 'INGYENES',
 			feat1Desc: 'A PARTIMAP használata teljesen ingyenes, rejtett költségek és előfizetés nélkül.',

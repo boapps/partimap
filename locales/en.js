@@ -106,7 +106,7 @@ export default {
 			tagline: 'Citizen<br>engagement<br>made easy!',
 			subtitle: 'Try our free map-based survey application!',
 			cta: 'I\'M INTERESTED!',
-			circleText: 'MARK WHERE YOU CAME FROM! ',
+			circleText: 'MARK WHERE YOU ARE FROM! ',
 			btnZoomIn: 'Zoom in',
 			btnZoomOut: 'Zoom out',
 			btnLocate: 'My location',
@@ -177,7 +177,7 @@ export default {
 			stat3Desc: 'This many times surveys made with PARTIMAP have been completed.',
 		},
 		showcase: {
-			title: 'Our pride',
+			title: 'Success stories',
 			desc: 'We are proud of the national and international projects that have been realised with the help of PARTIMAP: on this interactive map you can discover exciting initiatives that not only showcase the results achieved so far, but can also spark new ideas for mapping and data-driven thinking.',
 			author: 'Survey creator',
 			dot1Title: 'Street tree planting in Józsefváros',

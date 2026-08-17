@@ -26,6 +26,7 @@ useHead({
 						<h1>{{ t('aboutUs.beliefTitle') }}</h1>
 						<p v-html="t('aboutUs.beliefP1')" />
 						<p>{{ t('aboutUs.beliefP2') }}</p>
+						<p class="about-contact" v-html="t('aboutUs.contactNote')" />
 						<div class="intro-arrow" aria-hidden="true">↓</div>
 					</div>
 					<div class="about-intro-photo">
@@ -118,6 +119,9 @@ useHead({
 	color: #333;
 	opacity: 0.9;
 	margin-bottom: 1rem;
+}
+.about-contact {
+	font-weight: 500;
 }
 .intro-arrow {
 	color: #0055FF;

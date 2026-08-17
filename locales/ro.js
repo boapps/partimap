@@ -293,6 +293,7 @@ export default {
 		beliefTitle: 'În ce credem',
 		beliefP1: '<a href="https://k-monitor.hu/" target="_blank" rel="noopener">K-Monitor</a> luptă din 2007 pentru utilizarea transparentă a banilor publici și pentru combaterea corupției. Organizația noastră civică lucrează pentru crearea unui mediu politic, economic și social în care cetățenii resping corupția, iar autoritățile o depistează și o sancționează eficient. Credem că transparența devine o forță reală doar atunci când cetățenii participă activ la deciziile comunitare, de aceea am și dezvoltat PARTIMAP, pentru ca procesele participative să devină mai accesibile pentru toată lumea.',
 		beliefP2: 'În activitatea noastră punem un accent deosebit pe furnizarea de instrumente care sprijină implicarea comunității, astfel că am acumulat cunoștințe importante atât în domeniul transparenței, cât și al participării. În acest spirit am creat proiecte precum Baza de date K-Monitor, Bugetul pe Înțelesul Tuturor, Ez a Minimum și Voksmonitor, care servesc toate scopului de a face utilizarea banilor publici mai transparentă, iar procesul decizional comunitar mai deschis.',
+		contactNote: 'Ai o întrebare sau o idee? Scrie-ne la <a href="mailto:info@k-monitor.hu">info@k-monitor.hu</a>!',
 		stat1: 'Suntem o organizație civică din Budapesta, activă de 18 ani!',
 		hl1Title: 'Lucrăm cu solicitări de informații de interes public pentru o utilizare mai transparentă a banilor publici.',
 		hl2Title: 'Sprijinim controlul cetățenesc și comunitățile locale cu date, instrumente digitale și metode participative.',

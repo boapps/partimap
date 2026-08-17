@@ -292,6 +292,7 @@ export default {
 		beliefTitle: 'Kuo mes tikime',
 		beliefP1: 'Nuo 2007 m. <a href="https://k-monitor.hu/" target="_blank" rel="noopener">K-Monitor</a> kovoja už skaidrų viešųjų lėšų naudojimą ir korupcijos mažinimą. Mūsų pilietinės visuomenės organizacija siekia sukurti tokią politinę, ekonominę ir socialinę aplinką, kurioje piliečiai atmeta korupciją, o institucijos ją veiksmingai atskleidžia ir baudžia. Esame įsitikinę, kad skaidrumas tampa tikra jėga tik tuomet, kai piliečiai aktyviai dalyvauja bendruomenės sprendimuose, todėl ir sukūrėme PARTIMAP – kad dalyvavimo procesai taptų prieinamesni visiems.',
 		beliefP2: 'Savo veikloje ypatingą dėmesį skiriame įrankių, skatinančių bendruomenės įsitraukimą, kūrimui, todėl sukaupėme nemažai žinių tiek skaidrumo, tiek dalyvavimo srityse. Šia dvasia sukūrėme tokius projektus kaip K-Monitor duomenų bazė, Suprantamas biudžetas, „Ez a Minimum“ ir „Voksmonitor“, kurie visi skirti tam, kad viešųjų lėšų naudojimas taptų skaidresnis, o bendruomenės sprendimų priėmimas – atviresnis.',
+		contactNote: 'Turite klausimų ar idėjų? Rašykite mums adresu <a href="mailto:info@k-monitor.hu">info@k-monitor.hu</a>!',
 		stat1: 'Jau 18 metų esame aktyvi NVO Budapešte!',
 		hl1Title: 'Teikdami prašymus dėl viešojo intereso duomenų, siekiame skaidresnio viešųjų lėšų naudojimo.',
 		hl2Title: 'Duomenimis, skaitmeniniais įrankiais ir dalyvavimo metodais remiame piliečių kontrolę ir vietos bendruomenes.',

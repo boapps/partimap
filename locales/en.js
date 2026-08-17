@@ -292,6 +292,7 @@ export default {
 		beliefTitle: 'What we believe in',
 		beliefP1: 'Since 2007, <a href="https://k-monitor.hu/" target="_blank" rel="noopener">K-Monitor</a> has been fighting for the transparent use of public funds and for curbing corruption. Our civil society organisation works to create a political, economic and social environment in which citizens reject corruption and the authorities effectively uncover and sanction it. We believe that transparency only becomes a real force when citizens actively take part in community decisions, which is why we developed PARTIMAP: to make participatory processes more accessible to everyone.',
 		beliefP2: 'In our work we place particular emphasis on providing tools that promote community engagement, and so we have accumulated significant knowledge in the fields of both transparency and participation. In this spirit we have created projects such as the K-Monitor Database, the Plain-Language Budget, Ez a Minimum and Voksmonitor, all of which serve to make the use of public funds more transparent and community decision-making more open.',
+		contactNote: 'Do you have a question or an idea? Write to us at <a href="mailto:info@k-monitor.hu">info@k-monitor.hu</a>!',
 		stat1: 'We\'ve been an active NGO in Budapest for 18 years!',
 		hl1Title: 'We work with freedom-of-information requests for a more transparent use of public funds.',
 		hl2Title: 'We support citizen oversight and local communities with data, digital tools and participatory methods.',

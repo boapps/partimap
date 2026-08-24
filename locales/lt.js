@@ -73,7 +73,7 @@ export default {
 			{
 				title: 'Kaip prisidėti',
 				description:
-					'<p>2021 m. „PARTIMAP“ programinę įrangą sukūrė „K-Monitor“, remiant Europos Komisijai (DG Regio). 2022 m. bendradarbiaujant su „Heinrich-Böll-Stiftung“ Prahos biuru ji buvo tobulinama. Tačiau projektas toli gražu nesibaigė! Nemokama ir atvira platforma buvo sukurta valdžios institucijoms, savivaldybėms ir nevyriausybinėms organizacijoms, siekiant padėti joms aktyviau dalyvauti priimant sprendimus dėl plėtros, efektyviau valdant savo viešąjį turtą.</p><p> Jei susidomėjote projektu ir norėtumėte prisidėti prie jo kūrimo, arba tiesiog norite pasidalinti mintimis apie PARTIMAP, susisiekite su mumis adresu <a href="mailto:hello@partimap.eu">hello@partimap.eu</a>. Jei norite finansiškai paremti kūrimą, kad nemokama atvirojo kodo programinė įranga būtų prieinama kuo daugiau žmonių, prašome <a href="https://k-monitor.hu/support" target="_blank">palaikyti K-Monitor!</a></p>',
+					'<p>2021 m. „PARTIMAP“ programinę įrangą sukūrė „K-Monitor“, remiant Europos Komisijai (DG Regio). 2022 m. bendradarbiaujant su „Heinrich-Böll-Stiftung“ Prahos biuru ji buvo tobulinama. Tačiau projektas toli gražu nesibaigė! Nemokama ir atvira platforma buvo sukurta valdžios institucijoms, savivaldybėms ir nevyriausybinėms organizacijoms, siekiant padėti joms aktyviau dalyvauti priimant sprendimus dėl plėtros, efektyviau valdant savo viešąjį turtą.</p><p> Jei susidomėjote projektu ir norėtumėte prisidėti prie jo kūrimo, arba tiesiog norite pasidalinti mintimis apie PARTIMAP, susisiekite su mumis adresu <a href="mailto:hello{\'@\'}partimap.eu">hello{\'@\'}partimap.eu</a>. Jei norite finansiškai paremti kūrimą, kad nemokama atvirojo kodo programinė įranga būtų prieinama kuo daugiau žmonių, prašome <a href="https://k-monitor.hu/support" target="_blank">palaikyti K-Monitor!</a></p>',
 			},
 		],
 		nav: {
@@ -292,7 +292,7 @@ export default {
 		beliefTitle: 'Kuo mes tikime',
 		beliefP1: 'Nuo 2007 m. <a href="https://k-monitor.hu/" target="_blank" rel="noopener">K-Monitor</a> kovoja už skaidrų viešųjų lėšų naudojimą ir korupcijos mažinimą. Mūsų pilietinės visuomenės organizacija siekia sukurti tokią politinę, ekonominę ir socialinę aplinką, kurioje piliečiai atmeta korupciją, o institucijos ją veiksmingai atskleidžia ir baudžia. Esame įsitikinę, kad skaidrumas tampa tikra jėga tik tuomet, kai piliečiai aktyviai dalyvauja bendruomenės sprendimuose, todėl ir sukūrėme PARTIMAP – kad dalyvavimo procesai taptų prieinamesni visiems.',
 		beliefP2: 'Savo veikloje ypatingą dėmesį skiriame įrankių, skatinančių bendruomenės įsitraukimą, kūrimui, todėl sukaupėme nemažai žinių tiek skaidrumo, tiek dalyvavimo srityse. Šia dvasia sukūrėme tokius projektus kaip K-Monitor duomenų bazė, Suprantamas biudžetas, „Ez a Minimum“ ir „Voksmonitor“, kurie visi skirti tam, kad viešųjų lėšų naudojimas taptų skaidresnis, o bendruomenės sprendimų priėmimas – atviresnis.',
-		contactNote: 'Turite klausimų ar idėjų? Rašykite mums adresu <a href="mailto:info@k-monitor.hu">info@k-monitor.hu</a>!',
+		contactNote: 'Turite klausimų ar idėjų? Rašykite mums adresu <a href="mailto:info{\'@\'}k-monitor.hu">info{\'@\'}k-monitor.hu</a>!',
 		stat1: 'Jau 18 metų esame aktyvi NVO Budapešte!',
 		hl1Title: 'Teikdami prašymus dėl viešojo intereso duomenų, siekiame skaidresnio viešųjų lėšų naudojimo.',
 		hl2Title: 'Duomenimis, skaitmeniniais įrankiais ir dalyvavimo metodais remiame piliečių kontrolę ir vietos bendruomenes.',

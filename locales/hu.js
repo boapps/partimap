@@ -498,8 +498,6 @@ export default {
 		views: 'megtekintések',
 	},
 	register: {
-		consent1: 'Elolvastam és elfogadom a',
-		consent2: 'felhasználási&nbsp;feltételeket és az&nbsp;adatkezelési&nbsp;tájékoztatót.',
 		email: 'Email cím',
 		login: 'Már van fiókom',
 		name: 'Név',
@@ -508,14 +506,12 @@ export default {
 			'A fiók aktiválásához a Regisztráció gomb megnyomása után a megadott e-mail címére küldünk egy levelet, amellyel aktiválhatja a regisztrációját.',
 		registrationFailed: 'Regisztráció sikertelen',
 		submit: 'Regisztráció',
-		termsTitle: 'Felhasználási feltételek és adatvédelmi nyilatkozat',
 		title: 'Regisztráció',
 	},
 	sheet: {
 		invalidPassword: 'Érvénytelen jelszó!',
 		password: 'Jelszó',
 		passwordRequired: 'Kérlek írd be a jelszót a megtekintéshez!',
-		privacyPolicy: 'Felhasználási feltételek és adatvédelmi nyilatkozat',
 		restricted: 'Ez a kérdőív jelenleg le van zárva.',
 		restrictedTitle: 'Jelszóval védett kérdőív',
 		submitFailed: 'Beküldés sikertelen',
@@ -555,6 +551,7 @@ export default {
 			RatingResults: 'Értékelés eredmények megjelenítése',
 			ShowResultsOnly: 'Csak az eredmények megjelenítése',
 			SocialSharing: 'Megosztás gombok',
+			showSearch: 'Kereső megjelenítése',
 		},
 		numberOfStars: 'Csillagok száma (1-10)',
 		ratingQuestion: 'Kérdés a szöveges indokláshoz',
@@ -573,6 +570,7 @@ export default {
 		textRating: 'Szöveges indoklás az értékeléshez',
 		visitorInteractions: 'Látogatói interakciók',
 		visitorMapInteractions: 'A kitöltő térképes feladatai',
+		wide: 'Széles munkalap',
 	},
 	unsubscribe: {
 		home: 'Tovább a PARTIMAP-ra',
@@ -735,6 +733,8 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Alaptérkép váltás',
+		search: 'Helyszín keresése',
+		geolocationTracking: 'Saját pozíció követése',
 		initialCenter: '47.4811281,18.9902211', // Budapest
 		initialZoom: '10',
 	},
@@ -754,6 +754,9 @@ export default {
 		optionPrefix: 'Opció',
 		options: 'Opciók',
 		rows: 'Sorok',
+	},
+	OrderingQuestion: {
+		required: 'Kérjük, adjon meg egy sorrendet!',
 	},
 	PublicFrame: {
 		contactUs: 'Írj nekünk!',
@@ -806,8 +809,6 @@ export default {
 		saved: 'Mentve',
 	},
 	SheetContent: {
-		consent1: 'Elolvastam és elfogadom a',
-		consent2: 'felhasználási&nbsp;feltételeket és az&nbsp;adatkezelési&nbsp;tájékoztatót.',
 		next: 'Tovább',
 		results: 'Eredmények',
 		resultsDescription:
@@ -825,9 +826,11 @@ export default {
 		addQuestion: 'Új kérdés hozzáadása',
 		addToFeatures: 'Válaszok hozzáadása a térképes jelölésekhez elemzés céljára',
 		and: 'ÉS',
+		cloneQuestion: 'Kérdés megkettőzése',
 		conditionalQuestion: 'Feltételesen jelenik meg',
 		deleteCondition: 'Feltétel törlése',
 		deleteQuestion: 'Kérdés törlése',
+		html: 'Szöveg',
 		maxName: 'Maximum elnevezés',
 		maxSelect: 'Maximálisan kiválasztható',
 		maxValue: 'Maximum érték',
@@ -845,10 +848,12 @@ export default {
 			dropdown: 'Opciók lenyíló listában (egyet lehet vál.)',
 			multipleChoiceMatrix: 'Jelölőnégyzetrács',
 			number: 'Numerikus válasz (bepötyögős)',
+			ordering: 'Sorbarendezés',
 			radiogroup: 'Feleletválasztós',
 			range: 'Numerikus válasz (csúszkával)',
 			rating: 'Értékelés (5 csillag)',
 			singleChoiceMatrix: 'Feleletválasztós rács',
+			static: 'Statikus szövegblokk',
 			text: 'Szöveges válasz',
 		},
 		referencedQuestion: 'Más kérdés hivatkozik erre',
@@ -867,8 +872,8 @@ export default {
 		numberOfSubmissions: 'Válaszadók száma',
 		other: 'Egyéb',
 	},
-	TermsModConsent: {
-		info: 'Változtak az adatkezelési irányelveink és felhasználási feltételeink.',
+	VisitorDrawButtonsInner: {
+		noFeatures: 'Nem adott hozzá helyet itt: "{di}"',
 	},
 
 	// general
@@ -880,13 +885,22 @@ export default {
 		maxFileSize: 'Maximális fájlméret: 5 MB',
 		remove: 'Kép törlése',
 	},
+	legal: {
+		changedTitle: 'Felhasználási feltételek és adatvédelmi nyilatkozat',
+		changedNotice: 'Változtak az adatkezelési irányelveink és felhasználási feltételeink.',
+		privacyPolicy: 'Adatkezelési tájékoztató',
+		termsOfUse: 'Felhasználási feltételek',
+		consentTerms1: 'Elolvastam és elfogadom a',
+		consentTerms2: 'felhasználási&nbsp;feltételeket.',
+		consentPrivacy1: 'Elolvastam és elfogadom az',
+		consentPrivacy2: 'adatkezelési&nbsp;tájékoztatót.',
+	},
 	modals: {
 		cancel: 'Mégsem',
 		confirmDeleteFeatures: 'Biztosan törlöd ezt a(z) {count} elemet?',
 		confirmDeletion: 'Biztosan törlöd ezt',
 		confirmFeatureClose:
 			'A válasz segíti a felmérést. Mentés a jelölésre vonatkozó kiegészítés nélkül?',
-		confirmNoFeatures: 'Nem adott hozzá helyet itt: "{di}" Biztosan folytatja?',
 		confirmUnsaved: 'Még nem mentetted el a módosításokat. Biztosan kilépsz?',
 		delete: 'Törlés',
 		unsaved: 'Nem mentett módosítások',

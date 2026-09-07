@@ -67,6 +67,11 @@ export type DrawingInteraction = {
 	naming: boolean;
 
 	/**
+	 * Whether this question is required.
+	 */
+	required: boolean;
+
+	/**
 	 * Conditions for showing this interaction (empty = always)
 	 */
 	showIf: Condition[];
@@ -84,6 +89,7 @@ export function createDrawingInteraction(di: Partial<DrawingInteraction>): Drawi
 		featureQuestion: di.featureQuestion || {},
 		max: Math.max(0, di.max || 0),
 		naming: !!di.naming,
+		required: !!di.required,
 		showIf: Array.isArray(di.showIf) ? di.showIf : [],
 	};
 }
@@ -120,6 +126,11 @@ export type Interactions = {
 	ratingQuestion: string;
 
 	/**
+	 * Whether to show search box
+	 */
+	showSearch: boolean;
+
+	/**
 	 * Number of stars for Rating interaction
 	 */
 	stars: number;
@@ -145,6 +156,7 @@ export function createInteractions(data: Partial<Interactions>): Interactions {
 		drawing: Array.isArray(data.drawing) ? data.drawing.map(createDrawingInteraction) : [],
 		enabled: data.enabled || [],
 		ratingQuestion: data.ratingQuestion || '',
+		showSearch: data.showSearch || false,
 		stars: data.stars || 5,
 	};
 }

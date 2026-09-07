@@ -37,7 +37,7 @@ async function handleOk() {
 		ok-only
 		scrollable
 		size="lg"
-		:title="t('register.termsTitle')"
+		:title="t('legal.changedTitle')"
 		@ok="handleOk"
 	>
 		<BAlert
@@ -45,8 +45,9 @@ async function handleOk() {
 			show
 			variant="warning"
 		>
-			{{ t('TermsModConsent.info') }}
+			{{ t('legal.changedNotice') }}
 		</BAlert>
 		<Terms />
+		<Privacy />
 	</b-modal>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Question, Survey } from '~/server/data/surveyAnswers';
+import type { Question, QuestionType, Survey } from '~/server/data/surveyAnswers';
 
 const props = defineProps<{
 	sheetId: number;
@@ -50,15 +50,23 @@ function removeEmptyAnswers(answers: AnswersByQuestion) {
 }
 
 function canRemoveAnswer(q: Question) {
-	return (
-		Object.keys(answers.value).includes(String(q.id)) &&
-		'distributeUnits|dropdown|radiogroup|range|rating|singleChoiceMatrix'.includes(q.type)
-	);
+	const list: QuestionType[] = [
+		'distributeUnits',
+		'dropdown',
+		'ordering',
+		'radiogroup',
+		'range',
+		'rating',
+		'singleChoiceMatrix',
+	];
+	return Object.keys(answers.value).includes(String(q.id)) && list.includes(q.type);
 }
 
 function removeAnswer(questionId: number) {
 	delete answers.value[questionId];
 }
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -84,7 +92,7 @@ function removeAnswer(questionId: number) {
 					class="position-absolute ms-4 small text-muted text-end"
 					size="sm"
 					style="top: 0; right: 0"
-					:title="$t('Survey.removeAnswer')"
+					:title="t('Survey.removeAnswer')"
 					variant="light"
 					@click="removeAnswer(q.id)"
 				>
@@ -92,8 +100,12 @@ function removeAnswer(questionId: number) {
 				</b-button>
 			</div>
 		</template>
+		<TipTapDisplay
+			v-if="q.type === 'static'"
+			:html="q.html"
+		/>
 		<CheckboxGroup
-			v-if="q.type == 'checkbox'"
+			v-else-if="q.type === 'checkbox'"
 			v-model="answers[q.id]"
 			:q="q"
 		/>
@@ -111,7 +123,7 @@ function removeAnswer(questionId: number) {
 				:required="!!q.required"
 			/>
 		</template>
-		<template v-else-if="'number|range'.includes(q.type)">
+		<template v-else-if="['number', 'range'].includes(q.type)">
 			<div
 				v-if="q.type === 'range' && q.minLabel && q.maxLabel"
 				class="align-items-end d-flex justify-content-between small"
@@ -121,26 +133,37 @@ function removeAnswer(questionId: number) {
 				<span class="text-end">{{ q.maxLabel }}</span>
 			</div>
 			<div class="align-items-center d-flex position-relative">
+				<NumberInput
+					v-if="q.type === 'number'"
+					v-model.integer="answers[q.id]"
+					:min="q.min"
+					:max="q.max"
+					:name="`q${q.id}`"
+					:required="q.required"
+				/>
 				<b-form-input
+					v-else
 					v-model.number="answers[q.id]"
 					:min="q.min"
 					:max="q.max"
 					:name="`q${q.id}`"
 					:required="q.required"
-					:type="q.type === 'number' ? 'number' : 'range'"
+					type="range"
 				/>
 				<strong
-					v-if="q.type == 'range' && (!q.minLabel || !q.maxLabel)"
+					v-if="q.type === 'range' && (!q.minLabel || !q.maxLabel)"
 					class="ms-2 text-end"
 					style="min-width: 2rem"
 					>{{ answers[q.id] }}</strong
 				>
 				<input
-					v-if="q.type == 'range' && q.required"
-					v-model="answers[q.id]"
+					v-if="q.type === 'range' && q.required"
+					autocomplete="off"
 					class="position-absolute"
 					required
 					style="bottom: 0; left: 50%; width: 50%; height: 0; opacity: 0"
+					tabindex="-1"
+					:value="answers[q.id]"
 				/>
 			</div>
 		</template>
@@ -153,6 +176,11 @@ function removeAnswer(questionId: number) {
 			v-else-if="q.type === 'dropdown'"
 			v-model="answers[q.id]"
 			:q="q"
+		/>
+		<OrderingQuestion
+			v-else-if="q.type === 'ordering'"
+			v-model="answers[q.id]"
+			:question="q"
 		/>
 		<ChoiceMatrix
 			v-else-if="q.type === 'singleChoiceMatrix' || q.type === 'multipleChoiceMatrix'"

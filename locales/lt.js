@@ -499,8 +499,6 @@ export default {
 		views: 'peržiūros',
 	},
 	register: {
-		consent1: 'Aš perskaičiau ir sutinku su taisyklėmis',
-		consent2: 'ir sąlygomis bei su Privatumo politika.',
 		email: 'Įveskite galiojantį el.pašto adresą',
 		login: 'Jau turite paskyrą?',
 		name: 'Paskyros vardas',
@@ -510,7 +508,6 @@ export default {
 		registrationFailed:
 			'Registracija nepavyko. Gali būti, kad el.paštas jau egzistuoja. Pabandykite dar kartą arba susisiekite su administratoriumi.',
 		submit: 'Registruotis',
-		termsTitle: 'Naudojimo ir privatumo taisyklės',
 		title: 'Registracija',
 	},
 	sheet: {
@@ -518,7 +515,6 @@ export default {
 			'Neteisingas slaptažodis. Pabandykite dar kartą arba spauskite ‘Pamiršau slaptažodį’',
 		password: 'Slaptažodis',
 		passwordRequired: 'Įveskite slaptažodį arba susisiekite su klausimyno autoriumi',
-		privacyPolicy: 'Naudojimo ir privatumo taisyklės',
 		restricted: 'Ši PARTIMAP anketa šiuo metu neprieinama.',
 		restrictedTitle: 'Apklausa saugoma slaptažodžiu',
 		submitFailed: 'Pateikti nepavyko',
@@ -558,6 +554,7 @@ export default {
 			RatingResults: 'Rodyti įvertinimo rezultatus',
 			ShowResultsOnly: 'Rodyti tik rezultatus',
 			SocialSharing: 'Bendrinkite puslapį socialinėje erdvėje',
+			showSearch: 'Rodyti paieškos laukelį',
 		},
 		numberOfStars: 'Skalės ribos (1-10)',
 		ratingQuestion: 'Papildomas tekstinis klausimas',
@@ -576,6 +573,7 @@ export default {
 		textRating: 'Pateikto įvertinimo tekstinis paaiškinimas',
 		visitorInteractions: 'Respondentai gali',
 		visitorMapInteractions: 'Respondentams priskirtos užduotys',
+		wide: 'Platus darbalapis',
 	},
 	unsubscribe: {
 		home: 'Atgal į PARTIMAP',
@@ -737,6 +735,8 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Pakeisti pagrindo žemėlapį',
+		search: 'Ieškoti vietos',
+			geolocationTracking: 'Sekti savo buvimo vietą',
 		initialCenter: '48.1036533,4.1777465', // Europe
 		initialZoom: '4',
 	},
@@ -756,6 +756,9 @@ export default {
 		optionPrefix: 'Papildomi pasirinkimai',
 		options: 'Papildomi pasirinkimai',
 		rows: 'Eilutės',
+	},
+	OrderingQuestion: {
+		required: 'Prašome nustatyti tvarką!',
 	},
 	PublicFrame: {
 		contactUs: 'Susisiekite su mumis:',
@@ -808,8 +811,6 @@ export default {
 		saved: 'Išsaugota',
 	},
 	SheetContent: {
-		consent1: 'Aš perskaičiau ir sutinku su taisyklėmis',
-		consent2: 'ir sąlygomis bei su Privatumo politika.',
 		next: 'Kitas',
 		results: 'Rezultatai',
 		resultsDescription: 'Prieš tęsiant, galite susipažinti su kitų respondentų atsakymais',
@@ -826,9 +827,11 @@ export default {
 		addQuestion: 'Pridėti klausimą',
 		addToFeatures: 'Pridėti klausimus kaip žymeklius žemėlapyje analizei',
 		and: 'IR',
+		cloneQuestion: 'Klonuoti klausimą',
 		conditionalQuestion: 'Matomas tik su tam tikra sąlyga',
 		deleteCondition: 'Pašalinti sąlygą',
 		deleteQuestion: 'Pašalinti klausimą',
+		html: 'Tekstas',
 		maxName: 'Etiketė (didžiausia vertė)',
 		maxSelect: 'Didžiausias pasirinkimų skaičius:',
 		maxValue: 'Didžiausia vertė',
@@ -846,10 +849,12 @@ export default {
 			dropdown: 'Išskleidžiamasis meniu',
 			multipleChoiceMatrix: 'Kelių pasirinkimų lentelė',
 			number: 'Skaičiaus įvedimas tekstu',
+			ordering: 'Rikiavimas',
 			radiogroup: '*Vienas pasirinkimas',
 			range: 'Skaičiaus įvedimas slankikliu',
 			rating: 'Įvertinimas žvaigždutėmis (1-5)',
 			singleChoiceMatrix: 'Vieno pasirinkimų lentelė',
+			static: 'Statinis teksto blokas',
 			text: 'Tekstinis laukas',
 		},
 		referencedQuestion:
@@ -868,8 +873,8 @@ export default {
 		numberOfSubmissions: 'Atsakymų skaičius',
 		other: 'Kita',
 	},
-	TermsModConsent: {
-		info: 'Mūsų privatumo politika ir naudojimosi sąlygos pasikeitė.',
+	VisitorDrawButtonsInner: {
+		noFeatures: 'Neįvykdyta užduotis: "{di}"',
 	},
 
 	// general
@@ -881,13 +886,22 @@ export default {
 		maxFileSize: 'Maksimalus dydis: 5 MB',
 		remove: 'Pašalinti nuotrauką',
 	},
+	legal: {
+		changedTitle: 'Naudojimo ir privatumo taisyklės',
+		changedNotice: 'Mūsų privatumo politika ir naudojimosi sąlygos pasikeitė.',
+		privacyPolicy: 'Privatumo politika',
+		termsOfUse: 'Naudojimo taisyklės',
+		consentTerms1: 'Perskaičiau ir sutinku su',
+		consentTerms2: 'naudojimo taisyklėmis.',
+		consentPrivacy1: 'Perskaičiau ir sutinku su',
+		consentPrivacy2: 'Privatumo politika.',
+	},
 	modals: {
 		cancel: 'Atšaukti',
 		confirmDeleteFeatures: 'Ar tikrai norite ištrinti šiuos {count} žymeklį(ius)?',
 		confirmDeletion: 'Ar tikrai norite tai ištrinti',
 		confirmFeatureClose:
 			'Reikalingas paaiškinimas. Ar tikrai norite išsaugoti nepateikę atsakymo?',
-		confirmNoFeatures: 'Neįvykdyta užduotis: "{di}" Ar tikrai norite tęsti? ',
 		confirmUnsaved: 'Šiame puslapyje yra neišsaugotų pakeitimų. Ar tikrai norite tęsti?',
 		delete: 'Ištrinti',
 		unsaved: 'Įspėjimas: neišsaugoti pakeitimai',

@@ -8,6 +8,7 @@ import type { AggregatedRating } from '~/server/data/ratings';
 import type { Sheet } from '~/server/data/sheets';
 import type { Question, Survey } from '~/server/data/surveyAnswers';
 import type { OnOffInteraction } from '~/utils/interactions';
+import { safeParseJSON } from '~/utils/json';
 
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
@@ -293,13 +294,13 @@ function handleExtentDrawn(extent: Extent) {
 	>
 		<Sidebar
 			admin
-			:back-label="$t('sheetEditor.back')"
+			:back-label="t('sheetEditor.back')"
 			:fixed="!sheet.features"
 			:loading="loading"
 			:project="project"
 			@back="back"
 		>
-			<form-group :label="$t('sheetEditor.sheetName')">
+			<form-group :label="t('sheetEditor.sheetName')">
 				<input
 					v-model="sheet.title"
 					class="form-control form-control-lg"
@@ -307,19 +308,19 @@ function handleExtentDrawn(extent: Extent) {
 			</form-group>
 			<form-group
 				class="rich"
-				:label="$t('sheetEditor.sheetDescription')"
+				:label="t('sheetEditor.sheetDescription')"
 			>
 				<tiptap v-model="sheet.description" />
 			</form-group>
 
 			<b-form-group
 				v-if="!sheet.features"
-				:invalid-feedback="$t('imageUpload.maxFileSize')"
+				:invalid-feedback="t('imageUpload.maxFileSize')"
 				:state="backgroundImageState"
 			>
 				<template #label>
 					<h6 class="mb-0">
-						{{ $t('sheetEditor.backgroundImage') }}
+						{{ t('sheetEditor.backgroundImage') }}
 					</h6>
 				</template>
 				<b-input-group v-if="!sheet.image">
@@ -343,13 +344,19 @@ function handleExtentDrawn(extent: Extent) {
 					variant="outline-danger"
 					@click="removeBackground"
 				>
-					{{ $t('imageUpload.remove') }}
+					{{ t('imageUpload.remove') }}
 				</b-button>
 			</b-form-group>
 
+			<form-group v-if="!sheet.features">
+				<b-form-checkbox v-model="sheet.wide">
+					{{ t('sheetEditor.wide') }}
+				</b-form-checkbox>
+			</form-group>
+
 			<form-group
 				v-if="sheet.survey"
-				:label="$t('sheetEditor.survey')"
+				:label="t('sheetEditor.survey')"
 			>
 				<SurveyEditor
 					v-model="sheet.survey"
@@ -365,31 +372,40 @@ function handleExtentDrawn(extent: Extent) {
 
 			<form-group
 				v-if="canHaveResults"
-				:label="$t('SheetContent.results')"
+				:label="t('SheetContent.results')"
 			>
 				<b-form-checkbox
 					v-model="showAllResults"
 					@change="showAllResultsClicked"
 				>
-					{{ $t('sheetEditor.showAllResults') }}
+					{{ t('sheetEditor.showAllResults') }}
 				</b-form-checkbox>
 				<b-form-checkbox
 					v-if="someResultsEnabled"
 					v-model="interactions.enabled"
 					value="ShowResultsOnly"
 				>
-					{{ $t('sheetEditor.interactions.ShowResultsOnly') }}
+					{{ t('sheetEditor.interactions.ShowResultsOnly') }}
 				</b-form-checkbox>
 			</form-group>
 
 			<form-group
 				v-if="isInteractive || sheet.features"
-				:label="$t('sheetEditor.defaultBaseMap')"
+				:label="t('sheetEditor.defaultBaseMap')"
 			>
 				<b-form-select
 					v-model="interactions.baseMap"
 					:options="baseMaps.map((bm) => bm.id)"
 				/>
+			</form-group>
+
+			<form-group v-if="isInteractive || sheet.features">
+				<b-form-checkbox
+					v-model="interactions.showSearch"
+					value="ShowResultsOnly"
+				>
+					{{ t('sheetEditor.interactions.showSearch') }}
+				</b-form-checkbox>
 			</form-group>
 
 			<div
@@ -403,7 +419,7 @@ function handleExtentDrawn(extent: Extent) {
 					@click="startDrawingExtent"
 				>
 					<i class="fas fa-fw fa-expand me-1" />
-					{{ $t('sheetEditor.drawExtent') }}
+					{{ t('sheetEditor.drawExtent') }}
 				</button>
 				<button
 					v-else
@@ -411,7 +427,7 @@ function handleExtentDrawn(extent: Extent) {
 					@click="sheet.extent = null"
 				>
 					<i class="fas fa-fw fa-expand me-1" />
-					{{ $t('sheetEditor.clearExtent') }}
+					{{ t('sheetEditor.clearExtent') }}
 				</button>
 			</div>
 
@@ -473,6 +489,7 @@ function handleExtentDrawn(extent: Extent) {
 				:key="$route.path"
 				:features="features"
 				:show-bubbles="isInteractive"
+				show-search
 				:view-extent="safeParseJSON(sheet.extent) || undefined"
 				@extent-drawn="handleExtentDrawn"
 				@feature-drawn="handleFeatureDrawn"

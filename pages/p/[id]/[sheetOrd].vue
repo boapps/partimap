@@ -4,16 +4,25 @@
 import type { Feature as GeoJsonFeature } from 'geojson';
 import useSheetTimer from '~/composables/useSheetTimer';
 import type { Project } from '~/server/data/projects';
-import type { Survey } from '~/server/data/surveyAnswers';
+import { PARTIMAP_BLUE } from '~/utils/color';
+import { safeParseJSON } from '~/utils/json';
 
 const { user } = useAuth();
-const { fullPath, params, query } = useRoute();
+const { fullPath, params, path, query } = useRoute();
 const forcedSheetOrd = user && query.force;
 const visitId = useState('visitId', () => 0);
 
+const { capturedParams } = useCapturedParams();
+onMounted(() => {
+	capturedParams.value = captureParams(query as Record<string, string | string[] | undefined>);
+});
+
 if (Number(params.sheetOrd) > 0 && !visitId.value && !forcedSheetOrd) {
 	// before visitId generation, so it's a manual navigation
-	navigateTo(`/p/${params.id}/0`);
+	navigateTo({
+		path: `/p/${params.id}/0`,
+		query,
+	});
 } else {
 	visitId.value = visitId.value || Date.now();
 }
@@ -45,10 +54,16 @@ if (_error.value) {
 
 watchEffect(() => {
 	if (project.value?.slug && params.id !== project.value.slug) {
-		navigateTo(`/${project.value.lang}/p/${project.value.slug}/${params.sheetOrd || 0}`);
+		navigateTo({
+			path: `/${project.value.lang}/p/${project.value.slug}/${params.sheetOrd || 0}`,
+			query,
+		});
 	}
 	if (project.value?.lang && !fullPath.startsWith(`/${project.value.lang}`)) {
-		navigateTo(`/${project.value.lang}/p/${project.value.slug}/${params.sheetOrd || 0}`);
+		navigateTo({
+			path: `/${project.value.lang}/p/${project.value.slug}/${params.sheetOrd || 0}`,
+			query,
+		});
 	}
 });
 
@@ -61,11 +76,13 @@ const {
 	getVisitorFeatures,
 	getVisitorRatings,
 	setVisitorFeatures,
-	featureCountByInteraction,
 } = useVisitorData();
 
 function goToSheetOrd(ord: number) {
-	navigateTo(fullPath.replace(/[?#].*$/, '').replace(/\d+$/, String(ord)));
+	navigateTo({
+		path: fullPath.replace(/[?#].*$/, '').replace(/\d+$/, String(ord)),
+		query,
+	});
 }
 
 const {
@@ -287,8 +304,6 @@ function prev() {
 
 const sheetForm = ref<HTMLFormElement>();
 
-const { confirmNoFeatures } = useConfirmation();
-
 function scrollToTop() {
 	document.querySelector('.modal-body')?.scrollTo(0, 0);
 	document.querySelector('.sidebar-body')?.scrollTo(0, 0);
@@ -304,19 +319,6 @@ async function canAdvance() {
 		sheetForm.value?.reportValidity();
 		return false;
 	}
-
-	/*const disWithoutFeature = interactions.value.drawing.filter(
-		(di) =>
-			canShowQuestion(di, getAllVisitorAnswers.value) &&
-			!featureCountByInteraction.value[di.id],
-	);
-	if (disWithoutFeature.length) {
-		const di = disWithoutFeature[0];
-		const confirm = await confirmNoFeatures(
-			di.buttonLabel || t(`sheetEditor.interactions.${di.type}`),
-		);
-		if (!confirm) return false;
-	}*/
 
 	return true;
 }
@@ -360,6 +362,7 @@ async function submit(captcha: string) {
 				method: 'PUT',
 				body: {
 					...data,
+					query: capturedParams.value,
 					captcha, // intentionally using function argument, not the ref!
 				},
 			});
@@ -394,7 +397,10 @@ const localePath = useLocalePath();
 				class="modal show"
 				style="display: block; z-index: 0 !important"
 			>
-				<div class="modal-dialog modal-dialog-scrollable">
+				<div
+					class="modal-dialog modal-dialog-scrollable"
+					:class="{ 'modal-lg': sheet.wide }"
+				>
 					<div class="modal-content shadow-sm">
 						<div class="modal-header">
 							<div class="d-flex justify-content-between w-100">
@@ -407,7 +413,7 @@ const localePath = useLocalePath();
 										})
 									"
 									target="_blank"
-									:title="$t('PublicFrame.help')"
+									:title="t('PublicFrame.help')"
 								>
 									<Logo />
 								</a>
@@ -494,12 +500,13 @@ const localePath = useLocalePath();
 					class="flex-grow-1"
 				>
 					<Map
-						:key="$route.path"
+						:key="path"
 						:features="features"
 						fit-selected
 						:gray-rated="!resultsShown"
 						:label-overrides="labels"
 						:show-bubbles="isInteractive"
+						:show-search="interactions.showSearch"
 						:view-extent="safeParseJSON(sheet.extent) || undefined"
 						visitor
 						@feature-drawn="handleFeatureDrawn"
@@ -524,8 +531,8 @@ const localePath = useLocalePath();
 					<div class="card m-3 shadow-sm">
 						<h5 class="card-header">PARTIMAP</h5>
 						<div class="card-body">
-							<p>{{ $t('sheet.restricted') }}</p>
-							<p>{{ $t('sheet.passwordRequired') }}</p>
+							<p>{{ t('sheet.restricted') }}</p>
+							<p>{{ t('sheet.passwordRequired') }}</p>
 							<div class="form-group">
 								<div class="input-group">
 									<div class="input-group-text">
@@ -535,7 +542,7 @@ const localePath = useLocalePath();
 										ref="passwordInput"
 										v-model="password"
 										class="form-control"
-										:placeholder="$t('sheet.password')"
+										:placeholder="t('sheet.password')"
 										type="password"
 									/>
 								</div>
@@ -544,7 +551,7 @@ const localePath = useLocalePath();
 						</div>
 						<div class="card-footer text-end">
 							<button class="btn btn-primary">
-								{{ $t('sheet.view') }}
+								{{ t('sheet.view') }}
 								<i class="fas fa-sign-in-alt ms-1" />
 							</button>
 						</div>
@@ -561,7 +568,7 @@ const localePath = useLocalePath();
 @import '~/node_modules/bootstrap/scss/variables';
 @import '~/node_modules/bootstrap/scss/mixins';
 
-.modal-dialog {
+.modal-dialog:not(.modal-lg) {
 	@include media-breakpoint-up(lg) {
 		max-width: 100%;
 		width: 42%;

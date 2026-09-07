@@ -195,6 +195,21 @@ fieldset,
 	display: none;
 }
 
+.terms h1 {
+	border-bottom: $border-width solid $border-color;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.terms h2 {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+
+.terms h2 {
+	margin-top: 2rem;
+}
+
 .toast,
 .toast-container,
 .toast-header {

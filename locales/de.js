@@ -504,8 +504,6 @@ export default {
 		views: 'Aufrufe',
 	},
 	register: {
-		consent1: 'Ich bestätige, dass ich die',
-		consent2: 'Nutzungsbedingungen und die Datenschutzerklärung gelesen und verstanden habe.',
 		email: 'Geben Sie eine gültige E-Mail-Adresse ein',
 		login: 'Haben Sie bereits ein Konto?',
 		name: 'Name',
@@ -515,7 +513,6 @@ export default {
 		registrationFailed:
 			'Registrierung fehlgeschlagen. Die angegebene E-Mail-Adresse ist möglicherweise bereits registriert. Bitte erneut versuchen oder Administrator kontaktieren.',
 		submit: 'Registrieren',
-		termsTitle: 'Nutzungsbedingungen und Datenschutzerklärung',
 		title: 'Registrierung',
 	},
 	sheet: {
@@ -524,7 +521,6 @@ export default {
 		password: 'Passwort',
 		passwordRequired:
 			'Bitte geben Sie das Passwort ein oder kontaktieren Sie den Autor der Umfrage.',
-		privacyPolicy: 'Nutzungsbedingungen und Datenschutzerklärung',
 		restricted: 'Diese PARTIMAP-Umfrage ist derzeit geschlossen.',
 		restrictedTitle: 'Passwortgeschütztes Umfrage',
 		submitFailed: 'Absenden fehlgeschlagen',
@@ -564,6 +560,7 @@ export default {
 			RatingResults: 'Bewertungsergebnisse anzeigen',
 			ShowResultsOnly: 'Nur Ergebnisse anzeigen',
 			SocialSharing: 'Seite in sozialen Medien teilen',
+			showSearch: 'Suchfeld anzeigen',
 		},
 		numberOfStars: 'Skala festlegen (1–10)',
 		ratingQuestion: 'Textfolgefrage',
@@ -582,6 +579,7 @@ export default {
 		textRating: 'Textliche Erklärung zur Bewertung',
 		visitorInteractions: 'Teilnehmende dürfen',
 		visitorMapInteractions: 'Kartenaufgaben für Teilnehmende',
+		wide: 'Breites Arbeitsblatt',
 	},
 	unsubscribe: {
 		home: 'Zurück zu PARTIMAP',
@@ -744,6 +742,8 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Basiskarte wechseln',
+		search: 'Ort suchen',
+			geolocationTracking: 'Eigenen Standort verfolgen',
 		initialCenter: '48.1036533,4.1777465', // Europa
 		initialZoom: '4',
 	},
@@ -763,6 +763,9 @@ export default {
 		optionPrefix: 'Option',
 		options: 'Optionen',
 		rows: 'Zeilen',
+	},
+	OrderingQuestion: {
+		required: 'Bitte legen Sie eine Reihenfolge fest!',
 	},
 	PublicFrame: {
 		contactUs: 'Kontakt:',
@@ -815,8 +818,6 @@ export default {
 		saved: 'Gespeichert',
 	},
 	SheetContent: {
-		consent1: 'Ich bestätige, dass ich die',
-		consent2: 'Nutzungsbedingungen und die Datenschutzerklärung gelesen und verstanden habe.',
 		next: 'Weiter',
 		results: 'Ergebnisse',
 		resultsDescription:
@@ -834,9 +835,11 @@ export default {
 		addQuestion: 'Frage hinzufügen',
 		addToFeatures: 'Antworten zur Kartenauswertung hinzufügen',
 		and: 'UND',
+		cloneQuestion: 'Frage duplizieren',
 		conditionalQuestion: 'Bedingt sichtbar',
 		deleteCondition: 'Bedingung entfernen',
 		deleteQuestion: 'Frage entfernen',
+		html: 'Text',
 		maxName: 'Beschriftung (max.)',
 		maxSelect: 'Max. Anzahl Optionen:',
 		maxValue: 'Maximalwert',
@@ -854,10 +857,12 @@ export default {
 			dropdown: 'Dropdown (eine Antwort)',
 			multipleChoiceMatrix: 'Mehrfachauswahl-Matrix',
 			number: 'Nummer (Textfeld)',
+			ordering: 'Sortierung',
 			radiogroup: 'Mehrfachauswahl',
 			range: 'Schieberegler',
 			rating: 'Sternebewertung (1–5)',
 			singleChoiceMatrix: 'Checkbox-Matrix',
+			static: 'Statischer Textblock',
 			text: 'Textfeld',
 		},
 		referencedQuestion: 'Enthält Bedingung für Sichtbarkeit einer Frage weiter unten.',
@@ -875,8 +880,8 @@ export default {
 		numberOfSubmissions: 'Anzahl Antworten',
 		other: 'Sonstiges',
 	},
-	TermsModConsent: {
-		info: 'Unsere Datenschutzerklärung und Nutzungsbedingungen haben sich geändert.',
+	VisitorDrawButtonsInner: {
+		noFeatures: 'Unvollständige Aufgabe: "{di}"',
 	},
 
 	// general
@@ -888,12 +893,21 @@ export default {
 		maxFileSize: 'Maximalgröße: 5 MB',
 		remove: 'Bild entfernen',
 	},
+	legal: {
+		changedTitle: 'Nutzungsbedingungen und Datenschutzerklärung',
+		changedNotice: 'Unsere Datenschutzerklärung und Nutzungsbedingungen haben sich geändert.',
+		privacyPolicy: 'Datenschutzerklärung',
+		termsOfUse: 'Nutzungsbedingungen',
+		consentTerms1: 'Ich habe die',
+		consentTerms2: 'Nutzungsbedingungen gelesen und akzeptiere sie.',
+		consentPrivacy1: 'Ich habe die',
+		consentPrivacy2: 'Datenschutzerklärung gelesen und akzeptiere sie.',
+	},
 	modals: {
 		cancel: 'Abbrechen',
 		confirmDeleteFeatures: 'Möchten Sie wirklich die aufgelisteten {count} Markierung löschen?',
 		confirmDeletion: 'Möchten Sie dies wirklich löschen?',
 		confirmFeatureClose: 'Eine Erklärung wird erwartet. Speichern ohne Eingabe?',
-		confirmNoFeatures: 'Unvollständige Aufgabe: "{di}" Fortfahren?',
 		confirmUnsaved: 'Es gibt ungespeicherte Änderungen. Fortfahren?',
 		delete: 'Löschen',
 		unsaved: '⚠ Warnung: Ungespeicherte Änderungen',

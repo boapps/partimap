@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config'; // Yes, we need explicit import as we use this file outside Nuxt context.
-import { env } from './env';
+
+const BUILD_TIME_BASE_URL = process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 export default defineNuxtConfig({
 	compatibilityDate: '2025-06-17',
@@ -25,38 +26,32 @@ export default defineNuxtConfig({
 	],
 	runtimeConfig: {
 		public: {
-			baseUrl: env.NUXT_PUBLIC_BASE_URL,
+			baseUrl: BUILD_TIME_BASE_URL,
 			gtm: {
-				id: env.NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID || [],
-				enabled: !!env.NUXT_PUBLIC_GOOGLE_TAG_MANAGER_ID,
-				loadScript: true,
+				id: process.env.NUXT_PUBLIC_GTM_ID || 'GTM-UNDEFINED',
 			},
 		},
-		turnstile: {
-			secretKey: env.NUXT_TURNSTILE_SECRET_KEY,
-		},
-	},
-	socialShare: {
-		baseUrl: env.NUXT_PUBLIC_BASE_URL,
 	},
 	telemetry: false,
-
 	// module settings
+	socialShare: {
+		baseUrl: BUILD_TIME_BASE_URL,
+	},
 	i18n: {
-		baseUrl: env.NUXT_PUBLIC_BASE_URL,
-		bundle: {
-			optimizeTranslationDirective: false,
-		},
+		baseUrl: BUILD_TIME_BASE_URL,
 		defaultLocale: 'hu',
+		detectBrowserLanguage: {
+			redirectOn: 'no prefix',
+		},
 		compilation: {
 			strictMessage: false,
 		},
 		locales: [
 			{ code: 'hu', language: 'hu-HU', name: 'Magyar' },
 			{ code: 'en', language: 'en-GB', name: 'English' },
+			{ code: 'de', language: 'de-DE', name: 'Deutsch' },
 			{ code: 'es', language: 'es-ES', name: 'Español' },
 			{ code: 'lt', language: 'lt-LT', name: 'Lietuvių' },
-			{ code: 'de', language: 'de-DE', name: 'Deutsch'},
 			{ code: 'ro', language: 'ro-RO', name: 'Română' },
 		],
 		strategy: 'prefix',
@@ -65,7 +60,53 @@ export default defineNuxtConfig({
 	tiptap: {
 		prefix: 'Tiptap', //prefix for Tiptap imports, composables not included
 	},
-	turnstile: {
-		siteKey: env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
+	vite: {
+		optimizeDeps: {
+			include: [
+				'@tiptap/extension-text-align',
+				'@tiptap/extension-youtube',
+				'basiclightbox',
+				'bootstrap-vue-next/components/BAlert',
+				'bootstrap-vue-next/components/BButton',
+				'bootstrap-vue-next/components/BCard',
+				'bootstrap-vue-next/components/BCollapse',
+				'bootstrap-vue-next/components/BContainer',
+				'bootstrap-vue-next/components/BDropdown',
+				'bootstrap-vue-next/components/BFormCheckbox',
+				'bootstrap-vue-next/components/BFormGroup',
+				'bootstrap-vue-next/components/BFormInput',
+				'bootstrap-vue-next/components/BFormRadio',
+				'bootstrap-vue-next/components/BFormSelect',
+				'bootstrap-vue-next/components/BFormTextarea',
+				'bootstrap-vue-next/components/BInputGroup',
+				'bootstrap-vue-next/components/BListGroup',
+				'bootstrap-vue-next/components/BNav',
+				'bootstrap-vue-next/components/BNavbar',
+				'bootstrap-vue-next/components/BOverlay',
+				'bootstrap-vue-next/components/BProgress',
+				'bootstrap-vue-next/components/BSpinner',
+				'bootstrap-vue-next/composables/useModalController',
+				'bootstrap-vue-next/composables/useToastController',
+				'copy-to-clipboard',
+				'file-saver',
+				'html-entities',
+				'jsonrepair',
+				'markdown-it-attrs',
+				'markdown-it',
+				'nanoid',
+				'ol/extent',
+				'ol/Feature',
+				'ol/format',
+				'ol/geom/Point',
+				'ol/layer/Vector',
+				'ol/proj',
+				'ol/source/Vector',
+				'ol/style',
+				'ol/style/Circle',
+				'slugify',
+				'tinycolor2',
+				'word-wrap',
+			],
+		},
 	},
 });

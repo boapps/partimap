@@ -3,8 +3,9 @@
 import type { Feature as GeoJsonFeature } from 'geojson';
 import type { Feature as OlFeature, Map, MapBrowserEvent, View } from 'ol';
 import type { Coordinate } from 'ol/coordinate';
-import type { Extent } from 'ol/extent';
+import { boundingExtent, type Extent } from 'ol/extent';
 import { GeoJSON } from 'ol/format';
+import type { LineString, Polygon } from 'ol/geom';
 import type { DragBoxEvent } from 'ol/interaction/DragBox';
 import type { ObjectEvent } from 'ol/Object';
 import { transform } from 'ol/proj';
@@ -17,6 +18,7 @@ const props = defineProps<{
 	grayRated?: boolean;
 	labelOverrides?: Record<string, string>;
 	showBubbles?: boolean;
+	showSearch?: boolean;
 	viewExtent?: Extent;
 	visitor?: boolean;
 }>();
@@ -33,9 +35,6 @@ const {
 } = useStore();
 
 // map initialization
-
-const GOOGLEMAPS_PROJECTION = 'EPSG:4326';
-const PARTIMAP_PROJECTION = 'EPSG:3857'; // OL default
 
 const { t } = useI18n();
 const coords = t('Map.initialCenter').split(',');
@@ -62,6 +61,9 @@ watchEffect(() => {
 
 const viewRef = ref<{ view: View }>();
 const sourceRef = ref<{ source: Vector }>();
+const geolocationTrackingEnabled = ref(false);
+const geolocationPosition = ref<Coordinate | null>(null);
+const geolocationAccuracy = ref<Coordinate[][] | null>(null);
 
 function fitViewToFeatures(immediate?: boolean) {
 	const olFeatures = sourceRef.value?.source.getFeatures();
@@ -74,9 +76,24 @@ function fitViewToFeatures(immediate?: boolean) {
 			(f) => String(f.get('id') || '') === selectedFeatureId.value,
 		);
 	}
-	const extent = selectedFeature
-		? selectedFeature?.getGeometry()?.getExtent()
-		: sourceRef.value?.source.getExtent();
+
+	if (
+		!selectedFeature &&
+		geolocationTrackingEnabled.value &&
+		(geolocationAccuracy.value || geolocationPosition.value)
+	) {
+		const extent: Extent = boundingExtent([
+			...(geolocationAccuracy.value || []).flat(),
+			...(geolocationPosition.value ? [geolocationPosition.value] : []),
+		]);
+		return viewRef.value?.view.fit(extent, {
+			duration: immediate ? 0 : 200,
+			padding: [80, 80, 80, 80],
+		});
+	}
+
+	const extent =
+		selectedFeature?.getGeometry()?.getExtent() || sourceRef.value?.source.getExtent();
 
 	if (!extent) return;
 	viewRef.value?.view.fit(extent, {
@@ -86,7 +103,8 @@ function fitViewToFeatures(immediate?: boolean) {
 }
 
 onMounted(async () => {
-	await nextTick(); // wait for OL to have the features
+	await nextTick(); // wait for children's onMounted
+	await nextTick(); // wait for ol-feature's nextTick(addFeature) callbacks
 	fitViewToFeatures(true);
 });
 
@@ -229,6 +247,30 @@ async function handleDrawEnd() {
 	const olFeature = source.getFeatures()[0];
 	if (!olFeature) return;
 
+	source.clear();
+
+	const geom = olFeature.getGeometry();
+	function isSame(a: Coordinate, b: Coordinate) {
+		return a[0] === b[0] && a[1] === b[1];
+	}
+	function countUnique(coords: Coordinate[]) {
+		let count = 0;
+		for (let i = 0; i < coords.length; i++) {
+			if (i === 0 || !isSame(coords[i], coords[i - 1])) count++;
+		}
+		return count;
+	}
+	if (geom?.getType() === 'LineString') {
+		const coords = (geom as LineString).getCoordinates();
+		if (countUnique(coords) < 2) return;
+	}
+	if (geom?.getType() === 'Polygon') {
+		const coords = (geom as Polygon).getCoordinates()[0];
+		if (countUnique(coords) < 4) return;
+		// first coordinate is added at the end too
+		// that's why we need 4 unique points for a valid polygon
+	}
+
 	const geoJsonFeatureStr = new GeoJSON().writeFeature(olFeature);
 	const feature = JSON.parse(geoJsonFeatureStr);
 	feature.id = Date.now();
@@ -253,7 +295,6 @@ async function handleDrawEnd() {
 	}
 
 	drawType.value = '';
-	source.clear();
 
 	emit('featureDrawn', feature);
 
@@ -278,7 +319,8 @@ function handleBoxEnd({ coordinate }: DragBoxEvent) {
 
 watchEffect(async () => {
 	if (!props.viewExtent) {
-		await nextTick();
+		await nextTick(); // wait for children's onMounted
+		await nextTick(); // wait for ol-feature's nextTick(addFeature) callbacks
 		fitViewToFeatures();
 	}
 });
@@ -290,10 +332,29 @@ watch(drawType, async (t) => {
 	await nextTick(); // wait for draw interaction to be ready
 	snapEnabled.value = !!t;
 });
+
+// geolocation
+
+provide('geolocationTrackingEnabled', geolocationTrackingEnabled);
+function geolocationChanged(event: ObjectEvent) {
+	const position = event.target.getPosition() as Coordinate | null;
+	geolocationPosition.value = position ?? null;
+}
+function geolocationAccuracyChanged(event: ObjectEvent) {
+	const geom = event.target.getAccuracyGeometry() as Polygon | null;
+	geolocationAccuracy.value = geom?.getCoordinates() ?? null;
+}
+watch(geolocationTrackingEnabled, () => {
+	fitViewToFeatures();
+});
+watch([geolocationPosition, geolocationAccuracy], () => {
+	if (geolocationTrackingEnabled.value) fitViewToFeatures();
+});
 </script>
 
 <template>
 	<ol-map
+		class="position-relative"
 		:load-tiles-while-animating="true"
 		:load-tiles-while-interacting="true"
 		style="height: 100%"
@@ -311,6 +372,37 @@ watch(drawType, async (t) => {
 		/>
 
 		<BaseMaps />
+
+		<ol-geo-location
+			v-if="geolocationTrackingEnabled"
+			:projection="PARTIMAP_PROJECTION"
+			:tracking-options="{ enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }"
+			@change:accuracy-geometry="geolocationAccuracyChanged"
+			@change:position="geolocationChanged"
+		>
+			<ol-vector-layer :z-index="2">
+				<ol-source-vector>
+					<ol-feature v-if="geolocationAccuracy">
+						<ol-geom-polygon :coordinates="geolocationAccuracy" />
+						<ol-style>
+							<ol-style-fill color="rgba(0, 122, 255, 0.15)" />
+							<ol-style-stroke
+								color="#007AFF"
+								:width="1"
+							/>
+						</ol-style>
+					</ol-feature>
+					<ol-feature v-if="geolocationPosition">
+						<ol-geom-point :coordinates="geolocationPosition"></ol-geom-point>
+						<ol-style>
+							<ol-style-circle radius="8">
+								<ol-style-fill color="#007AFFFF" />
+							</ol-style-circle>
+						</ol-style>
+					</ol-feature>
+				</ol-source-vector>
+			</ol-vector-layer>
+		</ol-geo-location>
 
 		<ol-vector-layer>
 			<ol-source-vector ref="sourceRef">
@@ -337,7 +429,7 @@ watch(drawType, async (t) => {
 					>
 						<ol-style :override-style-function="drawingStyleOverride" />
 					</ol-interaction-draw>
-					<ol-interaction-dragbox
+					<ol-interaction-drag-box
 						v-else
 						@boxend="handleBoxEnd"
 						@boxstart="handleBoxStart"
@@ -346,6 +438,7 @@ watch(drawType, async (t) => {
 			</ol-source-vector>
 		</ol-vector-layer>
 
+		<MapSearch v-if="showSearch && !drawType" />
 		<MapControls />
 	</ol-map>
 </template>

@@ -1,9 +1,5 @@
-import en from './en-terms.md?raw';
-import de from './de-terms.md?raw';
-import hu from './hu-terms.md?raw';
+const modules = import.meta.glob('./*-terms.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
 
 export default function getTermsContent(locale: string) {
-	if (locale === 'de') return de;
-	if (locale === 'hu') return hu;
-	return en;
+	return modules[`./${locale}-terms.md`] ?? modules['./en-terms.md'];
 }

@@ -496,8 +496,6 @@ export default {
 		views: 'views',
 	},
 	register: {
-		consent1: 'I acknowledge that I have read and understand',
-		consent2: 'the&nbsp;Terms&nbsp;of&nbsp;Use and the&nbsp;Privacy&nbsp;Policy.',
 		email: 'Enter a valid email',
 		login: 'Already have an account?',
 		name: 'Name',
@@ -507,14 +505,12 @@ export default {
 		registrationFailed:
 			'Registration failed. The email address provided may be registered already. Try again or contact the administrator.',
 		submit: 'Register',
-		termsTitle: 'Terms of Use and Privacy Policy',
 		title: 'Registration',
 	},
 	sheet: {
 		invalidPassword: 'Wrong password. Try again or click ‘I forgot my password’',
 		password: 'Password',
 		passwordRequired: 'Please enter the password or contact the author of this survey.',
-		privacyPolicy: 'Terms of Use and Privacy Policy',
 		restricted: 'This PARTIMAP survey is currently closed.',
 		restrictedTitle: 'Password-protected survey',
 		submitFailed: 'Submit Failed',
@@ -554,6 +550,7 @@ export default {
 			RatingResults: 'Show rating results',
 			ShowResultsOnly: 'Display only the results',
 			SocialSharing: 'Share page on social media',
+			showSearch: 'Show search box',
 		},
 		numberOfStars: 'Set scale (1-10)',
 		ratingQuestion: 'Follow-up text question',
@@ -572,6 +569,7 @@ export default {
 		textRating: 'Textual explanation for the given rating',
 		visitorInteractions: 'Respondents are allowed to',
 		visitorMapInteractions: 'Map tasks for respondents',
+		wide: 'Wide sheet',
 	},
 	unsubscribe: {
 		home: 'Back to PARTIMAP',
@@ -605,7 +603,7 @@ export default {
 		oldPassword: 'Current password (only required for email or password changes)',
 		save: 'Save',
 		website: 'Your website',
-		websiteDescription: 'If yet, the logo will link to that URL.',
+		websiteDescription: 'If set, the logo will link to that URL.',
 	},
 	users: {
 		add: 'Add',
@@ -733,6 +731,8 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Change base map',
+		search: 'Search location',
+			geolocationTracking: 'Track my location',
 		initialCenter: '48.1036533,4.1777465', // Europe
 		initialZoom: '4',
 	},
@@ -751,6 +751,9 @@ export default {
 		optionPrefix: 'Option',
 		options: 'Options',
 		rows: 'Rows',
+	},
+	OrderingQuestion: {
+		required: 'Please set an order!',
 	},
 	PublicFrame: {
 		contactUs: 'Contact us:',
@@ -803,8 +806,6 @@ export default {
 		saved: 'Saved',
 	},
 	SheetContent: {
-		consent1: 'I acknowledge that I have read and understand',
-		consent2: 'the&nbsp;Terms&nbsp;of&nbsp;Use and the&nbsp;Privacy&nbsp;Policy.',
 		next: 'Next',
 		results: 'Results',
 		resultsDescription:
@@ -822,9 +823,11 @@ export default {
 		addQuestion: 'Add question',
 		addToFeatures: 'Add responses to map markings for analysis purposes',
 		and: 'AND',
+		cloneQuestion: 'Clone question',
 		conditionalQuestion: 'Conditionally visible',
 		deleteCondition: 'Remove condition',
 		deleteQuestion: 'Remove question',
+		html: 'Text',
 		maxName: 'Label (maximum)',
 		maxSelect: 'Maximum number of choices:',
 		maxValue: 'Maximum value',
@@ -842,10 +845,12 @@ export default {
 			dropdown: 'Drop-down (one answer)',
 			multipleChoiceMatrix: 'Multiple choice grid',
 			number: 'Numeric text box',
+			ordering: 'Ordering',
 			radiogroup: 'Multiple choice',
 			range: 'Numeric slider',
 			rating: 'Star-rating (1-5)',
 			singleChoiceMatrix: 'Checkbox grid',
+			static: 'Static text block',
 			text: 'Text box',
 		},
 		referencedQuestion: 'Contains condition for the visibility of another question below it.',
@@ -864,8 +869,8 @@ export default {
 		numberOfSubmissions: 'Number of submissions',
 		other: 'Other',
 	},
-	TermsModConsent: {
-		info: 'Our Privacy Policy and Terms of Use have changed.',
+	VisitorDrawButtonsInner: {
+		noFeatures: 'Uncompleted task: "{di}"',
 	},
 
 	// general
@@ -877,13 +882,22 @@ export default {
 		maxFileSize: 'Maximum size: 5 MB',
 		remove: 'Remove image',
 	},
+	legal: {
+		changedTitle: 'Terms of Use and Privacy Policy',
+		changedNotice: 'Our Privacy Policy and Terms of Use have changed.',
+		privacyPolicy: 'Privacy policy',
+		termsOfUse: 'Terms of Use',
+		consentTerms1: 'I have read and accept',
+		consentTerms2: 'the&nbsp;Terms&nbsp;of&nbsp;Use.',
+		consentPrivacy1: 'I have read and accept',
+		consentPrivacy2: 'the&nbsp;Privacy&nbsp;Policy.',
+	},
 	modals: {
 		cancel: 'Cancel',
 		confirmDeleteFeatures: 'Are you sure you wish to delete the listed {count} marker(s)?',
 		confirmDeletion: 'Are you sure you wish to delete this',
 		confirmFeatureClose:
 			'An explanation is expected. Are you sure you want to save without entering a response?',
-		confirmNoFeatures: 'Uncompleted task: "{di}" Are you sure you want to continue? ',
 		confirmUnsaved:
 			'There are unsaved changes on this page. Are you sure you want to continue?',
 		delete: 'Delete',

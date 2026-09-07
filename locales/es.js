@@ -504,8 +504,6 @@ export default {
 		views: 'vistas',
 	},
 	register: {
-		consent1: 'Reconozco que he leído y comprendido',
-		consent2: 'los&nbsp;Términos&nbsp;de&nbsp;Uso y la&nbsp;Política&nbsp;de&nbsp;Privacidad.',
 		email: 'Ingresa un correo válido',
 		login: '¿Ya tienes una cuenta?',
 		name: 'Nombre',
@@ -515,7 +513,6 @@ export default {
 		registrationFailed:
 			'Error en el registro. La dirección de correo proporcionada podría estar registrada. Inténtalo de nuevo o contacta al administrador.',
 		submit: 'Registrarse',
-		termsTitle: 'Términos de Uso y Política de Privacidad',
 		title: 'Registro',
 	},
 	sheet: {
@@ -523,7 +520,6 @@ export default {
 			'Contraseña incorrecta. Inténtalo de nuevo o haz clic en ‘Olvidé mi contraseña’',
 		password: 'Contraseña',
 		passwordRequired: 'Por favor, ingresa la contraseña o contacta al autor de esta encuesta.',
-		privacyPolicy: 'Términos de Uso y Política de Privacidad',
 		restricted: 'Esta encuesta de PARTIMAP está cerrada actualmente.',
 		restrictedTitle: 'Encuesta protegida por contraseña',
 		submitFailed: 'Envío fallido',
@@ -563,6 +559,7 @@ export default {
 			RatingResults: 'Mostrar resultados de calificación',
 			ShowResultsOnly: 'Mostrar solo los resultados',
 			SocialSharing: 'Compartir página en redes sociales',
+			showSearch: 'Mostrar cuadro de búsqueda',
 		},
 		numberOfStars: 'Establecer escala (1-10)',
 		ratingQuestion: 'Pregunta de seguimiento de texto',
@@ -581,6 +578,7 @@ export default {
 		textRating: 'Explicación de la calificación asignada',
 		visitorInteractions: 'Los respondientes pueden',
 		visitorMapInteractions: 'Tareas de mapeo asignadas a los respondientes',
+		wide: 'Hoja de trabajo ancha',
 	},
 	unsubscribe: {
 		home: 'Volver a PARTIMAP',
@@ -744,6 +742,8 @@ export default {
 	},
 	Map: {
 		changeBaseMap: 'Cambiar mapa base',
+		search: 'Buscar ubicación',
+			geolocationTracking: 'Seguir mi ubicación',
 		initialCenter: '48.1036533,4.1777465', // Europe
 		initialZoom: '4',
 	},
@@ -763,6 +763,9 @@ export default {
 		optionPrefix: 'Opción',
 		options: 'Opciones',
 		rows: 'Filas',
+	},
+	OrderingQuestion: {
+		required: '¡Por favor, establezca un orden!',
 	},
 	PublicFrame: {
 		contactUs: 'Contáctanos:',
@@ -815,8 +818,6 @@ export default {
 		saved: 'Guardado',
 	},
 	SheetContent: {
-		consent1: 'Reconozco que he leído y comprendido',
-		consent2: 'los&nbsp;Términos&nbsp;de&nbsp;Uso y la&nbsp;Política&nbsp;de&nbsp;Privacidad.',
 		next: 'Siguiente',
 		results: 'Resultados',
 		resultsDescription:
@@ -834,9 +835,11 @@ export default {
 		addQuestion: 'Agregar pregunta',
 		addToFeatures: 'Agregar respuestas a marcadores de mapas con fines de análisis',
 		and: 'Y',
+		cloneQuestion: 'Duplicar pregunta',
 		conditionalQuestion: 'Condicionalmente visible',
 		deleteCondition: 'Eliminar condicionante',
 		deleteQuestion: 'Eliminar pregunta',
+		html: 'Texto',
 		maxName: 'Etiqueta (máximo)',
 		maxSelect: 'Número máximo de opciones:',
 		maxValue: 'Valor máximo',
@@ -854,10 +857,12 @@ export default {
 			dropdown: 'Desplegable (una respuesta)',
 			multipleChoiceMatrix: 'Matriz de opciones múltiples',
 			number: 'Cuadro de texto numérico',
+			ordering: 'Ordenación',
 			radiogroup: 'Selección múltiple',
 			range: 'Control deslizante numérico',
 			rating: 'Calificación por estrellas (1-5)',
 			singleChoiceMatrix: 'Matriz de casillas de verificación',
+			static: 'Bloque de texto estático',
 			text: 'Cuadro de texto',
 		},
 		referencedQuestion:
@@ -877,8 +882,8 @@ export default {
 		numberOfSubmissions: 'Número de envíos',
 		other: 'Otro',
 	},
-	TermsModConsent: {
-		info: 'Nuestra Política de Privacidad y los Términos de Uso han cambiado.',
+	VisitorDrawButtonsInner: {
+		noFeatures: 'Tarea no realizada: "{di}"',
 	},
 
 	// general
@@ -890,13 +895,22 @@ export default {
 		maxFileSize: 'Tamaño máximo: 5 MB',
 		remove: 'Eliminar imagen',
 	},
+	legal: {
+		changedTitle: 'Términos de Uso y Política de Privacidad',
+		changedNotice: 'Nuestra Política de Privacidad y los Términos de Uso han cambiado.',
+		privacyPolicy: 'Política de privacidad',
+		termsOfUse: 'Términos de Uso',
+		consentTerms1: 'He leído y acepto',
+		consentTerms2: 'los&nbsp;Términos&nbsp;de&nbsp;Uso.',
+		consentPrivacy1: 'He leído y acepto',
+		consentPrivacy2: 'la&nbsp;Política&nbsp;de&nbsp;Privacidad.',
+	},
 	modals: {
 		cancel: 'Cancelar',
 		confirmDeleteFeatures: '¿Estás seguro de que deseas eliminar los {count} puntos listados?',
 		confirmDeletion: '¿Estás seguro de que deseas eliminar esto?',
 		confirmFeatureClose:
 			'Se espera una explicación. ¿Estás seguro de que deseas guardar sin ingresar una respuesta?',
-		confirmNoFeatures: 'Tarea no realizada: "{di}" ¿Seguro que quieres continuar?',
 		confirmUnsaved:
 			'Hay cambios no guardados en esta página. ¿Estás seguro de que deseas continuar?',
 		delete: 'Eliminar',

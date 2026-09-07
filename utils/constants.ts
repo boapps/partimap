@@ -1,3 +1,6 @@
+export const GOOGLEMAPS_PROJECTION = 'EPSG:4326';
+export const PARTIMAP_PROJECTION = 'EPSG:3857'; // OL default
+
 export const DEFAULT_EXTRA_STROKE = 'no';
 export const DEFAULT_EXTRA_STROKE_FOR_VISITORS = 'bk';
 
